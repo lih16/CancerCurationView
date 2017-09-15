@@ -42,6 +42,7 @@ function narrative(e, tumor, gene, mutation) {
 	$(editdiv).hide();
 	
     getnarrative("tissue");
+	$("#adminModify").hide();
 	if(admin==1){
 		$("#adminEditB").text("All Comments").show();
 	    $("#adminSaveB").show();
@@ -231,6 +232,7 @@ var curdiv = "#nardiv";
 var editdiv="#editoriv";
 function modifyparagraph(e, cancertype, gene, mutation) {
         $(editdiv).show();
+		
 		$(editdiv).html($(curdiv).html());
 		
         $(editdiv).find("p").each(function(index) {
@@ -245,6 +247,7 @@ function modifyparagraph(e, cancertype, gene, mutation) {
 				//loadnarrativeTable();
 			}
 			else{
+				
 				$(this).html(cindex + " "  + $(this).html() +  divarea);
 				$("#versionlist").show();
 				loadnarrativeTable();
@@ -323,7 +326,7 @@ function generateHtml(htmlcontent){
 
      });
 	 
-     var text1 = "<div id=\"mynarrative\" contenteditable=\"true\">" + $(curdiv).html() + "</div>";
+     var text1 = "<h1>Please Edit your Admin</h1><div id=\"mynarrative\" style=\"border-style: dashed ; border-color:green;border-width: 2px;\" contenteditable=\"true\">" + $(curdiv).html() + "</div><hr>";
 	 //alert(text1);
      $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");
      //$(curdiv).html(curdivclone.html());
@@ -414,6 +417,8 @@ function changeColor(){
 function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
 	var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
+	 $(editdiv).hide();
+		$("#adminModify").show();
 	//alert(rowCount+":"+colCount);
 	if((rowCount==1)&&(colCount==1)){
 		//alert("here");

@@ -964,4 +964,12 @@ ul.checkbox li.focus  {
   border: 1px gray solid; 
   width: 12em; 
 } 
+
+#mynarrative {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    border: 3px solid green;
+   
+}
+
 </style>
