@@ -241,7 +241,7 @@ class Tumor_Model extends model_base
                 'dt' => 1
             ),
             array(
-                'db' => 'gene',
+                'db' => 'date_admin',
                 'dt' => 2
             )
         );
