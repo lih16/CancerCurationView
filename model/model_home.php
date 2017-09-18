@@ -84,7 +84,7 @@ class Tumor_Model extends model_base
 		$cancer =$_POST["cancer"];
         $gene   =$_POST["gene"];
 		$variant =str_replace("p.","",$_POST["variant"]);
-		echo $variant."  ".$gene." ".$cancer;
+		//echo $variant."  ".$gene." ".$cancer;
         try {
             $stmt->execute();
         }
@@ -270,24 +270,26 @@ class Tumor_Model extends model_base
     }
     function saveNarrative()
     {
-		$status     = 0;//$_POST["saveormodify"];
+		$status     = $_POST["saveormodify"];
+		//echo $status;
         $this->db = Db::getInstance();
         if ($status == 1) {
             $sql       = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
-            $statement = $pdo->prepare($sql);
-            $stmt->bindValue(':gene', $gene);
-            $stmt->bindValue(':mutation', $mutation);
-            $stmt->bindValue(':cancer', $cancer);
-            $statement->bindValue(':narrative', $narrative);
-            $statement->bindValue(':ver_name', $ver_name);
-            $statement->bindValue(':date_admin', $date_admin);
-            $mutation   = "mutation";//$_POST["mutation"];
-            $cancer     = "mutation";//$_POST["cancer"];
-            $gene       = "mutation";//$_POST["gene"];
-            $ver_name   = "mutation";//$_POST["ver_name"];
-            $uid        = "mutation";//$_POST["uid"];
-            $narrative  = "mutation";//$_POST["narrative"];
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':gene', $gene);
+            $stmt->bindParam(':mutation', $mutation);
+            $stmt->bindParam(':cancer', $cancer);
+            $stmt->bindParam(':narrative', $narrative);
+            $stmt->bindParam(':ver_name', $ver_name);
+            $stmt->bindParam(':date_admin', $date_admin);
+            $mutation   = $_POST["mutation"];
+            $cancer     = $_POST["cancer"];
+            $gene       = $_POST["gene"];
+            $ver_name   = $_POST["ver_name"];
+            $uid        = $_POST["uid"];
+            $narrative  = $_POST["narrative"];
 			$date_admin = date('Y-m-d H:i:s');
+			echo $sql;
             try {
                 $stmt->execute();
             }

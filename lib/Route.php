@@ -20,12 +20,12 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
     //This is an AJAX request, do AJAX specific stuff
 }
         $dir=$_SERVER['REQUEST_URI'];
-		$fp=fopen('data117.txt','a');
-fwrite($fp,$dir."\n");
+		//$fp=fopen('data117.txt','a');
+//fwrite($fp,$dir."\n");
 
 $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir;
-fwrite($fp,$dir."\n");
-fclose($fp);
+//fwrite($fp,$dir."\n");
+//fclose($fp);
 		//echo $dir;
 		$curdir = str_replace("/pipeline/js/CPTAC3/Viewer/public","" , $dir);
 		//echo "cur dir <br>";

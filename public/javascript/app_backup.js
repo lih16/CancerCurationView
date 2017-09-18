@@ -403,10 +403,16 @@ function changeColor(){
 function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
 	var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
-	alert(rowCount+":"+colCount);
+	//alert(rowCount+":"+colCount);
 	if((rowCount==1)&&(colCount==1)){
-		var buttonHtml="<a href=\"#\" onclick=\"adminmodify(event,null,this);\">First Version</a>";
-		
+		//alert("here");
+		var buttonHtml="<a href=\"#\" onclick=\"adminmodify(event,2,this);\">First Version</a>";
+		$('#narrativelist > tbody tr').each(function(index, value) {
+			var objcount = $(this).find('td').eq(0);
+			//var hidedivHtml="<div class=\"hidediv\">"+objcount.html()+"</div><a href=\"#\" onclick=\"adminmodify(event, 1,this);return false;\">modify</a>";
+			
+			objcount.html(buttonHtml);
+		});
 		
 	}
 	else{

@@ -5,7 +5,12 @@
  
 </div>
 <div id="showedit" style="display:none;"></div>
+<table border=1>
+<tr><td valign="top">
+
 <div id="adminModify" ></div>
+</td>
+<td valign="top">
 <div id="versionlist" style="display:none;">
 	<table id="narrativelist"  cellspacing="0" width="100%">
 		<!--,'AssignID','Cancer','Gene','ProteinChange','Assign_Date','Due_Date','Save_Date','Submit_Date','Approved_Date','Status','Status'-->
@@ -22,6 +27,9 @@
 			</thead>
 		</table>
 		</div>
+		
+		</td></tr>
+		</table>
 <button class="searchbutton" id="adminEditB" onclick="modifyparagraph(event,'ll','33','44');">Edit</button>
 
 <button class="searchbutton" id="adminSaveB" onclick="adminSave(event,'ll','33','44');">Save</button>
