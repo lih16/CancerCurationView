@@ -72,7 +72,75 @@ class Tumor_Model extends model_base
         return $result;
         
     }
-    function getNarrative()
+	function getNarrative()
+	{
+		$result = "";
+		$cancer   =$_POST["cancer"];
+        $gene     =$_POST["gene"];
+		//$variant  =str_replace("p.","",$_POST["variant"]);
+		$variant  =$_POST["variant"];
+		$this->db = Db::getInstance();
+		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
+        $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin where gene = '".$gene."' and variant = '".$variant."'  and cancer = '".$cancer."'  order by date_admin asc limit 1";
+	    //$stmt     = $this->db->prepare($sQuery);
+		//echo $sQuery;
+	//	$stmt->bindParam(':cancer', $cancer);
+       // $stmt->bindParam(':gene', $gene);
+       // $stmt->bindParam(':variant', $variant);
+		//$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+
+		
+		
+	    $stmt     = $this->db->prepare($sQuery);
+        try {
+            $stmt->execute();
+        }
+        catch (PDOException $e) {
+            //write_log($e->getMessage());
+            echo $e->getMessage();
+        }
+        $rResult = $stmt->fetchAll();
+		$rowcount = $stmt->rowCount();
+		//echo $rowcount;
+        
+		if ($rowcount ==1) {
+			$result  = $rResult[0][0];
+			return $result;
+			
+		}
+		else{
+			$stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+            $stmt->bindParam(':cancer', $cancer);
+            $stmt->bindParam(':gene', $gene);
+            $stmt->bindParam(':mutation', $mutation);
+            $stmt->bindParam(':ver_name', $ver_name);
+           // $stmt->bindParam(':uid', $uid);
+            $stmt->bindParam(':date_admin', $date_admin);
+            $stmt->bindParam(':narrative', $narrative);
+            $mutation   = $_POST["variant"];
+            $cancer     = $_POST["cancer"];
+            $gene       = $_POST["gene"];
+            $ver_name   = "original";
+            //$uid        = $_POST["uid"];
+            //$narrative  = $_POST["narrative"];
+			$narrative=$this->getNarrative_origin();
+			
+            $date_admin = date('Y-m-d H:i:s');
+            try {
+                $stmt->execute();
+            }
+            catch (PDOException $e) {
+                //write_log($e->getMessage());
+                echo $e->getMessage();
+            }
+			
+			
+		}
+		
+		
+		
+	}
+    function getNarrative_origin()
     {
         $result = "";
         $this->db = Db::getInstance();
@@ -90,7 +158,7 @@ class Tumor_Model extends model_base
         }
         catch (PDOException $e) {
             write_log($e->getMessage());
-            echo $e->getMessage();
+            echo "fff".$e->getMessage();
         }
         $rResult = $stmt->fetchAll();
 		$count = $stmt->rowCount();
@@ -212,7 +280,7 @@ class Tumor_Model extends model_base
             $ver_name   = $_POST["ver_name"];
             //$uid=$_POST["uid"];
             $narrative  = $_POST["narrative"];
-            $narrative  = $_POST["narrative"];
+           // $narrative  = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             try {
                 $stmt->execute();

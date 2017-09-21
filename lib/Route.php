@@ -27,7 +27,7 @@ $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir
 //fwrite($fp,$dir."\n");
 //fclose($fp);
 		//echo $dir;
-		$curdir = str_replace("/pipeline/js/CPTAC3/Viewer/public","" , $dir);
+		$curdir = str_replace("/pipeline/js/CPTAC3_backup/Viewer/public","" , $dir);
 		//echo "cur dir <br>";
 		//echo $curdir;
 		//echo "<br>";

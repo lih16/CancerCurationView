@@ -35,6 +35,7 @@ $(document).ready(function() {
 function narrative(e, tumor, gene, mutation) {
 	
     e.preventDefault();
+	
     gtissue   = $("#tumorTypeselect option:selected").text();
 	
     ggene     = $("#geneselect option:selected").text();
@@ -59,23 +60,28 @@ function narrative(e, tumor, gene, mutation) {
 	}
 	
 	$(editdiv).hide();
-	$("#versionlist").hide();
+	
 	
     getnarrative("tissue");
 	$("#adminModify").hide();
 	if(admin==1){
-		$("#adminEditB").text("All Comments").show();
+		$("#adminEditB").text("All Comments").hide();
+		$('#nardiv').attr('contenteditable','true');
+		//$("#nardiv").css("background-color","white");
 	    $("#adminSaveB").show();
 		$("#adminNewB").show();
 	}
 	else{
 		
-		$("#adminEditB").text("Edit").show();
+		$("#adminEditB").text("Edit").hide();
 		$("#adminSaveB").hide();
 		$("#adminNewB").hide();
 		
 		
 	}
+	$("#nardiv").hide();
+	loadnarrativeTable();
+	$("#versionlist").show();
 }
 
 function getnarrative(tissue1) {
@@ -213,6 +219,7 @@ function modifycomment(e, id, index, status) {
 	}
     if (gstatus == 0) {
         $(id).closest('p').find('textarea').show();
+		$(id).closest('p').find('textarea').val('');
 		$(id).text("save");
 		gstatus=1;
         return false;;
@@ -445,8 +452,11 @@ function generateHtml(htmlcontent){
 		});*/
 		mtext=$(curdiv).html();
 	}
+	$("#nardiv").html(mtext);
+	$("#nardiv").show();
+	modifyparagraph();
 
-    $(editdiv).find("p").each(function(index) {
+   /* $(editdiv).find("p").each(function(index) {
           index = index + 1;
 		 
           html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\">" + $(this).find('.divcomment').html() + "</span><br><hr>";
@@ -462,7 +472,7 @@ function generateHtml(htmlcontent){
 	 }
      var text1 = "<h1>"+label+"</h1>"+ editablediv+ mtext + "</div><hr>";
 	 //alert(text1);
-     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");
+     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");*/
      //$(curdiv).html(curdivclone.html());
      //$(curdiv).hide();
 	
@@ -530,7 +540,7 @@ function loadnarrativeTable() {
 
         },
         "ajax": {
-            "url": "getnarrativeList?gene="+ggene+"&cancer="+gtissue+"&variant="+gmutation,
+            "url": "getnarrativeList?gene="+ggene+"&cancer="+gtissue+"&variant="+gmutation+"&order=date_admin",
             "type": "GET"
        
         }
@@ -555,7 +565,7 @@ function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
 	var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
 	 //$(editdiv).hide();
-		$("#adminModify").show();
+		//$("#adminModify").show();
 	//alert(rowCount+":"+colCount);
 	if((rowCount==1)&&(colCount==1)){
 		gcurVername=0;
@@ -581,7 +591,7 @@ function addnarButton() {
 	  var name="Modify";
 	  var color="blue";
 	  if(admin==2){
-		  name="Browse";
+		  name="View";
 		  
 	  }
 	 
@@ -598,7 +608,7 @@ function addnarButton() {
 }
 //gcurVername
 function saveNarrative(e,saveOrnot) {
-	    var mynarrative=$("#mynarrative").html();
+	    var mynarrative=$('#nardiv').html();
 		//alert(saveOrnot+":"+mynarrative);
 		var version;
 		if(saveOrnot==0){
