@@ -6,7 +6,7 @@ class Route
         // defailt controller and actiom
         $controller_name = 'login';
         $action_name = 'login';
-		
+
 		//echo "<br>";
 		//echo BASE_PATH;
 		//echo "<br>";
@@ -16,7 +16,7 @@ class Route
 //echo "cc".$dirs[0]."asdfasdf"; // g
 if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 	//echo "Ajaxadsfajax";
-	
+
     //This is an AJAX request, do AJAX specific stuff
 }
         $dir=$_SERVER['REQUEST_URI'];
@@ -27,19 +27,19 @@ $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir
 //fwrite($fp,$dir."\n");
 //fclose($fp);
 		//echo $dir;
-		$curdir = str_replace("/pipeline/js/CPTAC3/Viewer/public","" , $dir);
+		$curdir = str_replace("/CancerCurationView/public","" , $dir);
 		//echo "cur dir <br>";
 		//echo $curdir;
 		//echo "<br>";
-		
+
         $routes = explode('/', $curdir);
 
         // get controller name
         if ( !empty($routes[1]) )
-        {   
+        {
             $controller_name = $routes[1];
         }
-        
+
         // get name action
         if ( !empty($routes[2]) )
         {
@@ -82,11 +82,11 @@ $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir
 			echo "error1";
            // Route::ErrorPage404();
         }
-        
+
         // create controller
         $controller = new $controller_name;
         $action = $action_name;
-        
+
         if(method_exists($controller, $action))
         {
             // call action of controller
@@ -98,10 +98,10 @@ $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir
             // redirect to 404 page
             //Route::ErrorPage404();
         }
-		
-    
+
+
     }
-    
+
     function ErrorPage404()
     {
         $host = 'http://'.$_SERVER['HTTP_HOST'].'/';

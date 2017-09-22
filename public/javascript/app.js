@@ -15,71 +15,77 @@ $(document).ready(function() {
         addMutationList(tissue, genename);
 
     });
-	
+
 	if(admin==1){
 		$("#adminEditB").text("All Comments").hide();
 	    $("#adminSaveB").hide();
 		$("#adminNewB").hide();
 	}
 	else{
-		
+
 		$("#adminEditB").text("Edit").hide();
 		$("#adminSaveB").hide();
 		$("#adminNewB").hide();
-		
-		
+
+
 	}
 
 });
 
 function narrative(e, tumor, gene, mutation) {
-	
+
     e.preventDefault();
+
     gtissue   = $("#tumorTypeselect option:selected").text();
-	
+
     ggene     = $("#geneselect option:selected").text();
     gmutation = $("#mutationselect option:selected").text();
 	if(gtissue.indexOf("select")>0){
-		
+
 		alert("please select Tumor  first");
 		return false;
-		
+
 	}
 	if(ggene.indexOf("select")>0){
-		
+
 		alert("please select gene name first");
 		return false;
-		
+
 	}
 	if(gmutation.indexOf("select")>0){
-		
+
 		alert("please select mutation first");
 		return false;
-		
+
 	}
-	
+
 	$(editdiv).hide();
-	$("#versionlist").hide();
-	
+
+
     getnarrative("tissue");
 	$("#adminModify").hide();
 	if(admin==1){
-		$("#adminEditB").text("All Comments").show();
+		$("#adminEditB").text("All Comments").hide();
+		$('#nardiv').attr('contenteditable','true');
+		//$("#nardiv").css("background-color","white");
 	    $("#adminSaveB").show();
 		$("#adminNewB").show();
 	}
 	else{
-		
-		$("#adminEditB").text("Edit").show();
+
+		$("#adminEditB").text("Edit").hide();
 		$("#adminSaveB").hide();
 		$("#adminNewB").hide();
-		
-		
+
+
 	}
+	$("#nardiv").hide();
+	loadnarrativeTable();
+	$("#versionlist").show();
 }
 
 function getnarrative(tissue1) {
-	
+
     $.ajax({
         type: 'POST',
         url: 'getnarrative',
@@ -90,7 +96,7 @@ function getnarrative(tissue1) {
 			variant: gmutation
         },
         success: function(data1) {
-			
+
 			if(data1){
               $("#nardiv").html(data1);
 			}
@@ -209,15 +215,16 @@ function modifycomment(e, id, index, status) {
 	if (status ==3){
 		$(id).closest('p').find('textarea').hide();
 		return false;
-		
+
 	}
     if (gstatus == 0) {
         $(id).closest('p').find('textarea').show();
+		$(id).closest('p').find('textarea').val('');
 		$(id).text("save");
 		gstatus=1;
         return false;;
     } else if (gstatus == 1) { //save the narrative to the database.
-	   
+
         var comment = $(id).closest('p').find('textarea').val();
 		if (!$.trim(comment)) {
            alert("Please input your comment;");
@@ -230,7 +237,7 @@ function modifycomment(e, id, index, status) {
         save_comment_paragrah(index, comment);
         return false;
     }
-	
+
 
 }
 var curdiv = "#nardiv";
@@ -261,9 +268,9 @@ function modifyparagraph(e, cancertype, gene, mutation) {
            return false;
        }
         $(editdiv).show();
-		
+
 		$(editdiv).html($(curdiv).html());
-		
+
         $(editdiv).find("p").each(function(index) {
             index = index + 1;
             var divarea = "<div class=\"divcomment\" >sdafasdfsadf</div>";
@@ -277,11 +284,11 @@ function modifyparagraph(e, cancertype, gene, mutation) {
 				loadnarrativeTable();
 			}
 			else{
-				
+
 				$(this).html(cindex + " "  + $(this).html() +  divarea);
 				$("#versionlist").show();
 				loadnarrativeTable();
-				 
+
 			}
         });
         updateMsg();
@@ -289,16 +296,16 @@ function modifyparagraph(e, cancertype, gene, mutation) {
 function render(id,data){
 	var html="<ul>";
    $.each(data, function(i, item) {
-    var colori=colorCode[item.uid]; 
-   	
-	
+    var colori=colorCode[item.uid];
+
+
     html=html+"<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
-   
-                
+
+
   });
   html=html+"</ul>";
   id.html(html);
-}	
+}
 var colorCode={};
 var colorArray=[];
 var num_colors=100;
@@ -309,7 +316,7 @@ function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
 
-/* TO CUSTOMIZE 
+/* TO CUSTOMIZE
 
 In the generate() function below, change the numbers in randomVal(); min to max
 
@@ -327,7 +334,7 @@ for (var i = 0; i < num_colors; i += 1) {
 	h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
 	s=1.0;//randomVal(30, 95);
 	l=0.5;//randomVal(30, 80);
-	
+
 	var rgb=hslToRgb(h, s, l);
 	var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
 	alert(hex);
@@ -336,8 +343,8 @@ for (var i = 0; i < num_colors; i += 1) {
 	//alert(color);
 	colorArray.push(color);
 }
-	
-	
+
+
 
 
 /**
@@ -398,16 +405,16 @@ function getmessage(pid, id) {
 			var uid1;
 			$.each(data1, function(key1, value1) {
 				//
-				
+
 				colorCode[value1.uid]=colorArray[key1];
-				
-  
+
+
            });
             render(id,data1);
             return false;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            
+
             return false;
         }
     });
@@ -426,7 +433,7 @@ function addMessage() {
 function updateMsg() {
     addMessage();
 	if(admin==2)
-    setTimeout('updateMsg()', 400); 
+    setTimeout('updateMsg()', 800);
 }
 function generateHtml(htmlcontent){
 	var mtext = "";
@@ -445,10 +452,13 @@ function generateHtml(htmlcontent){
 		});*/
 		mtext=$(curdiv).html();
 	}
+	$("#nardiv").html(mtext);
+	$("#nardiv").show();
+	modifyparagraph();
 
-    $(editdiv).find("p").each(function(index) {
+   /* $(editdiv).find("p").each(function(index) {
           index = index + 1;
-		 
+
           html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\">" + $(this).find('.divcomment').html() + "</span><br><hr>";
 
      });
@@ -462,23 +472,23 @@ function generateHtml(htmlcontent){
 	 }
      var text1 = "<h1>"+label+"</h1>"+ editablediv+ mtext + "</div><hr>";
 	 //alert(text1);
-     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");
+     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");*/
      //$(curdiv).html(curdivclone.html());
      //$(curdiv).hide();
-	
+
 }
 function adminmodify(e, stu,id) {
-	
-	
+
+
 	 e.preventDefault();
 	 changeColor();
 	 $(id).css('color','red');
 	 $(id).text("Current Version");
-	
+
 	 if(stu==2){
-		 
+
 		 generateHtml(2);
-		 
+
 	 }
 	 else{
 	   var myhtml=$(id).closest('td').find('.hidediv').html();
@@ -486,12 +496,12 @@ function adminmodify(e, stu,id) {
        generateHtml(myhtml);
 	   //alert($(id).closest('tr').find('td').eq(1).html());
 	   gcurVername=$(id).closest('tr').find('td').eq(1).html();
-	   
+
 	 }
 	 return false;
 }
 function getnarrativeList() {
-	
+
     $.ajax({
         type: 'POST',
         url: 'getnarrativeList',
@@ -530,15 +540,15 @@ function loadnarrativeTable() {
 
         },
         "ajax": {
-            "url": "getnarrativeList?gene="+ggene+"&cancer="+gtissue+"&variant="+gmutation,
+            "url": "getnarrativeList?gene="+ggene+"&cancer="+gtissue+"&variant="+gmutation+"&order=date_admin",
             "type": "GET"
-       
+
         }
     });
     if (n == 1)
         table.fnDraw();
     return false;
-  
+
 
 }
 function changeColor(){
@@ -546,74 +556,74 @@ function changeColor(){
 		var objcount = $(this).find('td').eq(0);
 		objcount.find('a').css('color','blue');
 		objcount.find('a').text("Modify");
-		
+
 	});
-	
+
 }
 
 function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
 	var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
 	 //$(editdiv).hide();
-		$("#adminModify").show();
+		//$("#adminModify").show();
 	//alert(rowCount+":"+colCount);
 	if((rowCount==1)&&(colCount==1)){
 		gcurVername=0;
-		var aver="First Version";
+		var aver="Original Version";
 		//gcurVername=aver;
 		if(admin==2){
-			aver="The modification from admin is coming!";
+			aver="The Modification from the admin is coming!";
 		}
-		var buttonHtml="<a href=\"#\" onclick=\"adminmodify(event,2,this);\">"+aver+"</a>";
+		var buttonHtml="<a href=\"#\" >"+aver+"</a>";
 		$('#narrativelist > tbody tr').each(function(index, value) {
 			var objcount = $(this).find('td').eq(0);
 			//var hidedivHtml="<div class=\"hidediv\">"+objcount.html()+"</div><a href=\"#\" onclick=\"adminmodify(event, 1,this);return false;\">modify</a>";
-			
+
 			objcount.html(buttonHtml);
 		});
-		
+
 	}
 	else{
 		//gcurVername=1;
 		$('#narrativelist > tbody tr').each(function(index, value) {
 			var objcount = $(this).find('td').eq(0);
-		
+
 	  var name="Modify";
 	  var color="blue";
 	  if(admin==2){
-		  name="Browse";
-		  
+		  name="View";
+
 	  }
-	 
+
 	 if(gcurVername==$(this).find('td').eq(1).html()){
-		 name="Current Version";
+		 name=gcurVername;
 		 color="red"
 	 }
-	
+
 			var hidedivHtml="<div class=\"hidediv\">"+objcount.html()+"</div><a href=\"#\" style=\"color:"+color+"\" onclick=\"adminmodify(event, 1,this);return false;\">"+name+"</a>";
-			
+
 			objcount.html(hidedivHtml);
 		});
 	}
 }
 //gcurVername
 function saveNarrative(e,saveOrnot) {
-	    var mynarrative=$("#mynarrative").html();
+	    var mynarrative=$('#nardiv').html();
 		//alert(saveOrnot+":"+mynarrative);
 		var version;
 		if(saveOrnot==0){
-		   
+
 		   if( $("#newvInput").val().length === 0 ){
 			   alert("Please select your current version first!");
 			   return false;
-			   
+
 		   }
 		   else{
 			   version=$("#newvInput").val();
 		   }
 		}
-		else{ 
-		   
+		else{
+
 			version=gcurVername;
 			// alert(version);
 		}
@@ -631,7 +641,7 @@ function saveNarrative(e,saveOrnot) {
 				saveormodify:saveOrnot
             },
             success: function(data1) {
-				
+
 				loadnarrativeTable();
 				//alert("Your narrative has been stored successfully!");
                 return false;
@@ -644,7 +654,7 @@ function saveNarrative(e,saveOrnot) {
 
 
  }
-  
+
 function adminNewVersion(e, cancer, gene, mutation) {
 	e.preventDefault();
     openDialog();
@@ -657,15 +667,15 @@ function closeNewVdialog(e, saveOrnot) {
 	$("#newvDialog").dialog("close");
     if (saveOrnot == 0) {
 		saveNarrative(e,0);
-        
-    } 
+
+    }
 }
 function  openDialog()
 {
     var dt = new Date();
     var time = "version_" + dt.getFullYear() +"_"+(dt.getMonth()+1) +"_"+dt.getDate() +"_"+dt.getHours() + "_" + dt.getMinutes() + "_" + dt.getSeconds();
     $("#newvInput").val(time);
-    // 
+    //
     $("#newvDialog").dialog({
         autoOpen: true,
         hide: "puff",
@@ -681,5 +691,5 @@ function adminSave(e, cancertype, gene, mutation) {
 	else{
 		saveNarrative(e,1);
 	}
- 
+
 }

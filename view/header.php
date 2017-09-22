@@ -14,13 +14,13 @@
   </style>
 <title>Cancer Curation Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/headmenu.css" rel="stylesheet" type="text/css">
- 
- 
- 
+
+
+
 	<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>/jquery.dataTables.css">
-	
+
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
+
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="<?php echo JS_PATH;?>/jquery.dataTables.js" type="text/javascript" language="javascript" ></script>
@@ -34,11 +34,11 @@
 		$uid=$_SESSION['username'];
 		$uname=$_SESSION['uname'];
 		$role=$_SESSION['role'];
-		
+
 		echo "Welcome ".$uname.":<br>";
-		
+
 		?>
-	
+
 </head>
 
 <body>
@@ -55,7 +55,7 @@ var uid="<?php echo $_SESSION['username'];?>";
 var admin="<?php echo $_SESSION['role'];?>";
 function logout(){
 	window.location.href="../login/logout";
-	
+
 }
 </script>
 <script src="<?php echo JS_PATH;?>/app.js" type="text/javascript" language="javascript" ></script>

@@ -1,22 +1,22 @@
 <div id="nardiv" class="box overlay green">
-  
+
 </div>
 <div id="editoriv" >
   asdfasdfasdfasdf
 </div>
 <div id="showedit" style="display:none;"></div>
 <div id="adminModify" ></div>
-	<table id="narrativelist"  cellspacing="0" width="100%">
+	<table id="narrativelist"  cellspacing="5" width="100%">
 		<!--,'AssignID','Cancer','Gene','ProteinChange','Assign_Date','Due_Date','Save_Date','Submit_Date','Approved_Date','Status','Status'-->
 			<thead>
 				<tr>
-					
+
 					<th align="left">narrative</th>
-					<th align="left">ver_name</th>
+			  	<th align="left">ver_name</th>
 					<th align="left">date_admin</th>
-					
-				
-					
+
+
+
 				</tr>
 			</thead>
 		</table>
