@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>CPTAC3MSSMPipe  Login </title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" language="javascript" src="media/js/jquery.js"></script>
+	<script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="resources/syntax/shCore.js"></script>
+	<link rel="stylesheet" type="text/css" href="media/css/jquery.dataTables.css">
+	<link rel="stylesheet"  type="text/css" href="jquery-ui.css" />
+	<script src="js/jquery.js"></script>
+	<script src="jquery-ui-1.10.4/js/jquery-ui-1.10.4.min.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript" src="media/js/jquery.dataTables.js"></script>
+	<script src="js/jquery.ui.core.js"></script>
+    <script src="js/jquery.ui.widget.js"></script>
+    <script src="js/jquery.ui.mouse.js"></script>
+    <script src="js/jquery.ui.draggable.js"></script>
+    <script src="js/jquery.ui.droppable.js"></script>
+    
+    
+  </head>
+
+  <body>
+
+    <h1>Sign In the Cancer Varint Curator</h1>
+
+<div class="stand">
+  <div class="outer-screen">
+    <div class="inner-screen">
+      <div class="form">
+        <input type="text" id="username" value="pei.wang@mssm.edu" class="zocial-dribbble" placeholder="Enter your email" />
+        <input type="password" id="password"  value="12345678" placeholder="Password" />
+        <select name="role" id="role" placeholder="Reviewer">
+		
+	<option value="1" selected>Lab user</option>
+	<option value="2"  >Collaborator</option>
+	<option value="3"  >Data Amdin</option>
+	
+	<input type="submit" value="Login" onclick="mysubmit()"/>
+      </div> 
+    </div> 
+  </div> 
+</div>
+    <script type="text/javascript" language="javascript" src="../../jquery/jquery-1.7.2.min.js"></script>
+    <script>
+	  $(document).ready(function(){
+	   
+	  });
+	  function mysubmit(){
+	    /*var user=$("#username").val();
+		var pass=$("#password").val();
+		var role=$("#role").val();
+		$.ajax({
+			type : 'POST',
+			url : '../script/checklogin.php',
+			dataType : 'text',
+			data: {
+				user:user,
+				pass:pass,
+				role:role
+				
+				
+			},
+			success : function(data){
+			    
+				//alert(user);
+				//alert(role);
+					if(data=="0"){
+						$("#username").val("");
+						$("#password").val("");
+						alert("your username,password or role is wrong, please check it!");
+						window.location.reload();
+				  
+						return false;
+					}
+					if(role==2){
+						window.location.href="../CancerVarCuation.php";
+						return false;
+				
+					}
+					if(role==1){
+						window.location.href="../PGxExpert.php";
+						return false;
+				
+					}
+            },
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+					alert(textStatus);
+				
+			}
+		});
+		*/
+		window.location.href="../cptac3.php";
+		return false;
+	  }
+	</script>
+    
+    
+    
+    
+  </body>
+</html>
