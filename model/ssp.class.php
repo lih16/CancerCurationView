@@ -115,7 +115,8 @@ class SSP {
 				}
 			}
 
-			$order = 'ORDER BY '.implode(', ', $orderBy);
+			//$order = 'ORDER BY '.implode(', ', $orderBy);
+			$order = "order by date_admin desc ";
 		}
 
 		return $order;

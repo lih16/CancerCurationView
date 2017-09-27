@@ -24,6 +24,6 @@
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44');">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<button class="searchbutton"  onclick="showAnnotation(event,'ll','33','44');">Mutation Information</button>
+<button class="searchbutton"  onclick="showAnnotation();return false;">Mutation Information</button>
 </form>
 </div>

@@ -35,6 +35,7 @@ $(document).ready(function() {
 function narrative(e, tumor, gene, mutation) {
 	
     e.preventDefault();
+	
     gtissue   = $("#tumorTypeselect option:selected").text();
 	
     ggene     = $("#geneselect option:selected").text();
@@ -59,44 +60,76 @@ function narrative(e, tumor, gene, mutation) {
 	}
 	
 	$(editdiv).hide();
-	$("#versionlist").hide();
+	startWorker();
 	
-    getnarrative("tissue");
-	$("#adminModify").hide();
-	if(admin==1){
-		$("#adminEditB").text("All Comments").show();
-	    $("#adminSaveB").show();
-		$("#adminNewB").show();
-	}
-	else{
-		
-		$("#adminEditB").text("Edit").show();
-		$("#adminSaveB").hide();
-		$("#adminNewB").hide();
-		
-		
-	}
+	
+    var ret=getnarrative("tissue");
+	
+	
 }
 
 function getnarrative(tissue1) {
 	
     $.ajax({
+		async:false,
         type: 'POST',
         url: 'getnarrative',
         dataType: 'text',
         data: {
+
             cancer : gtissue,
 			gene   : ggene,
 			variant: gmutation
         },
         success: function(data1) {
 			
+			if((data1=="1")||(!data1)){
+				alert("There is no narrative yet");
+				if(admin==1){
+		$("#adminEditB").text("All Comments").hide();
+		$('#nardiv').attr('contenteditable','true');
+		//$("#nardiv").css("background-color","white");
+	    $("#adminSaveB").hide();
+		$("#adminNewB").hide();
+	}
+	else{
+		
+		$("#adminEditB").text("Edit").hide();
+		$("#adminSaveB").hide();
+		$("#adminNewB").hide();
+		
+		
+	}
+	$("#versionlist").hide();
+	$("#nardiv").hide();
+				return false;
+				
+			}
+			
 			if(data1){
               $("#nardiv").html(data1);
+			 // $("#nardiv").show();
+			  $("#adminModify").hide();
+	if(admin==1){
+		$("#adminEditB").text("All Comments").hide();
+		$('#nardiv').attr('contenteditable','true');
+		//$("#nardiv").css("background-color","white");
+	    $("#adminSaveB").show();
+		$("#adminNewB").show();
+	}
+	else{
+		
+		$("#adminEditB").text("Edit").hide();
+		$("#adminSaveB").hide();
+		$("#adminNewB").hide();
+		
+		
+	}
+	$("#nardiv").show();
+	loadnarrativeTable();
+	$("#versionlist").show();
 			}
-			else{
-			  $("#nardiv").html("the narrative is coming soon.");
-			}
+			
             return false;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -190,10 +223,13 @@ function save_comment_paragrah(pid, comment) {
             gene: ggene,
             mutation: gmutation,
             pid: pid,
+			version:gcurVername,
             comment: comment,
             uid: uid
         },
         success: function(data1) {
+			//alert(data1);
+			getAjaxMessage();
             return false;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -211,12 +247,14 @@ function modifycomment(e, id, index, status) {
 		return false;
 		
 	}
-    if (gstatus == 0) {
+    if ( ! $(id).closest('p').find('textarea').is(':visible')) {
         $(id).closest('p').find('textarea').show();
+		$(id).closest('p').find('textarea').val('');
 		$(id).text("save");
 		gstatus=1;
         return false;;
-    } else if (gstatus == 1) { //save the narrative to the database.
+    } 
+	else { //save the narrative to the database.
 	   
         var comment = $(id).closest('p').find('textarea').val();
 		if (!$.trim(comment)) {
@@ -262,7 +300,7 @@ function modifyparagraph(e, cancertype, gene, mutation) {
        }
         $(editdiv).show();
 		
-		$(editdiv).html($(curdiv).html());
+		$(editdiv).html($("#nardiv").html());
 		
         $(editdiv).find("p").each(function(index) {
             index = index + 1;
@@ -414,19 +452,122 @@ function getmessage(pid, id) {
 
 
 }
+function getAjaxMessage() {
+	$.ajax({
+        type: 'GET',
+        url: 'getcomment',
+        dataType: 'json',
+        data: {
+            cancer: gtissue,
+            gene: ggene,
+            mutation: gmutation,
+			version: gcurVername
+        },
+        success: function(data1) {
+			 //document.getElementById("result").innerHTML = event.data;
+			//alert(event.data);
+			var commentObj={};
+			colorCode={};
+			var cols = ["#8FBE00","#834DD9","#1A4F92","#CF3348","#FF3D7F","#24253A","#031634","#036564","#05EE4C","#7AB317","#0B2E59","#00B4FF"];//["#00FF00","#FF0000","#0000FF","#CE1836","#009989","#8853E2","#537DE2","#651366","#00A0B0","#88C100","#FFB414","#5A5A5A"];
+			//var colorCode={}; var colorArray=[]; var num_colors=100;
+			var uidindex=0;
+			var objarray = data1;//jQuery.parseJSON( event.data );
+			for(var i=0;i<objarray.length;i++){
+				var item=objarray[i];
+				////style=\"color:"+colori+"\"
+				//colori=cols[item.paragraph_id];
+				if(typeof colorCode[item.uid] === "undefined"){
+					colorCode[item.uid]=uidindex;
+					uidindex=uidindex+1;
+					
+				}
+				colori=cols[colorCode[item.uid]];
+				if (typeof commentObj[item.paragraph_id] === "undefined") {
+					commentObj[item.paragraph_id]="<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
+				}
+				else{
+				commentObj[item.paragraph_id]=commentObj[item.paragraph_id]+"<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
+				}
+				//alert(commentObj[item.paragraph_id]);
+				
+			}
+			addMessage(commentObj);
+			
+            return false;
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            
+            return false;
+        }
+    });
 
-function addMessage() {
-    $(editdiv).find("p").each(function(index) {
+
+}
+
+function addMessage(obj) {
+	//alert(obj);
+	//alert( $(editdiv));
+	//alert($("#editoriv").html());
+   $(editdiv).find("p").each(function(index) {
         index = index + 1;
         id = $(this).find('.divcomment');
-        getmessage(index, id);
+		//alert(index+id);
+		//alert(obj[index]);
+		if (typeof obj[index] === "undefined") {
+              $(id).html("");
+       }
+	   else{
+		   $(id).html("<ul>"+obj[index]+"</ul>");
+	   }
+	
+  
+  
     });
 
 }
+
+function getComment(){
+	// "uid":"jinlian.wang@mssm.edu",
+   // "comment":"asdf",
+   // "date_edit":"2017-09-19 18:55:50"
+	w.postMessage([gtissue,ggene,gmutation,gcurVername]);
+	w.onmessage = function(event) {
+            //document.getElementById("result").innerHTML = event.data;
+			//alert(event.data);
+			var commentObj={};
+			colorCode={};
+			var cols = ["#00FF00","#FF0000","#0000FF","#CE1836","#009989","#8853E2","#537DE2","#651366","#00A0B0","#88C100","#FFB414","#5A5A5A"];
+			//var colorCode={}; var colorArray=[]; var num_colors=100;
+			var uidindex=0;
+			var objarray = jQuery.parseJSON( event.data );
+			for(var i=0;i<objarray.length;i++){
+				var item=objarray[i];
+				////style=\"color:"+colori+"\"
+				//colori=cols[item.paragraph_id];
+				if(typeof colorCode[item.uid] === "undefined"){
+					colorCode[item.uid]=uidindex;
+					uidindex=uidindex+1;
+					
+				}
+				colori=cols[colorCode[item.uid]];
+				if (typeof commentObj[item.paragraph_id] === "undefined") {
+					commentObj[item.paragraph_id]="<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
+				}
+				else{
+				commentObj[item.paragraph_id]=commentObj[item.paragraph_id]+"<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
+				}
+				//alert(commentObj[item.paragraph_id]);
+				
+			}
+			addMessage(commentObj);
+			 //w.terminate();
+			
+	};
+}
 function updateMsg() {
-    addMessage();
-	if(admin==2)
-    setTimeout('updateMsg()', 400); 
+  //  addMessage();
+	//if(admin==2)
+   // setTimeout('updateMsg()', 1400); 
 }
 function generateHtml(htmlcontent){
 	var mtext = "";
@@ -445,8 +586,11 @@ function generateHtml(htmlcontent){
 		});*/
 		mtext=$(curdiv).html();
 	}
+	$("#nardiv").html(mtext);
+	$("#nardiv").show();
+	modifyparagraph();
 
-    $(editdiv).find("p").each(function(index) {
+   /* $(editdiv).find("p").each(function(index) {
           index = index + 1;
 		 
           html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\">" + $(this).find('.divcomment').html() + "</span><br><hr>";
@@ -462,7 +606,7 @@ function generateHtml(htmlcontent){
 	 }
      var text1 = "<h1>"+label+"</h1>"+ editablediv+ mtext + "</div><hr>";
 	 //alert(text1);
-     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");
+     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");*/
      //$(curdiv).html(curdivclone.html());
      //$(curdiv).hide();
 	
@@ -488,6 +632,12 @@ function adminmodify(e, stu,id) {
 	   gcurVername=$(id).closest('tr').find('td').eq(1).html();
 	   
 	 }
+	 //alert(gcurVername);
+	// getComment();
+
+	 getAjaxMessage();
+	 //if(admin==2)
+	// $("#nardiv").hide();
 	 return false;
 }
 function getnarrativeList() {
@@ -545,7 +695,11 @@ function changeColor(){
 	$('#narrativelist > tbody tr').each(function(index, value) {
 		var objcount = $(this).find('td').eq(0);
 		objcount.find('a').css('color','blue');
-		objcount.find('a').text("Modify");
+		if(admin==2)
+		objcount.find('a').text("view");
+	   else
+		   objcount.find('a').text("modify");
+		   
 		
 	});
 	
@@ -555,7 +709,7 @@ function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
 	var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
 	 //$(editdiv).hide();
-		$("#adminModify").show();
+		//$("#adminModify").show();
 	//alert(rowCount+":"+colCount);
 	if((rowCount==1)&&(colCount==1)){
 		gcurVername=0;
@@ -578,10 +732,10 @@ function addnarButton() {
 		$('#narrativelist > tbody tr').each(function(index, value) {
 			var objcount = $(this).find('td').eq(0);
 		
-	  var name="Modify";
+	  var name="modify";
 	  var color="blue";
 	  if(admin==2){
-		  name="Browse";
+		  name="view";
 		  
 	  }
 	 
@@ -598,7 +752,7 @@ function addnarButton() {
 }
 //gcurVername
 function saveNarrative(e,saveOrnot) {
-	    var mynarrative=$("#mynarrative").html();
+	    var mynarrative=$('#nardiv').html();
 		//alert(saveOrnot+":"+mynarrative);
 		var version;
 		if(saveOrnot==0){
@@ -682,4 +836,16 @@ function adminSave(e, cancertype, gene, mutation) {
 		saveNarrative(e,1);
 	}
  
+}
+function showAnnotation(){
+	//alert("aavv");
+	gtissue   = $("#tumorTypeselect option:selected").text();
+
+    ggene     = $("#geneselect option:selected").text();
+    gmutation = $("#mutationselect option:selected").text();
+	var url="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
+	window.open(url, 'window name', 'window settings')
+   // window.location.href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
+	//window.location.href ="https://www.google.com";
+	
 }
