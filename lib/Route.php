@@ -26,11 +26,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir;
 //fwrite($fp,$dir."\n");
 //fclose($fp);
-		//echo $dir;
 		$curdir = str_replace("/CancerCurationView/public","" , $dir);
-		//echo "cur dir <br>";
-		//echo $curdir;
-		//echo "<br>";
 		
         $routes = explode('/', $curdir);
 
@@ -90,7 +86,7 @@ $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir
         if(method_exists($controller, $action))
         {
             // call action of controller
-            $controller->$action();
+             $controller->$action();
         }
         else
         {
