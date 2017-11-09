@@ -18,14 +18,14 @@
 <br>
 <select class="lselect" id="mutationselect">
  
-  <option value="1" selected>Mutations</option>
+  <option value="1" selected>Alterations</option>
 </select>
 <br>
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44');">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<button class="searchbutton"  onclick="showAnnotation();return false;">Mutation Information</button>
+<button class="searchbutton"  onclick="showAnnotation();return false;">Alteration Information</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/oncoKB.jpg"   target="_blank" style="background-color: #8FBE00; border-radius: 5px 5px 5px 5px; color: white; font-family: Enriqueta,Arial,sans-serif; text-transform: uppercase; font-size: 16px; padding: 3px 10px;">OncoKB Guideline</a>
+<a href="http://34.235.93.148/CancerCurationView/public/images/LevelsOfEvidence.pdf"   target="_blank" style="background-color: #8FBE00; border-radius: 5px 5px 5px 5px; color: white; font-family: Enriqueta,Arial,sans-serif; text-transform: uppercase; font-size: 16px; padding: 3px 10px;">OncoKB Guideline</a>
 </form>
 </div>

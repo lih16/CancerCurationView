@@ -120,7 +120,7 @@ function addMutationList(tissue, gene) {
             var celllineList = data1.split("\n");
             $("#mutationselect").empty();
             var ddl = $("#mutationselect");
-            ddl.append("<option value='1'>Please select mutation</option>");
+            ddl.append("<option value='1'>Please select alteration</option>");
             for (k = 0; k < celllineList.length; k++)
                 ddl.append("<option value='" + celllineList[k] + "'>" + celllineList[k] + "</option>");
             return false;
