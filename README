@@ -1,0 +1,17 @@
+Item
+Where	Requirements	Source code Repository and Jira	on Amazon	if you need help, contact
+Access
+to CAV databases
+kb_Cancer
+ec2-34-234-146-130.compute-1.amazonaws.com 	MySQL Database ( > 5.6.x)
+Your AWS username and password	Source Code:	on AWS:
+Osman Siddiqui:
+Osman.Siddiqui@sema4genomics.com
+Access to CAV website	http://34.235.93.148/CancerCurationView/public/index/index	None
+Source Code:
+https://github.com/lih16/CancerCurationView
+
+On AWS(34.235.93.14):
+/var/www/html/CancerCurationView
+Osman Siddiqui:
+Osman.Siddiqui@sema4genomics.com
