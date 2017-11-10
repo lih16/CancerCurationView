@@ -26,7 +26,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUE
 $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir;
 //fwrite($fp,$dir."\n");
 //fclose($fp);
-		$curdir = str_replace("/CancerCurationView/public","" , $dir);
+		$curdir = str_replace("/Development/public","" , $dir);
 
         $routes = explode('/', $curdir);
 

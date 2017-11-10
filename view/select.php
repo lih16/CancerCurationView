@@ -24,7 +24,7 @@
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<button class="searchbutton"  onclick="narrative(event,'ll','33','44',1);">Report Narrative</button>
+<button class="searchbutton"  onclick="narrative(event,'ll','33','44',1);">Report-Style Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <button class="searchbutton"  onclick="showAnnotation();return false;">Alteration Information</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
