@@ -179,6 +179,7 @@ class Tumor_Model extends model_base
     function saveComment()
     {
 
+
         $report   = $_POST["report"];
         $this->db = Db::getInstance();if report == 1 ;
         if ($report == 1) {
