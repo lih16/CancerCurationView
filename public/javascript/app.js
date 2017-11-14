@@ -15,19 +15,19 @@ $(document).ready(function() {
         addMutationList(tissue, genename);
 
     });
-	
+
 	if(admin==1){
 		$("#adminEditB").text("All Comments").hide();
 	    $("#adminSaveB").hide();
 		$("#adminNewB").hide();
 	}
 	else{
-		
+
 		$("#adminEditB").text("Edit").hide();
 		$("#adminSaveB").hide();
 		$("#adminNewB").hide();
-		
-		
+
+
 	}
 
 });
@@ -35,41 +35,41 @@ $(document).ready(function() {
 function narrative(e, tumor, gene, mutation,report) {
     greport= report;
     e.preventDefault();
-	
+
     gtissue   = $("#tumorTypeselect option:selected").text();
-	
+
     ggene     = $("#geneselect option:selected").text();
     gmutation = $("#mutationselect option:selected").text();
 	if(gtissue.indexOf("select")>0){
-		
+
 		alert("please select Tumor  first");
 		return false;
-		
+
 	}
 	if(ggene.indexOf("select")>0){
-		
+
 		alert("please select gene name first");
 		return false;
-		
+
 	}
 	if(gmutation.indexOf("select")>0){
-		
+
 		alert("please select alteration first");
 		return false;
-		
+
 	}
-	
+
 	$(editdiv).hide();
 	startWorker();
-	
-	
+
+
     var ret=getnarrative("tissue");
-	
-	
+
+
 }
 
 function getnarrative(tissue1) {
-	
+
     $.ajax({
 		async:false,
         type: 'POST',
@@ -83,7 +83,7 @@ function getnarrative(tissue1) {
                        report:greport
         },
         success: function(data1) {
-			
+
 			if((data1=="1")||(!data1)){
 				alert("There is no narrative yet");
 				if(admin==1){
@@ -94,19 +94,19 @@ function getnarrative(tissue1) {
 		$("#adminNewB").hide();
 	}
 	else{
-		
+
 		$("#adminEditB").text("Edit").hide();
 		$("#adminSaveB").hide();
 		$("#adminNewB").hide();
-		
-		
+
+
 	}
 	$("#versionlist").hide();
 	$("#nardiv").hide();
 				return false;
-				
+
 			}
-			
+
 			if(data1){
               $("#nardiv").html(data1);
 			 // $("#nardiv").show();
@@ -119,18 +119,18 @@ function getnarrative(tissue1) {
 		$("#adminNewB").show();
 	}
 	else{
-		
+
 		$("#adminEditB").text("Edit").hide();
 		$("#adminSaveB").hide();
 		$("#adminNewB").hide();
-		
-		
+
+
 	}
 	$("#nardiv").show();
 	loadnarrativeTable();
 	$("#versionlist").show();
 			}
-			
+
             return false;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -226,7 +226,8 @@ function save_comment_paragrah(pid, comment) {
             pid: pid,
 			version:gcurVername,
             comment: comment,
-            uid: uid
+            uid: uid,
+						report:greport
         },
         success: function(data1) {
 			//alert(data1);
@@ -273,36 +274,18 @@ function modifycomment(e, id, index, status) {
 
 }
 var curdiv = "#nardiv";
-/*function adminmodify(e, cancertype, gene, mutation) {
-    var mtext = "";
-    var html = "";
-    var clone = curdivclone.clone();
-    clone.find("p").each(function(index) {
-        index = index + 1;
-        var cindex = "paragraph " + index + ":\r\n";
-        mtext = mtext + cindex + $(this).text() + "\r\n" + "\r\n";
 
-    });
-    $(curdiv).find("p").each(function(index) {
-        index = index + 1;
-        html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\"> test partpard</span><br><hr>";
-    });
-    var text1 = "<div contenteditable=\"true\">" + mtext + "</div>";
-    $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");
-    $(curdiv).html(curdivclone.html());
-    $(curdiv).hide();
-
-}*/
 var editdiv="#editoriv";
 function modifyparagraph(e, cancertype, gene, mutation) {
 	   if($(editdiv).is(':visible'))
        {
            return false;
        }
+	
         $(editdiv).show();
-		
+
 		$(editdiv).html($("#nardiv").html());
-		
+
         $(editdiv).find("p").each(function(index) {
             index = index + 1;
             var divarea = "<div class=\"divcomment\" >sdafasdfsadf</div>";
@@ -316,11 +299,11 @@ function modifyparagraph(e, cancertype, gene, mutation) {
 				loadnarrativeTable();
 			}
 			else{
-				
+
 				$(this).html(cindex + " "  + $(this).html() +  divarea);
 				$("#versionlist").show();
 				loadnarrativeTable();
-				 
+
 			}
         });
         updateMsg();
@@ -328,16 +311,16 @@ function modifyparagraph(e, cancertype, gene, mutation) {
 function render(id,data){
 	var html="<ul>";
    $.each(data, function(i, item) {
-    var colori=colorCode[item.uid]; 
-   	
-	
+    var colori=colorCode[item.uid];
+
+
     html=html+"<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
-   
-                
+
+
   });
   html=html+"</ul>";
   id.html(html);
-}	
+}
 var colorCode={};
 var colorArray=[];
 var num_colors=100;
@@ -348,10 +331,8 @@ function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
 
-/* TO CUSTOMIZE 
-
+/* TO CUSTOMIZE
 In the generate() function below, change the numbers in randomVal(); min to max
-
 EX to only generate colors from green to blue, change the first set to (120, 240)
 */
 function makeColor(colorNum, colors){
@@ -366,7 +347,7 @@ for (var i = 0; i < num_colors; i += 1) {
 	h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
 	s=1.0;//randomVal(30, 95);
 	l=0.5;//randomVal(30, 80);
-	
+
 	var rgb=hslToRgb(h, s, l);
 	var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
 	alert(hex);
@@ -375,8 +356,8 @@ for (var i = 0; i < num_colors; i += 1) {
 	//alert(color);
 	colorArray.push(color);
 }
-	
-	
+
+
 
 
 /**
@@ -431,22 +412,23 @@ function getmessage(pid, id) {
             gene: ggene,
             mutation: gmutation,
             pid: pid,
+						report:greport
         },
         success: function(data1) {
 			var i=0;
 			var uid1;
 			$.each(data1, function(key1, value1) {
 				//
-				
+
 				colorCode[value1.uid]=colorArray[key1];
-				
-  
+
+
            });
             render(id,data1);
             return false;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            
+
             return false;
         }
     });
@@ -462,7 +444,8 @@ function getAjaxMessage() {
             cancer: gtissue,
             gene: ggene,
             mutation: gmutation,
-			version: gcurVername
+			version: gcurVername,
+			report:greport
         },
         success: function(data1) {
 			 //document.getElementById("result").innerHTML = event.data;
@@ -480,7 +463,7 @@ function getAjaxMessage() {
 				if(typeof colorCode[item.uid] === "undefined"){
 					colorCode[item.uid]=uidindex;
 					uidindex=uidindex+1;
-					
+
 				}
 				colori=cols[colorCode[item.uid]];
 				if (typeof commentObj[item.paragraph_id] === "undefined") {
@@ -490,14 +473,14 @@ function getAjaxMessage() {
 				commentObj[item.paragraph_id]=commentObj[item.paragraph_id]+"<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
 				}
 				//alert(commentObj[item.paragraph_id]);
-				
+
 			}
 			addMessage(commentObj);
-			
+
             return false;
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-            
+
             return false;
         }
     });
@@ -520,55 +503,17 @@ function addMessage(obj) {
 	   else{
 		   $(id).html("<ul>"+obj[index]+"</ul>");
 	   }
-	
-  
-  
+
+
+
     });
 
 }
 
-function getComment(){
-	// "uid":"jinlian.wang@mssm.edu",
-   // "comment":"asdf",
-   // "date_edit":"2017-09-19 18:55:50"
-	w.postMessage([gtissue,ggene,gmutation,gcurVername]);
-	w.onmessage = function(event) {
-            //document.getElementById("result").innerHTML = event.data;
-			//alert(event.data);
-			var commentObj={};
-			colorCode={};
-			var cols = ["#00FF00","#FF0000","#0000FF","#CE1836","#009989","#8853E2","#537DE2","#651366","#00A0B0","#88C100","#FFB414","#5A5A5A"];
-			//var colorCode={}; var colorArray=[]; var num_colors=100;
-			var uidindex=0;
-			var objarray = jQuery.parseJSON( event.data );
-			for(var i=0;i<objarray.length;i++){
-				var item=objarray[i];
-				////style=\"color:"+colori+"\"
-				//colori=cols[item.paragraph_id];
-				if(typeof colorCode[item.uid] === "undefined"){
-					colorCode[item.uid]=uidindex;
-					uidindex=uidindex+1;
-					
-				}
-				colori=cols[colorCode[item.uid]];
-				if (typeof commentObj[item.paragraph_id] === "undefined") {
-					commentObj[item.paragraph_id]="<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
-				}
-				else{
-				commentObj[item.paragraph_id]=commentObj[item.paragraph_id]+"<li><span style=\"color:"+colori+"\">"+item.uid+": "+item.date_edit+": "+item.comment+"</span></li>";
-				}
-				//alert(commentObj[item.paragraph_id]);
-				
-			}
-			addMessage(commentObj);
-			 //w.terminate();
-			
-	};
-}
 function updateMsg() {
   //  addMessage();
 	//if(admin==2)
-   // setTimeout('updateMsg()', 1400); 
+   // setTimeout('updateMsg()', 1400);
 }
 function generateHtml(htmlcontent){
 	var mtext = "";
@@ -583,7 +528,6 @@ function generateHtml(htmlcontent){
 			index = index + 1;
 			var cindex = "paragraph " + index + ":<br>";
 			mtext = mtext + cindex + $(this).text() + "<br>" + "<br>";
-
 		});*/
 		mtext=$(curdiv).html();
 	}
@@ -593,9 +537,8 @@ function generateHtml(htmlcontent){
 
    /* $(editdiv).find("p").each(function(index) {
           index = index + 1;
-		 
-          html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\">" + $(this).find('.divcomment').html() + "</span><br><hr>";
 
+          html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\">" + $(this).find('.divcomment').html() + "</span><br><hr>";
      });
 	 var label="Modify the narrative ";
 	 if(admin==2){
@@ -610,20 +553,20 @@ function generateHtml(htmlcontent){
      $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");*/
      //$(curdiv).html(curdivclone.html());
      //$(curdiv).hide();
-	
+
 }
 function adminmodify(e, stu,id) {
-	
-	
+
+
 	 e.preventDefault();
 	 changeColor();
 	 $(id).css('color','red');
 	 $(id).text("Current Version");
-	
+
 	 if(stu==2){
-		 
+
 		 generateHtml(2);
-		 
+
 	 }
 	 else{
 	   var myhtml=$(id).closest('td').find('.hidediv').html();
@@ -631,7 +574,7 @@ function adminmodify(e, stu,id) {
        generateHtml(myhtml);
 	   //alert($(id).closest('tr').find('td').eq(1).html());
 	   gcurVername=$(id).closest('tr').find('td').eq(1).html();
-	   
+
 	 }
 	 //alert(gcurVername);
 	// getComment();
@@ -642,7 +585,7 @@ function adminmodify(e, stu,id) {
 	 return false;
 }
 function getnarrativeList() {
-	
+
     $.ajax({
         type: 'POST',
         url: 'getnarrativeList',
@@ -650,7 +593,8 @@ function getnarrativeList() {
         data: {
             cancer: gtissue,
             gene: ggene,
-            mutation: gmutation
+            mutation: gmutation,
+						report:greport
 
         },
         success: function(data1) {
@@ -681,15 +625,15 @@ function loadnarrativeTable() {
 
         },
         "ajax": {
-            "url": "getnarrativeList?gene="+ggene+"&cancer="+gtissue+"&variant="+gmutation,
+            "url": "getnarrativeList?gene="+ggene+"&cancer="+gtissue+"&variant="+gmutation+"&report="+greport,
             "type": "GET"
-       
+
         }
     });
     if (n == 1)
         table.fnDraw();
     return false;
-  
+
 
 }
 function changeColor(){
@@ -700,10 +644,10 @@ function changeColor(){
 		objcount.find('a').text("view");
 	   else
 		   objcount.find('a').text("modify");
-		   
-		
+
+
 	});
-	
+
 }
 
 function addnarButton() {
@@ -723,30 +667,30 @@ function addnarButton() {
 		$('#narrativelist > tbody tr').each(function(index, value) {
 			var objcount = $(this).find('td').eq(0);
 			//var hidedivHtml="<div class=\"hidediv\">"+objcount.html()+"</div><a href=\"#\" onclick=\"adminmodify(event, 1,this);return false;\">modify</a>";
-			
+
 			objcount.html(buttonHtml);
 		});
-		
+
 	}
 	else{
 		//gcurVername=1;
 		$('#narrativelist > tbody tr').each(function(index, value) {
 			var objcount = $(this).find('td').eq(0);
-		
+
 	  var name="modify";
 	  var color="blue";
 	  if(admin==2){
 		  name="view";
-		  
+
 	  }
-	 
+
 	 if(gcurVername==$(this).find('td').eq(1).html()){
 		 name="Current Version";
 		 color="red"
 	 }
-	
+
 			var hidedivHtml="<div class=\"hidediv\">"+objcount.html()+"</div><a href=\"#\" style=\"color:"+color+"\" onclick=\"adminmodify(event, 1,this);return false;\">"+name+"</a>";
-			
+
 			objcount.html(hidedivHtml);
 		});
 	}
@@ -757,18 +701,18 @@ function saveNarrative(e,saveOrnot) {
 		//alert(saveOrnot+":"+mynarrative);
 		var version;
 		if(saveOrnot==0){
-		   
+
 		   if( $("#newvInput").val().length === 0 ){
 			   alert("Please select your current version first!");
 			   return false;
-			   
+
 		   }
 		   else{
 			   version=$("#newvInput").val();
 		   }
 		}
-		else{ 
-		   
+		else{
+
 			version=gcurVername;
 			// alert(version);
 		}
@@ -783,10 +727,11 @@ function saveNarrative(e,saveOrnot) {
                 mutation: gmutation,
 				narrative:mynarrative,
 				ver_name: version,
-				saveormodify:saveOrnot
+				saveormodify:saveOrnot,
+				report:greport
             },
             success: function(data1) {
-				
+
 				loadnarrativeTable();
 				//alert("Your narrative has been stored successfully!");
                 return false;
@@ -799,7 +744,7 @@ function saveNarrative(e,saveOrnot) {
 
 
  }
-  
+
 function adminNewVersion(e, cancer, gene, mutation) {
 	e.preventDefault();
     openDialog();
@@ -812,15 +757,15 @@ function closeNewVdialog(e, saveOrnot) {
 	$("#newvDialog").dialog("close");
     if (saveOrnot == 0) {
 		saveNarrative(e,0);
-        
-    } 
+
+    }
 }
 function  openDialog()
 {
     var dt = new Date();
     var time = "version_" + dt.getFullYear() +"_"+(dt.getMonth()+1) +"_"+dt.getDate() +"_"+dt.getHours() + "_" + dt.getMinutes() + "_" + dt.getSeconds();
     $("#newvInput").val(time);
-    // 
+    //
     $("#newvDialog").dialog({
         autoOpen: true,
         hide: "puff",
@@ -830,13 +775,14 @@ function  openDialog()
 }
 function adminSave(e, cancertype, gene, mutation) {
 	//alert(gcurVername);
+	
 	if(gcurVername==0){
 		openDialog();
 	}
 	else{
 		saveNarrative(e,1);
 	}
- 
+
 }
 function showAnnotation(){
 	//alert("aavv");
@@ -848,5 +794,6 @@ function showAnnotation(){
 	window.open(url, 'window name', 'window settings')
    // window.location.href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
 	//window.location.href ="https://www.google.com";
-	
+
 }
+

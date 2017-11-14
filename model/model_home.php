@@ -251,7 +251,7 @@ class Tumor_Model extends model_base
         $gene     = $_GET["gene"];
         $mutation = $_GET["mutation"];
         $version      = $_GET["version"];
-        $report   = $_POST["report"];
+        $report   = $_GET["report"];
 
 
 
@@ -350,7 +350,7 @@ class Tumor_Model extends model_base
     }
     function getNarrativeList()
     {
-        $report   = $_POST["report"];
+        $report   = $_GET["report"];
         if ($report == 1) {
           $table = 'CVC_viewer_admin_report';
         }else{
