@@ -1,7 +1,7 @@
 var gtissue;
 var ggene;
 var gmutation;
-
+var greport=0;
 var gcurVername=0;
 $(document).ready(function() {
 	addList();
@@ -32,8 +32,8 @@ $(document).ready(function() {
 
 });
 
-function narrative(e, tumor, gene, mutation) {
-	
+function narrative(e, tumor, gene, mutation,report) {
+    greport= report;
     e.preventDefault();
 	
     gtissue   = $("#tumorTypeselect option:selected").text();
@@ -79,7 +79,8 @@ function getnarrative(tissue1) {
 
             cancer : gtissue,
 			gene   : ggene,
-			variant: gmutation
+			variant: gmutation,
+                       report:greport
         },
         success: function(data1) {
 			
