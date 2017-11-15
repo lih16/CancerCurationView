@@ -3,21 +3,20 @@ use Lib\model_base;
 
 class Tumor_Model extends model_base
 {
-    public function __construct($stable = NULL, $aColumns = NULL, $sIndexColumn = NULL)
+    public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
     {
-        parent::__construct(NULL, NULL, NULL);
+        parent::__construct(null, null, null);
     }
-    function getTumor()
+    public function getTumor()
     {
         $result   = "";
         $this->db = Db::getInstance();
-        
+
         $sQuery   = "select distinct cancer from kb_CancerVariant_Curation.CVC_cancer_gene_var";
         $stmt     = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
         }
@@ -26,9 +25,8 @@ class Tumor_Model extends model_base
             $result = $result . $aRow[0] . "\n";
         }
         return $result;
-
     }
-    function getGenes()
+    public function getGenes()
     {
         $cancer = $_POST["cancer"];
 
@@ -39,8 +37,7 @@ class Tumor_Model extends model_base
         $stmt     = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
         }
@@ -49,9 +46,8 @@ class Tumor_Model extends model_base
             $result = $result . $aRow[0] . "\n";
         }
         return $result;
-
     }
-    function getGeneMutations()
+    public function getGeneMutations()
     {
         $result   = "";
         $cancer   = $_POST["cancer"];
@@ -61,8 +57,7 @@ class Tumor_Model extends model_base
         $stmt     = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
         }
@@ -71,68 +66,63 @@ class Tumor_Model extends model_base
             $result = $result . $aRow[0] . "\n";
         }
         return $result;
-
     }
-	function getNarrative()
-	{
-    $report=$_POST["report"];
-		$result = "";
-		$cancer   =$_POST["cancer"];
+    public function getNarrative()
+    {
+        $report=$_POST["report"];
+        $result = "";
+        $cancer   =$_POST["cancer"];
         $gene     =$_POST["gene"];
-		//$variant  =str_replace("p.","",$_POST["variant"]);
-		$variant  =$_POST["variant"];
-		$this->db = Db::getInstance();
-    /**
+        //$variant  =str_replace("p.","",$_POST["variant"]);
+        $variant  =$_POST["variant"];
+        $this->db = Db::getInstance();
+        /**
 
-    */
-		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
-    if ($report == 1) {
-        $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report where gene = '".$gene."' and variant = '".$variant."'  and cancer = '".$cancer."'  order by date_admin desc limit 1";
-    }else{
-        $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin where gene = '".$gene."' and variant = '".$variant."'  and cancer = '".$cancer."'  order by date_admin desc limit 1";
-      }
-      //$stmt     = $this->db->prepare($sQuery);
-		//echo $sQuery;
-	//	$stmt->bindParam(':cancer', $cancer);
-       // $stmt->bindParam(':gene', $gene);
-       // $stmt->bindParam(':variant', $variant);
-		//$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        */
+        //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
+        if ($report == 1) {
+            $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report where gene = '".$gene."' and variant = '".$variant."'  and cancer = '".$cancer."'  order by date_admin desc limit 1";
+        } else {
+            $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin where gene = '".$gene."' and variant = '".$variant."'  and cancer = '".$cancer."'  order by date_admin desc limit 1";
+        }
+        //$stmt     = $this->db->prepare($sQuery);
+        //echo $sQuery;
+        //	$stmt->bindParam(':cancer', $cancer);
+        // $stmt->bindParam(':gene', $gene);
+        // $stmt->bindParam(':variant', $variant);
+        //$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
 
 
 
-	    $stmt     = $this->db->prepare($sQuery);
+        $stmt     = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
         }
         $rResult = $stmt->fetchAll();
-		$rowcount = $stmt->rowCount();
-		//echo $rowcount;
+        $rowcount = $stmt->rowCount();
+        //echo $rowcount;
 
-		if ($rowcount ==1) {
-			$result  = $rResult[0][0];
-			return $result;
+        if ($rowcount ==1) {
+            $result  = $rResult[0][0];
+            return $result;
+        } else {
+            /*
+            check if the report or not
 
-		}
-		else{
-      /*
-      check if the report or not
-
-      */
-    if ($report == 1) {
-			$stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
-    }else{
-      $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
-
-    }
+            */
+            if ($report == 1) {
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+            } else {
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+            }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
             $stmt->bindParam(':ver_name', $ver_name);
-           // $stmt->bindParam(':uid', $uid);
+            // $stmt->bindParam(':uid', $uid);
             $stmt->bindParam(':date_admin', $date_admin);
             $stmt->bindParam(':narrative', $narrative);
             $mutation   = $_POST["variant"];
@@ -141,80 +131,69 @@ class Tumor_Model extends model_base
             $ver_name   = "original";
             //$uid        = $_POST["uid"];
             //$narrative  = $_POST["narrative"];
-			$narrative=$this->getNarrative_origin();
-			if($narrative!="1"){
-				echo $narrative;
+            $narrative=$this->getNarrative_origin();
+            if ($narrative!="1") {
+                echo $narrative;
 
 
 
 
-            $date_admin = date('Y-m-d H:i:s');
-            try {
-                $stmt->execute();
+                $date_admin = date('Y-m-d H:i:s');
+                try {
+                    $stmt->execute();
+                } catch (PDOException $e) {
+                    //write_log($e->getMessage());
+                    echo $e->getMessage();
+                }
             }
-            catch (PDOException $e) {
-                //write_log($e->getMessage());
-                echo $e->getMessage();
-            }
-
-
-		}
-		}
-
-
-
-	}
-    function getNarrative_origin()
+        }
+    }
+    public function getNarrative_origin()
     {
         $result = "";
         $report   = $_POST["report"];
         $this->db = Db::getInstance();
-        
-        if ($report == 1) {
-          $sQuery   = "select report_style from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-        }else {
-          $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
 
+        if ($report == 1) {
+            $sQuery   = "select report_style from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+        } else {
+            $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
         }
 
-        
-      //  $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-	    $stmt     = $this->db->prepare($sQuery);
-		$stmt->bindParam(':cancer', $cancer);
+
+        //  $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+        $stmt     = $this->db->prepare($sQuery);
+        $stmt->bindParam(':cancer', $cancer);
         $stmt->bindParam(':gene', $gene);
         $stmt->bindParam(':variant', $variant);
-		$cancer =$_POST["cancer"];
+        $cancer =$_POST["cancer"];
         $gene   =$_POST["gene"];
-		$variant =str_replace("p.","",$_POST["variant"]);
-		//echo $variant."  ".$gene." ".$cancer;
+        $variant =str_replace("p.", "", $_POST["variant"]);
+        //echo $variant."  ".$gene." ".$cancer;
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             write_log($e->getMessage());
             echo "fff".$e->getMessage();
         }
         $rResult = $stmt->fetchAll();
-		$count = $stmt->rowCount();
+        $count = $stmt->rowCount();
 
-		if($count>0)
-          $result  = $rResult[0][0];
-	    else{
-		  $result  ="1";
-		}
+        if ($count>0) {
+            $result  = $rResult[0][0];
+        } else {
+            $result  ="1";
+        }
         return $result;
     }
-    function saveComment()
+    public function saveComment()
     {
-
-
         $report   = $_POST["report"];
         $this->db = Db::getInstance();
         if ($report == 1) {
-          $stmt     = $this->db->prepare("INSERT INTO CVC_viewer_editor_report (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
-        }else {
-          $stmt     = $this->db->prepare("INSERT INTO CVC_viewer_editor (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
-
+            $stmt     = $this->db->prepare("INSERT INTO CVC_viewer_editor_report (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
+        } else {
+            $stmt     = $this->db->prepare("INSERT INTO CVC_viewer_editor (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
         }
         $stmt->bindParam(':cancer', $cancer);
         $stmt->bindParam(':gene', $gene);
@@ -223,7 +202,7 @@ class Tumor_Model extends model_base
         $stmt->bindParam(':uid', $uid);
         $stmt->bindParam(':date_edit', $date_edit);
         $stmt->bindParam(':comment', $comment);
-		$stmt->bindParam(':version_name', $version_name);
+        $stmt->bindParam(':version_name', $version_name);
 
         $cancer   = $_POST["cancer"];
         $gene     = $_POST["gene"];
@@ -232,20 +211,16 @@ class Tumor_Model extends model_base
         $uid      = $_POST["uid"];
 
         $comment   = $_POST["comment"];
-		$version_name   = $_POST["version"];
+        $version_name   = $_POST["version"];
         $date_edit = date('Y-m-d H:i:s');
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
         }
-
-
-
     }
-    function getComment()
+    public function getComment()
     {
         $cancer   = $_GET["cancer"];
         $gene     = $_GET["gene"];
@@ -259,20 +234,19 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
         //$sQuery   = "select uid,comment,date_edit from  where cancer='" . $cancer . "'";
 
-    if ($report == 1) {
-        $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor_report  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc" ); // removed limit 1
-    }else{
-      $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc" ); // removed limit 1
-    }
+        if ($report == 1) {
+            $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor_report  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc"); // removed limit 1
+        } else {
+            $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc"); // removed limit 1
+        }
         $stmt->bindValue(':gene', $gene);
         $stmt->bindValue(':mutation', $mutation);
         $stmt->bindValue(':cancer', $cancer);
-		$stmt->bindValue(':version', $version);
-       // $stmt->bindValue(':pid', $pid);
+        $stmt->bindValue(':version', $version);
+        // $stmt->bindValue(':pid', $pid);
         try {
             $stmt->execute();
-        }
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
         }
@@ -281,21 +255,19 @@ class Tumor_Model extends model_base
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $result;
-
     }
     ////////////////
-    function modifyNarrative()
+    public function modifyNarrative()
     {
         $status   = $_POST["status"];
         $report   = $_POST["report"];
         $this->db = Db::getInstance();
         if ($status == 1) {
             if ($report == 1) {
-              $sql       = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
-            }else{
-              $sql       = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
-
-            }  
+                $sql       = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
+            } else {
+                $sql       = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
+            }
             $statement = $pdo->prepare($sql);
             $stmt->bindValue(':gene', $gene);
             $stmt->bindValue(':mutation', $mutation);
@@ -313,16 +285,15 @@ class Tumor_Model extends model_base
             $date_admin = date('Y-m-d H:i:s');
             try {
                 $stmt->execute();
-            }
-            catch (PDOException $e) {
+            } catch (PDOException $e) {
                 echo $e->getMessage();
             }
         } else {
             if ($report == 1) {
-              $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
-            }else{
-              $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
-            }  
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
+            } else {
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
+            }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':varaint', $mutation);
@@ -336,25 +307,23 @@ class Tumor_Model extends model_base
             $ver_name   = $_POST["ver_name"];
             //$uid=$_POST["uid"];
             $narrative  = $_POST["narrative"];
-           // $narrative  = $_POST["narrative"];
+            // $narrative  = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             try {
                 $stmt->execute();
-            }
-            catch (PDOException $e) {
+            } catch (PDOException $e) {
                 //write_log($e->getMessage());
                 echo $e->getMessage();
             }
-
         }
     }
-    function getNarrativeList()
+    public function getNarrativeList()
     {
         $report   = $_GET["report"];
         if ($report == 1) {
-          $table = 'CVC_viewer_admin_report';
-        }else{
-          $table = 'CVC_viewer_admin';
+            $table = 'CVC_viewer_admin_report';
+        } else {
+            $table = 'CVC_viewer_admin';
         }
 
         $primaryKey = 'ver_name';
@@ -376,39 +345,36 @@ class Tumor_Model extends model_base
 
         $gene   = $_GET['gene'];
         $cancer = $_GET['cancer'];
-		$variant = $_GET['variant'];
-       // $fp     = fopen('ddd', 'a');
-       // fwrite($fp, $cancer);
-      //  fwrite($fp, $gene);
+        $variant = $_GET['variant'];
+        // $fp     = fopen('ddd', 'a');
+        // fwrite($fp, $cancer);
+        //  fwrite($fp, $gene);
 
 
         $whereResult = " gene='" . $gene . "' and cancer ='" . $cancer . "' and variant='".$variant."' ";
-       // fwrite($fp, $whereResult);
-       // fclose($fp);
+        // fwrite($fp, $whereResult);
+        // fclose($fp);
         require('ssp.class.php');
         //$result=SSP::simple( $_GET, "", $table, $primaryKey, $columns );
-        $result = SSP::complex($_GET, "", $table, $primaryKey, $columns, $whereResult, NULL);
+        $result = SSP::complex($_GET, "", $table, $primaryKey, $columns, $whereResult, null);
         //fwrite($fp,$result);
         //fclose($fp);
 
         echo json_encode($result);
-
-
-
     }
 
-    function saveNarrative()
+    public function saveNarrative()
     {
-    $report   = $_POST["report"];  
-		$status     = $_POST["saveormodify"];
-		//echo $status;
+        $report   = $_POST["report"];
+        $status     = $_POST["saveormodify"];
+        //echo $status;
         $this->db = Db::getInstance();
         if ($status == 1) {
             if ($report == 1) {
-              $sql       = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
-            }else{              
-              $sql       = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
-            }  
+                $sql       = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
+            } else {
+                $sql       = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
+            }
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
@@ -422,25 +388,24 @@ class Tumor_Model extends model_base
             $ver_name   = $_POST["ver_name"];
             $uid        = $_POST["uid"];
             $narrative  = $_POST["narrative"];
-			$date_admin = date('Y-m-d H:i:s');
-			echo $sql;
+            $date_admin = date('Y-m-d H:i:s');
+            echo $sql;
             try {
                 $stmt->execute();
-            }
-            catch (PDOException $e) {
+            } catch (PDOException $e) {
                 echo $e->getMessage();
             }
         } else {
             if ($report == 1) {
-              $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
-            }else{
-              $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
-            }  
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+            } else {
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+            }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
             $stmt->bindParam(':ver_name', $ver_name);
-           // $stmt->bindParam(':uid', $uid);
+            // $stmt->bindParam(':uid', $uid);
             $stmt->bindParam(':date_admin', $date_admin);
             $stmt->bindParam(':narrative', $narrative);
             $mutation   = $_POST["mutation"];
@@ -453,20 +418,10 @@ class Tumor_Model extends model_base
             $date_admin = date('Y-m-d H:i:s');
             try {
                 $stmt->execute();
-            }
-            catch (PDOException $e) {
+            } catch (PDOException $e) {
                 //write_log($e->getMessage());
                 echo $e->getMessage();
             }
-
         }
-
     }
-
-    
-    
-    
 }
-
-
-?>

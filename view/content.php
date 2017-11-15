@@ -1,3 +1,3 @@
 <?php include header.php;
 
-      include narrative.php; ?>
+      include narrative.php;

@@ -25,19 +25,19 @@
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="<?php echo JS_PATH;?>/jquery.dataTables.js" type="text/javascript" language="javascript" ></script>
 	<?php
-	session_start();
-		if(!isset($_SESSION['username'])){
-			header("location: ../login/login");
-			exit();
-		}
+    session_start();
+        if (!isset($_SESSION['username'])) {
+            header("location: ../login/login");
+            exit();
+        }
 
-		$uid=$_SESSION['username'];
-		$uname=$_SESSION['uname'];
-		$role=$_SESSION['role'];
-		
-		echo "Welcome ".$uname.":<br>";
-		
-		?>
+        $uid=$_SESSION['username'];
+        $uname=$_SESSION['uname'];
+        $role=$_SESSION['role'];
+        
+        echo "Welcome ".$uname.":<br>";
+        
+        ?>
 	
 </head>
 
