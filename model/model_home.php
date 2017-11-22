@@ -57,7 +57,7 @@ class Tumor_Model extends model_base
         $cancer = $_POST["cancer"];
         $gene = $_POST["gene"];
         $this->db = Db::getInstance();
-        $sQuery = "select distinct variant from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
+        $sQuery = "select distinct var from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
         $stmt = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
