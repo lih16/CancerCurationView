@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace Lib;
 
 class Controller_base
@@ -52,6 +53,7 @@ class Controller_base
         $this->set_javascript_content_type();
         echo Json::get_var($var_name, $php_var, $add_var_text);
     }
+
     public function set_text_content_type()
     {
         if (defined('DEBUG')) {
@@ -60,6 +62,7 @@ class Controller_base
             header("Content-type: text/plain");
         }
     }
+
     public function send_plaintext($php_var, $set_no_cache = true)
     {
         $this->set_no_cache($set_no_cache);

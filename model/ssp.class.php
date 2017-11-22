@@ -388,7 +388,6 @@ class SSP
                 "The error reported by the server was: ".$e->getMessage()
             );
         }
-
         return $db;
     }
 

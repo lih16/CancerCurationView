@@ -1,4 +1,5 @@
 <?php
+
 namespace Lib;
 
 class View
@@ -22,6 +23,7 @@ class View
         ob_end_clean();
         return $content;
     }
+
     public static function render($view, $data = array())
     {
         global $config;

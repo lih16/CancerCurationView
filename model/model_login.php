@@ -4,71 +4,16 @@ use Lib\model_base;
 
 class Login_Model extends model_base
 {
-    public function __construct($stable=null, $aColumns=null, $sIndexColumn=null)
+    public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
     {
         parent::__construct(null, null, null);
     }
-    /*
-    session_start();
 
-    header("Content-type: text/plain");
-
-    $user=$_POST['user'];
-    $pass=$_POST['pass'];//
-    $role=$_POST['role'];//
-    $query="select Name FROM CVC_User where Email='".$user."' and Password='".$pass."' and (Role=".$role." or Role=3)";
-
-    $host="db1.mgmt.hpc.mssm.edu";
-    $uname="wangj27";
-    $pass="snoopy";
-    $database = "kb_CancerVariant_Curation";
-    //my $opt_host="db";
-    //my $opt_user="lih16_a";
-    //my $opt_passwd="Gkhbwef45YU";
-    //my $opt_database="lih16_a";
-
-    $connection=mysql_connect($host,$uname,$pass);
-
-    echo mysql_error();
-
-    //or die("Database Connection Failed");
-    $selectdb=mysql_select_db($database) or die("Database could not be selected");
-    $result=mysql_select_db($database)
-    or die("database cannot be selected <br>");
-
-
-    // Fetch Record from Database
-
-    //echo $query."\n";
-    $sql 			= mysql_query($query);
-
-     $rows = mysql_num_rows($sql);
-     if($rows>0){
-        while ($row = mysql_fetch_array($sql)) {
-             $_SESSION['uname'] = $row[0];
-         echo $row[0];
-       }
-        $_SESSION['username'] = $user;
-
-    }
-    else
-        echo "0";
-
-
-
-
-
-
-
-
-
-
-    */
     public function getlogin()
     {
         session_start(); // Starting Session
 
-        $error=''; // Variable To Store Error Message
+        $error = ''; // Variable To Store Error Message
         if (isset($_POST['submit'])) {
             $this->db = Db::getInstance();
             if (empty($_POST['username']) || empty($_POST['password'])) {
@@ -76,12 +21,12 @@ class Login_Model extends model_base
                 return 'invalid user';
             } else {
                 // Define $username and $password
-                $user=$_POST['username'];
-                $pass=$_POST['password'];//
-            $role=$_POST['role'];//
-            $query="select Name FROM CVC_User where Email='".$user."' and Password='".$pass."' and (Role=".$role." or Role=3)";
+                $user = $_POST['username'];
+                $pass = $_POST['password'];//
+                $role = $_POST['role'];//
+                $query = "select Name FROM CVC_User where Email='" . $user . "' and Password='" . $pass . "' and (Role=" . $role . " or Role=3)";
 
-                $stmt     = $this->db->prepare($query);
+                $stmt = $this->db->prepare($query);
                 try {
                     $stmt->execute();
                 } catch (PDOException $e) {
@@ -100,7 +45,7 @@ class Login_Model extends model_base
                     // header("location: profile.php"); // Redirecting To Other Page
                     return 'login';
                     //$_SESSION['login_user']=$username; // Initializing Session
-               // header("location: profile.php"); // Redirecting To Other Page
+                    // header("location: profile.php"); // Redirecting To Other Page
                 } else {
                     return 'invalid user';
                     //$error = "Username or Password is invalid";

@@ -3,21 +3,21 @@ require_once('connection.php');
 define("DEFAULT_LOG", "/sc/orga/scratch/lih16/default.log");
 
 /**
-  * write_mysql_log($message, $db)
-  *
-  * Author(s): thanosb, ddonahue
-  * Date: May 11, 2008
-  *
-  * Writes the values of certain variables along with a message in a database.
-  *
-  * Parameters:
-  *  $message: Message to be logged
-  *  $db: Object that represents the connection to the MySQL Server
-  *
-  * Returns array:
-  *  $result[status]:   True on success, false on failure
-  *  $result[message]:  Error message
-  */
+ * write_mysql_log($message, $db)
+ *
+ * Author(s): thanosb, ddonahue
+ * Date: May 11, 2008
+ *
+ * Writes the values of certain variables along with a message in a database.
+ *
+ * Parameters:
+ *  $message: Message to be logged
+ *  $db: Object that represents the connection to the MySQL Server
+ *
+ * Returns array:
+ *  $result[status]:   True on success, false on failure
+ *  $result[message]:  Error message
+ */
 
 
 function write_mysql_log($message, $db)
@@ -35,7 +35,7 @@ function write_mysql_log($message, $db)
         $request_uri = "REQUEST_URI_UNKNOWN";
     }
     // Escape values
-    $message     = $db->escape_string($message);
+    $message = $db->escape_string($message);
     $remote_addr = $db->escape_string($remote_addr);
     $request_uri = $db->escape_string($request_uri);
     // Construct query
@@ -48,6 +48,7 @@ function write_mysql_log($message, $db)
         return array(status => false, message => 'Unable to write to the database');
     }
 }
+
 //Sample usage
 //The example below illustrates how to use this function. Pass the message you want to log and a database connection identifier.
 //$something_happened = rand(0,1);
@@ -74,34 +75,33 @@ function write_mysql_log($message, $db)
 
 
 /**
-  * write_log($message[, $logfile])
-  *
-  * Author(s): thanosb, ddonahue
-  * Date: May 11, 2008
-  *
-  * Writes the values of certain variables along with a message in a log file.
-  *
-  * Parameters:
-  *  $message:   Message to be logged
-  *  $logfile:   Path of log file to write to.  Optional.  Default is DEFAULT_LOG.
-  *
-  * Returns array:
-  *  $result[status]:   True on success, false on failure
-  *  $result[message]:  Error message
-  */
+ * write_log($message[, $logfile])
+ *
+ * Author(s): thanosb, ddonahue
+ * Date: May 11, 2008
+ *
+ * Writes the values of certain variables along with a message in a log file.
+ *
+ * Parameters:
+ *  $message:   Message to be logged
+ *  $logfile:   Path of log file to write to.  Optional.  Default is DEFAULT_LOG.
+ *
+ * Returns array:
+ *  $result[status]:   True on success, false on failure
+ *  $result[message]:  Error message
+ */
 
-function write_log($message, $logfile='')
+function write_log($message, $logfile = '')
 {
     // Determine log file
 
     if ($logfile == '') {
 
 
-    // checking if the constant for the log file is defined
+        // checking if the constant for the log file is defined
         if (defined("DEFAULT_LOG") == true) {
             $logfile = DEFAULT_LOG;
-        }
-        // the constant is not defined and there is no log file given as input
+        } // the constant is not defined and there is no log file given as input
         else {
             error_log('No log file defined!', 0);
             return array(status => false, message => 'No log file defined!');
@@ -134,9 +134,9 @@ function write_log($message, $logfile='')
         if ($result > 0) {
             return array(status => true);
         } else {
-            return array(status => false, message => 'Unable to write to '.$logfile.'!');
+            return array(status => false, message => 'Unable to write to ' . $logfile . '!');
         }
     } else {
-        return array(status => false, message => 'Unable to open log '.$logfile.'!');
+        return array(status => false, message => 'Unable to open log ' . $logfile . '!');
     }
 }

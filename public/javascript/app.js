@@ -339,15 +339,15 @@ function makeColor(colorNum, colors) {
 
 for (var i = 0; i < num_colors; i += 1) {
   /* color = "color: hsl(" + i * 10 + ", 50%, 50%)";
-	//colorNum * (360 / colors) % 360) + ",100%,50%
-	h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
-	s=1.0;//randomVal(30, 95);
-	l=0.5;//randomVal(30, 80);
+  //colorNum * (360 / colors) % 360) + ",100%,50%
+  h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
+  s=1.0;//randomVal(30, 95);
+  l=0.5;//randomVal(30, 80);
 
-	var rgb=hslToRgb(h, s, l);
-	var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
-	alert(hex);
-	*/
+  var rgb=hslToRgb(h, s, l);
+  var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
+  alert(hex);
+  */
   var color = "hsl( " + makeColor(i, num_colors) + ", 100%, 50% )";
   //alert(color);
   colorArray.push(color);
@@ -530,24 +530,6 @@ function generateHtml(htmlcontent) {
   $("#nardiv").show();
   modifyparagraph();
 
-  /* $(editdiv).find("p").each(function(index) {
-          index = index + 1;
-
-          html = html + "paragraph " + index + ":<span class=\"notin\" style=\"color:red\">" + $(this).find('.divcomment').html() + "</span><br><hr>";
-     });
-	 var label="Modify the narrative ";
-	 if(admin==2){
-		 label="Modification of  the narrative ";
-	 }
-	 var editablediv="<div id=\"mynarrative\" style=\"border-style: dashed ;background-color: yellow; border-color:green;border-width: 2px;\" contenteditable=\"true\">";
-	 if(admin==2){
-		 editablediv="<div id=\"mynarrative\" style=\"border-style: dashed ; background-color: yellow;border-color:green;border-width: 2px;\" >";
-	 }
-     var text1 = "<h1>"+label+"</h1>"+ editablediv+ mtext + "</div><hr>";
-	 //alert(text1);
-     $("#adminModify").html(text1 + "<div style=\"border-style: dotted;border-width: 2px;\">" + html + "</div>");*/
-  //$(curdiv).html(curdivclone.html());
-  //$(curdiv).hide();
 
 }
 
@@ -767,6 +749,8 @@ function openDialog() {
     height: 200
   });
 }
+
+
 
 function adminSave(e, cancertype, gene, mutation) {
   //alert(gcurVername);

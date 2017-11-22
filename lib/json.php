@@ -1,4 +1,5 @@
 <?php
+
 namespace Lib;
 
 class Json
@@ -15,21 +16,21 @@ class Json
         $prevChar = '';
         $outOfQuotes = true;
 
-        for ($i = 0; $i <= $strLen; $i ++) {
+        for ($i = 0; $i <= $strLen; $i++) {
 
             // Grab the next character in the string.
             $char = substr($json, $i, 1);
 
             // Are we inside a quoted string?
             if ($char == '"' && $prevChar != '\\') {
-                $outOfQuotes = ! $outOfQuotes;
+                $outOfQuotes = !$outOfQuotes;
 
                 // If this character is the end of an element,
-            // output a new line and indent the next line.
+                // output a new line and indent the next line.
             } elseif (($char == '}' || $char == ']') && $outOfQuotes) {
                 $result .= $newLine;
-                $pos --;
-                for ($j = 0; $j < $pos; $j ++) {
+                $pos--;
+                for ($j = 0; $j < $pos; $j++) {
                     $result .= $indentStr;
                 }
             }
@@ -42,10 +43,10 @@ class Json
             if (($char == ',' || $char == '{' || $char == '[') && $outOfQuotes) {
                 $result .= $newLine;
                 if ($char == '{' || $char == '[') {
-                    $pos ++;
+                    $pos++;
                 }
 
-                for ($j = 0; $j < $pos; $j ++) {
+                for ($j = 0; $j < $pos; $j++) {
                     $result .= $indentStr;
                 }
             }
@@ -59,9 +60,7 @@ class Json
     // encodes and indents a json string
     public static function encode($json)
     {
-        return Json::indent(
-             json_encode($json)
-        );
+        return Json::indent(json_encode($json));
     }
 
     public static function decode($json)
