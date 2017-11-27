@@ -15,20 +15,19 @@
  *
  * @category   Controller
  * @package    PackageName
- * @author     Original Author <author@example.com>
- * @author     Another Author <another@example.com>
+ * @author     Original Author <osman.siddiqui@sema4genomics.com>
+ * @author     Another Author <hui.li@sema4genomics.com>
  * @copyright  Sema4
  * @license    http://www.php.net/license/3_01.txt  PHP License 3.01
  * @version    SVN: $Id$
  * @link       http://pear.php.net/package/PackageName
- * @see        NetOther, Net_Sample::Net_Sample()
+ * @see
  * @since      File available since Release 1.2.0
  * @deprecated File deprecated in Release 2.0.0
  */
 
 /**
- * This is a "Docblock Comment," also known as a "docblock."  The class'
- * docblock, below, contains a complete description of how to write these.
+ * Importing global class for model_base and Controller_base'.
  */
 use Lib\model_base;
 

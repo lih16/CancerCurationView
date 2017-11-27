@@ -6,28 +6,55 @@ use Db;
 
 class model_base
 {
-    private $aColumns ;//= array();
+  /**
+   * Create the Controller model
+   *  @param  array $aColumns
+   *  @param  $sOrder
+   *  @param  $sLimit
+   *  @param  $sIndexColumn counts
+   *  @param  $db
+   *  @param  $sWhere
+   *  @param  $sTable
+ **/
+    private $aColumns ;
     private $sOrder="";
     private $sLimit="";
-    private $sIndexColumn;// = "counts";
+    private $sIndexColumn;
     private $db;
     private $sWhere="";
-
     private $sTable ;
+
     public function __construct($stable=null, $aColumns=null, $sIndexColumn=null)
     {
+      /**
+      * Accept a $model instance in the constructor, so the  dependencies can be injected from the outside
+      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+      * $this->aColumns means "this instance of class aColumns= $aColumns private property
+      * $this->sIndexColumn means "this instance of class sIndexColumn =$sIndex private property
+      * $this->sTable means "this instance of class sTable = $sTable private property
+
+       */
         $this->aColumns = $aColumns;
         $this->sIndexColumn = $sIndexColumn;
         $this->sTable =$stable;
     }
     public function initTable($stable=null, $aColumns=null, $sIndexColumn=null)
     {
+      /**
+      * $this->aColumns means "this instance of class aColumns= $aColumns private property
+      * $this->sIndexColumn means "this instance of class sIndexColumn =$sIndex private property
+      * $this->sTable means "this instance of class sTable = $sTable private property
+
+       */
         $this->aColumns = $aColumns;
         $this->sIndexColumn = $sIndexColumn;
         $this->sTable =$stable;
     }
     public function set_no_cache($set_no_cache = true)
     {
+      /**
+      * furction to set no cache
+       */
         if (!$set_no_cache) {
             return;
         }
@@ -36,6 +63,10 @@ class model_base
     }
     public function set_display()
     {
+      /**
+      * function to set display
+       */
+
         if (isset($_GET['iDisplayStart']) && $_GET['iDisplayLength'] != '-1') {
             $this->sLimit = "LIMIT ".mysql_real_escape_string($_GET['iDisplayStart']).", ".
             mysql_real_escape_string($_GET['iDisplayLength']);
@@ -43,6 +74,9 @@ class model_base
     }
     public function set_orderby()
     {
+      /**
+      * function set_orderby
+       */
         $fp = fopen('data.txt', 'a');
         fwrite($fp, 'asortb');
         fwrite($fp, $_GET['iSortCol_0']);
@@ -66,8 +100,10 @@ class model_base
     }
     public function add_where($fieldcolumn, $fieldvalue)
     {
-        //$this->sWhere .= $where;
-
+      /**
+      * $this->sWhere .= $where;
+       */
+      
         if ($this->sWhere == "") {
             $this->sWhere = "WHERE ";
         } else {
