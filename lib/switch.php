@@ -22,11 +22,9 @@ class Application
 
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
-
             require APP . 'controller/home.php';
             $page = new Home();
             $page->index();
-
         } elseif (file_exists(APP . 'controller/' . $this->url_controller . '.php')) {
             // here we did check for controller: does such a controller exist ?
 
@@ -37,7 +35,6 @@ class Application
 
             // check for method: does such a method exist in the controller ?
             if (method_exists($this->url_controller, $this->url_action)) {
-
                 if (!empty($this->url_params)) {
                     // Call the method and pass arguments to it
                     call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
@@ -45,13 +42,11 @@ class Application
                     // If no parameters are given, just call the method without parameters, like $this->home->method();
                     $this->url_controller->{$this->url_action}();
                 }
-
             } else {
                 if (strlen($this->url_action) == 0) {
                     // no action defined: call the default index() method of a selected controller
                     $this->url_controller->index();
-                }
-                else {
+                } else {
                     header('location: ' . URL . 'problem');
                 }
             }

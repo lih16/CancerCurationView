@@ -1,20 +1,21 @@
-
-
-body{
+body {
   margin: 0px;
   padding: 0px;
-  background:#fff;/* #0d5e4e*/;
+  background: #fff;
+  /* #0d5e4e*/
+  ;
 }
 
-h1{
+h1 {
   color: #fff;
   text-align: center;
   font-family: Arial;
   font-weight: normal;
   margin: 2em auto 0px;
 }
-.outer-screen{
-  background:#13202c;
+
+.outer-screen {
+  background: #13202c;
   width: 900px;
   height: 540px;
   margin: 50px auto;
@@ -25,7 +26,7 @@ h1{
   padding-top: 35px;
 }
 
-.outer-screen:before{
+.outer-screen:before {
   content: "";
   background: #3e4a53;
   border-radius: 50px;
@@ -38,7 +39,8 @@ h1{
   width: 50px;
   height: 50px;
 }
-.outer-screen:after{
+
+.outer-screen:after {
   content: "";
   background: #ecf0f1;
   width: 900px;
@@ -50,11 +52,11 @@ h1{
   -webkit-border-radius: 0px 0px 20px 20px;
 }
 
-.stand{
-  position: relative;  
+.stand {
+  position: relative;
 }
 
-.stand:before{
+.stand:before {
   content: "";
   position: absolute;
   bottom: -150px;
@@ -67,7 +69,7 @@ h1{
   margin: auto;
 }
 
-.stand:after{
+.stand:after {
   content: "";
   position: absolute;
   width: 260px;
@@ -81,7 +83,7 @@ h1{
   box-shadow: 0px 4px 0px #7e7e7e
 }
 
-.inner-screen{
+.inner-screen {
   width: 800px;
   height: 440px;
   background: #1abc9d;
@@ -89,7 +91,7 @@ h1{
   padding-top: 80px;
 }
 
-.form{
+.form {
   width: 400px;
   height: 300px;
   background: #edeff1;
@@ -100,7 +102,7 @@ h1{
   -webkit-border-radius: 10px;
 }
 
-input[type="text"]{
+input[type="text"] {
   display: block;
   width: 309px;
   height: 35px;
@@ -109,33 +111,34 @@ input[type="text"]{
   border: 0px;
   padding: 5px;
   font-size: 16px;
-   border: 2px solid #fff;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-input[type="password"]{
-  display: block;
-  width: 309px;
-  height: 35px;
-  margin: 15px auto;
-  background: #fff;
-  border: 0px;
-  padding: 5px;
-  font-size: 16px;
-   border: 2px solid #fff;
+  border: 2px solid #fff;
   transition: all 0.3s ease;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
 
-input[type="text"]:focus{
+input[type="password"] {
+  display: block;
+  width: 309px;
+  height: 35px;
+  margin: 15px auto;
+  background: #fff;
+  border: 0px;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+input[type="text"]:focus {
   border: 2px solid #1abc9d
 }
 
-input[type="submit"]{
+input[type="submit"] {
   display: block;
   background: #1abc9d;
   width: 314px;
@@ -151,11 +154,11 @@ input[type="submit"]{
   transition: all 0.3s ease;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
   background: #09cca6
 }
 
-select{
+select {
   display: block;
   width: 319px;
   height: 38px;
@@ -164,18 +167,18 @@ select{
   border: 0px;
   padding: 5px;
   font-size: 16px;
-   border: 2px solid #fff;
+  border: 2px solid #fff;
   transition: all 0.3s ease;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
 
-select:focus{
+select:focus {
   border: 2px solid #1abc9d
 }
 
-a{
+a {
   text-align: center;
   font-family: Arial;
   color: gray;
@@ -186,23 +189,24 @@ a{
   font-size: 12px;
 }
 
-a:hover{
+a:hover {
   color: #1abc9d;
 }
 
-
 ::-webkit-input-placeholder {
-   color: gray;
+  color: gray;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: gray;  
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: gray;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
-   color: gray;  
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: gray;
 }
 
-:-ms-input-placeholder {  
-   color: gray;  
+:-ms-input-placeholder {
+  color: gray;
 }
