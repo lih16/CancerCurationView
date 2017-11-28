@@ -17,7 +17,7 @@ class Route
 
         $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir;
 
-        $curdir = str_replace("/Development/public", "", $dir);
+        $curdir = str_replace("/CancerCurationView/public", "", $dir);
 
         $routes = explode('/', $curdir);
 
