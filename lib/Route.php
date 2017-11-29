@@ -2,9 +2,10 @@
 
 class Route
 {
+
     public static function start()
     {
-        // defailt controller and actiom
+        // default controller and action
         $controller_name = 'login';
         $action_name = 'login';
 

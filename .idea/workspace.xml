@@ -6,26 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f466e945-8251-475a-bd42-81eb5a347521" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/login1.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/ddd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascript/narrative.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascript/worker_getdata.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/javascript/worker_getdata1.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/controller_home.php" afterPath="$PROJECT_DIR$/controller/controller_home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/controller_index.php" afterPath="$PROJECT_DIR$/controller/controller_index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/controller_login.php" afterPath="$PROJECT_DIR$/controller/controller_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Route.php" afterPath="$PROJECT_DIR$/lib/Route.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/bootstrap.php" afterPath="$PROJECT_DIR$/lib/bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/connection.php" afterPath="$PROJECT_DIR$/lib/connection.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/controller_base.php" afterPath="$PROJECT_DIR$/lib/controller_base.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json.php" afterPath="$PROJECT_DIR$/lib/json.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/language.php" afterPath="$PROJECT_DIR$/lib/language.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/logging.php" afterPath="$PROJECT_DIR$/lib/logging.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/validator.php" afterPath="$PROJECT_DIR$/lib/validator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/view.php" afterPath="$PROJECT_DIR$/lib/view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/model_home.php" afterPath="$PROJECT_DIR$/model/model_home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/model_login.php" afterPath="$PROJECT_DIR$/model/model_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/ssp.class.php" afterPath="$PROJECT_DIR$/model/ssp.class.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,104 +21,22 @@
         <entry file="file://$PROJECT_DIR$/model/ssp.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="7" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
+              <caret line="12" column="7" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
               <folding>
-                <marker date="1511202901265" expanded="true" signature="7643:7697" ph="SELECT COUNT... ${$table}" />
-                <marker date="1511202901265" expanded="true" signature="7873:7922" ph="SELECT COUNT... ${$table}" />
-                <marker date="1511202901265" expanded="true" signature="11085:11139" ph="SELECT COUNT... ${$table}" />
-                <marker date="1511202901265" expanded="true" signature="11338:11388" ph="SELECT COUNT... ${$table}" />
+                <marker date="1511901889542" expanded="true" signature="7643:7697" ph="SELECT COUNT... ${$table}" />
+                <marker date="1511901889542" expanded="true" signature="7873:7922" ph="SELECT COUNT... ${$table}" />
+                <marker date="1511901889542" expanded="true" signature="11085:11139" ph="SELECT COUNT... ${$table}" />
+                <marker date="1511901889542" expanded="true" signature="11338:11388" ph="SELECT COUNT... ${$table}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="json.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/json.php">
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="language.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/language.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_home.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/controller_home.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controller/controller_index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/controller_login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logging.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/logging.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="69" lean-forward="true" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
-              <folding>
-                <marker date="1511204036923" expanded="true" signature="1159:1263" ph="INSERT INTO my_log... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Route.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Route.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/bootstrap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="43" column="44" lean-forward="false" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_base.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/controller_base.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="262">
+              <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -183,9 +82,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1686" />
-    <option name="y" value="38" />
+    <option name="y" value="32" />
     <option name="width" value="1400" />
-    <option name="height" value="987" />
+    <option name="height" value="977" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -277,15 +176,15 @@
       <option name="presentableId" value="Default" />
       <updated>1511199478018</updated>
       <workItem from="1511199479899" duration="2793000" />
-      <workItem from="1511202600054" duration="6981000" />
+      <workItem from="1511202600054" duration="7578000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9774000" />
+    <option name="totallyTimeSpent" value="10371000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1686" y="38" width="1400" height="987" extended-state="0" />
+    <frame x="1686" y="32" width="1400" height="977" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -324,27 +223,27 @@
         <state relative-caret-position="6420">
           <caret line="428" column="9" lean-forward="true" selection-start-line="428" selection-start-column="9" selection-end-line="429" selection-end-column="5" />
           <folding>
-            <marker date="1511201506565" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1511201506565" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1511201506565" expanded="true" signature="1620:1746" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1511201506565" expanded="true" signature="2572:2771" ph="select narra... CVC_viewer_admin_report" />
-            <marker date="1511201506565" expanded="true" signature="2814:3006" ph="select narra... CVC_viewer_admin" />
-            <marker date="1511201506565" expanded="true" signature="3879:4034" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1511201506565" expanded="true" signature="4103:4251" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1511201506565" expanded="true" signature="5503:5627" ph="select repor... CVC_viewer" />
-            <marker date="1511201506565" expanded="true" signature="5670:5791" ph="select narra... CVC_viewer" />
-            <marker date="1511201506565" expanded="true" signature="6894:7078" ph="INSERT INTO CVC_viewer_editor_report... " />
-            <marker date="1511201506565" expanded="true" signature="7139:7316" ph="INSERT INTO CVC_viewer_editor... " />
-            <marker date="1511201506565" expanded="true" signature="8590:8780" ph="select parag... CVC_viewer_editor_report" />
-            <marker date="1511201506565" expanded="true" signature="8860:9043" ph="select parag... CVC_viewer_editor" />
-            <marker date="1511201506565" expanded="true" signature="9820:9991" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="10039:10203" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="11095:11249" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1511201506565" expanded="true" signature="11318:11465" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1511201506565" expanded="true" signature="13899:14070" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="14118:14282" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="15215:15370" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1511201506565" expanded="true" signature="15439:15587" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1511901889541" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1511901889541" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1511901889541" expanded="true" signature="1620:1746" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1511901889541" expanded="true" signature="2572:2771" ph="select narra... CVC_viewer_admin_report" />
+            <marker date="1511901889541" expanded="true" signature="2814:3006" ph="select narra... CVC_viewer_admin" />
+            <marker date="1511901889541" expanded="true" signature="3879:4034" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1511901889541" expanded="true" signature="4103:4251" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1511901889541" expanded="true" signature="5503:5627" ph="select repor... CVC_viewer" />
+            <marker date="1511901889541" expanded="true" signature="5670:5791" ph="select narra... CVC_viewer" />
+            <marker date="1511901889541" expanded="true" signature="6894:7078" ph="INSERT INTO CVC_viewer_editor_report... " />
+            <marker date="1511901889541" expanded="true" signature="7139:7316" ph="INSERT INTO CVC_viewer_editor... " />
+            <marker date="1511901889541" expanded="true" signature="8590:8780" ph="select parag... CVC_viewer_editor_report" />
+            <marker date="1511901889541" expanded="true" signature="8860:9043" ph="select parag... CVC_viewer_editor" />
+            <marker date="1511901889541" expanded="true" signature="9820:9991" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="10039:10203" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="11095:11249" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1511901889541" expanded="true" signature="11318:11465" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1511901889541" expanded="true" signature="13795:13966" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="14014:14178" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="15111:15266" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1511901889541" expanded="true" signature="15335:15483" ph="INSERT INTO CVC_viewer_admin... " />
           </folding>
         </state>
       </provider>
@@ -354,7 +253,7 @@
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <marker date="1511206888478" expanded="true" signature="840:957" ph="select Name CVC_User" />
+            <marker date="1511901889542" expanded="true" signature="840:957" ph="select Name CVC_User" />
           </folding>
         </state>
       </provider>
@@ -364,10 +263,10 @@
         <state relative-caret-position="6705">
           <caret line="447" column="38" lean-forward="true" selection-start-line="447" selection-start-column="38" selection-end-line="447" selection-end-column="38" />
           <folding>
-            <marker date="1511202901265" expanded="true" signature="7643:7697" ph="SELECT COUNT... ${$table}" />
-            <marker date="1511202901265" expanded="true" signature="7873:7922" ph="SELECT COUNT... ${$table}" />
-            <marker date="1511202901265" expanded="true" signature="11085:11139" ph="SELECT COUNT... ${$table}" />
-            <marker date="1511202901265" expanded="true" signature="11338:11388" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="7643:7697" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="7873:7922" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="11085:11139" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="11338:11388" ph="SELECT COUNT... ${$table}" />
           </folding>
         </state>
       </provider>
@@ -401,27 +300,27 @@
         <state relative-caret-position="6420">
           <caret line="428" column="9" lean-forward="false" selection-start-line="428" selection-start-column="9" selection-end-line="429" selection-end-column="5" />
           <folding>
-            <marker date="1511201506565" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1511201506565" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1511201506565" expanded="true" signature="1620:1746" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1511201506565" expanded="true" signature="2572:2771" ph="select narra... CVC_viewer_admin_report" />
-            <marker date="1511201506565" expanded="true" signature="2814:3006" ph="select narra... CVC_viewer_admin" />
-            <marker date="1511201506565" expanded="true" signature="3879:4034" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1511201506565" expanded="true" signature="4103:4251" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1511201506565" expanded="true" signature="5503:5627" ph="select repor... CVC_viewer" />
-            <marker date="1511201506565" expanded="true" signature="5670:5791" ph="select narra... CVC_viewer" />
-            <marker date="1511201506565" expanded="true" signature="6894:7078" ph="INSERT INTO CVC_viewer_editor_report... " />
-            <marker date="1511201506565" expanded="true" signature="7139:7316" ph="INSERT INTO CVC_viewer_editor... " />
-            <marker date="1511201506565" expanded="true" signature="8590:8780" ph="select parag... CVC_viewer_editor_report" />
-            <marker date="1511201506565" expanded="true" signature="8860:9043" ph="select parag... CVC_viewer_editor" />
-            <marker date="1511201506565" expanded="true" signature="9820:9991" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="10039:10203" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="11095:11249" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1511201506565" expanded="true" signature="11318:11465" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1511201506565" expanded="true" signature="13899:14070" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="14118:14282" ph="UPDATE CVC_v... " />
-            <marker date="1511201506565" expanded="true" signature="15215:15370" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1511201506565" expanded="true" signature="15439:15587" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1511901889541" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1511901889541" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1511901889541" expanded="true" signature="1620:1746" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1511901889541" expanded="true" signature="2572:2771" ph="select narra... CVC_viewer_admin_report" />
+            <marker date="1511901889541" expanded="true" signature="2814:3006" ph="select narra... CVC_viewer_admin" />
+            <marker date="1511901889541" expanded="true" signature="3879:4034" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1511901889541" expanded="true" signature="4103:4251" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1511901889541" expanded="true" signature="5503:5627" ph="select repor... CVC_viewer" />
+            <marker date="1511901889541" expanded="true" signature="5670:5791" ph="select narra... CVC_viewer" />
+            <marker date="1511901889541" expanded="true" signature="6894:7078" ph="INSERT INTO CVC_viewer_editor_report... " />
+            <marker date="1511901889541" expanded="true" signature="7139:7316" ph="INSERT INTO CVC_viewer_editor... " />
+            <marker date="1511901889541" expanded="true" signature="8590:8780" ph="select parag... CVC_viewer_editor_report" />
+            <marker date="1511901889541" expanded="true" signature="8860:9043" ph="select parag... CVC_viewer_editor" />
+            <marker date="1511901889541" expanded="true" signature="9820:9991" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="10039:10203" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="11095:11249" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1511901889541" expanded="true" signature="11318:11465" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1511901889541" expanded="true" signature="13795:13966" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="14014:14178" ph="UPDATE CVC_v... " />
+            <marker date="1511901889541" expanded="true" signature="15111:15266" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1511901889541" expanded="true" signature="15335:15483" ph="INSERT INTO CVC_viewer_admin... " />
           </folding>
         </state>
       </provider>
@@ -438,14 +337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -495,7 +386,7 @@
         <state relative-caret-position="477">
           <caret line="35" column="42" lean-forward="true" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
           <folding>
-            <marker date="1511206888478" expanded="true" signature="840:957" ph="select Name CVC_User" />
+            <marker date="1511901889542" expanded="true" signature="840:957" ph="select Name CVC_User" />
           </folding>
         </state>
       </provider>
@@ -524,28 +415,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/json.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="45" lean-forward="true" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/language.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/logging.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="26" column="69" lean-forward="true" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
+          <caret line="26" column="69" lean-forward="false" selection-start-line="26" selection-start-column="69" selection-end-line="26" selection-end-column="69" />
           <folding>
-            <marker date="1511204036923" expanded="true" signature="1159:1263" ph="INSERT INTO my_log... " />
+            <marker date="1511901889539" expanded="true" signature="1159:1263" ph="INSERT INTO my_log... " />
           </folding>
         </state>
       </provider>
@@ -558,26 +433,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="43" column="44" lean-forward="false" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/Route.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1511901889534" expanded="true" signature="18:2445" ph="{...}" />
+            <marker date="1511901889534" expanded="true" signature="55:2210" ph="{...}" />
+            <marker date="1511901889534" expanded="true" signature="681:733" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="796:844" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="1351:1406" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="1658:1723" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="1731:1841" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="2000:2086" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="2094:2203" ph="..." />
+            <marker date="1511901889534" expanded="true" signature="2246:2443" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/controller_login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="16" column="5" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/controller_index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#102#121#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/controller_home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="3" lean-forward="false" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+          <folding>
+            <element signature="e#1025#1044#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/language.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/json.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="45" lean-forward="false" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -585,28 +507,20 @@
     <entry file="file://$PROJECT_DIR$/model/ssp.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
+          <caret line="12" column="7" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="12" selection-end-column="7" />
           <folding>
-            <marker date="1511202901265" expanded="true" signature="7643:7697" ph="SELECT COUNT... ${$table}" />
-            <marker date="1511202901265" expanded="true" signature="7873:7922" ph="SELECT COUNT... ${$table}" />
-            <marker date="1511202901265" expanded="true" signature="11085:11139" ph="SELECT COUNT... ${$table}" />
-            <marker date="1511202901265" expanded="true" signature="11338:11388" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="7643:7697" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="7873:7922" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="11085:11139" ph="SELECT COUNT... ${$table}" />
+            <marker date="1511901889542" expanded="true" signature="11338:11388" ph="SELECT COUNT... ${$table}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/controller_home.php">
+    <entry file="file://$PROJECT_DIR$/lib/view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/controller_index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="262">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="23" />
           <folding />
         </state>
       </provider>

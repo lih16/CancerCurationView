@@ -4,14 +4,20 @@ class Db
 {
     private static $instance = null;
 
-
+    /*
+     *Accept a $model instance in the constructor, so the  dependencies can be injected from the outside
+    */
     private function __construct()
     {
     }
 
+    /**
+    * Empty clone magic method to prevent duplication.
+    */
     private function __clone()
     {
     }
+
     /*
      * @return singleton instance for mysql connection
      *
@@ -20,7 +26,7 @@ class Db
      * @access public
      * @static
      * @see Db::getInstance,
-     */
+    */
     public static function getInstance()
     {
         if (!isset(self::$instance)) {

@@ -35,28 +35,28 @@ use Lib\Controller_base;
 
 class controller_home extends Controller_base
 {
-  /**
-   * Create the Controller model
-   *  @param  $model Designate a place to hold class dependencies
-   */
+    /**
+     * Create the Controller model
+     *  @param  $model Designate a place to hold class dependencies
+     */
     public $model;
 
     public function __construct()
     {
-      /**
-       * Accept a $model instance in the constructor, so the  dependencies can be injected from the outside
-       * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-       * @param $this means "this instance of class A"
-        * $this->model means "this instance of class Login_Model $model property
-       */
+        /**
+         * Accept a $model instance in the constructor, so the  dependencies can be injected from the outside
+         * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+         * @param $this means "this instance of class A"
+          * $this->model means "this instance of class Login_Model $model property
+         */
 //        $this->model = new Login_Model();
     }
 
     public function action_browse()
     {
-      /**
-      * Set views directories
-      */
+        /**
+        * Set views directories
+        */
 
         include VIEW_PATH . 'header.php';
         include VIEW_PATH . 'select.php';
@@ -66,13 +66,13 @@ class controller_home extends Controller_base
 
     public function action_gettumor()
     {
-      /**
-        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-        * @param $this means "this instance of class A"
-        * $this->model means "this instance of class Tumor_Model $model property
-        * @param $result gets this instance of getTumor
-        * @param $this->send_plaintext  converts result to plaintext
-      **/
+        /**
+          * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+          * @param $this means "this instance of class A"
+          * $this->model means "this instance of class Tumor_Model $model property
+          * @param $result gets this instance of getTumor
+          * @param $this->send_plaintext  converts result to plaintext
+        **/
         $this->model = new Tumor_Model();
         $result = $this->model->getTumor();
         $this->send_plaintext($result);
@@ -80,12 +80,12 @@ class controller_home extends Controller_base
 
     public function action_getgenes()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $result gets this instance of getGenes
-      * @param $this->send_plaintext  converts result to plaintext
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $result gets this instance of getGenes
+        * @param $this->send_plaintext  converts result to plaintext
     **/
         $this->model = new Tumor_Model();
         $result = $this->model->getGenes();
@@ -94,12 +94,12 @@ class controller_home extends Controller_base
 
     public function action_getgenemutations()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $result gets this instance of getGeneMutations
-      * @param $this->send_plaintext converts result to plaintext
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $result gets this instance of getGeneMutations
+        * @param $this->send_plaintext converts result to plaintext
     **/
         $this->model = new Tumor_Model();
         $result = $this->model->getGeneMutations();
@@ -108,12 +108,12 @@ class controller_home extends Controller_base
 
     public function action_getnarrative()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $result gets this instance of getNarrative
-      * @param $this->send_plaintext converts result to plaintext
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $result gets this instance of getNarrative
+        * @param $this->send_plaintext converts result to plaintext
     **/
         $this->model = new Tumor_Model();
         $result = $this->model->getNarrative();
@@ -122,12 +122,12 @@ class controller_home extends Controller_base
 
     public function action_savecomment()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $result gets this instance of saveComment
-      * @param $this->send_plaintext converts result to plaintext
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $result gets this instance of saveComment
+        * @param $this->send_plaintext converts result to plaintext
     **/
         $this->model = new Tumor_Model();
         $result = $this->model->saveComment();
@@ -136,12 +136,12 @@ class controller_home extends Controller_base
 
     public function action_getcomment()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $result gets this instance of getComment
-      * @param $this->send_plaintext converts result to plaintext
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $result gets this instance of getComment
+        * @param $this->send_plaintext converts result to plaintext
     **/
         $this->model = new Tumor_Model();
         $result = $this->model->getComment();
@@ -150,11 +150,11 @@ class controller_home extends Controller_base
 
     public function action_getnarrativeList()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $this->model gets this instance of getNarrativeList
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $this->model gets this instance of getNarrativeList
     **/
         $this->model = new Tumor_Model();
         $this->model->getNarrativeList();
@@ -163,11 +163,11 @@ class controller_home extends Controller_base
 
     public function action_saveNarrative()
     {
-      /**
-      * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-      * @param $this means "this instance of class A"
-      * $this->model means "this instance of class Tumor_Model $model property
-      * @param $this->model gets this instance of saveNarrative
+        /**
+        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+        * @param $this means "this instance of class A"
+        * $this->model means "this instance of class Tumor_Model $model property
+        * @param $this->model gets this instance of saveNarrative
     **/
         $this->model = new Tumor_Model();
         $this->model->saveNarrative();
