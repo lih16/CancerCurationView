@@ -38,7 +38,9 @@ function narrative(e, tumor, gene, mutation, report) {
   gtissue = $("#tumorTypeselect option:selected").text();
 
   ggene = $("#geneselect option:selected").text();
-  gmutation = $("#mutationselect option:selected").text();
+  gmutation = $("#mutationselect option:selected").text();//11/29/17 modify sp
+  //var mutationFlagArray =tmutation.split()//
+  //gmutation= mutationFlagArray[0]// global variable
   if (gtissue.indexOf("select") > 0) {
 
     alert("please select Tumor  first");
@@ -160,6 +162,37 @@ function addcellList(tissue) {
   });
 }
 
+function notifyNarrativeTable(flagMutation){
+  var result="parse error";
+  var flagArray=flagMutation.split('#');
+  if (flagArray.length !=2){
+    return result;
+  }
+  var mutation =flagArray[0];
+  var flag = flagArray[1];
+  switch(flag){
+    case '0':
+      htmlflag= "\u25CB" //empty circle
+      break;
+    case '1':
+      htmlflag= "\u25D0"  //half circle left
+      break;
+    case '2':
+        htmlflag= "\u25D1" //half circle right
+        break;
+    case '3':
+        htmlflag= "\u25CF" //full circle
+        break;
+    default:
+      htmlflag= "\u25CB" //empty circle
+  }
+  result=mutation+" "+htmlflag;
+  return result;
+}
+/*
+*11/29/17
+*/
+
 function addMutationList(tissue, gene) {
   $.ajax({
     type: 'POST',
@@ -170,12 +203,17 @@ function addMutationList(tissue, gene) {
       gene: gene
     },
     success: function(data1) {
-      var celllineList = data1.split("\n");
-      $("#mutationselect").empty();
+      var celllineList = data1.split("\n");//this one we get all the mutation list
+      $("#mutationselect").empty();// will render the select options
       var ddl = $("#mutationselect");
       ddl.append("<option value='1'>Please select alteration</option>");
-      for (k = 0; k < celllineList.length; k++)
-        ddl.append("<option value='" + celllineList[k] + "'>" + celllineList[k] + "</option>");
+      for (k = 0; k < celllineList.length; k++)//loop through all mutations
+      {
+         var mutation=notifyNarrativeTable(celllineList[k]);
+         ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
+
+      }
+
       return false;
 
     },

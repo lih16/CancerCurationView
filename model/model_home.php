@@ -50,6 +50,7 @@ class Tumor_Model extends model_base
         }
         return $result;
     }
+
     /*
     *This function will retrieve mutation based on selected tumor type and gene.
     *we get the flag information from here(if narrative/report style is written)
