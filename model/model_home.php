@@ -50,14 +50,18 @@ class Tumor_Model extends model_base
         }
         return $result;
     }
-
+    /*
+    *This function will retrieve mutation based on selected tumor type and gene.
+    *we get the flag information from here(if narrative/report style is written)
+    */
     public function getGeneMutations()
     {
         $result = "";
         $cancer = $_POST["cancer"];
         $gene = $_POST["gene"];
         $this->db = Db::getInstance();
-        $sQuery = "select distinct var from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
+        #need combination for flag for display on front end
+        $sQuery = "select distinct CONCAT(var,'#',flag) from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
         $stmt = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
