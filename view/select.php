@@ -20,7 +20,16 @@
 
   <option value="1" selected>Alterations</option>
 </select>
-<br>nonehih
+<table align=center>
+	<tr>
+		<td>   non</td>
+			<td> symbol</td>
+	</tr>
+	tr>
+		<td>   non</td>
+			<td> symbol</td>
+	</tr>
+</table>
 <br>huihiu
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
