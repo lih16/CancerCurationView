@@ -25,10 +25,11 @@
 
 <table class="key">
 	<style>
-	.key {
+	.key table {
 
 		  border: 1px solid black;
-			padding: 122px;
+			padding: 10px;
+			text-align: center;
 
 	}
 	.key th{background-color: white;}
