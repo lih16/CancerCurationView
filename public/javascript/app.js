@@ -38,10 +38,10 @@ function narrative(e, tumor, gene, mutation, report) {
   gtissue = $("#tumorTypeselect option:selected").text();
 
   ggene = $("#geneselect option:selected").text();
-  gmutation = $("#mutationselect option:selected").text();//11/29/17 modify sp
+  tmutation = $("#mutationselect option:selected").text();//11/29/17 modify sp
 
-  //var mutationFlagArray =tmutation.split()//
-  //gmutation= mutationFlagArray[0]// global variable
+  var mutationFlagArray =tmutation.split(' ');//
+  gmutation= mutationFlagArray[0];// global variable
   if (gtissue.indexOf("select") > 0) {
 
     alert("please select Tumor  first");
@@ -162,7 +162,9 @@ function addcellList(tissue) {
     }
   });
 }
-
+/*
+*11/29/17
+*/
 function notifyNarrativeTable(flagMutation){
   var result="parse error";
   var flagArray=flagMutation.split('#');
@@ -190,10 +192,11 @@ function notifyNarrativeTable(flagMutation){
   result=mutation+" "+htmlflag;
   return result;
 }
+
+
 /*
 *11/29/17
 */
-
 function addMutationList(tissue, gene) {
   $.ajax({
     type: 'POST',
