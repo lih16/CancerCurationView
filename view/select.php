@@ -24,7 +24,12 @@
 
 
 <table align=center border=1 cellpadding="99">
-
+	<style>
+	table, th, td {
+	    border: 1px solid black;
+			padding: 10px;
+	}
+	</style>
 <thead>
 <tr>
 <th colspan=4>Key for indentifying which alterations have a narrative </th>
