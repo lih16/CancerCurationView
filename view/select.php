@@ -25,6 +25,9 @@
 
 
 
+<button onclick="myFunction()">Try it</button>
+
+<div id="myDIV">
 <table class="key" align="center" border=1>
 	<style>
 	.key  {
@@ -60,6 +63,20 @@
     </tr>
 </tbody>
 </table>
+</div>
+
+
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
 
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
