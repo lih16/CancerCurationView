@@ -26,7 +26,7 @@
 
 <thead>
 <tr>
-<th colspan=4 >Key for indentify which alterations have Narrative </th>
+<th colspan=4 >Key for indentifying which alterations have a narrative </th>
   </tr>
 </thead>
 <tbody>
@@ -38,6 +38,7 @@
     </tr>
 </tbody>
 </table>
+
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
