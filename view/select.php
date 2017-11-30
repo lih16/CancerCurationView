@@ -20,7 +20,7 @@
 
   <option value="1" selected>Alterations</option>
 </select>
-<br clear='both'>
+<br style="clear: both">
 
 
 <table align=center border=1 cellpadding="99">
