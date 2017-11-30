@@ -20,7 +20,7 @@
 
   <option value="1" selected>Alterations</option>
 </select>
-
+<br>
 <table align=center border=1>
 	<style>
 	table.steelBlueCols {
