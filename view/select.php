@@ -21,6 +21,9 @@
   <option value="1" selected>Alterations</option>
 </select>
 <br>
+<br>
+<br>
+<br>
 
 
 <table class="key" align="center" border=1>
@@ -34,7 +37,7 @@
 	}
 	.key th{
 		background-color: white;
-	margin: auto;
+	  text-align:center;
 }
 	.key td{
 		background-color: white;
