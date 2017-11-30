@@ -23,14 +23,15 @@
 <br>
 
 
-<table class="key" align=center border=1>
+<table class="key">
 	<style>
 	.key {
 
 		  border: 1px solid black;
 			padding: 122px;
-			background-color: white;
+
 	}
+	.key th{background-color: white;}
 
 	</style>
 <thead>
