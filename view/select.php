@@ -32,11 +32,15 @@
 
 
 	}
-	.key th{background-color: white;}
+	.key th{
+		background-color: white;
+	margin: auto;
+}
 	.key td{
 		background-color: white;
 		border: 1px solid black;
 		padding: 10px;
+		margin: auto;
 	}
 
 	</style>
