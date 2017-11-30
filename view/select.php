@@ -23,7 +23,7 @@
 <br>
 
 
-<table class="key" align="center">
+<table class="key" align="center" border=1>
 	<style>
 	.key  {
 
@@ -42,10 +42,10 @@
 </thead>
 <tbody>
   <tr>
-<td>None: &#x25CB;</td>
-<td>Narrative: &#x25D0; </td>
-<td>Report-Style: &#x25D1;</td>
-<td>Both: &#x25CF;</td>
+<td>None: &#x25CB; &#x25CB;</td>
+<td>Narrative: &#x25CF; &#x25CB; </td>
+<td>Report-Style: &#x25CB; &#x25CF;</td>
+<td>Both: &#x25CF; &#x25CF;</td>
     </tr>
 </tbody>
 </table>
