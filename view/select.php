@@ -23,13 +23,13 @@
 <br>
 
 
-<table class="key">
+<table class="key" align="center">
 	<style>
-	.key table {
+	.key  {
 
 		  border: 1px solid black;
 			padding: 10px;
-			text-align: center;
+
 
 	}
 	.key th{background-color: white;}
