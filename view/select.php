@@ -29,11 +29,12 @@
 
 		  border: 1px solid black;
 			padding: 2px;
+			background-color: white;
 	}
 	</style>
 <thead>
 <tr>
-<th colspan=4 bgcolor= "#ffffff">Key for indentifying which alterations have a narrative </th>
+<th colspan=4 >Key for indentifying which alterations have a narrative </th>
   </tr>
 </thead>
 <tbody>
