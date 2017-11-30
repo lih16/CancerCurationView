@@ -21,7 +21,7 @@
   <option value="1" selected>Alterations</option>
 </select>
 <br>
-<table align=center border=1>
+<table align=center border=1 cellpadding="8">
 	<style>
 	table.steelBlueCols {
   border: 4px solid #555555;
