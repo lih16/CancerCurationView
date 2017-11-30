@@ -26,7 +26,7 @@
 <table align=center>
 	<style>
 	table {
-			padding: 100px;
+			padding: 2px;
 	}
 	</style>
 <thead>
