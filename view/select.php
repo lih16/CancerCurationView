@@ -19,7 +19,7 @@
 <select class="lselect" id="mutationselect">
 
   <option value="1" selected>Alterations</option>
-</select>
+</select>&nbsp;&nbsp;&nbsp;&nbsp; hiuhih
 <br>
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
@@ -27,7 +27,7 @@
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',1);">Report-Style Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <button class="searchbutton"  onclick="showAnnotation();return false;">Alteration Information</button>
-&nbsp;&nbsp;&nbsp;&nbsp; hihfaoifjioa
+&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="http://34.235.93.148/CancerCurationView/public/images/LevelsOfEvidence.pdf"   target="_blank" style="background-color: #8FBE00; border-radius: 5px 5px 5px 5px; color: white; font-family: Enriqueta,Arial,sans-serif; text-transform: uppercase; font-size: 16px; padding: 3px 10px;">OncoKB Guideline</a>
 </form>
 </div>
