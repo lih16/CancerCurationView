@@ -23,7 +23,7 @@
 
 
 
-<table align=center border=1 cellpadding="99">
+<table align=center>
 	<style>
 	table {
 	    border: 1px solid black;
