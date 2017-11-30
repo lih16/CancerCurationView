@@ -27,7 +27,7 @@
 
 
 
-<div id="myDIV">
+<div id="myDIV" style="display:none;" >
 <table class="key" align="center" border=1>
 	<style>
 	.key  {
@@ -70,10 +70,10 @@
 <script>
 function myFunction() {
     var x = document.getElementById("myDIV");
-    if (x.style.display === 'block') {
-        x.style.display = "none";
-    } else {
+    if (x.style.display === "none") {
         x.style.display = "block";
+    } else {
+        x.style.display = "none";
     }
 }
 </script>
