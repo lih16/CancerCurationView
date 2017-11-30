@@ -20,7 +20,7 @@
 
   <option value="1" selected>Alterations</option>
 </select>
-
+<br>
 
 
 <table class="key" align=center border=1>
@@ -28,9 +28,8 @@
 	.key {
 
 		  border: 1px solid black;
-			padding: 2px;
-			background-color: blue;
-
+			padding: 122px;
+			background-color: white;
 	}
 
 	</style>
