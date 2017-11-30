@@ -33,19 +33,24 @@
 
 	}
 	.key th{background-color: white;}
+	.key td{
+		background-color: white;
+		border: 1px solid black;
+		padding: 10px;
+	}
 
 	</style>
 <thead>
 <tr>
-<th colspan=4 >Key for indentifying which alterations have a narrative </th>
+<th colspan=4 >Narrative Key </th>
   </tr>
 </thead>
 <tbody>
   <tr>
-<td>None: &#x25CB; &#x25CB;</td>
+<td>No Narrative: &#x25CB; &#x25CB;</td>
 <td>Narrative: &#x25CF; &#x25CB; </td>
-<td>Report-Style: &#x25CB; &#x25CF;</td>
-<td>Both: &#x25CF; &#x25CF;</td>
+<td>Report-Style Narrative: &#x25CB; &#x25CF;</td>
+<td>Both Narratives: &#x25CF; &#x25CF;</td>
     </tr>
 </tbody>
 </table>
