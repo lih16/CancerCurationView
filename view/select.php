@@ -2,8 +2,8 @@
 
 
 	<div id="compare" style="display:none;"></div>
-	 <!--<h3>Find a Tumor Gene Mutation for Drug</h3>-->
-        <form name="DiseaseContentSearch" id="DiseaseContentSearch">
+	 <!--<h3>Find a Tumor Gene Mutation for Drug
+       <form name="DiseaseContentSearch" id="DiseaseContentSearch"> </h3>-->
 	<select class="lselect" id="tumorTypeselect">
 
   <option  value="1" selected>Tumor Type</option>
