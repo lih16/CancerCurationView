@@ -19,9 +19,9 @@
 <select class="lselect" id="mutationselect">
 
   <option value="1" selected>Alterations</option>
-</select>&nbsp;&nbsp;&nbsp;&nbsp; hiuhih
-<br>
-<br>
+</select>
+<br>nonehih
+<br>huihiu
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',1);">Report-Style Narrative</button>
