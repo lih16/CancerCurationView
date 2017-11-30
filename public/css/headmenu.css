@@ -1007,7 +1007,7 @@ Chrome,Safari4+ */
  thead th {
    font-size: 12px;
    font-weight: bold;
-   background: #91c5d4;
+   background: #ffffff;
  }
 
  .mytable thead th[colspan], .mytable thead th[rowspan] {

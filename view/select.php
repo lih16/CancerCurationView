@@ -22,11 +22,12 @@
 </select>
 <br clear='both'>
 
-<table align=center border=1 cellpadding="8">
+
+<table align=center border=1 cellpadding="99">
 
 <thead>
 <tr>
-<th colspan=4 >Key for indentifying which alterations have a narrative </th>
+<th colspan=4>Key for indentifying which alterations have a narrative </th>
   </tr>
 </thead>
 <tbody>
