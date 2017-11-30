@@ -20,13 +20,12 @@
 
   <option value="1" selected>Alterations</option>
 </select>
-<table align=center>
+<table align=center border=1>
 	<tr>
 		<td>   non</td>
-			<td> symbol</td>
-	</tr>
-	<tr>
-		<td>   non</td>
+			<td> symbol  </td>
+
+		<td>   non </td>
 			<td> symbol</td>
 	</tr>
 </table>
