@@ -25,12 +25,12 @@
 		<td>   non</td>
 			<td> symbol</td>
 	</tr>
-	tr>
+	<tr>
 		<td>   non</td>
 			<td> symbol</td>
 	</tr>
 </table>
-<br>huihiu
+
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',1);">Report-Style Narrative</button>
