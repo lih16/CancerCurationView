@@ -26,6 +26,7 @@
 <table class="key" align=center border=1>
 	<style>
 	.key {
+		 background-color: #ffffff;
 		  border: 1px solid black;
 			padding: 2px;
 	}
