@@ -39,6 +39,7 @@ function narrative(e, tumor, gene, mutation, report) {
 
   ggene = $("#geneselect option:selected").text();
   gmutation = $("#mutationselect option:selected").text();//11/29/17 modify sp
+
   //var mutationFlagArray =tmutation.split()//
   //gmutation= mutationFlagArray[0]// global variable
   if (gtissue.indexOf("select") > 0) {
@@ -209,8 +210,8 @@ function addMutationList(tissue, gene) {
       ddl.append("<option value='1'>Please select alteration</option>");
       for (k = 0; k < celllineList.length; k++)//loop through all mutations
       {
-         var mutation=notifyNarrativeTable(celllineList[k]);
-         ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
+         var mutation = notifyNarrativeTable(celllineList[k]);
+         ddl.append("<option value='" + celllineList[k] + "'>" + celllineList[k]  + "</option>");
 
       }
 
