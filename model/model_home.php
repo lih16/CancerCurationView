@@ -118,7 +118,7 @@ class Tumor_Model extends model_base
             //write_log($e->getMessage());
             //DEBUG
             echo $e->getMessage();
-           echo  file_put_contents($logfile, $e->getMessage, FILE_APPEND);
+           echo  file_put_contents("gme.txt", $e->getMessage);
         }
         $rResult = $stmt->fetchAll();
         $rowcount = $stmt->rowCount();
@@ -152,7 +152,7 @@ class Tumor_Model extends model_base
             //$narrative  = $_POST["narrative"];
             $narrative = $this->getNarrative_origin();
             //DEBUG
-            echo file_put_contents($logfile, $narrative, FILE_APPEND);
+            echo file_put_contents("original.txt", $narrative);
             if ($narrative != "1") {
                 echo $narrative;
 
