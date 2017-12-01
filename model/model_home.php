@@ -14,7 +14,7 @@ class Tumor_Model extends model_base
         $result = "";
         $this->db = Db::getInstance();
 
-        $sQuery = "select distinct cancer from kb_CancerVariant_Curation.CVC_cancer_gene_var";
+        $sQuery = "select distinct cancer from kb_CancerVariant_Curation.CVC_cancer_gene_var_aws";
         $stmt = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
@@ -36,7 +36,7 @@ class Tumor_Model extends model_base
 
         $result = "";
         $this->db = Db::getInstance();
-        $sQuery = "select distinct gene from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "'";
+        $sQuery = "select distinct gene from kb_CancerVariant_Curation.CVC_cancer_gene_var_aws where cancer='" . $cancer . "'";
         $stmt = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
@@ -61,7 +61,7 @@ class Tumor_Model extends model_base
         $gene = $_POST["gene"];
         $this->db = Db::getInstance();
         #need combination for flag for display on front end
-        $sQuery = "select distinct CONCAT(var,'#',flag) from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
+        $sQuery = "select distinct CONCAT(var,'#',flag) from kb_CancerVariant_Curation.CVC_cancer_gene_var_aws where cancer='" . $cancer . "' and gene='" . $gene . "'";
         $stmt = $this->db->prepare($sQuery);
         try {
             $stmt->execute();
@@ -89,9 +89,9 @@ class Tumor_Model extends model_base
          */
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         if ($report == 1) {
-            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
+            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
         } else {
-            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
+            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
         }
         //$stmt     = $this->db->prepare($sQuery);
         //echo $sQuery;
@@ -121,9 +121,9 @@ class Tumor_Model extends model_base
 
             */
             if ($report == 1) {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report_aws (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
             } else {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_aws (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
@@ -161,9 +161,9 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
 
         if ($report == 1) {
-            $sQuery = "select report_style from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select report_style from kb_CancerVariant_Curation.CVC_viewer_aws where gene = :gene and variant = :variant and cancer = :cancer";
         } else {
-            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_aws where gene = :gene and variant = :variant and cancer = :cancer";
         }
 
 
@@ -198,9 +198,9 @@ class Tumor_Model extends model_base
         $report = $_POST["report"];
         $this->db = Db::getInstance();
         if ($report == 1) {
-            $stmt = $this->db->prepare("INSERT INTO CVC_viewer_editor_report (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
+            $stmt = $this->db->prepare("INSERT INTO CVC_viewer_editor_report_aws (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
         } else {
-            $stmt = $this->db->prepare("INSERT INTO CVC_viewer_editor (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
+            $stmt = $this->db->prepare("INSERT INTO CVC_viewer_editor_aws (cancer, gene,varaint,paragraph_id,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
         }
         $stmt->bindParam(':cancer', $cancer);
         $stmt->bindParam(':gene', $gene);
@@ -241,9 +241,9 @@ class Tumor_Model extends model_base
         //$sQuery   = "select uid,comment,date_edit from  where cancer='" . $cancer . "'";
 
         if ($report == 1) {
-            $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor_report  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc"); // removed limit 1
+            $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor_report_aws  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc"); // removed limit 1
         } else {
-            $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc"); // removed limit 1
+            $stmt = $this->db->prepare("select paragraph_id, uid,comment,date_edit from CVC_viewer_editor_aws  where cancer= :cancer and gene = :gene and varaint = :mutation and version_name = :version order by paragraph_id asc"); // removed limit 1
         }
         $stmt->bindValue(':gene', $gene);
         $stmt->bindValue(':mutation', $mutation);
@@ -271,9 +271,9 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
         if ($status == 1) {
             if ($report == 1) {
-                $sql = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
+                $sql = "UPDATE CVC_viewer_admin_report_aws SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
             } else {
-                $sql = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
+                $sql = "UPDATE CVC_viewer_admin_aws SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
             }
             $statement = $pdo->prepare($sql);
             $stmt->bindValue(':gene', $gene);
@@ -297,9 +297,9 @@ class Tumor_Model extends model_base
             }
         } else {
             if ($report == 1) {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report_aws (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
             } else {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_aws (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
@@ -329,9 +329,9 @@ class Tumor_Model extends model_base
     {
         $report = $_GET["report"];
         if ($report == 1) {
-            $table = 'CVC_viewer_admin_report';
+            $table = 'CVC_viewer_admin_report_aws';
         } else {
-            $table = 'CVC_viewer_admin';
+            $table = 'CVC_viewer_admin_aws';
         }
 
         $primaryKey = 'ver_name';
@@ -377,9 +377,9 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
         if ($status == 1) {
             if ($report == 1) {
-                $sql = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
+                $sql = "UPDATE CVC_viewer_admin_report_aws SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
             } else {
-                $sql = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
+                $sql = "UPDATE CVC_viewer_admin_aws SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and variant = :mutation";
             }
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':gene', $gene);
@@ -403,9 +403,9 @@ class Tumor_Model extends model_base
             }
         } else {
             if ($report == 1) {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report_aws (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
             } else {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_aws (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
