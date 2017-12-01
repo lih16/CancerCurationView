@@ -171,7 +171,7 @@ class Tumor_Model extends model_base
         $result = "";
         $report = $_POST["report"];
         $this->db = Db::getInstance();
-
+        echo  file_put_contents("origin.txt",   $this->db = Db::getInstance(), true);
         if ($report == 1) {
             $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
                   echo  file_put_contents("origin.txt", $sQuery, true);
@@ -193,7 +193,6 @@ class Tumor_Model extends model_base
         //echo $variant."  ".$gene." ".$cancer;
         try {
             $stmt->execute();
-              echo  file_put_contents("og.txt",$stmt, true);
         } catch (PDOException $e) {
             write_log($e->getMessage());
             echo "fff" . $e->getMessage();
