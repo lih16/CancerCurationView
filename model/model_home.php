@@ -91,11 +91,11 @@ class Tumor_Model extends model_base
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         if ($report == 1) {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-            echo  file_put_contents("report.txt", $sQuery);
+            echo  file_put_contents("report.txt", $sQuery, true);
 
         } else {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-            echo  file_put_contents("report.txt", $sQuery);
+            echo  file_put_contents("report.txt", $sQuery, true);
 
         }
         //$stmt     = $this->db->prepare($sQuery);
@@ -156,7 +156,7 @@ class Tumor_Model extends model_base
                 } catch (PDOException $e) {
                     //write_log($e->getMessage());
                     echo $e->getMessage();
-                    echo  file_put_contents("gme.txt", $e->getMessage);
+                    echo  file_put_contents("gme.txt", $e->getMessage, true);
 
                 }
             }
@@ -171,10 +171,10 @@ class Tumor_Model extends model_base
 
         if ($report == 1) {
             $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-                  echo  file_put_contents("origin.txt", $sQuery);
+                  echo  file_put_contents("origin.txt", $sQuery, true);
         } else {
             $sQuery = "select narrative from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-            echo  file_put_contents("origin.txt", $sQuery);
+            echo  file_put_contents("origin.txt", $sQuery, true);
 
         }
 
