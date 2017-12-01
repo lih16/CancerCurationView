@@ -193,10 +193,11 @@ class Tumor_Model extends model_base
         //echo $variant."  ".$gene." ".$cancer;
         try {
             $stmt->execute();
+              echo  file_put_contents("og.txt",$stmt, true);
         } catch (PDOException $e) {
             write_log($e->getMessage());
             echo "fff" . $e->getMessage();
-            echo  file_put_contents("og.txt",$e->getMessage(), true);
+
         }
         $rResult = $stmt->fetchAll();
         $count = $stmt->rowCount();
