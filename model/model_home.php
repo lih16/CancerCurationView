@@ -161,7 +161,7 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
 
         if ($report == 1) {
-            $sQuery = "select report_style from kb_CancerVariant_Curation.CVC_viewer_aws where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select report-style from kb_CancerVariant_Curation.CVC_viewer_aws where gene = :gene and variant = :variant and cancer = :cancer";
         } else {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_aws where gene = :gene and variant = :variant and cancer = :cancer";
         }
