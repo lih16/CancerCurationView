@@ -168,15 +168,7 @@ class Tumor_Model extends model_base
         $result = "";
         $report = $_POST["report"];
         $this->db = Db::getInstance();
-        //  $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-        $stmt = $this->db->prepare($sQuery);
-        $stmt->bindParam(':cancer', $cancer);
-        $stmt->bindParam(':gene', $gene);
-        $stmt->bindParam(':variant', $variant);
-        $cancer = $_POST["cancer"];
-        $gene = $_POST["gene"];
-        $variant = str_replace("p.", "", $_POST["variant"]);
-        
+
         if ($report == 1) {
             $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
                   echo  file_put_contents("origin.txt", $sQuery);
@@ -187,7 +179,14 @@ class Tumor_Model extends model_base
         }
 
 
-
+        //  $sQuery   = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+        $stmt = $this->db->prepare($sQuery);
+        $stmt->bindParam(':cancer', $cancer);
+        $stmt->bindParam(':gene', $gene);
+        $stmt->bindParam(':variant', $variant);
+        $cancer = $_POST["cancer"];
+        $gene = $_POST["gene"];
+        $variant = str_replace("p.", "", $_POST["variant"]);
         //echo $variant."  ".$gene." ".$cancer;
         try {
             $stmt->execute();
