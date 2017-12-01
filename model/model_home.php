@@ -150,7 +150,7 @@ class Tumor_Model extends model_base
             $narrative = $this->getNarrative_origin();
             if ($narrative != "1") {
                 echo $narrative;
-                echo  file_put_contents("narrative.txt", $narrative, true);
+
 
 
                 $date_admin = date('Y-m-d H:i:s');
@@ -196,6 +196,7 @@ class Tumor_Model extends model_base
         } catch (PDOException $e) {
             write_log($e->getMessage());
             echo "fff" . $e->getMessage();
+            echo  file_put_contents("og.txt",$e->getMessage(), true);
         }
         $rResult = $stmt->fetchAll();
         $count = $stmt->rowCount();
