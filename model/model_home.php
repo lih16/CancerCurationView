@@ -150,6 +150,7 @@ class Tumor_Model extends model_base
             $narrative = $this->getNarrative_origin();
             if ($narrative != "1") {
                 echo $narrative;
+                echo  file_put_contents("narrative.txt", $narrative, true);
 
 
                 $date_admin = date('Y-m-d H:i:s');
