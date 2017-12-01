@@ -228,8 +228,8 @@ function addMutationList(tissue, gene) {
             for (k = 0; k < celllineList.length; k++)//loop through all mutations
             {
                 var mutation = notifyNarrativeTable(celllineList[k]);
-                if (mutation != "parse error")
-                    ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
+                //if (mutation != "parse error")
+                ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
             }
             return false;
 
