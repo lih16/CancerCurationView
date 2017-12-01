@@ -98,10 +98,10 @@ class Tumor_Model extends model_base
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         if ($report == 1) {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-          echo  file_put_contents("hpc/users/siddio01/www/Development/report.txt", $sQuery, FILE_APPEND);
+          echo  file_put_contents("report.txt", $sQuery);
         } else {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-           echo   file_put_contents("hpc/users/siddio01/www/Development/report.txt", $sQuery, FILE_APPEND );
+           echo   file_put_contents("report.txt", $sQuery);
         }
         //$stmt     = $this->db->prepare($sQuery);
         //echo $sQuery;
