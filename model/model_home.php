@@ -112,7 +112,7 @@ class Tumor_Model extends model_base
         } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
-            echo  file_put_contents("gme.txt", $e->getMessage, true);
+            echo  file_put_contents("gme.txt", $e, true);
 
         }
         $rResult = $stmt->fetchAll();
