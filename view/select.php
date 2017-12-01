@@ -51,7 +51,7 @@
   </table>
 </div>
 
-<!--> Javascript function to hide table<-->
+
 <script>
   function showTable() {
       var x = document.getElementById("narrativeKey");

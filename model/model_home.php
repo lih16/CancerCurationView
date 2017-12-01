@@ -170,10 +170,10 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
 
         if ($report == 1) {
-            $sQuery = "select report_style from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
                   echo  file_put_contents("origin.txt", $sQuery);
         } else {
-            $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select narrative from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
             echo  file_put_contents("origin.txt", $sQuery);
 
         }
