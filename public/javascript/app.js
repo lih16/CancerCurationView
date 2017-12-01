@@ -186,16 +186,16 @@ function notifyNarrativeTable(flagMutation) {
     var flag = flagArray[1];
     switch (flag) {
         case '0':
-            htmlflag = "\u25CB" + "\u25CB"//empty circle
+            htmlflag = "\u25CB"//empty circle
             break;
         case '1':
-            htmlflag = "\u25CF" + "\u25CB"  //half circle left
+            htmlflag = "\u25D0"  //half circle left
             break;
         case '2':
-            htmlflag = "\u25CB" + "\u25CF" //half circle right
+            htmlflag = "\u25D1" //half circle right
             break;
         case '3':
-            htmlflag = "\u25CF" + "\u25CF" //full circle
+            htmlflag = "\u25CF"  //full circle
             break;
         default:
             htmlflag = "\u25CB" //empty circle
