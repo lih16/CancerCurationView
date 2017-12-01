@@ -1,7 +1,9 @@
 <?php
 
 use Lib\model_base;
-
+$logpath= "/hpc/users/siddio01/www/Development/";
+$logfile='report.txt';
+file_put_contents($file, $person, FILE_APPEND | LOCK_EX);
 class Tumor_Model extends model_base
 {
     public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
@@ -75,9 +77,13 @@ class Tumor_Model extends model_base
         }
         return $result;
     }
+// temp log file_exists
+
 
     public function getNarrative()
     {
+      /* for DEBUG temp log file
+      */
         $report = $_POST["report"];
         $result = "";
         $cancer = $_POST["cancer"];
@@ -90,8 +96,10 @@ class Tumor_Model extends model_base
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         if ($report == 1) {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
+            file_put_contents($logfile, $sQuery, FILE_APPEND );
         } else {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
+            file_put_contents($logfile, $sQuery, FILE_APPEND );
         }
         //$stmt     = $this->db->prepare($sQuery);
         //echo $sQuery;
@@ -106,7 +114,9 @@ class Tumor_Model extends model_base
             $stmt->execute();
         } catch (PDOException $e) {
             //write_log($e->getMessage());
+            //DEBUG
             echo $e->getMessage();
+            file_put_contents($logfile, $e->getMessage, FILE_APPEND);
         }
         $rResult = $stmt->fetchAll();
         $rowcount = $stmt->rowCount();
@@ -139,6 +149,8 @@ class Tumor_Model extends model_base
             //$uid        = $_POST["uid"];
             //$narrative  = $_POST["narrative"];
             $narrative = $this->getNarrative_origin();
+            //DEBUG
+            file_put_contents($logfile, $narrative, FILE_APPEND);
             if ($narrative != "1") {
                 echo $narrative;
 
@@ -149,6 +161,10 @@ class Tumor_Model extends model_base
                 } catch (PDOException $e) {
                     //write_log($e->getMessage());
                     echo $e->getMessage();
+                    //DEBUG
+                    file_put_contents($logfile, $e->getMessage, FILE_APPEND);
+
+
                 }
             }
         }
