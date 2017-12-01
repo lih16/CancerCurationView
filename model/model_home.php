@@ -134,8 +134,10 @@ class Tumor_Model extends model_base
             */
             if ($report == 1) {
                 $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report_aws (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                  echo  file_put_contents("report2.txt", $sQuery);
             } else {
                 $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_aws (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                echo  file_put_contents("report2.txt", $sQuery);
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
