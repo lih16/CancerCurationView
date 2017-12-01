@@ -84,7 +84,7 @@ class Tumor_Model extends model_base
     {
       /* for DEBUG temp log file
       */
-      echo file_put_contents("test.txt","Hello World. Testing!");
+
 
         $report = $_POST["report"];
         $result = "";
@@ -98,10 +98,10 @@ class Tumor_Model extends model_base
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         if ($report == 1) {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-            file_put_contents("hpc/users/siddio01/www/Development/report.txt", $sQuery, true);
+          echo  file_put_contents("hpc/users/siddio01/www/Development/report.txt", $sQuery, true);
         } else {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_aws where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-            file_put_contents("hpc/users/siddio01/www/Development/report.txt", $sQuery, true );
+           echo   file_put_contents("hpc/users/siddio01/www/Development/report.txt", $sQuery, true );
         }
         //$stmt     = $this->db->prepare($sQuery);
         //echo $sQuery;
@@ -118,7 +118,7 @@ class Tumor_Model extends model_base
             //write_log($e->getMessage());
             //DEBUG
             echo $e->getMessage();
-            file_put_contents($logfile, $e->getMessage, FILE_APPEND);
+           echo  file_put_contents($logfile, $e->getMessage, FILE_APPEND);
         }
         $rResult = $stmt->fetchAll();
         $rowcount = $stmt->rowCount();
@@ -152,7 +152,7 @@ class Tumor_Model extends model_base
             //$narrative  = $_POST["narrative"];
             $narrative = $this->getNarrative_origin();
             //DEBUG
-            file_put_contents($logfile, $narrative, FILE_APPEND);
+            echo file_put_contents($logfile, $narrative, FILE_APPEND);
             if ($narrative != "1") {
                 echo $narrative;
 
@@ -164,7 +164,7 @@ class Tumor_Model extends model_base
                     //write_log($e->getMessage());
                     echo $e->getMessage();
                     //DEBUG
-                    file_put_contents($logfile, $e->getMessage, FILE_APPEND);
+                    echo file_put_contents($logfile, $e->getMessage, FILE_APPEND);
 
 
                 }
