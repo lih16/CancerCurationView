@@ -112,7 +112,6 @@ class Tumor_Model extends model_base
         } catch (PDOException $e) {
             //write_log($e->getMessage());
             echo $e->getMessage();
-            echo  file_put_contents("gme.txt", $e, true);
 
         }
         $rResult = $stmt->fetchAll();
@@ -159,7 +158,6 @@ class Tumor_Model extends model_base
                 } catch (PDOException $e) {
                     //write_log($e->getMessage());
                     echo $e->getMessage();
-                    echo  file_put_contents("gme.txt", $e->getMessage, true);
 
                 }
             }
@@ -172,10 +170,10 @@ class Tumor_Model extends model_base
         $report = $_POST["report"];
         $this->db = Db::getInstance();
         if ($report == 1) {
-            $sQuery = "select report_style from CVC_viewer_backup where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
                   echo  file_put_contents("origin.txt", $sQuery, true);
         } else {
-            $sQuery = "select narrative from CVC_viewer_backup where gene = :gene and variant = :variant and cancer = :cancer";
+            $sQuery = "select narrative from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
             echo  file_put_contents("origin.txt", $sQuery, true);
 
         }
