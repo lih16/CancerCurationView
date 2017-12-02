@@ -214,7 +214,7 @@ function notifyNarrativeTable(flagMutation) {
 function addMutationList(tissue, gene) {
     $.ajax({
         type: 'POST',
-        url: 'getgenemutations',
+        url: 'getGeneMutations',
         dataType: 'text',
         data: {
             cancer: tissue,
