@@ -91,11 +91,11 @@ class Tumor_Model extends model_base
         //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
         if ($report == 1) {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin_report where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-            echo  file_put_contents("report.txt", $sQuery, true);
+          //  echo  file_put_contents("report.txt", $sQuery, true);
 
         } else {
             $sQuery = "select narrative from kb_CancerVariant_Curation.CVC_viewer_admin where gene = '" . $gene . "' and variant = '" . $variant . "'  and cancer = '" . $cancer . "'  order by date_admin desc limit 1";
-            echo  file_put_contents("report.txt", $sQuery, true);
+          //  echo  file_put_contents("report.txt", $sQuery, true);
 
         }
         //$stmt     = $this->db->prepare($sQuery);
@@ -128,10 +128,10 @@ class Tumor_Model extends model_base
             */
             if ($report == 1) {
                 $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
-                echo  file_put_contents("state.txt", $stmt, true);
+              //  echo  file_put_contents("state.txt", $stmt, true);
             } else {
                 $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
-                echo  file_put_contents("state.txt", $stmt, true);
+              //  echo  file_put_contents("state.txt", $stmt, true);
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
@@ -171,10 +171,10 @@ class Tumor_Model extends model_base
         $this->db = Db::getInstance();
         if ($report == 1) {
             $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-                  echo  file_put_contents("origin.txt", $sQuery, true);
+                //  echo  file_put_contents("origin.txt", $sQuery, true);
         } else {
             $sQuery = "select narrative from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
-            echo  file_put_contents("origin.txt", $sQuery, true);
+          //  echo  file_put_contents("origin.txt", $sQuery, true);
 
         }
 
