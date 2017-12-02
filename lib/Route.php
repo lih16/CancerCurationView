@@ -1,38 +1,26 @@
 <?php
-
 class Route
 {
-
     public static function start()
     {
-        // default controller and action
+        // defailt controller and actiom
         $controller_name = 'login';
         $action_name = 'login';
-
-
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-
             //This is an AJAX request, do AJAX specific stuff
         }
         $dir = $_SERVER['REQUEST_URI'];
-
         $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir;
-
         $curdir = str_replace("/Development/public", "", $dir);
-
         $routes = explode('/', $curdir);
-
         // get controller name
         if (!empty($routes[1])) {
             $controller_name = $routes[1];
         }
-
         // get name action
         if (!empty($routes[2])) {
             $action_name = $routes[2];
         }
-
-
         $model_name = 'model_' . $controller_name;
         $controller_name = 'controller_' . $controller_name;
         //$viewname='Controller_'.$controller_name;
@@ -40,16 +28,13 @@ class Route
         //echo $action_name;
         //echo "<br>";
         //echo $controller_name;
-
         // load file with model
-
         $model_file = strtolower($model_name) . '.php';
         //echo $model_file;
         $model_path = MODEL_PATH . $model_file;
         if (file_exists($model_path)) {
             include MODEL_PATH . $model_file;
         }
-
         // load file this controller class
         $controller_file = strtolower($controller_name) . '.php';
         //echo $controller_file;
@@ -61,11 +46,9 @@ class Route
             echo "error1";
             // Route::ErrorPage404();
         }
-
         // create controller
         $controller = new $controller_name;
         $action = $action_name;
-
         if (method_exists($controller, $action)) {
             // call action of controller
             $controller->$action();
@@ -75,7 +58,6 @@ class Route
             //Route::ErrorPage404();
         }
     }
-
     public function ErrorPage404()
     {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
