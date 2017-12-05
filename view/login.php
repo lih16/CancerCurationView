@@ -20,23 +20,23 @@
         <input type="password" name="password" id="password"  placeholder="Password" />
         <select name="role" id="role" placeholder="Reviewer">
 	<option value="2" selected>Pathologist/Editor</option>
-	<option value="1"  >Administrator</option>
-	
-	
-	</select> 
+	<option value="1"  >Administratar</option>
+
+
+	</select>
 	<input name="submit" type="submit" value="Login" />
 	</form>
-      </div> 
-    </div> 
-  </div> 
+      </div>
+    </div>
+  </div>
 </div>
     <script type="text/javascript" language="javascript" src="../../jquery/jquery-1.7.2.min.js"></script>
     <script>
-	
+
 	</script>
-    
-    
-    
-    
+
+
+
+
   </body>
 </html>

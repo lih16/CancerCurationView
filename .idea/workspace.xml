@@ -5,10 +5,7 @@
     <option name="CUSTOM_SCOPE_NAME" value="Current File" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f466e945-8251-475a-bd42-81eb5a347521" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascript/app.js" afterPath="$PROJECT_DIR$/public/javascript/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/select.php" afterPath="$PROJECT_DIR$/view/select.php" />
-    </list>
+    <list default="true" id="f466e945-8251-475a-bd42-81eb5a347521" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +33,8 @@
       <file leaf-file-name="select.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/select.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,14 +44,14 @@
         <entry file="file://$PROJECT_DIR$/public/javascript/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="473">
-              <caret line="349" column="7" lean-forward="true" selection-start-line="349" selection-start-column="7" selection-end-line="349" selection-end-column="7" />
+              <caret line="360" column="7" lean-forward="false" selection-start-line="360" selection-start-column="7" selection-end-line="360" selection-end-column="7" />
               <folding>
-                <marker date="1512132838577" expanded="true" signature="8912:8925" ph="..." />
-                <marker date="1512132838577" expanded="true" signature="9235:9245" ph="..." />
-                <marker date="1512132838577" expanded="true" signature="9853:9859" ph="..." />
-                <marker date="1512132838577" expanded="true" signature="14624:14630" ph="..." />
-                <marker date="1512132838577" expanded="true" signature="14852:14858" ph="..." />
-                <marker date="1512132838577" expanded="true" signature="19954:19960" ph="..." />
+                <marker date="1512219552751" expanded="true" signature="10206:10219" ph="..." />
+                <marker date="1512219552751" expanded="true" signature="10529:10539" ph="..." />
+                <marker date="1512219552751" expanded="true" signature="11147:11153" ph="..." />
+                <marker date="1512219552751" expanded="true" signature="15918:15924" ph="..." />
+                <marker date="1512219552751" expanded="true" signature="16146:16152" ph="..." />
+                <marker date="1512219552751" expanded="true" signature="21248:21254" ph="..." />
               </folding>
             </state>
           </provider>
@@ -196,12 +193,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511199478018</updated>
       <workItem from="1511199479899" duration="2793000" />
-      <workItem from="1511202600054" duration="7940000" />
+      <workItem from="1511202600054" duration="8085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10733000" />
+    <option name="totallyTimeSpent" value="10878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1686" y="32" width="1400" height="977" extended-state="0" />
@@ -243,27 +240,27 @@
         <state relative-caret-position="6420">
           <caret line="428" column="9" lean-forward="true" selection-start-line="428" selection-start-column="9" selection-end-line="429" selection-end-column="5" />
           <folding>
-            <marker date="1512056227984" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1512056227984" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1512056227984" expanded="true" signature="1892:1999" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1512056227984" expanded="true" signature="2825:3024" ph="select narra... CVC_viewer_admin_report" />
-            <marker date="1512056227984" expanded="true" signature="3067:3259" ph="select narra... CVC_viewer_admin" />
-            <marker date="1512056227984" expanded="true" signature="4132:4287" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1512056227984" expanded="true" signature="4356:4504" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1512056227984" expanded="true" signature="5756:5880" ph="select repor... CVC_viewer" />
-            <marker date="1512056227984" expanded="true" signature="5923:6044" ph="select narra... CVC_viewer" />
-            <marker date="1512056227984" expanded="true" signature="7147:7331" ph="INSERT INTO CVC_viewer_editor_report... " />
-            <marker date="1512056227984" expanded="true" signature="7392:7569" ph="INSERT INTO CVC_viewer_editor... " />
-            <marker date="1512056227984" expanded="true" signature="8843:9033" ph="select parag... CVC_viewer_editor_report" />
-            <marker date="1512056227984" expanded="true" signature="9113:9296" ph="select parag... CVC_viewer_editor" />
-            <marker date="1512056227984" expanded="true" signature="10073:10244" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="10292:10456" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="11348:11502" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1512056227984" expanded="true" signature="11571:11718" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1512056227984" expanded="true" signature="14048:14219" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="14267:14431" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="15364:15519" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1512056227984" expanded="true" signature="15588:15736" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1512417462332" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1512417462332" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1512417462332" expanded="true" signature="1892:1999" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1512417462332" expanded="true" signature="2825:3024" ph="select narra... CVC_viewer_admin_report" />
+            <marker date="1512417462332" expanded="true" signature="3067:3259" ph="select narra... CVC_viewer_admin" />
+            <marker date="1512417462332" expanded="true" signature="4132:4287" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1512417462332" expanded="true" signature="4356:4504" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1512417462332" expanded="true" signature="5756:5880" ph="select repor... CVC_viewer" />
+            <marker date="1512417462332" expanded="true" signature="5923:6044" ph="select narra... CVC_viewer" />
+            <marker date="1512417462332" expanded="true" signature="7517:7701" ph="INSERT INTO CVC_viewer_editor_report... " />
+            <marker date="1512417462332" expanded="true" signature="7762:7939" ph="INSERT INTO CVC_viewer_editor... " />
+            <marker date="1512417462332" expanded="true" signature="9213:9403" ph="select parag... CVC_viewer_editor_report" />
+            <marker date="1512417462332" expanded="true" signature="9483:9666" ph="select parag... CVC_viewer_editor" />
+            <marker date="1512417462332" expanded="true" signature="10443:10614" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="10662:10826" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="11718:11872" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1512417462332" expanded="true" signature="11941:12088" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1512417462332" expanded="true" signature="14418:14589" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="14637:14801" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="15734:15889" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1512417462332" expanded="true" signature="15958:16106" ph="INSERT INTO CVC_viewer_admin... " />
           </folding>
         </state>
       </provider>
@@ -320,27 +317,27 @@
         <state relative-caret-position="6420">
           <caret line="428" column="9" lean-forward="false" selection-start-line="428" selection-start-column="9" selection-end-line="429" selection-end-column="5" />
           <folding>
-            <marker date="1512056227984" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1512056227984" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1512056227984" expanded="true" signature="1892:1999" ph="select disti... CVC_cancer_gene_var" />
-            <marker date="1512056227984" expanded="true" signature="2825:3024" ph="select narra... CVC_viewer_admin_report" />
-            <marker date="1512056227984" expanded="true" signature="3067:3259" ph="select narra... CVC_viewer_admin" />
-            <marker date="1512056227984" expanded="true" signature="4132:4287" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1512056227984" expanded="true" signature="4356:4504" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1512056227984" expanded="true" signature="5756:5880" ph="select repor... CVC_viewer" />
-            <marker date="1512056227984" expanded="true" signature="5923:6044" ph="select narra... CVC_viewer" />
-            <marker date="1512056227984" expanded="true" signature="7147:7331" ph="INSERT INTO CVC_viewer_editor_report... " />
-            <marker date="1512056227984" expanded="true" signature="7392:7569" ph="INSERT INTO CVC_viewer_editor... " />
-            <marker date="1512056227984" expanded="true" signature="8843:9033" ph="select parag... CVC_viewer_editor_report" />
-            <marker date="1512056227984" expanded="true" signature="9113:9296" ph="select parag... CVC_viewer_editor" />
-            <marker date="1512056227984" expanded="true" signature="10073:10244" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="10292:10456" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="11348:11502" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1512056227984" expanded="true" signature="11571:11718" ph="INSERT INTO CVC_viewer_admin... " />
-            <marker date="1512056227984" expanded="true" signature="14048:14219" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="14267:14431" ph="UPDATE CVC_v... " />
-            <marker date="1512056227984" expanded="true" signature="15364:15519" ph="INSERT INTO CVC_viewer_admin_report... " />
-            <marker date="1512056227984" expanded="true" signature="15588:15736" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1512417462332" expanded="true" signature="333:406" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1512417462332" expanded="true" signature="943:1045" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1512417462332" expanded="true" signature="1892:1999" ph="select disti... CVC_cancer_gene_var" />
+            <marker date="1512417462332" expanded="true" signature="2825:3024" ph="select narra... CVC_viewer_admin_report" />
+            <marker date="1512417462332" expanded="true" signature="3067:3259" ph="select narra... CVC_viewer_admin" />
+            <marker date="1512417462332" expanded="true" signature="4132:4287" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1512417462332" expanded="true" signature="4356:4504" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1512417462332" expanded="true" signature="5756:5880" ph="select repor... CVC_viewer" />
+            <marker date="1512417462332" expanded="true" signature="5923:6044" ph="select narra... CVC_viewer" />
+            <marker date="1512417462332" expanded="true" signature="7517:7701" ph="INSERT INTO CVC_viewer_editor_report... " />
+            <marker date="1512417462332" expanded="true" signature="7762:7939" ph="INSERT INTO CVC_viewer_editor... " />
+            <marker date="1512417462332" expanded="true" signature="9213:9403" ph="select parag... CVC_viewer_editor_report" />
+            <marker date="1512417462332" expanded="true" signature="9483:9666" ph="select parag... CVC_viewer_editor" />
+            <marker date="1512417462332" expanded="true" signature="10443:10614" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="10662:10826" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="11718:11872" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1512417462332" expanded="true" signature="11941:12088" ph="INSERT INTO CVC_viewer_admin... " />
+            <marker date="1512417462332" expanded="true" signature="14418:14589" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="14637:14801" ph="UPDATE CVC_v... " />
+            <marker date="1512417462332" expanded="true" signature="15734:15889" ph="INSERT INTO CVC_viewer_admin_report... " />
+            <marker date="1512417462332" expanded="true" signature="15958:16106" ph="INSERT INTO CVC_viewer_admin... " />
           </folding>
         </state>
       </provider>
@@ -458,16 +455,16 @@
         <state relative-caret-position="495">
           <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <marker date="1511983880033" expanded="true" signature="18:2439" ph="{...}" />
-            <marker date="1511983880033" expanded="true" signature="547:2204" ph="{...}" />
-            <marker date="1511983880033" expanded="true" signature="675:727" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="790:838" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="1345:1400" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="1652:1717" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="1725:1835" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="1994:2080" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="2088:2197" ph="..." />
-            <marker date="1511983880033" expanded="true" signature="2240:2437" ph="{...}" />
+            <marker date="1512180383473" expanded="true" signature="2187:2421" ph="{...}" />
+            <marker date="1512180383473" expanded="true" signature="547:2204" ph="{...}" />
+            <marker date="1512180383473" expanded="true" signature="675:727" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="790:838" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="1345:1400" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="1652:1717" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="1725:1835" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="1994:2080" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="2088:2197" ph="..." />
+            <marker date="1512180383473" expanded="true" signature="2222:2419" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -547,8 +544,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/select.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="525">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -556,14 +553,14 @@
     <entry file="file://$PROJECT_DIR$/public/javascript/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
-          <caret line="349" column="7" lean-forward="true" selection-start-line="349" selection-start-column="7" selection-end-line="349" selection-end-column="7" />
+          <caret line="360" column="7" lean-forward="false" selection-start-line="360" selection-start-column="7" selection-end-line="360" selection-end-column="7" />
           <folding>
-            <marker date="1512132838577" expanded="true" signature="8912:8925" ph="..." />
-            <marker date="1512132838577" expanded="true" signature="9235:9245" ph="..." />
-            <marker date="1512132838577" expanded="true" signature="9853:9859" ph="..." />
-            <marker date="1512132838577" expanded="true" signature="14624:14630" ph="..." />
-            <marker date="1512132838577" expanded="true" signature="14852:14858" ph="..." />
-            <marker date="1512132838577" expanded="true" signature="19954:19960" ph="..." />
+            <marker date="1512219552751" expanded="true" signature="10206:10219" ph="..." />
+            <marker date="1512219552751" expanded="true" signature="10529:10539" ph="..." />
+            <marker date="1512219552751" expanded="true" signature="11147:11153" ph="..." />
+            <marker date="1512219552751" expanded="true" signature="15918:15924" ph="..." />
+            <marker date="1512219552751" expanded="true" signature="16146:16152" ph="..." />
+            <marker date="1512219552751" expanded="true" signature="21248:21254" ph="..." />
           </folding>
         </state>
       </provider>
