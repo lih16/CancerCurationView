@@ -11,7 +11,7 @@ class Route
         }
         $dir = $_SERVER['REQUEST_URI'];
         $dir = (strpos($dir, "?") !== false) ? substr($dir, 0, strpos($dir, "?")) : $dir;
-        $curdir = str_replace("/Development/public", "", $dir);
+        $curdir = str_replace("/CancerCurationView/public", "", $dir);
         $routes = explode('/', $curdir);
         // get controller name
         if (!empty($routes[1])) {
