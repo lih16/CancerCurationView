@@ -17,6 +17,7 @@
 </select>
 <br>
 <br>
+<<<<<<< HEAD
 <div id="narrativeKey" style="display:none;" >
   <table class="key" align="center" border=1>
     <style>
@@ -65,6 +66,9 @@
 
 <br>
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Narrative</button>
+=======
+<button class="searchbutton"  onclick="narrative(event,'ll','33','44',0);">Pre-Narrative</button>
+>>>>>>> master
 &nbsp;&nbsp;&nbsp;&nbsp;
 <button class="searchbutton"  onclick="narrative(event,'ll','33','44',1);">Report-Style Narrative</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
