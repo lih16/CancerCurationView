@@ -21,8 +21,6 @@
         <select name="role" id="role" placeholder="Reviewer">
 	<option value="2" selected>Pathologist/Editor</option>
 	<option value="1"  >Administrator</option>
-  <option value="3"  >Data Manager</option>
-
 
 	</select>
 	<input name="submit" type="submit" value="Login" />
