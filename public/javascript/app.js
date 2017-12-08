@@ -824,7 +824,9 @@ function showAnnotation() {
     gtissue = $("#tumorTypeselect option:selected").text();
 
     ggene = $("#geneselect option:selected").text();
-    gmutation = $("#mutationselect option:selected").text();
+    tmutation = $("#mutationselect option:selected").text();//11/29/17 modify so the mutation and flag number can be split
+    var mutationFlagArray = tmutation.split(' ');//splits mutation from flag
+    gmutation = mutationFlagArray[0];
     var url = "https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer=" + gtissue + "&gene=" + ggene + "&mutation=" + gmutation;
     window.open(url, 'window name', 'window settings')
     // window.location.href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
