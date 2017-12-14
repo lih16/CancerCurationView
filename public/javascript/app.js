@@ -263,7 +263,7 @@ function addMutationList(tissue, gene) {
             var celllineList = data1.split("\n");//this one we get all the mutation list
             $("#mutationselect").empty();// will render the select options
             var ddl = $("#mutationselect");
-         ddl.append("<option value='1'>Please select alteration</option>");
+            ddl.append("<option value='1'>Please select alteration</option>");
             for (k = 0; k < celllineList.length; k++)//loop through all mutations
             {
                 var mutation = notifyNarrativeTable(celllineList[k]);
@@ -272,9 +272,10 @@ function addMutationList(tissue, gene) {
 
           /*var groupselectHtml=constructGroupSelect(celllineList, "(?:p\.)[[a-zA-Z][1-9][0-9]*(?:[[a-zA-Z]|\_|\>|\*)");
             ddl.append(groupselectHtml);
-            return false;
+
 */
-        },
+            return false;
+},
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Parse error");
 
