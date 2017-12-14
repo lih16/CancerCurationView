@@ -204,45 +204,6 @@ function notifyNarrativeTable(flagMutation) {
     return result;
 }
 
-function constructHtml(groupObj) {
-    var constructHtml = "";
-    $.each(groupObj, function(group, mutations) constructHtml = constructHtml + "<optgroup label=\"" + group + "\">"; {
-
-        for (var i = 0; i < mutations.length; i++) {
-            constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + mutations[i];
-            constructHtml = constructHtml + "</option>";
-        }
-        constructHtml = constructHtml + " </optgroup>";
-    });
-return constructHtml;
-}
-
-function constructGroupSelect(mutationList, regularExp) {
-
-    var groupObj = {};
-
-    var regGroup = new RegExp(regularExp, 'g');
-    for (var i = 0; i < mutationList.length; i++) {
-        var convertSeparator = notifyNarrativeTable(mutationList[i]);
-        var matchGroup = regGroup.exec(convertSeparator[i]);
-
-        if (matchGroup != null) {
-            if (groupObj[matchGroup[1]] === undefined) {
-                groupObj[matchGroup[1]] = [];
-
-            }
-            groupObj[matchGroup[1]].push(mutationList[i];
-
-            }
-            else {
-                groupObj[mutationList[i]] = [mutationList[i]];
-            }
-
-        }
-        return constructHtml(groupObj);
-    }
-
 
 /*
 *11/29/17
@@ -280,7 +241,6 @@ function addMutationList(tissue, gene) {
     });
 
 }
-
 
 
 function addList() {
@@ -442,7 +402,6 @@ for (var i = 0; i < num_colors; i += 1) {
     h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
     s=1.0;//randomVal(30, 95);
     l=0.5;//randomVal(30, 80);
-
     var rgb=hslToRgb(h, s, l);
     var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
     alert(hex);
@@ -866,7 +825,7 @@ function showAnnotation() {
     ggene = $("#geneselect option:selected").text();
     tmutation = $("#mutationselect option:selected").text();//11/29/17 modify so the mutation and flag number can be split
     var mutationFlagArray = tmutation.split(' ');//splits mutation from flag
-    gmutation = mutationFlagArray[0];
+    gmutation = mutationFlagArray[0];// global variable
     var url = "https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer=" + gtissue + "&gene=" + ggene + "&mutation=" + gmutation;
     window.open(url, 'window name', 'window settings')
     // window.location.href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
