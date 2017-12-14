@@ -14,7 +14,6 @@
 <br>
 <select class="lselect" id="mutationselect">
   <option value="1" selected>Alterations</option>
-   <li class="divider"></li>
 </select>
 <br>
 <br>
