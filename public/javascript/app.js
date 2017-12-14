@@ -217,13 +217,13 @@ var constructHtml = "";
   });
   return constructHtml;
 }
-function constructGroupSelect(mutaionList,regularExp){
+function constructGroupSelect(mutationList,regularExp){
 
   var groupObj = {};
 
         var regGroup = new RegExp(reg, 'g');
-        for(var i=0;i<mutaionList.length;i++){
-          var convertSeprator=notifyNarrativeTable(flagMutation);
+        for(var i=0;i<mutationList.length;i++){
+          var convertSeprator=notifyNarrativeTable(celllineList[k]);
           var matchGroup = regGroup.exec(convertSeprator[i]);
 
           if (matchGroup != null) {
