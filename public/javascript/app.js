@@ -221,10 +221,10 @@ function constructGroupSelect(mutationList,regularExp){
 
   var groupObj = {};
 
-        var regGroup = new RegExp(reg, 'g');
+        var regGroup = new RegExp(regularExp, 'g');
         for(var i=0;i<mutationList.length;i++){
-          var convertSeprator=notifyNarrativeTable(celllineList[k]);
-          var matchGroup = regGroup.exec(convertSeprator[i]);
+          var convertSeparator=notifyNarrativeTable(mutationList[i]);
+          var matchGroup = regGroup.exec(convertSeparator[i]);
 
           if (matchGroup != null) {
               if (groupObj[matchGroup[1]] === undefined) {
@@ -278,7 +278,7 @@ function addMutationList(tissue, gene) {
                 if (mutation != "parse error")
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
             }*/
-            var groupselectHtml=constructGroupSelect(celllineList);
+            var groupselectHtml=constructGroupSelect(celllineList, "(?:p\.)[[a-zA-Z][1-9][0-9]*(?:[[a-zA-Z]|\_|\>|\*)");
             dl.append(groupselectHtml);
             return false;
 
