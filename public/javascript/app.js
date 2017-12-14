@@ -203,54 +203,46 @@ function notifyNarrativeTable(flagMutation) {
     result = mutation + " " + htmlflag;
     return result;
 }
-function constructHtml(groupObj){
-var constructHtml = "";
-  $.each(groupObj, function(group, mutations)
-      constructHtml = constructHtml + "<optgroup label=\"" + group + "\">";
 
-      for (var i = 0; i < mutations.length; i++) {
-          constructHtml = constructHtml + "<option>";
-          constructHtml = constructHtml + mutations[i];
-          constructHtml = constructHtml + "</option>";
-      }
-      constructHtml = constructHtml + " </optgroup>";
-  });
-  return constructHtml;
+function constructHtml(groupObj) {
+    var constructHtml = "";
+    $.each(groupObj, function(group, mutations) constructHtml = constructHtml + "<optgroup label=\"" + group + "\">"; {
+
+        for (var i = 0; i < mutations.length; i++) {
+            constructHtml = constructHtml + "<option>";
+            constructHtml = constructHtml + mutations[i];
+            constructHtml = constructHtml + "</option>";
+        }
+        constructHtml = constructHtml + " </optgroup>";
+    });
+return constructHtml;
 }
-function constructGroupSelect(mutationList,regularExp){
 
-  var groupObj = {};
+function constructGroupSelect(mutationList, regularExp) {
 
-        var regGroup = new RegExp(regularExp, 'g');
-        for(var i=0;i<mutationList.length;i++){
-          var convertSeparator=notifyNarrativeTable(mutationList[i]);
-          var matchGroup = regGroup.exec(convertSeparator[i]);
+    var groupObj = {};
 
-          if (matchGroup != null) {
-              if (groupObj[matchGroup[1]] === undefined) {
-                  groupObj[matchGroup[1]] = [];
+    var regGroup = new RegExp(regularExp, 'g');
+    for (var i = 0; i < mutationList.length; i++) {
+        var convertSeparator = notifyNarrativeTable(mutationList[i]);
+        var matchGroup = regGroup.exec(convertSeparator[i]);
 
+        if (matchGroup != null) {
+            if (groupObj[matchGroup[1]] === undefined) {
+                groupObj[matchGroup[1]] = [];
 
-              }
-              groupObj[matchGroup[1]].push(mutationList[i];
+            }
+            groupObj[matchGroup[1]].push(mutationList[i];
 
-          } else {
-              groupObj[mutationList[i]] = [mutationList[i]];
-          }
+            }
+            else {
+                groupObj[mutationList[i]] = [mutationList[i]];
+            }
 
         }
-      return  constructHtml(groupObj);
+        return constructHtml(groupObj);
+    }
 
-
-  }
-
-
-
-
-
-
-
-}
 
 /*
 *11/29/17
