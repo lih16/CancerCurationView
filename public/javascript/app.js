@@ -269,14 +269,10 @@ function addMutationList(tissue, gene) {
                 var mutation = notifyNarrativeTable(celllineList[k]);
                 if (mutation != "parse error")
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
-
-          /*var groupselectHtml=constructGroupSelect(celllineList, "(?:p\.)[[a-zA-Z][1-9][0-9]*(?:[[a-zA-Z]|\_|\>|\*)");
-            ddl.append(groupselectHtml);
-
-*/
-}
+            }
             return false;
-},
+
+        },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Parse error");
 
@@ -284,6 +280,7 @@ function addMutationList(tissue, gene) {
     });
 
 }
+
 
 
 function addList() {
