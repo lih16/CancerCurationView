@@ -203,7 +203,54 @@ function notifyNarrativeTable(flagMutation) {
     result = mutation + " " + htmlflag;
     return result;
 }
+function constructHtml(groupObj){
+var constructHtml = "";
+  $.each(groupObj, function(group, mutations)
+      constructHtml = constructHtml + "<optgroup label=\"" + group + "\">";
 
+      for (var i = 0; i < mutations.length; i++) {
+          constructHtml = constructHtml + "<option>";
+          constructHtml = constructHtml + mutations[i];
+          constructHtml = constructHtml + "</option>";
+      }
+      constructHtml = constructHtml + " </optgroup>";
+  });
+  return constructHtml;
+}
+function constructGroupSelect(mutaionList,regularExp){
+
+  var groupObj = {};
+
+        var regGroup = new RegExp(reg, 'g');
+        for(var i=0;i<mutaionList.length;i++){
+          var convertSeprator=notifyNarrativeTable(flagMutation);
+          var matchGroup = regGroup.exec(convertSeprator[i]);
+
+          if (matchGroup != null) {
+              if (groupObj[matchGroup[1]] === undefined) {
+                  groupObj[matchGroup[1]] = [];
+
+
+              }
+              groupObj[matchGroup[1]].push(mutation);
+
+          } else {
+              groupObj[mutation] = [mutation];
+          }
+
+        }
+      return  constructHtml(groupObj);
+
+
+  }
+
+
+
+
+
+
+
+}
 
 /*
 *11/29/17
@@ -224,13 +271,15 @@ function addMutationList(tissue, gene) {
             var celllineList = data1.split("\n");//this one we get all the mutation list
             $("#mutationselect").empty();// will render the select options
             var ddl = $("#mutationselect");
-            ddl.append("<option value='1'>Please select alteration</option>");
+          /*  ddl.append("<option value='1'>Please select alteration</option>");
             for (k = 0; k < celllineList.length; k++)//loop through all mutations
             {
                 var mutation = notifyNarrativeTable(celllineList[k]);
                 if (mutation != "parse error")
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
-            }
+            }*/
+            var groupselectHtml=constructGroupSelect(celllineList);
+            dl.append(groupselectHtml);
             return false;
 
         },

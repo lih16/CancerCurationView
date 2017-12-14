@@ -1153,6 +1153,13 @@ thead th {
 .dropdown dd ul li a:hover {
   background-color: #fff;
 }
+/*Added drop down divider functuin -OSMAN 12/12/7*/
+.dropdown .divider {
+  border-top: solid 1px #1a1a1a;
+  clear: both;
+  height: 1px;
+  width: 100%;
+}
 
 fieldset.group {
   margin: 0;
