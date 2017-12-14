@@ -1,3 +1,3 @@
 <?php
 
-use Lib\model_base;
+use Lib\model_base; ?>
