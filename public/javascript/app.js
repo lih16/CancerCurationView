@@ -232,10 +232,10 @@ function constructGroupSelect(mutationList,regularExp){
 
 
               }
-              groupObj[matchGroup[1]].push(mutation);
+              groupObj[matchGroup[1]].push(mutationList[i];
 
           } else {
-              groupObj[mutation] = [mutation];
+              groupObj[mutationList[i]] = [mutationList[i]];
           }
 
         }
