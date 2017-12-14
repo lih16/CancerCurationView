@@ -271,7 +271,7 @@ function addMutationList(tissue, gene) {
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
             }*/
             var groupselectHtml=constructGroupSelect(celllineList, "(?:p\.)[[a-zA-Z][1-9][0-9]*(?:[[a-zA-Z]|\_|\>|\*)");
-            dl.append(groupselectHtml);
+            ddl.append(groupselectHtml);
             return false;
 
         },
