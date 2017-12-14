@@ -274,6 +274,7 @@ function addMutationList(tissue, gene) {
             ddl.append(groupselectHtml);
 
 */
+}
             return false;
 },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
