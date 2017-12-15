@@ -217,32 +217,32 @@ function constructHtml(groupObj) {
     });
 return constructHtml;
 }
-
-function constructGroupSelect(mutationList, regularExp) {
-
-    var groupObj = {};
-
-    var regGroup = new RegExp(regularExp, 'g');
-    for (var i = 0; i < mutationList.length; i++) {
-        var convertSeparator = notifyNarrativeTable(mutationList[i]);
-        var matchGroup = regGroup.exec(convertSeparator[i]);
-
-        if (matchGroup !== null) {
-            if (groupObj[matchGroup[1]] === undefined) {
-                groupObj[matchGroup[1]] = [];
+function getGroups(alterations, regularEXP){
+var groupObj = {};
+  var regGroup = new RegExp(regularEXP, 'i');
+for(var i=0; i < alterations.length;i++) {
+   var result2 =regGroup.exec(alterations[i]);
+       if (result2 !== null) {
+            if (groupObj[result2[1]] === undefined) {
+                groupObj[result2[1]] = [];
 
             }
-          groupObj[matchGroup[1]].push(mutationList[i]);
+            groupObj[result2[1]].push(alterations[i]);
+            console.log(alterations[i]);
 
-            }
-            else {
-                groupObj[mutationList[i]] = [mutationList[i]];
-            }
+       }
+       else {
+            groupObj[alterations[i]] = [alterations[i]];
+       }
 
-        }
-        return constructHtml(groupObj);
+
     }
 
+
+    console.log(constructHtml(groupObj));
+  return constructHtml(groupObj);
+
+}
 
 
 
@@ -276,7 +276,7 @@ function addMutationList(tissue, gene) {
                 if (mutation != "parse error")
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
                     */
-                    var groupselectHtml=constructGroupSelect(celllineList,"(?:p\.)[[a-zA-Z][1-9][0-9]*(?:[[a-zA-Z]|\_|\>|\*)");
+                    var groupselectHtml=getGroups(mutations,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
                     ddl.append(groupselectHtml);
             }
             return false;
