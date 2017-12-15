@@ -206,11 +206,13 @@ function notifyNarrativeTable(flagMutation) {
 function constructHtml(groupObj) {
     var constructHtml = "";
   $.each(groupObj, function(group, mutations) {
+
     constructHtml = constructHtml + "<optgroup label=\"" + group + "\">";
 
         for (var i = 0; i < mutations.length; i++) {
+            var mutations_w = notifyNarrativeTable(mutations[i]);
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + mutations[i];
+            constructHtml = constructHtml + mutations_w[i];
             constructHtml = constructHtml + "</option>";
         }
         constructHtml = constructHtml + " </optgroup>";
@@ -221,19 +223,19 @@ function getGroups(alterations, regularEXP){
 var groupObj = {};
   var regGroup = new RegExp(regularEXP, 'i');
 for(var i=0; i < alterations.length;i++) {
-   var separated= notifyNarrativeTable(alterations[i]);
-   var result2 =regGroup.exec(separated[i]);
+   //var separated= notifyNarrativeTable(alterations[i]);
+   var result2 =regGroup.exec(alterations[i]);
        if (result2 !== null) {
             if (groupObj[result2[1]] === undefined) {
                 groupObj[result2[1]] = [];
 
             }
-            groupObj[result2[1]].push(separated[i]);
+            groupObj[result2[1]].push(alterations[i]);
             console.log(alterations[i]);
 
        }
        else {
-            groupObj[separated[i]] = [separated[i]];
+            groupObj[alterations[i]] = [alterations[i]];
        }
 
 
