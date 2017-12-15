@@ -225,6 +225,7 @@ var groupObj = {};
 for(var i=0; i < alterations.length;i++) {
    //var separated= notifyNarrativeTable(alterations[i]);
    var result2 =regGroup.exec(alterations[i]);
+   if (alterations[i] != "parse error"){
        if (result2 !== null) {
             if (groupObj[result2[1]] === undefined) {
                 groupObj[result2[1]] = [];
@@ -241,7 +242,7 @@ for(var i=0; i < alterations.length;i++) {
 
     }
 
-
+}
     console.log(constructHtml(groupObj));
   return constructHtml(groupObj);
 
