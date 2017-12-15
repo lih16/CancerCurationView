@@ -222,7 +222,7 @@ var groupObj = {};
   var regGroup = new RegExp(regularEXP, 'i');
 for(var i=0; i < alterations.length;i++) {
    var separated= notifyNarrativeTable(alterations[i]);
-   var result2 =regGroup.exec(alterations[i]);
+   var result2 =regGroup.exec(separated[i]);
        if (result2 !== null) {
             if (groupObj[result2[1]] === undefined) {
                 groupObj[result2[1]] = [];
