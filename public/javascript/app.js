@@ -276,9 +276,9 @@ function addMutationList(tissue, gene) {
                 if (mutation != "parse error")
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
                     */
-                    var groupselectHtml=getGroups(mutations,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
+                    var groupselectHtml=getGroups(celllineList,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
                     ddl.append(groupselectHtml);
-            }
+
             return false;
 
         },
