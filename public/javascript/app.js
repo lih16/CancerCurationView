@@ -211,7 +211,7 @@ function constructHtml(groupObj) {
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
-             if (alterations[i] == "parse error"){
+             if (alterations[i] != "parse error"){
                continue;
              }
             constructHtml = constructHtml + "<option>";
