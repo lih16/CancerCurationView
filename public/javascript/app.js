@@ -220,8 +220,7 @@ return constructHtml;
 function getGroups(alterations, regularEXP){
 var groupObj = {};
   var regGroup = new RegExp(regularEXP, 'i');
-for(var i=0; i < alterations.length;i++)
-  // var separator=notifyNarrativeTable(alterations[i]);
+for(var i=0; i < alterations.length;i++) {
    var result2 =regGroup.exec(alterations[i]);
        if (result2 !== null) {
             if (groupObj[result2[1]] === undefined) {
