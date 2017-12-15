@@ -212,7 +212,7 @@ function constructHtml(groupObj) {
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + mutations_w[i];
+            constructHtml = constructHtml + mutations_w;
             constructHtml = constructHtml + "</option>";
         }
         constructHtml = constructHtml + " </optgroup>";
