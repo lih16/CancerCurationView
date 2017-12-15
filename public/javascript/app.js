@@ -221,7 +221,7 @@ function getGroups(alterations, regularEXP){
 var groupObj = {};
   var regGroup = new RegExp(regularEXP, 'i');
 for(var i=0; i < alterations.length;i++)
-   var separator=notifyNarrativeTable(alterations);
+   var separator=notifyNarrativeTable(alterations[i]);
    var result2 =regGroup.exec(separator[i]);
        if (result2 !== null) {
             if (groupObj[result2[1]] === undefined) {
