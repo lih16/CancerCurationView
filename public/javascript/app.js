@@ -213,8 +213,7 @@ function constructHtml(groupObj) {
     var constructHtml = "";
     $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<option disabled style=\"-webkit-color:red;\">";
-        constructHtml = constructHtml + "test </option>";
+        constructHtml = constructHtml + "<optgroup id=\"groupselect\" style=\"color:red;\" label=\"" + group + "\">";
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
@@ -222,9 +221,10 @@ function constructHtml(groupObj) {
                 continue;
             }
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + "&nbsp;&nbsp;&nbsp;&nbsp;" + mutations_w;
+            constructHtml = constructHtml + mutations_w;
             constructHtml = constructHtml + "</option>";
         }
+        constructHtml = constructHtml + " </optgroup>";
     });
     return constructHtml;
 }
@@ -251,7 +251,6 @@ function getGroups(alterations, regularEXP) {
         }
 
     }
-    console.log(constructHtml(groupObj));
     return constructHtml(groupObj);
 
 }
@@ -282,7 +281,7 @@ function addMutationList(tissue, gene) {
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
                     */
                     var groupselectHtml=getGroups(celllineList,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
-                    ddl.append(groupselectHtml);
+                    ddl.append(groupselectHtml);$("#groupselect").selectmenu();
 
             return false;
 
