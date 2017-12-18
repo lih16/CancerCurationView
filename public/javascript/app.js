@@ -213,7 +213,7 @@ function constructHtml(groupObj) {
     var constructHtml = "";
     $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<option disabled style=\"color:red;\">";
+        constructHtml = constructHtml + "<option disabled style=\"-webkit-color:red;\">";
         constructHtml = constructHtml + "test </option>";
 
         for (var i = 0; i < mutations.length; i++) {
