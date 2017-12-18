@@ -208,11 +208,12 @@ function notifyNarrativeTable(flagMutation) {
 *12/15/17
 * function to generate html for optgroups
 */
+
 function constructHtml(groupObj) {
     var constructHtml = "";
     $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<optgroup style=\"color:red;\" label=\"" + group + "\">";
+        constructHtml = constructHtml + "<option disabled style=\"color:red;\" label=\"" + group + "\">";
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
@@ -220,7 +221,7 @@ function constructHtml(groupObj) {
                 continue;
             }
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + mutations_w;
+            constructHtml = constructHtml + &nbsp;&nbsp;&nbsp;&nbsp; mutations_w;
             constructHtml = constructHtml + "</option>";
         }
         constructHtml = constructHtml + " </optgroup>";
