@@ -221,7 +221,7 @@ function constructHtml(groupObj) {
                 continue;
             }
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + &nbsp;&nbsp;&nbsp;&nbsp; mutations_w;
+            constructHtml = constructHtml + "&nbsp;&nbsp;&nbsp;&nbsp;" + mutations_w;
             constructHtml = constructHtml + "</option>";
         }
         constructHtml = constructHtml + " </optgroup>";
