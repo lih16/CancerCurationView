@@ -1200,10 +1200,15 @@ ul.checkbox li:hover, ul.checkbox li.focus {
   -webkit-appearance: textarea;
   border: 3px solid green;
 }
-select optgroup{
-    background:#000;
-    color:#fff;
-    font-style:normal;
-    font-weight:normal;
-    }
+optgroup[label]{
+  margin: 1em;
+  background-color:fff;
+  color:blue;
+  border: 1px solid green;
+}
+optgroup option{
+  margin: 1em;
+  border: 1px solid orange;
+  color:black;
+}
 </style>
