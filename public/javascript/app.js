@@ -213,7 +213,7 @@ function constructHtml(groupObj) {
     var constructHtml = "";
     $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<optgroup id=\"groupselect\" style=\"color:red;\" label=\"" + group + "\">";
+        constructHtml = constructHtml + "<optgroup   label=\"" + group + "\">";
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
@@ -281,7 +281,8 @@ function addMutationList(tissue, gene) {
                     ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
                     */
                     var groupselectHtml=getGroups(celllineList,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
-                    ddl.append(groupselectHtml);$("#groupselect").selectmenu();
+                    ddl.append(groupselectHtml);
+                    ddl.selectmenu();
 
             return false;
 
