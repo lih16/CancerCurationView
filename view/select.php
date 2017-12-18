@@ -34,6 +34,17 @@
       padding: 10px;
       margin: auto;
       }
+      optgroup[label]{
+  margin: 1em;
+  background-color:fff;
+  color:blue;
+  border: 1px solid green;
+}
+optgroup option{
+  margin: 1em;
+  border: 1px solid orange;
+  color:black;
+}
     </style>
     <thead>
       <tr>
