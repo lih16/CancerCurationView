@@ -208,50 +208,50 @@ function notifyNarrativeTable(flagMutation) {
 *12/15/17
 * function to generate html for optgroups
 */
-
 function constructHtml(groupObj) {
     var constructHtml = "";
-    $.each(groupObj, function(group, mutations) {
+  $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<option>";
-        constructHtml = constructHtml + group + "</option>";
+    constructHtml = constructHtml + "<optgroup label=\"" + group + "\">";
+
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
-            if (mutations_w == "parse error") {
-                continue;
-            }
+             if (mutations_w == "parse error"){
+               continue;
+             }
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + "&nbsp;&nbsp;&nbsp;&nbsp;" + mutations_w;
+            constructHtml = constructHtml + mutations_w;
             constructHtml = constructHtml + "</option>";
         }
-
+        constructHtml = constructHtml + " </optgroup>";
     });
-    return constructHtml;
+return constructHtml;
 }
 /*
- *12/15/17
- * function to generate html for optgroups
- */
-function getGroups(alterations, regularEXP) {
-    var groupObj = {};
-    var regGroup = new RegExp(regularEXP, 'i');
-    for (var i = 0; i < alterations.length; i++) {
-        //var separated= notifyNarrativeTable(alterations[i]);
-        var result2 = regGroup.exec(alterations[i]);
+*12/15/17
+* function to generate html for optgroups
+*/
+function getGroups(alterations, regularEXP){
+var groupObj = {};
+  var regGroup = new RegExp(regularEXP, 'i');
+for(var i=0; i < alterations.length;i++) {
+   //var separated= notifyNarrativeTable(alterations[i]);
+   var result2 =regGroup.exec(alterations[i]);
 
-        if (result2 !== null) {
+       if (result2 !== null) {
             if (groupObj[result2[1]] === undefined) {
                 groupObj[result2[1]] = [];
 
             }
             groupObj[result2[1]].push(alterations[i]);
             console.log(alterations[i]);
-        } else {
+       }
+       else {
             groupObj[alterations[i]] = [alterations[i]];
-        }
+       }
 
-    }
-    return constructHtml(groupObj);
+}
+  return constructHtml(groupObj);
 
 }
 /*
