@@ -213,18 +213,18 @@ function constructHtml(groupObj) {
     var constructHtml = "";
     $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<optgroup   label=\"" + group + "\">";
-
+        constructHtml = constructHtml + "<option>";
+        constructHtml = constructHtml + group + "</option>";
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
             if (mutations_w == "parse error") {
                 continue;
             }
             constructHtml = constructHtml + "<option>";
-            constructHtml = constructHtml + mutations_w;
+            constructHtml = constructHtml + "&nbsp;&nbsp;&nbsp;&nbsp;" + mutations_w;
             constructHtml = constructHtml + "</option>";
         }
-        constructHtml = constructHtml + " </optgroup>";
+
     });
     return constructHtml;
 }
@@ -282,7 +282,6 @@ function addMutationList(tissue, gene) {
                     */
                     var groupselectHtml=getGroups(celllineList,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
                     ddl.append(groupselectHtml);
-                    ddl.selectmenu();
 
             return false;
 
