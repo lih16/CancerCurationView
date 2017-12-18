@@ -213,7 +213,8 @@ function constructHtml(groupObj) {
     var constructHtml = "";
     $.each(groupObj, function(group, mutations) {
 
-        constructHtml = constructHtml + "<option disabled style=\"color:red;\" label=\"" + group + "\">";
+        constructHtml = constructHtml + "<option disabled style=\"color:red;\">";
+        constructHtml = constructHtml + "test </option>";
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
@@ -224,7 +225,6 @@ function constructHtml(groupObj) {
             constructHtml = constructHtml + "&nbsp;&nbsp;&nbsp;&nbsp;" + mutations_w;
             constructHtml = constructHtml + "</option>";
         }
-        constructHtml = constructHtml + " </optgroup>";
     });
     return constructHtml;
 }
