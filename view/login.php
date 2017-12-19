@@ -26,7 +26,7 @@
 
 	</select>
 	<input name="submit" type="submit" value="Login" />
-  <button>Create a New Account</button>
+  <button onclick="register(this,event);return false;">Create a New Account</button>
 
 	</form>
       </div>
@@ -34,11 +34,6 @@
   </div>
 </div>
     <script type="text/javascript" language="javascript" src="../../jquery/jquery-1.7.2.min.js"></script>
-    <script>
-
-	</script>
-
-
-
+    <script src="<?php echo JS_PATH;?>/register.js" type="text/javascript" language="javascript" ></script>
   </body>
 </html>
