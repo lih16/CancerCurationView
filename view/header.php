@@ -77,3 +77,4 @@ function logout(){
 }
 </script>
 <script src="<?php echo JS_PATH;?>/app.js" type="text/javascript" language="javascript" ></script>
+<script src="<?php echo JS_PATH;?>/register.js" type="text/javascript" language="javascript" ></script>
