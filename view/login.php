@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cancer Curation Viewer</title>
+<title>Cancer Alteration Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet" type="text/css">
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
@@ -9,7 +9,7 @@
 
   <body>
 
-    <h1>Sign In the Cancer Varint Curator</h1>
+    <h1>Sign In the Cancer Alteration Viewer</h1>
 
 <div >
   <div >
@@ -35,7 +35,7 @@
     <script>
 
 	</script>
-
+<p>Please register here if you need new account<a href="../register/register"> Here </a></p>
 
 
 
