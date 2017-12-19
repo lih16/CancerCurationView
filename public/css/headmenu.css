@@ -526,7 +526,14 @@ Chrome,Safari4+ */
   position: relative;
 }
 
-.homebox form div.formelements input,button{
+.homebox form div.formelements input{
+  width: 90%;
+  margin-bottom: 20px;
+  font-family: inherit;
+  font: 13px/1 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+
+.homebox form div.formelements button{
   width: 90%;
   margin-bottom: 20px;
   font-family: inherit;
