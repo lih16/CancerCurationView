@@ -12,7 +12,6 @@ class controller_login extends Controller_base
    *  @param  $model Designate a place to hold class dependencies
    */
     public $model;
-
     public function __construct()
     {
       /**

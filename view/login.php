@@ -4,6 +4,8 @@
 <title>Cancer Alteration Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet" type="text/css">
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+ <script src="<?php echo JS_PATH;?>/register.js" type="text/javascript" language="javascript" ></script>
+
 </head>
 
 
@@ -34,6 +36,5 @@
   </div>
 </div>
     <script type="text/javascript" language="javascript" src="../../jquery/jquery-1.7.2.min.js"></script>
-    <script src="<?php echo JS_PATH;?>/register.js" type="text/javascript" language="javascript" ></script>
   </body>
 </html>
