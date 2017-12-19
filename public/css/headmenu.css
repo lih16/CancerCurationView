@@ -526,7 +526,7 @@ Chrome,Safari4+ */
   position: relative;
 }
 
-.homebox form div.formelements input {
+.homebox form div.formelements input,button{
   width: 90%;
   margin-bottom: 20px;
   font-family: inherit;
