@@ -26,8 +26,7 @@
 
 	</select>
 	<input name="submit" type="submit" value="Login" />
-  <span style="cursor: pointer;  border-bottom: 1px dotted #9c0;   font-style: normal;   font-family: Georgia, Constantia,border: 2px solid;  padding: .6rem .9rem .6rem .9rem; font-weight: 400;
-   transform: uppercase;   decoration: none; background-color: #d3d3d3  ;    border-color:#D1E751;"> <a href="../register/register"> Create a New Account</a></span>
+  <span style="cursor: pointer;  border-bottom: 1px dotted #9c0;   font-style: normal;   font-family: Georgia, Constantia,border: 2px solid;  padding: .6rem .9rem .6rem .9rem; font-weight: 400; transform: uppercase;   decoration: none; background-color: #d3d3d3  ;    border-color:#D1E751;"> <a href="../register/register"> Create a New Account</a> </span>
 
 	</form>
       </div>
