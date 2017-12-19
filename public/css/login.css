@@ -146,7 +146,7 @@ button,input[type="submit"] {
   cursor: pointer;
   color: #fff;
   border: 0px;
-  margin: 15px;
+  margin: 15px auto;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
