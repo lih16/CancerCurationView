@@ -26,6 +26,8 @@
 
 	</select>
 	<input name="submit" type="submit" value="Login" />
+  <span>Please register here if you need new account<a href="../register/register"> Here </a></span>
+
 	</form>
       </div>
     </div>
@@ -35,7 +37,6 @@
     <script>
 
 	</script>
-<p>Please register here if you need new account<a href="../register/register"> Here </a></p>
 
 
 
