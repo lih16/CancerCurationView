@@ -1,4 +1,4 @@
-button,input[type="submit"] {
+button[type="submit"] {
   display: block;
   background: #1abc9d;
   width: 314px;
