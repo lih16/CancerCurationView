@@ -153,6 +153,21 @@ input[type="submit"] {
   font-size: 17px;
   transition: all 0.3s ease;
 }
+button[type="submit"] {
+  display: block;
+  background: #839192;
+  padding: 12px;
+  width: 314px;
+  cursor: pointer;
+  color: #fff;
+  border: 0px;
+  margin: 15px auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+}
 
 input[type="submit"]:hover {
   background: linear-gradient(#839192  5%, #4D5656    100%);
