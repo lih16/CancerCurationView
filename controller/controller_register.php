@@ -31,5 +31,19 @@ class controller_register extends Controller_base
     */
             include VIEW_PATH . 'register.php';
     }
+    public function action_submit()
+      {
+        /**
+         * Set the dependency in a class property, so it's easily accessible for later use of class methods.
+          *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
+         */
+          $reslt = $this->model->getlogin(); //
+          if ($reslt == 'login') {
+              header("location: ../home/browse");
+          } else {
+              include VIEW_PATH . 'login.php';
+          }
+
+    }
 
 }
