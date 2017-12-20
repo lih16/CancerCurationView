@@ -1,8 +1,8 @@
 button[type="submit"] {
   display: block;
   background: #1abc9d;
-  width: 314px;
   padding: 12px;
+  width: 314px;
   cursor: pointer;
   color: #fff;
   border: 0px;
