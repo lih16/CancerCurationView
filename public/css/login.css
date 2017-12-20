@@ -138,9 +138,9 @@ input[type="text"]:focus {
   border: 2px solid #1abc9d
 }
 
-input,button[type="submit"] {
+button,input[type="submit"] {
   display: block;
-  background: #839192;
+  background: #839192 ;
   width: 314px;
   padding: 12px;
   cursor: pointer;
