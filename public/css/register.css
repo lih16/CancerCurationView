@@ -8,7 +8,7 @@
     margin: 30px auto;
   }
 
-  div.container {
+  .container {
     /*width: 960px;
     height: 610px;
     display: flex;
@@ -19,7 +19,7 @@
     position: relative;
   }
 
-  div.main {
+  .main {
     width: 320px;
   /*  float: center;*/
     padding: 10px 55px 40px;
@@ -52,7 +52,7 @@
     font-weight: bold;
   }
 
-  #register {
+  button[type="submit"] {
     font-size: 20px;
     margin-top: 15px;
     background: #839192;
@@ -66,6 +66,6 @@
     width: 100%;
   }
 
-  #register:hover {
+  button[type="submit"]hover {
     background: linear-gradient(#839192  5%, #4D5656    100%);
   }
