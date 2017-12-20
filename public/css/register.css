@@ -1,6 +1,3 @@
-<style>
-  /* Below line is used for online Google font */
-
   @import url(//fonts.googleapis.com/css?family=Droid+Serif);
   h2 {
     text-align: center;
@@ -72,4 +69,3 @@
   #register:hover {
     background: linear-gradient(#839192  5%, #4D5656    100%);
   }
-</style>
