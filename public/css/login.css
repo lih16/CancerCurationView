@@ -153,6 +153,7 @@ input[type="submit"] {
   font-size: 17px;
   transition: all 0.3s ease;
 }
+
 button[type="submit"] {
   display: block;
   background: #839192;
