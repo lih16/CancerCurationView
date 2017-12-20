@@ -107,7 +107,7 @@ input[type="text"] {
   width: 309px;
   height: 35px;
   margin: 15px auto;
-  background: #FEFDEA;
+  background: #fff;
   border: 0px;
   padding: 5px;
   font-size: 16px;
@@ -123,7 +123,7 @@ input[type="password"] {
   width: 309px;
   height: 35px;
   margin: 15px auto;
-  background: #FEFDEA;
+  background: #fff;
   border: 0px;
   padding: 5px;
   font-size: 16px;

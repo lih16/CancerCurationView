@@ -3,12 +3,47 @@
 use Lib\model_base;
 
 class Login_Model extends model_base
-{  public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
+{
+  public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
   {
       parent::__construct(null, null, null);
   }
+  public function adduser($username,$pass,$verifynumber){
+      //copy v$report = $_POST["report"];
+      $this->db = Db::getInstance();
+      if ($report == 1) {
+          $stmt = $this->db->prepare("INSERT INTO CVC_User (UID, Name,Email,1,Password) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
+      } else {
+          $stmt = $this->db->prepare("INSERT INTO CVC_User (cancer, gene,varaint,1,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
+      }
+      $stmt->bindParam(':UID', $email);
+      $stmt->bindParam(':Name', $name);
+      $stmt->bindParam(':Email', $email);
+      $stmt->bindParam(':Role', 1);
+      $stmt->bindParam(':Password', $password);
 
-  public function getlogin()
+      $cancer = $_POST["cancer"];
+      $gene = $_POST["gene"];
+      $mutation = $_POST["mutation"];
+      $pid = $_POST["pid"];
+      $uid = $_POST["uid"];
+
+      $comment = $_POST["comment"];
+      $version_name = $_POST["version"];
+      $date_edit = date('Y-m-d H:i:s');
+      try {
+          $stmt->execute();
+          return 2;
+      } catch (PDOException $e) {
+          //write_log($e->getMessage());
+          echo $e->getMessage();
+          reurt $e->getMessage();
+      }
+
+  }
+
+
+  public function getRegister()
   {
       session_start(); // Starting Session
 
@@ -36,17 +71,14 @@ class Login_Model extends model_base
               $num_rows = count($rows);
 
               if ($num_rows == 1) {
-                  //$_SESSION['login_user']=$username; // Initializing Session
-                  $_SESSION['uname'] = $rows[0][0];
 
-                  $_SESSION['username'] = $user;
-                  $_SESSION['role'] = $role;
                   // header("location: profile.php"); // Redirecting To Other Page
-                  return 'login';
+                  return '1';//indicated that user alreaday exist;
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                  return 'invalid user';
+                    return dduser($username,$pass,$verifynumber)
+                  // successfully add uesr
                   //$error = "Username or Password is invalid";
               }
               //mysql_close($connection); // Closing Connection
