@@ -155,7 +155,7 @@ button,input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #09cca6
+  background: linear-gradient(#839192  5%, #4D5656    100%);
 }
 
 select {
