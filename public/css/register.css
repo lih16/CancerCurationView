@@ -46,7 +46,7 @@
   }
 
   label {
-    color: ##BFC9CA;
+    color: #BFC9CA;
     /*text-shadow: 0 1px 0 #fff; */
     font-size: 14px;
     font-weight: bold;
@@ -55,11 +55,11 @@
   #register {
     font-size: 20px;
     margin-top: 15px;
-    background: #839192    ;
+    background: #839192;
     border: 1px;
     padding: 7px 35px;
     color: white;
-    text-shadow: 0px 1px 0px #13506D;
+    text-shadow:  1px  #13506D;
     font-weight: bold;
     border-radius: 2px;
     cursor: pointer;
