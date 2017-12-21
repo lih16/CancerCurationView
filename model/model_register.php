@@ -71,7 +71,7 @@ class Register_Model extends model_base
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return adduser($user,$pass,$name);
+                    return adduser($user,$pass,$user);
                   }
                   // successfully add uesr
                   //$error = "Username or Password is invalid";
