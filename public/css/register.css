@@ -1,3 +1,10 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #fff;
+  /* #0d5e4e*/
+
+}
 h2 {
   font-size: 24px;
   text-align: center;
