@@ -20,7 +20,7 @@ class controller_register extends Controller_base
        * @param $this means "this instance of class A"
         * $this->model means "this instance of class Login_Model $model property
        */
-      //  $this->model = new Register_Model();
+       $this->model = new Register_Model();
     }
 
     public function action_register()

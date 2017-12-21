@@ -16,13 +16,13 @@ class Register_Model extends model_base
       $stmt = $this->db->prepare("INSERT INTO CVC_User (UID, Name,Email,Role,Password) VALUES (:UID, :Name,:Email,:Role,:Password)");
 
       $stmt->bindParam(':UID', $email);
-      $stmt->bindParam(':Name', $name);
+      $stmt->bindParam(':Name', $uname);
       $stmt->bindParam(':Email', $email);
       $stmt->bindParam(':Role', $role);
       $stmt->bindParam(':Password', $password);
 
       $email = $username;
-      $name = $_POST["name"];
+      $uname = $_POST["name"];
       $role = 2;
       $password = $pass;
 
@@ -34,13 +34,10 @@ class Register_Model extends model_base
           echo $e->getMessage();
           return $e->getMessage();
       }
-
-
-
 }
   public function getRegister()
   {
-      session_start(); // Starting Session
+      //session_start(); // Starting Session
 
       $error = ''; // Variable To Store Error Message
     //  if (isset($_POST['submit'])) {
@@ -79,7 +76,7 @@ class Register_Model extends model_base
               //mysql_close($connection); // Closing Connection */
               $user = $_POST['email'];
               $pass = $_POST['password'];//
-              return adduser($user,$pass,$user);
+              return adduser($user,$pass,"joe");
 
       }
 
