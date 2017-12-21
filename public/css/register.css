@@ -53,6 +53,7 @@ label {
 
 button[type="submit"] {
   border: 1px;
+  display: block;
   font-size: 20px;
   margin-top: 15px;
   background: #839192;
