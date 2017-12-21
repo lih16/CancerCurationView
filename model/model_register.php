@@ -43,9 +43,9 @@ class Register_Model extends model_base
       session_start(); // Starting Session
 
       $error = ''; // Variable To Store Error Message
-      if (isset($_POST['submit'])) {
-          $this->db = Db::getInstance();
-          if (empty($_POST['name']) || empty($_POST['password'])) {
+    //  if (isset($_POST['submit'])) {
+        //  $this->db = Db::getInstance();
+        /*  if (empty($_POST['name']) || empty($_POST['password'])) {
               //$error = "Username or Password is invalid";
               return 'invalid user';
           } else {
@@ -63,8 +63,8 @@ class Register_Model extends model_base
               }
               $rows = $stmt->fetchAll();
               $num_rows = count($rows);
-
-              if ($num_rows == 1) {
+*/
+            /*if ($num_rows == 1) {
 
                   // header("location: profile.php"); // Redirecting To Other Page
                   return '1';//indicated that user alreaday exist;
@@ -76,10 +76,13 @@ class Register_Model extends model_base
                   // successfully add uesr
                   //$error = "Username or Password is invalid";
 
-              //mysql_close($connection); // Closing Connection
-          }
+              //mysql_close($connection); // Closing Connection */
+              $user = $_POST['email'];
+              $pass = $_POST['password'];//
+              return adduser($user,$pass,$user);
+
       }
 
 }
-}
+
 ?>
