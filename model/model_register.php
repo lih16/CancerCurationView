@@ -8,24 +8,22 @@ class Login_Model extends model_base
   {
       parent::__construct(null, null, null);
   }
-  public function adduser($username,$pass,$verifynumber){
+  public function adduser($username,$pass,$name,$verifynumber){
       //copy v$report = $_POST["report"];
       $this->db = Db::getInstance();
-      if ($report == 1) {
-          $stmt = $this->db->prepare("INSERT INTO CVC_User (UID, Name,Email,1,Password) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
-      } else {
-          $stmt = $this->db->prepare("INSERT INTO CVC_User (cancer, gene,varaint,1,uid,date_edit,comment,version_name) VALUES (:cancer, :gene,:varaint,:pid,:uid,:date_edit,:comment,:version_name)");
-      }
+
+      $stmt = $this->db->prepare("INSERT INTO CVC_User (UID, Name,Email,Role,Password) VALUES (:UID, :Name,:Email,:Role,:Password)");
+
       $stmt->bindParam(':UID', $email);
       $stmt->bindParam(':Name', $name);
       $stmt->bindParam(':Email', $email);
       $stmt->bindParam(':Role', $role);
       $stmt->bindParam(':Password', $password);
 
-      $email = $_POST["email"];
+      $email = $username;
       $name = $_POST["name"];
-      $role = $_POST["1"];
-      $password = $_POST["password"];
+      $role = 2;
+      $password = $pass;
 
       try {
           $stmt->execute();
@@ -46,15 +44,15 @@ class Login_Model extends model_base
       $error = ''; // Variable To Store Error Message
       if (isset($_POST['submit'])) {
           $this->db = Db::getInstance();
-          if (empty($_POST['username']) || empty($_POST['password'])) {
+          if (empty($_POST['name']) || empty($_POST['password'])) {
               //$error = "Username or Password is invalid";
               return 'invalid user';
           } else {
               // Define $username and $password
-              $user = $_POST['username'];
+              $user = $_POST['email'];
               $pass = $_POST['password'];//
-              $role = $_POST['role'];//
-              $query = "select Name FROM CVC_User where Email='" . $user . "' and Password='" . $pass . "' and (Role=" . $role . " or Role=3)";
+
+              $query = "select Name FROM CVC_User where Email='" . $user . "' and Password='" . $pass . "'" ;
 
               $stmt = $this->db->prepare($query);
               try {
@@ -73,7 +71,7 @@ class Login_Model extends model_base
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return dduser($username,$pass,$verifynumber);
+                    return dduser($user,$pass,$verifynumber);
                   }
                   // successfully add uesr
                   //$error = "Username or Password is invalid";
