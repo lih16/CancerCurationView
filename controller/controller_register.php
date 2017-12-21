@@ -1,6 +1,6 @@
- <?php
+<?php
 //namespace Controller;
-//
+
 use Lib\model_base;
 
 use Lib\Controller_base;
@@ -37,11 +37,11 @@ class controller_register extends Controller_base
          * Set the dependency in a class property, so it's easily accessible for later use of class methods.
           *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
          */
-          $reslt = $this->model->getlogin(); //
-          if ($reslt == 'login') {
-              header("location: ../home/browse");
-          } else {
+          $reslt = $this->model->getRegister(); //
+          if ($reslt == '1'){
               include VIEW_PATH . 'login.php';
+          } else {
+              iinclude VIEW_PATH . 'failure.php';
           }
 
     }
