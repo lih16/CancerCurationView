@@ -2,7 +2,7 @@
 
 use Lib\model_base;
 
-class Login_Model extends model_base
+class Register_Model extends model_base
 {
   public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
   {
@@ -10,7 +10,7 @@ class Login_Model extends model_base
   }
   public function adduser($username,$pass,$name,$verifynumber){
       //copy v$report = $_POST["report"];
-      if (isset($_POST['submit'])) {
+
       $this->db = Db::getInstance();
 
       $stmt = $this->db->prepare("INSERT INTO CVC_User (UID, Name,Email,Role,Password) VALUES (:UID, :Name,:Email,:Role,:Password)");
@@ -35,7 +35,7 @@ class Login_Model extends model_base
           return $e->getMessage();
       }
 
-  }
+
 
 }
   public function getRegister()
@@ -52,7 +52,6 @@ class Login_Model extends model_base
               // Define $username and $password
               $user = $_POST['email'];
               $pass = $_POST['password'];//
-
               $query = "select Name FROM CVC_User where Email='" . $user . "' and Password='" . $pass . "'" ;
 
               $stmt = $this->db->prepare($query);
@@ -72,7 +71,7 @@ class Login_Model extends model_base
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return dduser($user,$pass,$verifynumber);
+                    return adduser($user,$pass,$verifynumber);
                   }
                   // successfully add uesr
                   //$error = "Username or Password is invalid";
@@ -82,5 +81,5 @@ class Login_Model extends model_base
       }
 
 }
-}
+
 ?>
