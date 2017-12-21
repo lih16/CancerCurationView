@@ -55,7 +55,7 @@ button[type="submit"] {
   display: block;
   background: #839192;
   width: 100%;
-  padding: 12px;
+  padding: 7px;
   cursor: pointer;
   color: #fff;
   border: 1px;
@@ -65,6 +65,9 @@ button[type="submit"] {
   border-radius: 5px;
   text-shadow: 1px #13506D;
   font-weight: bold;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 button[type="submit"]:hover {
