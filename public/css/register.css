@@ -1,0 +1,74 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #fff;
+  /* #0d5e4e*/
+
+}
+h2 {
+  font-size: 24px;
+  text-align: center;
+}
+
+hr {
+  margin: 30px auto;
+}
+
+.container {
+  /*width: 960px;
+    height: 610px;
+    margin: 0 auto; */
+  font-family: 'Droid Serif', serif;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.main {
+  width: 320px;
+  /*  float: center;*/
+  padding: 10px 55px 40px;
+  margin: auto;
+  background-color: #D7DBDD;
+  border: 15px solid white;
+  box-shadow: 0 0 10px;
+  border-radius: 2px;
+  font-size: 13px;
+}
+
+input[type=text], [type=password] {
+  width: 97.7%;
+  height: 34px;
+  padding-left: 5px;
+  margin-bottom: 20px;
+  margin-top: 8px;
+  box-shadow: 0 0 5px #fffFF;
+  border: 2px solid #fffff;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+
+label {
+  color: #BFC9CA;
+  /*text-shadow: 0 1px 0 #fff; */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button[type="submit"] {
+  border: 1px;
+  font-size: 20px;
+  margin-top: 15px;
+  background: #839192;
+  color: white;
+  text-shadow: 1px #13506D;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 7px 35px;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(#839192 5%, #4D5656 100%);
+}
