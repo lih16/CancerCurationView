@@ -154,7 +154,10 @@ button,input[type="submit"] {
   transition: all 0.3s ease;
 }
 
-button,input[type="submit"]:hover {
+button:hover {
+  background: linear-gradient(#839192  5%, #4D5656    100%);
+}
+input[type="submit"]:hover {
   background: linear-gradient(#839192  5%, #4D5656    100%);
 }
 
