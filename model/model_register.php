@@ -81,5 +81,5 @@ class Login_Model extends model_base
       }
 
 }
-
+}
 ?>
