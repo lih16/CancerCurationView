@@ -10,6 +10,7 @@ class Login_Model extends model_base
   }
   public function adduser($username,$pass,$name,$verifynumber){
       //copy v$report = $_POST["report"];
+      if (isset($_POST['submit'])) {
       $this->db = Db::getInstance();
 
       $stmt = $this->db->prepare("INSERT INTO CVC_User (UID, Name,Email,Role,Password) VALUES (:UID, :Name,:Email,:Role,:Password)");
@@ -36,7 +37,7 @@ class Login_Model extends model_base
 
   }
 
-
+}
   public function getRegister()
   {
       session_start(); // Starting Session
