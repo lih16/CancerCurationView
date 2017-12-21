@@ -8,7 +8,7 @@ class Register_Model extends model_base
   {
       parent::__construct(null, null, null);
   }
-  public function adduser($username,$pass,$name,$verifynumber){
+  public function adduser($username,$pass,$name){
       //copy v$report = $_POST["report"];
 
       $this->db = Db::getInstance();
@@ -71,7 +71,7 @@ class Register_Model extends model_base
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return adduser($user,$pass,$verifynumber);
+                    return adduser($user,$pass,$name);
                   }
                   // successfully add uesr
                   //$error = "Username or Password is invalid";
