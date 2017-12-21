@@ -64,10 +64,7 @@ button[type="submit"] {
   font-size: 20px;
   border-radius: 5px;
 
-  font-weight: bold;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  transition: all 0.3s ease;
+
 }
 
 button[type="submit"]:hover {
