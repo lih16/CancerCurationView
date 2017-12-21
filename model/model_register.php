@@ -2,7 +2,7 @@
 
 use Lib\model_base;
 
-class Register_Model extends model_base
+class Login_Model extends model_base
 {
   public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
   {
