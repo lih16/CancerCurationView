@@ -76,7 +76,7 @@ class Register_Model extends model_base
               //mysql_close($connection); // Closing Connection */
               $user = $_POST['email'];
               $pass = $_POST['password'];//
-              return $this->adduser($user,$pass);
+              return $this->adduser($user,$pass,"joe");
 
     //  }
 
