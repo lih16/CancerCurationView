@@ -42,9 +42,11 @@ class controller_register extends Controller_base
 
               include VIEW_PATH . 'failure.php';
 
-          } else {
+          } else if($reslt == 2) {
               include VIEW_PATH . 'successLogin.php';
 
+          }else{
+            include VIEW_PATH . 'login.php';
           }
 
     }
