@@ -36,7 +36,7 @@ class Register_Model extends model_base
       } catch (PDOException $e) {
           //write_log($e->getMessage());
           echo $e->getMessage();
-          return $e->getMessage();
+          return 3;
       }
 }
   public function getRegister()
