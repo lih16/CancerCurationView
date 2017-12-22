@@ -44,7 +44,7 @@ class Register_Model extends model_base
       session_start(); // Starting Session
 
       $error = ''; // Variable To Store Error Message
-      *if (isset($_POST['submit'])) {
+      if (isset($_POST['submit'])) {
           $this->db = Db::getInstance();
           if (empty($_POST['name']) || empty($_POST['password'])) {
               //$error = "Username or Password is invalid";
