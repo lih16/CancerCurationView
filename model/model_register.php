@@ -81,7 +81,7 @@ class Register_Model extends model_base
               $user = $_POST['email'];
               $pass = $_POST['password'];//
               // the message
-              $msg = $username +"has registered on cancer alteration viewer";
+              $msg = ['email'] +"has registered on cancer alteration viewer";
 
               // use wordwrap() if lines are longer than 70 characters
               $msg = wordwrap($msg,70);
