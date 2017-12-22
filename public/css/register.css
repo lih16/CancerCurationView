@@ -25,7 +25,7 @@ hr {
   /*  float: center;*/
   padding: 10px 55px 40px;
   margin: auto;
-  background-color: #D7DBDD;
+  background-color: ##F2F3F4;
   border: 15px solid white;
   box-shadow: 0 0 10px;
   border-radius: 2px;
@@ -68,24 +68,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: linear-gradient(#839192 5%, #4D5656 100%);
-}
-button[type="home"] {
-  display: block;
-  background: #839192;
-  width: 100%;
-  padding: 7px;
-  cursor: pointer;
-  color: #fff;
-  border: 1px;
-  margin: 15px auto;
-  border-radius: 2px;
-  font-size: 20px;
-  border-radius: 5px;
-
-
-}
-
-button[type="home"]:hover {
   background: linear-gradient(#839192 5%, #4D5656 100%);
 }
