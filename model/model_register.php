@@ -72,17 +72,16 @@ class Register_Model extends model_base
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return adduser($user,$pass,$user);
+                    return $this->adduser($user,$pass);
                   }
                   // successfully add uesr
                   //$error = "Username or Password is invalid";
 
               //mysql_close($connection); // Closing Connection */
-              $user = $_POST['email'];
-              $pass = $_POST['password'];//
+
               // the message
 
-              return $this->adduser($user,$pass);
+
 
       }
 
