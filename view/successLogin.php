@@ -16,7 +16,7 @@
     <div class="main">
       <form action="">
         <h2> You have successfully registered</h2>
-        <button type="home" onclick="location.href='http://oncsuite-cav.sema4genomics.com/';" value="Go to Google" />
+        <input type="button" onclick="location.href='http://oncsuite-cav.sema4genomics.com/';" value="Go to Google" />
 
       <button type="home" value="Return to login page" />
       </form>
