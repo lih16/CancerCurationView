@@ -46,14 +46,11 @@ class Register_Model extends model_base
       $error = ''; // Variable To Store Error Message
       if (isset($_POST['submit'])) {
           $this->db = Db::getInstance();
-          if (empty($_POST['name']) || empty($_POST['password'])) {
-              //$error = "Username or Password is invalid";
-              return 'invalid user';
-          } else {
+        {
               // Define $username and $password
               $user = $_POST['email'];
               $pass = $_POST['password'];//
-              $query = "select Name FROM CVC_User where Email='" . $user . "' and Password='" . $pass . "'" ;
+              $query = "select Name FROM CVC_User where Email='" . $user . "'" ;
 
               $stmt = $this->db->prepare($query);
               try {
@@ -74,12 +71,7 @@ class Register_Model extends model_base
               } else {
                     return $this->adduser($user,$pass);
                   }
-                  // successfully add uesr
-                  //$error = "Username or Password is invalid";
 
-              //mysql_close($connection); // Closing Connection */
-
-              // the message
 
 
 
