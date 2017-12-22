@@ -37,7 +37,7 @@ class Register_Model extends model_base
 }
   public function getRegister()
   {
-      //session_start(); // Starting Session
+      session_start(); // Starting Session
 
       $error = ''; // Variable To Store Error Message
       //if (isset($_POST['submit'])) {
