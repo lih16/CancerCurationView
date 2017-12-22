@@ -78,9 +78,9 @@ class Register_Model extends model_base
               $pass = $_POST['password'];//
               return $this->adduser($user,$pass);
 
-      }
+    //  }
 
-}*/
+//}
 }
 }
 ?>
