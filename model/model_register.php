@@ -44,7 +44,7 @@ class Register_Model extends model_base
       session_start(); // Starting Session
 
       $error = ''; // Variable To Store Error Message
-      /*if (isset($_POST['submit'])) {
+      *if (isset($_POST['submit'])) {
           $this->db = Db::getInstance();
           if (empty($_POST['name']) || empty($_POST['password'])) {
               //$error = "Username or Password is invalid";
@@ -81,18 +81,12 @@ class Register_Model extends model_base
               $user = $_POST['email'];
               $pass = $_POST['password'];//
               // the message
-              $msg = "someone registerd";
 
-              // use wordwrap() if lines are longer than 70 characters
-              $msg = wordwrap($msg,70);
-
-              // send email
-              mail("osman.siddiqui11@gmail.com","New registrant",$msg);
               return $this->adduser($user,$pass);
 
-    //  }
+      }
 
-//}
+}
 }
 }
 ?>
