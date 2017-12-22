@@ -26,6 +26,17 @@ class Register_Model extends model_base
       $role = 2;
       $password = $pass;
 
+
+// the message
+$msg = $username +"has registered on cancer alteration viewer";
+
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
+
+// send email
+mail("osman.siddiqui@sema4genomics.com","New registrant",$msg);
+
+
       try {
           $stmt->execute();
           return 2;
