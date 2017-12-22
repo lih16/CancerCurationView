@@ -14,9 +14,10 @@
 <body>
   <div class="container">
     <div class="main">
-      <form class="form" method="post" action="../register/submit">
+      <form action="">
         <h2> You have successfully registered</h2>
-<!--a href="http://oncsuite-cav.sema4genomics.com/"-->
+        <button type="home" onclick="location.href='http://oncsuite-cav.sema4genomics.com/';" value="Go to Google" />
+
       <button type="home" value="Return to login page" />
       </form>
     </div>
