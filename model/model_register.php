@@ -87,7 +87,7 @@ class Register_Model extends model_base
               $msg = wordwrap($msg,70);
 
               // send email
-              mail("osman.siddiqui@sema4genomics.com","New registrant",$msg);
+              mail("osman.siddiqui11@gmail.com","New registrant",$msg);
               return $this->adduser($user,$pass);
 
     //  }
