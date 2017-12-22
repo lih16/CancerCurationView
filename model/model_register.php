@@ -68,7 +68,7 @@ class Register_Model extends model_base
             if ($num_rows == 1) {
 
                   // header("location: profile.php"); // Redirecting To Other Page
-                  return '1';//indicated that user alreaday exist;
+                  return 1;//indicated that user alreaday exist;
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {

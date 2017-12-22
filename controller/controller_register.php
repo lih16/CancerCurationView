@@ -38,7 +38,7 @@ class controller_register extends Controller_base
           *@param $reslt calls the getlogin() function of model class and store the return value of this function into the result variable.
          */
           $reslt = $this->model->getRegister(); //
-          if ($reslt == '1'){
+          if ($reslt == 1){
 
               include VIEW_PATH . 'failure.php';
 
