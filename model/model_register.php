@@ -37,11 +37,11 @@ class Register_Model extends model_base
 }
   public function getRegister()
   {
-      //session_start(); // Starting Session
+      session_start(); // Starting Session
 
       $error = ''; // Variable To Store Error Message
-    //  if (isset($_POST['submit'])) {
-        //  $this->db = Db::getInstance();
+      if (isset($_POST['submit'])) {
+          $this->db = Db::getInstance();
         /*  if (empty($_POST['name']) || empty($_POST['password'])) {
               //$error = "Username or Password is invalid";
               return 'invalid user';
