@@ -1,11 +1,3 @@
-<html>
-<header><title>You have successfully Registered</title></header>
-<body>
-You have successfully registered. <a href="http://oncsuite-cav.sema4genomics.com/"   target="_blank" style="background-color: #8FBE00; border-radius: 5px 5px 5px 5px; color: white; font-family: Enriqueta,Arial,sans-serif; text-transform: uppercase; font-size: 16px; padding: 3px 10px;">CAV Homepage</a>
-
-</body>
-</html>
-
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +17,7 @@ You have successfully registered. <a href="http://oncsuite-cav.sema4genomics.com
       <form class="form" method="post" action="../register/submit">
         <h2> You have successfully registered</h2>
 <!--a href="http://oncsuite-cav.sema4genomics.com/"-->
-        <button>Login</button>
+      <button type="home" value="Return to login page" />
       </form>
     </div>
 </body>

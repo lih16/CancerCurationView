@@ -1,6 +1,6 @@
 <html>
 <header><title>RegistrationFAILURE</title></header>
 <body>
-Registration failed,  please email osman@sema4genomics.com for details.
+Registration failed,  username already exists.
 </body>
 </html>
