@@ -11,7 +11,7 @@
 
   <body>
 
-    <h1>Sign In the Cancer Alteration Viewer</h1>
+    <!--h1>Sign In the Cancer Alteration Viewer</h1-->
 
 <div >
   <div >
