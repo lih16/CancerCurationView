@@ -68,5 +68,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: linear-gradient(##BDC3C7 5%, #4D5656 100%);
+  background: linear-gradient(#BDC3C7 5%, #4D5656 100%);
 }

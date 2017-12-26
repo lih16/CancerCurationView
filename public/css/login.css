@@ -94,7 +94,7 @@ h1 {
 .form {
   width: 400px;
   height: 330px;
-  background: #edeff1;
+  background: #F8F9F9;
   margin: 0px auto;
   padding-top: 20px;
   border-radius: 10px;
@@ -140,7 +140,7 @@ input[type="text"]:focus {
 
 button,input[type="submit"] {
   display: block;
-  background: #839192 ;
+  background: #BDC3C7 ;
   width: 314px;
   padding: 12px;
   cursor: pointer;
@@ -155,10 +155,10 @@ button,input[type="submit"] {
 }
 
 button:hover {
-  background: linear-gradient(#839192  5%, #4D5656    100%);
+  background: linear-gradient(#BDC3C7   5%, #4D5656    100%);
 }
 input[type="submit"]:hover {
-  background: linear-gradient(#839192  5%, #4D5656    100%);
+  background: linear-gradient(#BDC3C7  5%, #4D5656    100%);
 }
 
 select {
