@@ -83,6 +83,6 @@ optgroup option{
 &nbsp;&nbsp;&nbsp;&nbsp;
 <button class="searchbutton" onclick="showTable()">Narrative Key</button>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="http://34.235.93.148/CancerCurationView/public/images/LevelsOfEvidence.pdf"   target="_blank" style="background-color: #8FBE00; border-radius: 5px 5px 5px 5px; color: white; font-family: Enriqueta,Arial,sans-serif; text-transform: uppercase; font-size: 16px; padding: 3px 10px;">OncoKB Guideline</a>
+<a href="http://34.235.93.148/CancerCurationView/public/images/LevelsOfEvidence.pdf"   target="_blank" style="background-color: #7F8C8D; border-radius: 5px 5px 5px 5px; color: white; font-family: Enriqueta,Arial,sans-serif; text-transform: uppercase; font-size: 16px; padding: 3px 10px;">OncoKB Guideline</a>
 </form>
 </div>
