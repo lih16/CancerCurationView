@@ -1,0 +1,5 @@
+Cronjobs can fail! Monitor your important cronjob by pasting the following snippet at the end of the crontab entry. Make sure to replace the <placeholders> with your email address and some name for your cronjob.
+
+ && curl -sm 30 k.wdt.io/<email-address>/<cronjob-name>?c=0_10_*_*_*
+
+Should your cron job fail or not even start, you will receive an alert email.
