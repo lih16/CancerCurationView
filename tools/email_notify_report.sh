@@ -19,4 +19,4 @@ sendString=$sendString"\n"${emailnotify[$i]};
 
 done
 
-echo -e "To:$emailList\nFrom: CAV_Updates<cav-updates@sema4genomics.com\nSubject: New Editor Comments $sendString." | /usr/sbin/sendmail -t
+echo -e "To:$emailList\nFrom: CAV_Notifications<cav-notifications@sema4genomics.com\nSubject: New Report-Style Comments $sendString." | /usr/sbin/sendmail -t
