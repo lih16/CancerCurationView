@@ -19,6 +19,5 @@ sendString=$sendString"\n"${emailnotify[$i]};
 
 done
 if [ ! -z "$sendString" -a "$sendString" != "" ]; then
-  echo -e "To:$emailList\nFrom: CAV_Notifications<cav-notifications@sema4genomics.com\nSubject: New Report-Style Comments $sendString." | /usr/sbin/sendmail -t
-
+echo -e "To:$emailList\nFrom: CAV_Notifications<cav-notifications@sema4genomics.com\nSubject: New Report-Style Comments $sendString." | /usr/sbin/sendmail -t
 fi

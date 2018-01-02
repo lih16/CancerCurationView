@@ -29,6 +29,7 @@
 	</select>
 	<input name="submit" type="submit" value="Login" />
   <button onclick="register(this,event);return false;">Create a New Account</button>
+  
 
 	</form>
       </div>
