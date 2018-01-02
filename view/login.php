@@ -30,7 +30,7 @@
 	<input name="submit" type="submit" value="Login" />
   <button onclick="register(this,event);return false;">Create a New Account</button>
   <a href=""
-  <a href="http://34" target="_blank" style="float: right;display: flex;align-items: center;justify-content: center;padding:0px 2px;margin:15px 1px;">Forgot Password</a>
+  <a href="http://34" target="_blank" style="float:center;display: flex;align-items: center;justify-content: center;padding:0px 2px;margin:15px 1px;">Forgot Password</a>
 	</form>
       </div>
     </div>
