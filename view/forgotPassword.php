@@ -1,8 +1,18 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <!--link href="<?php echo CSS_PATH; ?>/forgotPassword.css" -->
-<style>.form-gap {
+<style>form-gap {
     padding-top: 70px;
+}
+container {
+  /*width: 960px;
+    height: 610px;
+    margin: 0 auto; */
+  font-family: 'Droid Serif', serif;
+    color: black;
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
 </style>
 <div class="form-gap"></div>
