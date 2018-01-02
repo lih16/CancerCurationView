@@ -45,7 +45,7 @@
 
 <div>
 
-<button class="searchbutton" onclick="logout();return false;" style="float: right; margin:15px 5px">Log out</button> <a class="searchbutton" href="http://34.235.93.148/CancerCurationView/public/Cancer_curation_viewer_instruction.pdf" target="_blank" style="float: right; padding: 2px 3px 0px 3px;margin:15px 1px;border-radius: 5px 5px 5px 5px;">Help</a>
+<button class="searchbutton" onclick="logout();return false;" style="float: right; margin:15px 5px">Log out</button> <a class="searchbutton" href="http://34.235.93.148/CancerCurationView/public/Cancer_curation_viewer_instruction.pdf" target="_blank" style="float: right; text-align: center;padding: 2px 3px 0px 3px;margin:15px 1px;border-radius: 5px 5px 5px 5px;">Help</a>
    <h3 style="color: #594F4F; font-family: 'Droid serif', serif; font-size: 36px; font-weight: 400; font-style: italic; line-height: 44px; margin: 0 0 12px; text-align: center; ">
       Cancer Alteration Viewer
    </h3>
