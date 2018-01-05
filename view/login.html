@@ -33,20 +33,20 @@
           <input type="text" id="username" value="pei.wang@mssm.edu" class="zocial-dribbble" placeholder="Enter your email" />
           <input type="password" id="password" value="12345678" placeholder="Password" />
           <select name="role" id="role" placeholder="Reviewer">
-		
+
 	<option value="1" selected>Lab user</option>
 	<option value="2"  >Collaborator</option>
-	<option value="3"  >Data Amdin</option>
-	
+	<option value="3"  >Data Admin</option>
+
 	<input type="submit" value="Login" onclick="mysubmit()"/>
-      </div> 
-    </div> 
-  </div> 
+      </div>
+    </div>
+  </div>
 </div>
     <script type="text/javascript" language="javascript" src="../../jquery/jquery-1.7.2.min.js"></script>
     <script>
 	  $(document).ready(function(){
-	   
+
 	  });
 	  function mysubmit(){
 	    /*var user=$("#username").val();
@@ -60,11 +60,11 @@
 				user:user,
 				pass:pass,
 				role:role
-				
-				
+
+
 			},
 			success : function(data){
-			    
+
 				//alert(user);
 				//alert(role);
 					if(data=="0"){
@@ -72,23 +72,23 @@
 						$("#password").val("");
 						alert("your username,password or role is wrong, please check it!");
 						window.location.reload();
-				  
+
 						return false;
 					}
 					if(role==2){
 						window.location.href="../CancerVarCuation.php";
 						return false;
-				
+
 					}
 					if(role==1){
 						window.location.href="../PGxExpert.php";
 						return false;
-				
+
 					}
             },
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 					alert(textStatus);
-				
+
 			}
 		});
 		*/
@@ -96,9 +96,9 @@
 		return false;
 	  }
 	</script>
-    
-    
-    
-    
+
+
+
+
   </body>
 </html>
