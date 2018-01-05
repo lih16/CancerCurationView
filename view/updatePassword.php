@@ -50,7 +50,7 @@
        <label>Email :</label>
         <input type="text" name="email" id="email">
         <label>Current Password :</label>
-        <input type="text" name="opassword" id="opassword">
+        <input type="password" name="opassword" id="opassword">
         <label>New Password :</label>
         <input type="password" name="password" id="password">
         <label>Confirm New Password :</label>
