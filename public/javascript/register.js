@@ -6,7 +6,7 @@ function register(id,e){
 
 }
 
-function forgotPassword(id,e){
+function forgot(id,e){
 
 
   //alert("this is forgotpassword");
@@ -14,7 +14,7 @@ function forgotPassword(id,e){
 
 }
 
-function updatePassword(id,e){
+function update(id,e){
 
 
   //alert("this is forgotpassword");
