@@ -38,8 +38,7 @@
   <div class="container">
     <div class="main">
       <form class="form" method="post" action="../register/submit">
-        <h2> Cancer Alteration Viewer Reset Password</h2>
-        <h3><i class="fa fa-lock fa-4x"></i></h3>
+        <h2> Cancer Alteration Viewer Reset Password<i class="fa fa-lock fa-4x"></i></h2>
        <label>Email :</label>
         <input type="text" name="email" id="email">
         <button type="su" name="rister" id="regster" value="Regiter">Reset Password</button>
