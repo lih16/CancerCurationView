@@ -61,7 +61,7 @@ class controller_register extends Controller_base
         */
                 include VIEW_PATH . 'forgotPassword.php';
         }
-        public function action_submit_email()
+        public function action_submit_forgot()
           {
             /**
              * Set the dependency in a class property, so it's easily accessible for later use of class methods.
@@ -83,7 +83,7 @@ class controller_register extends Controller_base
         /**
         *BELOW Is for updating PASSWORD functions
         */
-            public function action_forgot()
+            public function action_update()
             {
               /**
                * Set the dependency in a class property, so it's easily accessible for later use of class methods.
@@ -91,19 +91,19 @@ class controller_register extends Controller_base
             */
                     include VIEW_PATH . 'updatePassword.php';
             }
-            public function action_submit_email()
+            public function action_submit_update()
               {
                 /**
                  * Set the dependency in a class property, so it's easily accessible for later use of class methods.
                   *@param $result calls the getlogin() function of model class and store the return value of this function into the result variable.
                  */
-                  $result = $this->model->getForgotPass(); //
+                  $result = $this->model->getUpdatePass(); //
                   if ($result == 1){
 
-                      include VIEW_PATH . 'resetFailure.php';
+                      include VIEW_PATH . 'updateFailure.php';
 
                   } else if($reslt == 2) {
-                      include VIEW_PATH . 'successReset.php';
+                      include VIEW_PATH . 'successUpdate.php';
 
                   }else{
                     include VIEW_PATH . 'login.php';
