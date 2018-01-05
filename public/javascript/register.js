@@ -14,7 +14,6 @@ function forgotPassword(id,e){
 
 }
 
-
 function updatePassword(id,e){
 
 

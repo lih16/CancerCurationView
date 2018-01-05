@@ -26,10 +26,6 @@ class Register_Model extends model_base
       $role = 2;
       $password = $pass;
 
-
-
-
-
       try {
           $stmt->execute();
           return 2;
@@ -71,13 +67,71 @@ class Register_Model extends model_base
               } else {
                     return $this->adduser($user,$pass);
                   }
-
-
-
-
       }
 
 }
 }
+public function resetuser($username,$pass){
+    //copy v$report = $_POST["report"];
+
+    $this->db = Db::getInstance();
+
+    $stmt = $this->db->prepare("INSERT INTO CVC_User (Password) VALUES (:Password)");
+
+    $stmt->bindParam(':UID', $username);
+    $stmt->bindParam(':Password', $password);
+
+    $uname = $_POST["name"];
+    $password = $pass;
+
+    try {
+        $stmt->execute();
+        return 2;
+    } catch (PDOException $e) {
+        //write_log($e->getMessage());
+        echo $e->getMessage();
+        return 3;
+    }
 }
+public function getUser()
+{
+
+
+    $error = ''; // Variable To Store Error Message
+    if (isset($_POST['submit'])) {
+        $this->db = Db::getInstance();
+        if (empty($_POST['username']))  {
+            //$error = "Username or Password is invalid";
+            return 'invalid user';
+        } else {
+            // Define $username and $password
+            $user = $_POST['username'];
+            $pass = $_POST['password'];//
+            $query = "select Password FROM CVC_User where UID='" . $user . "'";
+
+            $stmt = $this->db->prepare($query);
+            try {
+                $stmt->execute();
+            } catch (PDOException $e) {
+                //write_log($e->getMessage());
+                echo $e->getMessage();
+            }
+            $rows = $stmt->fetchAll();
+            $num_rows = count($rows);
+
+            if ($num_rows == 1) {
+
+                  // header("location: profile.php"); // Redirecting To Other Page
+                  return 1;//indicated that user alreaday exist;
+                  //$_SESSION['login_user']=$username; // Initializing Session
+                  // header("location: profile.php"); // Redirecting To Other Page
+              } else {
+                    return $this->resetuser($user,$pass);
+                  }
+        }
+    }
+}
+}
+
+
 ?>
