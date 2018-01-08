@@ -71,6 +71,19 @@ class Register_Model extends model_base
 
 }
 }
+/* Function to generate random string
+*  will use to generate random password when it is reset
+*
+*/
+function generateRandomString($length = 8) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 public function resetuser($username,$pass){
     //copy v$report = $_POST["report"];
 
@@ -106,7 +119,8 @@ public function getUser()
         } else {
             // Define $username and $password
             $user = $_POST['username'];
-            $pass = $_POST['password'];//
+
+            $pass = generateRandomString();//
             $query = "select Password FROM CVC_User where UID='" . $user . "'";
 
             $stmt = $this->db->prepare($query);
