@@ -89,7 +89,7 @@ public function resetuser($username,$pass){
 
     $this->db = Db::getInstance();
 
-    $stmt = $this->db->prepare("UPDATE  CVC_User SET (Password) =(:Password) WHERE UID= (:UID)");
+    $stmt = $this->db->prepare("UPDATE  CVC_User SET Password =:Password WHERE UID= :UID");
 
     $stmt->bindParam(':UID', $username);
     $stmt->bindParam(':Password', $password);
@@ -159,7 +159,7 @@ public function updatepassword($username,$pass){
           }
     else
     {
-      $stmt = $this->db->prepare("UPDATE  CVC_User SET (Password) =(:Password) WHERE UID= (:UID)");
+      $stmt = $this->db->prepare("UPDATE  CVC_User SET Password =:Password WHERE UID= :UID");
       $stmt->bindParam(':UID', $username);
       $stmt->bindParam(':Password', $password);
 
