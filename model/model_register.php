@@ -140,14 +140,14 @@ public function getUser()
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
                     return $this->resetuser($user,$pass);
-                    $msg = ("Your temporary password is $pass");
+                    $msg = $pass;
 
                     // use wordwrap() if lines are longer than 70 characters
 
 
                     // send email
                     mail($user,"CAV Password Reset",$msg);
-                    alert( $user,"CAV Password Reset",$msg);
+                    alert($user,"CAV Password Reset",$msg);
                   }
         }
     }
