@@ -119,7 +119,7 @@ public function getUser()
             // Define $username and $password
             $user = $_POST['username'];
 
-            $pass = "987334";//
+            $pass = md5(uniqid($user, true));//
             $query = "select Password FROM CVC_User where UID='" . $user . "'";
 
             $stmt = $this->db->prepare($query);
