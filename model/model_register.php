@@ -133,7 +133,7 @@ public function getUser()
             $rows = $stmt->fetchAll();
             $num_rows = count($rows);
 
-            if ($num_rows == 1) {
+            if ($num_rows < 1) {
 
                   // header("location: profile.php"); // Redirecting To Other Page
                   return 1;//indicated that user alreaday exist;
