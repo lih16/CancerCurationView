@@ -114,10 +114,8 @@ public function getUser()
     //if (isset($_POST['submit']))
     {
         $this->db = Db::getInstance();
-        if (empty($_POST['username']))  {
-            //$error = "Username or Password is invalid";
-            return 'invalid user';
-        } else {
+
+        {
             // Define $username and $password
             $user = $_POST['username'];
 
