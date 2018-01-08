@@ -39,7 +39,7 @@
         <h2> Cancer Alteration Viewer Reset Password<i class="fa fa-lock fa-4x"></i></h2>
        <label>Email :</label>
         <input type="text" name="email" id="email">
-        <button type="submit" name="register" id="register" value="Register">Reset Password</button>
+        <input type="submit">Reset Password</input>
       </form>
     </div>
 </body>
