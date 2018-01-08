@@ -136,17 +136,17 @@ public function getUser()
 
                   // header("location: profile.php"); // Redirecting To Other Page
                   return 1;//indicated that user alreaday exist;
-                  //$_SESSION['login_user']=$username; // Initializing Session
-                  // header("location: profile.php"); // Redirecting To Other Page
+
               } else {
                     return $this->resetuser($user,$pass);
                     $msg = $pass;
+                    $headers = "From: cav-notifications@sema4genomics.com";
 
                     // use wordwrap() if lines are longer than 70 characters
 
 
                     // send email
-                    mail($user,"CAV Password Reset",$msg);
+                    mail($user,"CAV Password Reset",$msg, $headers);
                     alert($user,"CAV Password Reset",$msg);
                   }
         }
