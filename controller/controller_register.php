@@ -59,27 +59,22 @@ class controller_register extends Controller_base
            * Set the dependency in a class property, so it's easily accessible for later use of class methods.
             *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
         */
-                include VIEW_PATH . 'forgotPassword.php';
-        }
-        public function action_submit_forgot()
-          {
-            /**
-             * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-              *@param $result calls the getlogin() function of model class and store the return value of this function into the result variable.
-             */
-              $result = $this->model->getForgotPass(); //
-              if ($result == 1){
+            $result = $this->model->getForgotPass(); //
+            if ($result == 1){
 
-                  include VIEW_PATH . 'resetFailure.php';
+                include VIEW_PATH . 'resetFailure.php';
 
-              } else if($result == 2) {
-                  include VIEW_PATH . 'successReset.php';
+            } else if($result == 2) {
+                include VIEW_PATH . 'successReset.php';
 
-              }else{
-                include VIEW_PATH . 'login.php';
-              }
+            }else{
+              include VIEW_PATH . 'login.php';
+            }
 
-        }
+      }
+
+
+
         /**
         *BELOW Is for updating PASSWORD functions
         */
