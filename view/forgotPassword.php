@@ -38,7 +38,7 @@
       <form class="form" method="post" action="../register/submit_forgot">
         <h2> Cancer Alteration Viewer Reset Password<i class="fa fa-lock fa-4x"></i></h2>
        <label>Email :</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="username" id="username">
         <input type="submit">Reset Password</input>
       </form>
     </div>
