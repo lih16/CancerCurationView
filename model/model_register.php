@@ -139,7 +139,7 @@ public function getUser()
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return 2;//$this->resetuser($user,$pass);
+                    return $this->resetuser($user,$pass);
                   }
         }
     }
