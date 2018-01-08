@@ -76,7 +76,7 @@ public function resetuser($username,$pass){
 
     $this->db = Db::getInstance();
 
-    $stmt = $this->db->prepare("INSERT INTO CVC_User (Password) VALUES (:Password)");
+    $stmt = $this->db->prepare("UPDATE  CVC_User SET (Password) =(:Password) WHERE UID= (:UID)");
 
     $stmt->bindParam(':UID', $username);
     $stmt->bindParam(':Password', $password);
@@ -131,7 +131,39 @@ public function getUser()
         }
     }
 }
+public function updatepassword($username,$pass){
+    //copy v$report = $_POST["report"];
+
+    $this->db = Db::getInstance();
+
+    $error = ''; // Variable To Store Error Message
+
+    if (isset($_POST['submit'])) {
+        $this->db = Db::getInstance();
+        if (empty($_POST['username']) || empty($_POST['password'])) {
+            //$error = "Username or Password is invalid";
+            return 'invalid user';
+          }
+    else
+    {
+      $stmt = $this->db->prepare("UPDATE  CVC_User SET (Password) =(:Password) WHERE UID= (:UID)");
+      $stmt->bindParam(':UID', $username);
+      $stmt->bindParam(':Password', $password);
+
+      $uname = $_POST["name"];
+      $password = $pass;
+    }
+    try {
+        $stmt->execute();
+        return 2;
+    } catch (PDOException $e) {
+        //write_log($e->getMessage());
+        echo $e->getMessage();
+        return 3;
+    }
 }
 
+}
+}
 
 ?>
