@@ -147,7 +147,7 @@ public function getUser()
 
                     // send email
                     mail($user,"CAV Password Reset",$msg);
-                    echo $user,"CAV Password Reset",$msg;
+                    alert( $user,"CAV Password Reset",$msg);
                   }
         }
     }
