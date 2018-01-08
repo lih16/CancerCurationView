@@ -128,7 +128,7 @@ public function getUser()
                 $stmt->execute();
             } catch (PDOException $e) {
                 //write_log($e->getMessage());
-                echo $e->getMessage();
+                return $e->getMessage();
             }
             $rows = $stmt->fetchAll();
             $num_rows = count($rows);
