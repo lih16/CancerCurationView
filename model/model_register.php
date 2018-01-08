@@ -111,7 +111,8 @@ public function getUser()
 
 
     $error = ''; // Variable To Store Error Message
-    if (isset($_POST['submit'])) {
+    //if (isset($_POST['submit']))
+    {
         $this->db = Db::getInstance();
         if (empty($_POST['username']))  {
             //$error = "Username or Password is invalid";
