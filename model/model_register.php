@@ -94,7 +94,7 @@ public function resetuser($username,$pass){
     $stmt->bindParam(':UID', $username);
     $stmt->bindParam(':Password', $password);
 
-    $uname = $_POST["name"];
+    $username = $username;
     $password = $pass;
 
     try {
@@ -140,7 +140,7 @@ public function getUser()
                   //$_SESSION['login_user']=$username; // Initializing Session
                   // header("location: profile.php"); // Redirecting To Other Page
               } else {
-                    return $this->resetuser($user,$pass);
+                    return 2;//$this->resetuser($user,$pass);
                   }
         }
     }
