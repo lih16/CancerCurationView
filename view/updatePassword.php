@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Registration - Cancer Alteration Viewer</title>
+  <title>Update Password - Cancer Alteration Viewer</title>
   <meta name="robots" content="noindex, nofollow">
   <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
 
@@ -16,11 +16,11 @@
         var opassword = $("#opassword").val();
         var password = $("#password").val();
         var cpassword = $("#cpassword").val();
-        if (opassword == '' || username == '' || password == '' || cpassword == '') {
+        if (username == '' || opassword == '' || password == '' || cpassword == '') {
           alert("Please fill all fields...!!!!!!");
           return false;
         } else if ((password.length) < 8) {
-          alert("Password should atleast 8 character in length...!!!!!!");
+          alert("Password should at least 8 character in length...!!!!!!");
           return false;
         } else if (!(password).match(cpassword)) {
           alert("Your passwords don't match. Try again?");
