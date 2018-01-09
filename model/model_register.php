@@ -136,7 +136,6 @@ class Register_Model extends model_base
                     $msg     = $pass;
                     $headers = "From: cav-notifications@sema4genomics.com";
 
-                    // use wordwrap() if lines are longer than 70 characters
 
 
                     // send email
@@ -151,13 +150,13 @@ class Register_Model extends model_base
     {
         $error = ''; // Variable To Store Error Message
         //if (isset($_POST['submit']))
-        {
-            if (isset($_POST['submit'])) {
+
+          /*  if (isset($_POST['submit'])) {
                 $this->db = Db::getInstance();
                 if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['opassword'])) {
                     //$error = "Username or Password is invalid";
                     return 'invalid user';
-                } else {
+                } else */ {
                     // Define $username and $password
                     $user  = $_POST['username'];
                     $opass = $_POST['opassword']; //
