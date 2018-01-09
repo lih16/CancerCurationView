@@ -135,9 +135,6 @@ class Register_Model extends model_base
                     return $this->resetuser($user, $pass);
                     $msg     = $pass;
                     $headers = "From: cav-notifications@sema4genomics.com";
-
-
-
                     // send email
                     mail($user, "CAV Password Reset", $msg, $headers);
                     alert($user, "CAV Password Reset", $msg);
@@ -149,15 +146,8 @@ class Register_Model extends model_base
     public function updateUser()
     {
         $error = ''; // Variable To Store Error Message
-        //if (isset($_POST['submit']))
 
-          /*  if (isset($_POST['submit'])) {
-                $this->db = Db::getInstance();
-                if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['opassword'])) {
-                    //$error = "Username or Password is invalid";
-                    return 'invalid user';
-                } else */ {
-                    // Define $username and $password
+
             {
                 $this->db = Db::getInstance();
                 {
@@ -184,12 +174,16 @@ class Register_Model extends model_base
 
                     } else {
                         return $this->updatepassword($user, $pass);
-
+                        $msg     = "Your password for the Cancer Alteration Viewer has been updated";
+                        $headers = "From: cav-notifications@sema4genomics.com";
+                        // send email
+                        mail($user, "CAV Password Reset", $msg, $headers);
+                        alert($user, "CAV Password Reset", $msg);
                     }
                 }
             }
           }
-        }
+
 
 
 
