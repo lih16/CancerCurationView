@@ -104,7 +104,7 @@ class controller_register extends Controller_base
 
                       include VIEW_PATH . 'updateFailure.php';
 
-                  } else if($reslt == 2) {
+                  } else if($result == 2) {
                       include VIEW_PATH . 'successReset.php';
 
                   }else{
