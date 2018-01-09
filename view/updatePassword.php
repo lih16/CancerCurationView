@@ -12,11 +12,11 @@
     $(document).ready(function() {
       $("#register").click(function() {
 
-        var email = $("#email").val();
+        var username = $("#username").val();
         var opassword = $("#opassword").val();
         var password = $("#password").val();
         var cpassword = $("#cpassword").val();
-        if (opassword == '' || email == '' || password == '' || cpassword == '') {
+        if (opassword == '' || username == '' || password == '' || cpassword == '') {
           alert("Please fill all fields...!!!!!!");
           return false;
         } else if ((password.length) < 8) {
@@ -27,7 +27,7 @@
           return false;
         } else {
           $.post("updatePassword.php", {
-            email1: email,
+            username1: username,
             opassword1: opassword,
             password1: password
           }, function(data) {
