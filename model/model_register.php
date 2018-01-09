@@ -185,9 +185,7 @@ class Register_Model extends model_base
                     }
                 }
             }
-        }
 
-    }
 
     public function updatepassword($username, $pass)
     {
