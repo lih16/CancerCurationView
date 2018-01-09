@@ -108,7 +108,8 @@ class controller_register extends Controller_base
                       include VIEW_PATH . 'successReset.php';
 
                   }else{
-                    include VIEW_PATH . 'login.php';
+                      echo $result;
+                    //include VIEW_PATH . 'login.php';
                   }
 
             }
