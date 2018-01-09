@@ -158,6 +158,9 @@ class Register_Model extends model_base
                     return 'invalid user';
                 } else */ {
                     // Define $username and $password
+            {
+                $this->db = Db::getInstance();
+                {
                     $user  = $_POST['username'];
                     $opass = $_POST['opassword']; //
                     $pass  = $_POST['password']; //
@@ -185,6 +188,9 @@ class Register_Model extends model_base
                     }
                 }
             }
+          }
+        }
+
 
 
     public function updatepassword($username, $pass)
