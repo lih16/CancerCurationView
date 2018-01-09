@@ -45,10 +45,10 @@
 <body>
   <div class="container">
     <div class="main">
-      <form class="form" method="post" action="../register/submit">
+      <form class="form" method="post" action="../register/submit_update">
         <h2> Cancer Alteration Viewer Update Password</h2>
        <label>Email :</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="username" id="username">
         <label>Current Password :</label>
         <input type="password" name="opassword" id="opassword">
         <label>New Password :</label>
