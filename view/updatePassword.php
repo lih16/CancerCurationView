@@ -56,7 +56,7 @@
         <label>Confirm New Password :</label>
         <input type="password" name="cpassword" id="cpassword">
           <input type="submit">Update Password</input>
-          <button type="submit" name="register" id="register" value="Register">Register</button>
+          <button type="submit" name="register" id="register" value="Register">Update Password</button>
 
       </form>
     </div>
