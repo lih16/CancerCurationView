@@ -96,7 +96,7 @@ class Register_Model extends model_base
         $username = $username;
         $password = $pass;
 
-        $msg     = ("Your temporary password is: $pass \r\n Click on the update password link on the login page to change your password");
+        $msg     = ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
         $headers = "From: cav-notifications@sema4genomics.com";
         $subject="CAV Password Reset";
         // send email
