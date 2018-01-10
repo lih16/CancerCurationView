@@ -100,7 +100,7 @@ class Register_Model extends model_base
         $headers = "From: cav-notifications@sema4genomics.com";
         $subject="CAV Password Reset";
         // send email
-        $mail=mail($username, $subject,$msg, $headers);
+        $mail=mail($username, $subject,$msg);
         if($mail)
         {
           echo "Test email send.";
@@ -215,7 +215,7 @@ class Register_Model extends model_base
             $uname    = $_POST["name"];
             $password = $pass;
 
-            $msg     = ("You have successfully updated your password. \r\r\nthanks");
+            $msg     = ("You have successfully updated your password. ");
             $headers = "From: cav-notifications@sema4genomics.com";
             $subject="CAV Password changed";
             // send email
