@@ -108,7 +108,7 @@ class Register_Model extends model_base
     }
     public function getUser()
     {
-
+      ini_set('display_errors',1);
 
         $error = ''; // Variable To Store Error Message
         //if (isset($_POST['submit']))
@@ -142,7 +142,8 @@ class Register_Model extends model_base
                     $msg     = $pass;
                     //$headers = "From: cav-notifications@sema4genomics.com";
                     // send email
-                    if (mail($user, "CAV Password Reset", $msg))
+                    $mail=mail($user, "CAV Password Reset", $msg);
+                    if($mail)
                     {
                       echo "Test email send.";
                     }
