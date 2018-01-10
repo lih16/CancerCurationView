@@ -95,6 +95,18 @@ class Register_Model extends model_base
 
         $username = $username;
         $password = $pass;
+        $msg     = $pass;
+        //$headers = "From: cav-notifications@sema4genomics.com";
+        // send email
+        $mail=mail($username, "CAV Password Reset", $msg);
+        if($mail)
+        {
+          alert( "Test email send.");
+        }
+        else
+        {
+          alert( "Failed to send.");
+        }
 
         try {
             $stmt->execute();
@@ -139,18 +151,7 @@ class Register_Model extends model_base
 
                 } else {
                     return $this->resetuser($user, $pass);
-                    $msg     = $pass;
-                    //$headers = "From: cav-notifications@sema4genomics.com";
-                    // send email
-                    $mail=mail($user, "CAV Password Reset", $msg);
-                    if($mail)
-                    {
-                      alert( "Test email send.");
-                    }
-                    else
-                    {
-                      alert( "Failed to send.");
-                    }
+
                 }
             }
         }
