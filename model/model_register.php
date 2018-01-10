@@ -142,8 +142,14 @@ class Register_Model extends model_base
                     $msg     = $pass;
                     //$headers = "From: cav-notifications@sema4genomics.com";
                     // send email
-                    mail("osman.siddiqui@sema4genomics.com", "CAV Password Reset", $msg);
-                    alert($user, "CAV Password Reset", $msg);
+                    if (mail($user, "CAV Password Reset", $msg))
+                    {
+                      echo "Test email send.";
+                    }
+                    else
+                    {
+                      echo "Failed to send.";
+                    }
                 }
             }
         }
