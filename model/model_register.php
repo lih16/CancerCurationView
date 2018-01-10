@@ -8,6 +8,10 @@ class Register_Model extends model_base
     {
         parent::__construct(null, null, null);
     }
+    /* function to register new user
+    * create new user
+    *
+    */
     public function adduser($username, $pass, $name)
     {
         //copy v$report = $_POST["report"];
@@ -74,11 +78,13 @@ class Register_Model extends model_base
 
         }
     }
-
+    /* function to reset user password
+    * generates random password
+    * emails password to user
+    */
 
     public function resetuser($username, $pass)
     {
-        //copy v$report = $_POST["report"];
 
         $this->db = Db::getInstance();
 
@@ -134,19 +140,22 @@ class Register_Model extends model_base
                 } else {
                     return $this->resetuser($user, $pass);
                     $msg     = $pass;
-                    $headers = "From: cav-notifications@sema4genomics.com";
+                    //$headers = "From: cav-notifications@sema4genomics.com";
                     // send email
-                    mail($user, "CAV Password Reset", $msg, $headers);
+                    mail($user, "CAV Password Reset", $msg);
                     alert($user, "CAV Password Reset", $msg);
                 }
             }
         }
     }
 
+    /* function to update user password
+    * checks if password is correct
+    * password needs to be 8 characters
+    */
     public function updateUser()
     {
         $error = ''; // Variable To Store Error Message
-
 
             {
                 $this->db = Db::getInstance();
@@ -175,27 +184,19 @@ class Register_Model extends model_base
                     } else {
                         return $this->updatepassword($user, $pass);
                         $msg     = "Your password for the Cancer Alteration Viewer has been updated";
-                        $headers = "From: cav-notifications@sema4genomics.com";
+                        //$headers = "From: cav-notifications@sema4genomics.com";
                         // send email
-                        mail($user, "CAV Password Reset", $msg, $headers);
+                        mail($user, "CAV Password Reset", $msg);
                         alert($user, "CAV Password Reset", $msg);
                     }
                 }
             }
           }
 
-
-
-
     public function updatepassword($username, $pass)
     {
-        //copy v$report = $_POST["report"];
-
         $this->db = Db::getInstance();
-
         $error = ''; // Variable To Store Error Message
-
-
         {
             $stmt = $this->db->prepare("UPDATE  CVC_User SET Password =:Password WHERE UID= :UID");
             $stmt->bindParam(':UID', $username);
@@ -214,7 +215,6 @@ class Register_Model extends model_base
             return 3;
         }
     }
-
 }
 
 ?>
