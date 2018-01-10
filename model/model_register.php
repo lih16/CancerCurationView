@@ -145,11 +145,11 @@ class Register_Model extends model_base
                     $mail=mail($user, "CAV Password Reset", $msg);
                     if($mail)
                     {
-                      echo "Test email send.";
+                      alert( "Test email send.");
                     }
                     else
                     {
-                      echo "Failed to send.";
+                      alert( "Failed to send.");
                     }
                 }
             }
