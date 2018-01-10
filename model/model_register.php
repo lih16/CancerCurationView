@@ -96,10 +96,11 @@ class Register_Model extends model_base
         $username = $username;
         $password = $pass;
 
-        $msg     =   $pass;
+        $msg     = ("Your temporary password is " + $pass)  ;
         $headers = "From: cav-notifications@sema4genomics.com";
+        $subject="CAV Password Reset";
         // send email
-        $mail=mail($username, "CAV Password Reset", $msg, $headers);
+        $mail=mail($username, $subject,$msg, $headers);
         if($mail)
         {
           echo "Test email send.";
