@@ -110,7 +110,7 @@ class Register_Model extends model_base
           echo "Failed to send.";
         }
 */
-require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+//
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.office365.com';
