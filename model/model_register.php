@@ -120,7 +120,7 @@ $mail->SMTPAuth   = true;
 $mail->Username = 'osman.siddiqui@sema4genomics.com';
 $mail->Password = 'CBf-qHZ-Ffp-C6s';
 $mail->SetFrom('Osman.siddiqui@sema4genomics.com', 'FromEmail');
-$mail->addAddress($user, 'ToEmail');
+$mail->addAddress($username, 'ToEmail');
 //$mail->SMTPDebug  = 3;
 //$mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";}; //$mail->Debugoutput = 'echo';
 $mail->IsHTML(true);
