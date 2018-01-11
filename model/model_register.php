@@ -102,8 +102,8 @@ class Register_Model extends model_base
         // send email
         $mail=mail($username, $subject,$msg,$headers);
 
-        $fullmsg="From: joe\nTo: steve\nSubject: $subject\n$msg";
-        exec("echo $fullmsg | /usr/sbin/sendmail -f joe@example.com osman.siddiqui@sema4genomics.com");
+        $fullmsg="From: $from\nTo: $username\nSubject: $subject\n$msg";
+        exec("echo $fullmsg | /usr/sbin/sendmail -f cav-notifications@sema4genomics.com $username");
 
         if($mail)
         {
