@@ -96,7 +96,7 @@ class Register_Model extends model_base
         $username = $username;
         $password = $pass;
 
-      /*  $msg     = ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
+        $msg     = ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
         $headers = "From: cav-notifications@sema4genomics.com";
         $subject="CAV Password Reset";
         // send email
@@ -109,16 +109,16 @@ class Register_Model extends model_base
         {
           echo "Failed to send.";
         }
-*/
 
-$mail = new PHPMailer(true);
+
+/*$mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.office365.com';
 $mail->Port       = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth   = true;
 $mail->Username = 'osman.siddiqui@sema4genomics.com';
-$mail->Password = 'CBf-qHZ-Ffp-C6s';
+
 $mail->SetFrom('Osman.siddiqui@sema4genomics.com', 'FromEmail');
 $mail->addAddress($username, 'ToEmail');
 //$mail->SMTPDebug  = 3;
@@ -134,7 +134,7 @@ if(!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
     echo 'Message has been sent';
-}
+} */
         try {
             $stmt->execute();
             return 2;
