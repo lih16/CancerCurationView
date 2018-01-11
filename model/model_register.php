@@ -1,7 +1,7 @@
 <?php
 
 use Lib\model_base;
-
+require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
 class Register_Model extends model_base
 {
     public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
@@ -110,7 +110,7 @@ class Register_Model extends model_base
           echo "Failed to send.";
         }
 */
-require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
+
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $mail->Host = 'smtp.office365.com';
