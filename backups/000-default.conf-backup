@@ -9,8 +9,8 @@
         #ServerName www.example.com
 
 
-        #ServerAdmin webmaster@localhost
-        #DocumentRoot /var/www/html
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
         #AllowOverride all
 
 
@@ -20,12 +20,11 @@
         # modules, e.g.
         #LogLevel info ssl:warn
 
-        #ErrorLog ${APACHE_LOG_DIR}/error.log
-        #CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-#  <Directory "/var/www/html">
-#  AllowOverride All
-#  </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        <Directory "/var/www/html">
+  AllowOverride All
+  </Directory>
 
         # For most configuration files from conf-available/, which are
         # enabled or disabled at a global level, it is possible to
@@ -33,20 +32,7 @@
         # following line enables the CGI configuration for this host only
         # after it has been globally disabled with "a2disconf".
         #Include conf-available/serve-cgi-bin.conf
-#</VirtualHost>
+</VirtualHost>
 
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet~
-
-
-<VirtualHost *:443>
-                ServerAdmin webmaster@localhost
-                DocumentRoot /var/www/html
-                ErrorLog ${APACHE_LOG_DIR}/error.log
-                CustomLog ${APACHE_LOG_DIR}/access.log combined
-                SSLEngine on
-                SSLCertificateFile /etc/apache2/ssl/oncsuite_sema4genomics_com.crt
-                SSLCACertificateFile /etc/apache2/ssl/COMODORSADomainValidationSecureServerCA.crt
-                SSLCACertificateFile /etc/apache2/ssl/AddTrustExternalCARoot.crt
-                SSLCACertificateFile /etc/apache2/ssl/COMODORSAAddTrustCA.crt
-                SSLCertificateKeyFile /etc/apache2/ssl/oncsuite.key
- </VirtualHost>
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+~

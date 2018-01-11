@@ -96,11 +96,11 @@ class Register_Model extends model_base
         $username = $username;
         $password = $pass;
 
-        $msg     = ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
+      /*  $msg     = ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
         $headers = "From: cav-notifications@sema4genomics.com";
         $subject="CAV Password Reset";
         // send email
-        $mail=mail($username, $subject,$msg);
+        $mail=mail($username, $subject,$msg, $headers);
         if($mail)
         {
           echo "Test email send.";
@@ -109,7 +109,32 @@ class Register_Model extends model_base
         {
           echo "Failed to send.";
         }
+*/
+require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
+$mail = new PHPMailer(true);
+$mail->isSMTP();
+$mail->Host = 'smtp.office365.com';
+$mail->Port       = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth   = true;
+$mail->Username = 'osman.siddiqui@sema4genomics.com';
+$mail->Password = 'CBf-qHZ-Ffp-C6s';
+$mail->SetFrom('Osman.siddiqui@sema4genomics.com', 'FromEmail');
+$mail->addAddress($user, 'ToEmail');
+//$mail->SMTPDebug  = 3;
+//$mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";}; //$mail->Debugoutput = 'echo';
+$mail->IsHTML(true);
 
+$mail->Subject = 'CAV password Reset';
+$mail->Body    =  ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
+
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
         try {
             $stmt->execute();
             return 2;
