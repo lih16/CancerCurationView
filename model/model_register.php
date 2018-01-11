@@ -242,7 +242,7 @@ if(!$mail->send()) {
 
             $msg     = ("You have successfully updated your password. ");
             $headers = "From: cav-notifications@sema4genomics.com";
-            $subject="CAV Password changed";
+            $subject="CAV Password Updated";
             // send email
             $mail=mail($username, $subject,$msg, $headers);
             if($mail)
