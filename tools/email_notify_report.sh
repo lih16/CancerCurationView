@@ -3,7 +3,7 @@ IFS=$'\t'
 declare -A emailnotify
  i=0;
  sendString=""
- emailList="osman.siddiqui@sema4genomics.com,osmosis11@gmail.com,osman.siddiqui11@gmail.com"
+ emailList="osman.siddiqui@sema4genomics.com,umadevi.thirumurthi@sema4genomics.com,marc.fink@sema4genomics.com,janet.hager@sema4genomics.com,saikat.saha@sema4genomics.com,zhiqiang.li@sema4genomics.com"
  while read cancer gene variant; do
 
 emailnotify[$i]=$cancer" "$gene" "$variant;
