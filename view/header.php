@@ -15,6 +15,10 @@
 <title>Cancer Alteration Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/headmenu.css" rel="stylesheet" type="text/css">
 
+<!-- jan 19th osman added this because error.log -->
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="/custom_icon.png"/>
+
 
 
 	<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>/jquery.dataTables.css">
