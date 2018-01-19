@@ -16,7 +16,7 @@
 <link href="<?php echo CSS_PATH; ?>/headmenu.css" rel="stylesheet" type="text/css">
 
 <!-- jan 19th osman added this because error.log -->
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="apple-touch-icon" href="/custom_icon.png"/>
 
 
