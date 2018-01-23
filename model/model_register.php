@@ -1,7 +1,7 @@
 <?php
 
 use Lib\model_base;
-require '/usr/share/php/libphp-phpmailer/PHPMailerAutoload.php';
+
 class Register_Model extends model_base
 {
     public function __construct($stable = null, $aColumns = null, $sIndexColumn = null)
@@ -116,30 +116,7 @@ class Register_Model extends model_base
         }
 
 
-/*$mail = new PHPMailer(true);
-$mail->isSMTP();
-$mail->Host = 'smtp.office365.com';
-$mail->Port       = 587;
-$mail->SMTPSecure = 'tls';
-$mail->SMTPAuth   = true;
-$mail->Username = 'osman.siddiqui@sema4genomics.com';
 
-$mail->SetFrom('Osman.siddiqui@sema4genomics.com', 'FromEmail');
-$mail->addAddress($username, 'ToEmail');
-//$mail->SMTPDebug  = 3;
-//$mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";}; //$mail->Debugoutput = 'echo';
-$mail->IsHTML(true);
-
-$mail->Subject = 'CAV password Reset';
-$mail->Body    =  ("Your temporary password is: $pass \r\r\nClick on the update password link on the login page to change your password.");
-
-
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
-} */
         try {
             $stmt->execute();
             return 2;
