@@ -120,6 +120,7 @@ class Tumor_Model extends model_base
 
         if ($rowcount == 1) {
             $result = $rResult[0][0];
+            file_put_contents("logcharset.txt", $result);
             return $result;
         } else {
             /*
