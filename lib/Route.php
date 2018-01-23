@@ -43,8 +43,9 @@ class Route
             include CONTROLLER_PATH . $controller_file;
         } else {
             // redirect to 404 page
-            echo "error1";
+          //  echo "error1";
             // Route::ErrorPage404();
+            return;
         }
         // create controller
         $controller = new $controller_name;

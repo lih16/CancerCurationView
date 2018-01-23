@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
  <style>
          .ui-widget-header,.ui-state-default, ui-button {
             background:#b9cd6d;
