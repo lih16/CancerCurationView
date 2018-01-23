@@ -169,7 +169,7 @@ class Tumor_Model extends model_base
         $result = "";
         $report = $_POST["report"];
         $this->db = Db::getInstance();
-         $this->db->exec("set names utf8");
+
         if ($report == 1) {
             $sQuery = "select report_style from CVC_viewer where gene = :gene and variant = :variant and cancer = :cancer";
                 //  echo  file_put_contents("origin.txt", $sQuery, true);

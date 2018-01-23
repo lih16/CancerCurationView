@@ -35,6 +35,7 @@ class Db
             $password = DB_PASS;
             $db_name = DB_USER;
             $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+            $pdo_options[PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES utf8";
             try {
                 self::$instance = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password, $pdo_options);
             } catch (PDOException $e) {
