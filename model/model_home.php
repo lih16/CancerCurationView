@@ -201,7 +201,7 @@ class Tumor_Model extends model_base
 
         if ($count > 0) {
             $result = $rResult[0][0];
-            file_put_contents("logcharseto.txt", $result);
+
 
         } else {
             $result = "1";
