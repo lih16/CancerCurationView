@@ -48,7 +48,7 @@ class Data_Model extends model_base
                 $cancer  = $_POST['cancer'];
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
-                $query = "select altID FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
+                $query = "select id FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
                 $stmt = $this->db->prepare($query);
                 try {
                     $stmt->execute();
