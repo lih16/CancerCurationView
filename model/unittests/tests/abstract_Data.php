@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 
-abstract class MyApp_Tests_DatabaseTestCase extends TestCase
+abstract class Generic_Tests_DatabaseTestCase extends TestCase
 {
     use TestCaseTrait;
 
@@ -16,9 +16,9 @@ abstract class MyApp_Tests_DatabaseTestCase extends TestCase
     {
         if ($this->conn === null) {
             if (self::$pdo == null) {
-                self::$pdo = new PDO('sqlite::memory:');
+                self::$pdo = new PDO( $GLOBALS['DB_DSN'], $GLOBALS['DB_USER'], $GLOBALS['DB_PASSWD'] );
             }
-            $this->conn = $this->createDefaultDBConnection(self::$pdo, ':memory:');
+            $this->conn = $this->createDefaultDBConnection(self::$pdo, $GLOBALS['DB_DBNAME']);
         }
 
         return $this->conn;
