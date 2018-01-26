@@ -8,7 +8,7 @@ class MySqlGuestbookTest extends TestCase
 
     /**
      */
-     public function getConnection()
+     public function setUp()
          {
             parent::setUp();
             $servername = "34.234.146.130";
@@ -24,7 +24,7 @@ class MySqlGuestbookTest extends TestCase
           public function sampleQuery()
           {
             $tableNames = ['CVC_cancer_gene_var_CAV_2'];
-            $dataSet = $this->getConnection()->createDataSet();
+            $dataSet = $this->setUp()->createDataSet();
             return $dataSet;
 
 }
