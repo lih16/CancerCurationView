@@ -8,9 +8,9 @@ abstract class MySqlGuestbookTest extends TestCase
 
     /**
      */
-     public function setUp()
+     public function getConnection()
          {
-            parent::setUp();
+
             $servername = "34.234.146.130";
             $username = "siddio01";
             $password = "fBNsPQ8YKF4G75vjA3zkzPAJ";
@@ -24,7 +24,7 @@ abstract class MySqlGuestbookTest extends TestCase
           public function sampleQuery()
           {
             $tableNames = ['CVC_cancer_gene_var_CAV_2'];
-            $dataSet = $this->setUp()->createDataSet();
+            $dataSet = $this->getConnection()->createDataSet();
             return $dataSet;
 
 }
