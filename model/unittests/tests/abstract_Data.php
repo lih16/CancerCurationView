@@ -25,7 +25,7 @@ abstract class MySqlGuestbookTest extends TestCase
           {
             $tableNames = ['CVC_cancer_gene_var_CAV_2'];
             $dataSet = $this->getConnection()->createDataSet();
-            return $dataSet;
+            echo $dataSet;
 
 }
 }
