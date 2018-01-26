@@ -24,12 +24,26 @@ abstract class MyApp_Tests_DatabaseTestCase extends TestCase
         return $this->conn;
     }
 
-}
-class MyTest extends TestCase
-{
-    public function testCalculate()
+    public function getTumor()
     {
-        $this->assertEquals(2, 1 + 1);
+        $result = "";
+
+
+        $sQuery = "select cancer from CVC_cancer_gene_var_CAV2 where gene='TEST'  and variant='TEST'";
+        $stmt = $this->db->prepare($sQuery);
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            //write_log($e->getMessage());
+            echo $e->getMessage();
+        }
+        $rResult = $stmt->fetchAll();
+        foreach ($rResult as $aRow) {
+            $result = $result . $aRow[0] . "\n";
+        }
+        return $result;
     }
-}
+
+  }
+
 ?>
