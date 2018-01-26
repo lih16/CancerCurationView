@@ -18,7 +18,7 @@ abstract class MyApp_Tests_DatabaseTestCase extends TestCase
             if (self::$pdo == null) {
                 self::$pdo = new PDO('mysql:dbname=CVC_cancer_gene_var_CAV_2;host=ec2-34-234-146-130', 'siddio01', 'fBNsPQ8YKF4G75vjA3zkzPAJ');
             }
-            $this->conn = $this->createDefaultDBConnection(self::$pdo, ':memory:');
+            $this->conn = $this->createDefaultDBConnection(self::$pdo, 'kb_CancerVariant_Curation');
         }
 
         return $this->conn;
