@@ -34,5 +34,5 @@ $conn->close();
 }
 
 }
-getConnection();
+getConnection;
 ?>
