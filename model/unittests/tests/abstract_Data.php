@@ -10,6 +10,7 @@ class MySqlGuestbookTest extends TestCase
      */
      public function getConnection()
          {
+            parent::setUp();
             $servername = "34.234.146.130";
             $username = "siddio01";
             $password = "fBNsPQ8YKF4G75vjA3zkzPAJ";
