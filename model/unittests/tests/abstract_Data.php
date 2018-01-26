@@ -2,38 +2,29 @@
 use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 
-abstract class MyApp_Tests_DatabaseTestCase extends TestCase
-{
-    use TestCaseTrait;
+$servername = "34.234.146.130";
+$username = "siddio01";
+$password = "fBNsPQ8YKF4G75vjA3zkzPAJ";
+$dbname = "kb_CancerVariant_Curation";
 
-    // only instantiate pdo once for test clean-up/fixture load
-    static private $pdo = null;
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-    // only instantiate PHPUnit_Extensions_Database_DB_IDatabaseConnection once per test
-    private $conn = null;
+$sql = "SELECT cancer, gene, var FROM CVC_cancer_gene_var_CAV_2";
+$result = $conn->query($sql);
 
-    final public function getConnection()
-    {
-        if ($this->conn === null) {
-            if (self::$pdo == null) {
-                self::$pdo = new PDO('mysql:dbname=CVC_cancer_gene_var_CAV_2;host=ec2-34-234-146-130', 'siddio01', 'fBNsPQ8YKF4G75vjA3zkzPAJ');
-            }
-            $this->conn = $this->createDefaultDBConnection(self::$pdo, 'kb_CancerVariant_Curation');
-        }
-
-        return $this->conn;
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "cancer: " . $row["cancer"]. " - gene: " . $row["gene"]. " - alteration " . $row["var"]. "<br>";
     }
-
-    public function getTumor()
-    {
-        $result = "";
-
-
-        $result= "select cancer from CVC_cancer_gene_var_CAV2 where gene='TEST'  and variant='TEST'";
-       return $result;
-    }
-
-  }
-  getTumor();
+} else {
+    echo "0 results";
+}
+$conn->close();
 
 ?>
