@@ -2,9 +2,8 @@
 use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 
-require 'PHPUnit' . DIRECTORY_SEPARATOR . 'Extensions' .
-DIRECTORY_SEPARATOR . 'Database'  . DIRECTORY_SEPARATOR .
-'TestCase.php';
+require 'PHPUnit' . DIRECTORY_SEPARATOR . 'Framework' .
+DIRECTORY_SEPARATOR . 'TestCase' ;
 
 class FixtureTestCase extends PHPUnit_Extensions_Database_TestCase {
 
