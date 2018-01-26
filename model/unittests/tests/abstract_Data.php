@@ -23,5 +23,13 @@ abstract class MyApp_Tests_DatabaseTestCase extends TestCase
 
         return $this->conn;
     }
+
+}
+class MyTest extends TestCase
+{
+    public function testCalculate()
+    {
+        $this->assertEquals(2, 1 + 1);
+    }
 }
 ?>
