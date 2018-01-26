@@ -22,18 +22,10 @@ class MySqlGuestbookTest extends TestCase
 
           public function sampleQuery()
           {
-            $sql = "SELECT cancer, gene, var FROM CVC_cancer_gene_var_CAV_2";
-            $result = $conn->query($sql);
+            $tableNames = ['CVC_cancer_gene_var_CAV_2'];
+            $dataSet = $this->getConnection()->createDataSet();
+            return $dataSet;
 
-            if ($result->num_rows > 0) {
-    // output data of each row
-        while($row = $result->fetch_assoc()) {
-          echo $row["cancer"]. $row["gene"]. $row["var"]. "<br>";
-    }
-} else {
-    echo "0 results";
-}
-$conn->close();
 }
 }
 ?>
