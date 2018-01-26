@@ -2,7 +2,7 @@
 use PHPUnit\Framework\TestCase;
 use PHPUnit\DbUnit\TestCaseTrait;
 
-class MySqlGuestbookTest extends TestCase
+abstract class MySqlGuestbookTest extends TestCase
 {
     use TestCaseTrait;
 
