@@ -1,45 +1,36 @@
 <?php
+use PHPUnit\Framework\TestCase;
+use PHPUnit\DbUnit\TestCaseTrait;
 
-class Db
+abstract class MySqlGuestbookTest extends TestCase
 {
-    private static $instance = null;
-
-    /*
-     *Accept a $model instance in the constructor, so the  dependencies can be injected from the outside
-    */
-    private function __construct()
-    {
-    }
+    use TestCaseTrait;
 
     /**
-    * Empty clone magic method to prevent duplication.
-    */
-    private function __clone()
-    {
-    }
-
-    /*
-     * @return singleton instance for mysql connection
-     *
-     * @throws PDO exceptionclass [description]
-     *
-     * @access public
-     * @static
-     * @see Db::getInstance,
-    */
-    public static function getInstance()
-    {
-        if (!isset(self::$instance)) {
-            $hostname = DB_HOST;
-            $username = DB_NAME;
-            $password = DB_PASS;
-            $db_name = DB_USER;
-            try {
-                self::$instance = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
-            } catch (PDOException $e) {
-                write_log($e->getMessage());
-            }
-        }
-        return self::$instance;
-    }
+     */
+     public function getConnection()
+{
+  $servername = "34.234.146.130";
+$username = "siddio01";
+$password = "fBNsPQ8YKF4G75vjA3zkzPAJ";
+$dbname = "kb_CancerVariant_Curation";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
+$sql = "SELECT cancer, gene, var FROM CVC_cancer_gene_var_CAV_2";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+      echo "cancer: " . $row["cancer"]. " - gene: " . $row["gene"]. " - alteration " . $row["var"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+}
+}
+?>
