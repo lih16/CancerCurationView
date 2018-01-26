@@ -7,7 +7,6 @@ class MySqlGuestbookTest extends TestCase
     use TestCaseTrait;
 
     /**
-     * @return PHPUnit_Extensions_Database_DB_IDatabaseConnection
      */
      public function getConnection()
          {
