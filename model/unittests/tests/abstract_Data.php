@@ -29,21 +29,11 @@ abstract class MyApp_Tests_DatabaseTestCase extends TestCase
         $result = "";
 
 
-        $sQuery = "select cancer from CVC_cancer_gene_var_CAV2 where gene='TEST'  and variant='TEST'";
-        $stmt = $this->db->prepare($sQuery);
-        try {
-            $stmt->execute();
-        } catch (PDOException $e) {
-            //write_log($e->getMessage());
-            echo $e->getMessage();
-        }
-        $rResult = $stmt->fetchAll();
-        foreach ($rResult as $aRow) {
-            $result = $result . $aRow[0] . "\n";
-        }
-        return $result;
+        $result= "select cancer from CVC_cancer_gene_var_CAV2 where gene='TEST'  and variant='TEST'";
+       return $result;
     }
 
   }
+  getTumor();
 
 ?>
