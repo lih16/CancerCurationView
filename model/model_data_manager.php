@@ -12,6 +12,29 @@ class Data_Model extends model_base
     * create new user
     *
     */
+   private   function cmd_exec($cmd, &$stdout, &$stderr)
+   {
+    $outfile = tempnam(".", "cmd");
+    $errfile = tempnam(".", "cmd");
+    $descriptorspec = array(
+        0 => array("pipe", "r"),
+        1 => array("file", $outfile, "w"),
+        2 => array("file", $errfile, "w")
+    );
+    $proc = proc_open($cmd, $descriptorspec, $pipes);
+
+    if (!is_resource($proc)) return 255;
+
+    fclose($pipes[0]);    //Don't really want to give any input
+
+    $exit = proc_close($proc);
+    $stdout = file($outfile);
+    $stderr = file($errfile);
+
+    unlink($outfile);
+    unlink($errfile);
+    return $exit;
+    }
     public function addAlteration($cancer, $gene, $alteration, $oncotree)
     {
         //copy v$report = $_POST["report"];
@@ -71,7 +94,15 @@ class Data_Model extends model_base
 
         }
     }
+    private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
+    {
+      cmd_exec('java -jar googlescholar.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
+      print_r($returnvalue);
+      print_r($error);
+      $output=file_get_contents($outputHtmlFile, true);
+      return $output;
 
+    }
     public function addPreNarrative($cancer, $gene, $alteration,$narrative,$curator )
     {
         //copy v$report = $_POST["report"];
@@ -85,7 +116,7 @@ class Data_Model extends model_base
         $stmt->bindParam(':variant', $alteration);
         $stmt->bindParam(':narrative', $narrative);
         $stmt->bindParam(':curator', $curator);
-
+        $narrative = getNarrativebyWord("constant", "constant");
 
         try {
             $stmt->execute();
@@ -109,7 +140,8 @@ class Data_Model extends model_base
                 $cancer  = $_POST['cancer'];
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
-                $narrative  = $_POST['narrative']; //
+                $curator = $_POST['curator']; //
+
                 $query = "select narrative FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
                 $stmt = $this->db->prepare($query);
                 try {
