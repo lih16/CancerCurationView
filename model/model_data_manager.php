@@ -48,6 +48,11 @@ class Data_Model extends model_base
         $stmt->bindParam(':var', $alteration);
         $stmt->bindParam(':oncotreeCode', $oncotree);
 
+        $cancer     = $_POST["cancer"];
+        $gene       = $_POST["gene"];
+        $alteration = $_POST["alteration"];
+        $oncotree   = $_POST["oncotreeCode"];
+
 
         try {
             $stmt->execute();
