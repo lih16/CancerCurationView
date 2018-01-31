@@ -51,6 +51,7 @@
 <li class="hover"><a href="#"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
 <li><a href="#" >Add N-of-One</a></li>
 <li><a href="#" >Add new Alteration</a></li>
+<li align= "right" ><a href="#" >Logout</a></li>
 <li>
 <div class="search">
   <span class="fa fa-search" onclick="alert('a');"></span>
