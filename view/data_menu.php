@@ -4,6 +4,30 @@
   <title>Add Narrative - Cancer Alteration Viewer</title>
   <meta name="robots" content="noindex, nofollow">
   <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script>
+  $(document).ready(function() {
+      $("#nav li a").click(function() {
+
+          $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
+          $("#nav li a").removeClass('current');
+          $(this).addClass('current');
+
+          $.ajax({ url: this.href, success: function(html) {
+              $("#ajax-content").empty().append(html);
+              }
+      });
+      return false;
+      });
+
+      $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
+      $.ajax({ url: 'addAlteration.php', success: function(html) {
+              $("#ajax-content").empty().append(html);
+      }
+      });
+  });
+  </script>
 <style >
 #menu{background:#464646;color:#eee;height:35px;}
 #menu ul,#menu li{margin:0;padding:0;list-style:none}
@@ -57,29 +81,6 @@
 </li>
 </ul>
 </nav>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-  <script>
-$(document).ready(function() {
-    $("#nav li a").click(function() {
-
-        $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
-        $("#nav li a").removeClass('current');
-        $(this).addClass('current');
-
-        $.ajax({ url: this.href, success: function(html) {
-            $("#ajax-content").empty().append(html);
-            }
-    });
-    return false;
-    });
-
-    $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
-    $.ajax({ url: 'addAlteration.php', success: function(html) {
-            $("#ajax-content").empty().append(html);
-    }
-    });
-});
-</script>
 
 </html>
