@@ -42,8 +42,9 @@ class Login_Model extends model_base
 
                     $_SESSION['username'] = $user;
                     $_SESSION['role'] = $role;
+
                     // header("location: profile.php"); // Redirecting To Other Page
-                    return 'login';
+                    return $role;
                     //$_SESSION['login_user']=$username; // Initializing Session
                     // header("location: profile.php"); // Redirecting To Other Page
                 } else {

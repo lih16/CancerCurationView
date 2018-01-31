@@ -30,11 +30,24 @@ class controller_login extends Controller_base
         *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
        */
         $reslt = $this->model->getlogin(); //
-        if ($reslt == 'login') {
+        switch($reslt){
+          // case 1 equals
+          case 1 : header("location: ../home/browse");
+          break;
+          case 2 : header("location: ../home/browse");
+          break;
+          case 3 : header("location: ../home/browse");
+          break;
+          case 4: include VIEW_PATH . 'dataManager.php';
+          break;
+          default: include VIEW_PATH . 'login.php';
+
+        }
+        /*if ($reslt == 'login') {
             header("location: ../home/browse");
         } else {
             include VIEW_PATH . 'login.php';
-        }
+        }*/
     }
 
     public function action_logout()
