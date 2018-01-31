@@ -46,7 +46,7 @@
           <label>Gene :</label>
           <input type="text" name="gene" id="gene">
           <label>Alteration :</label>
-          <input type="test" name="alteration" id="alteration">
+          <input type="text" name="alteration" id="alteration">
           <label>Curator :</label>
           <input type="text" name="curator" id="curator">
           <button type="submit" name="addNarrative" id="addNarrative" value="addNarrative">Add Narrative</button>
