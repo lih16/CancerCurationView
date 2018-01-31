@@ -53,59 +53,33 @@
 <li><a href="addAlteration.php" >Add new Alteration</a></li>
 <li align= "right" ><a href="#" >Logout</a></li>
 <li>
-<div class="search">
-  <span class="fa fa-search" onclick="alert('a');"></span>
-  <input placeholder="Search term">
-</div>
+  <div id="ajax-content">This is default text, which will be replaced</div>
 </li>
 </ul>
 </nav>
-
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
   <script>
-    $(document).ready(function() {
-      $("#register").click(function() {
-        var cancer = $("#cancer").val();
-        var gene = $("#gene").val();
-        var alteration = $("#alteration").val();
-        var oncotree = $("#oncotreeCode").val();
-        if (cancer == '' || gene == '' || alteration == '' || oncotree == '') {
-          alert("Please fill all fields...!!!!!!");
-          return false;
-        } else {
-          $.post("data_menu.php", {
-            cancer1: cancer,
-            gene1: gene,
-            alteration1: alteration
-            oncotree1: oncotree
-          }, function(data) {
-            if (data == 'Narrative has been successfully added') {
-              $("form")[0].reset();
+$(document).ready(function() {
+    $("#nav li a").click(function() {
+
+        $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
+        $("#nav li a").removeClass('current');
+        $(this).addClass('current');
+
+        $.ajax({ url: this.href, success: function(html) {
+            $("#ajax-content").empty().append(html);
             }
-            //alert(data);
-          });
-        }
-      });
     });
-  </script>
+    return false;
+    });
 
+    $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
+    $.ajax({ url: 'addAlteration.php', success: function(html) {
+            $("#ajax-content").empty().append(html);
+    }
+    });
+});
+</script>
 
-<body>
-  <div class="container">
-    <div class="main">
-      <form class="form" method="post" action="../data_manager/submit_alteration">
-        <h2> Cancer Alteration Viewer Data Management</h2>
-        <label>Cancer :</label>
-        <input type="text" name="cancer" id="cancer">
-        <label>Gene :</label>
-        <input type="text" name="gene" id="gene">
-        <label>Alteration :</label>
-        <input type="text" name="alteration" id="alteration">
-        <label>Oncotree :</label>
-        <input type="text" name="oncotreeCode" id="oncotreeCode">
-        <button type="submit" name="addAlteration" id="addAlteration" value="addAlteration">Add Alteration</button>
-      </form>
-    </div>
-</body>
 </html>
