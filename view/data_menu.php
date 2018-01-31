@@ -47,8 +47,6 @@
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
 <ul>
-
-
 <li><a class='prett' href='#'>Add Pre-Narrative</a>
 </ul>
 </li>
