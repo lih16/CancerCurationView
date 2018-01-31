@@ -75,7 +75,7 @@
 <li class="hover"><a href="addReportStyle.php"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
 <li><a href="addNofOne.php" >Add N-of-One</a></li>
 <li><a href=include VIEW_PATH . 'data_menu.php' >Add new Alteration</a></li>
-<li align= "right" ><a href="#" >Logout</a></li>
+<li class="searchbutton" onclick="logout();return false;">Logout</a></li>
 </ul>
 </nav>
 <div id="ajax-content">This is default text, which will be replaced</div>

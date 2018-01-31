@@ -38,7 +38,7 @@ class controller_login extends Controller_base
           break;
           case 3 : header("location: ../home/browse");
           break;
-          case 4: include VIEW_PATH . 'data_menu.php';
+          case 4: include VIEW_PATH . 'data_menu.php'; //'addAlteration.php'
           break;
           default: include VIEW_PATH . 'login.php';
 
