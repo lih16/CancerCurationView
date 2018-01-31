@@ -76,11 +76,8 @@
 <li><a href="addNofOne.php" >Add N-of-One</a></li>
 <li><a href="addAlteration.php" >Add new Alteration</a></li>
 <li align= "right" ><a href="#" >Logout</a></li>
-<li>
-  <div id="ajax-content">This is default text, which will be replaced</div>
-</li>
 </ul>
 </nav>
-
+<div id="ajax-content">This is default text, which will be replaced</div>
 
 </html>
