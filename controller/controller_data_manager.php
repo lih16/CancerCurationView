@@ -29,7 +29,7 @@ class controller_data_manager extends Controller_base
         * Set views directories
         */
 
-        include VIEW_PATH . 'data_menu.php';
+        //include VIEW_PATH . 'data_menu.php';
         include VIEW_PATH . 'addAlteration.php';
 
     }
