@@ -78,7 +78,7 @@ class Data_Manager_Model extends model_base
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
                 $onctree   = $_POST["oncotreeCode"];
-                $query = "select id FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
+                $query = "select id FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and var='" . $alteration . "'";
                 $stmt = $this->db->prepare($query);
                 try {
                     $stmt->execute();
