@@ -31,7 +31,7 @@ class controller_data_manager extends Controller_base
 
         include VIEW_PATH . 'data_menu.php';
         include VIEW_PATH . 'addAlteration.php';
-        include VIEW_PATH . 'selectADD.php';
+      //  include VIEW_PATH . 'selectADD.php';
 
     }
 
@@ -41,7 +41,7 @@ class controller_data_manager extends Controller_base
          * Set the dependency in a class property, so it's easily accessible for later use of class methods.
           *@param $reslt calls the getlogin() function of model class and store the return value of this function into the result variable.
          */
-          $reslt = $this->model->addNarrative(); //
+          $reslt = $this->model->addPreNarrative(); //
           if ($reslt == 1){
 
               include VIEW_PATH . 'narrativeExists.php';

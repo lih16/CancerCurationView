@@ -35,73 +35,8 @@ class Data_Manager_Model extends model_base
     unlink($errfile);
     return $exit;
     }
-    public function addAlteration($can, $gen, $alteratio, $oncotre)
-    {
-        //copy v$report = $_POST["report"];
-
-        $this->db = Db::getInstance();
-
-        $stmt = $this->db->prepare("INSERT INTO CVC_cancer_gene_var (cancer, gene,var,oncotreeCode) VALUES (:cancer, :gene,:var,:oncotreeCode)");
-
-        $stmt->bindParam(':cancer', $can);
-        $stmt->bindParam(':gene', $gen);
-        $stmt->bindParam(':var', $alteratio);
-        $stmt->bindParam(':oncotreeCode', $oncotree);
-
-        $cancer     = $can;
-        $gene       = $gen;
-        $alteration = $alteratio;
-        $oncotree   = $oncotre;
 
 
-        try {
-            $stmt->execute();
-            echo $e->getMessage();
-            return 2;
-        }
-        catch (PDOException $e) {
-            //write_log($e->getMessage());
-            echo $e->getMessage();
-            return 3;
-        }
-    }
-    public function getAlteration()
-    {
-        //session_start(); // Starting Session
-
-        $error = ''; // Variable To Store Error Message
-        //    if (isset($_POST['submit']))
-        {
-            $this->db = Db::getInstance(); {
-                // Define $username and $password
-                $cancer  = $_POST['cancer'];
-                $gene  = $_POST['gene']; //
-                $variant  = $_POST['alteration']; //
-                $onctree   = $_POST["oncotreeCode"];
-                $query = "select id FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and var='" . $alteration . "'";
-                $stmt = $this->db->prepare($query);
-                try {
-                    $stmt->execute();
-                }
-                catch (PDOException $e) {
-                    //write_log($e->getMessage());
-                    echo $e->getMessage();
-                }
-                $rows     = $stmt->fetchAll();
-                $num_rows = count($rows);
-
-                if ($num_rows == 1) {
-
-                    return 1; //indicated that Id alreaday exist;
-                    echo $e->getMessage();
-
-                } else {
-                    return $this->addAlteration($cancer, $gene,$variant, $onctree);
-                }
-            }
-
-        }
-    }
     private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
     {
       cmd_exec('java -jar googlescholar.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
@@ -124,7 +59,7 @@ class Data_Manager_Model extends model_base
         $stmt->bindParam(':variant', $alteration);
         $stmt->bindParam(':narrative', $narrative);
         $stmt->bindParam(':curator', $curator);
-        $narrative = getNarrativebyWord("constant", "constant");
+        $narrative = getNarrativebyWord('/var/www/html/Development/tools/Pre.doc','itworks.html');
 
         try {
             $stmt->execute();
@@ -230,6 +165,73 @@ class Data_Manager_Model extends model_base
 
                 } else {
                     return $this->addReportNarrative($cancer, $gene,$variant,$reportStyle,$curator);
+                }
+            }
+
+        }
+    }
+    public function addAlteration($can, $gen, $alteratio, $oncotre)
+    {
+        //copy v$report = $_POST["report"];
+
+        $this->db = Db::getInstance();
+
+        $stmt = $this->db->prepare("INSERT INTO CVC_cancer_gene_var (cancer, gene,var,oncotreeCode) VALUES (:cancer, :gene,:var,:oncotreeCode)");
+
+        $stmt->bindParam(':cancer', $can);
+        $stmt->bindParam(':gene', $gen);
+        $stmt->bindParam(':var', $alteratio);
+        $stmt->bindParam(':oncotreeCode', $oncotree);
+
+        $cancer     = $can;
+        $gene       = $gen;
+        $alteration = $alteratio;
+        $oncotree   = $oncotre;
+
+
+        try {
+            $stmt->execute();
+            echo $e->getMessage();
+            return 2;
+        }
+        catch (PDOException $e) {
+            //write_log($e->getMessage());
+            echo $e->getMessage();
+            return 3;
+        }
+    }
+    public function getAlteration()
+    {
+        //session_start(); // Starting Session
+
+        $error = ''; // Variable To Store Error Message
+        //    if (isset($_POST['submit']))
+        {
+            $this->db = Db::getInstance(); {
+                // Define $username and $password
+                $cancer  = $_POST['cancer'];
+                $gene  = $_POST['gene']; //
+                $variant  = $_POST['alteration']; //
+                $onctree   = $_POST["oncotreeCode"];
+                $query = "select id FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and var='" . $alteration . "'";
+                $stmt = $this->db->prepare($query);
+                try {
+                    $stmt->execute();
+                }
+                catch (PDOException $e) {
+                    //write_log($e->getMessage());
+                    echo $e->getMessage();
+                }
+                $rows     = $stmt->fetchAll();
+                $num_rows = count($rows);
+
+                if ($num_rows == 1) {
+
+                    return 1; //indicated that Id alreaday exist;
+                    echo $e->getMessage();
+
+                } else {
+                    return $this->addAlteration($cancer, $gene,$variant, $onctree);
                 }
             }
 
