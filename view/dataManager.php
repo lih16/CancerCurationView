@@ -15,8 +15,8 @@
           var cancer = $("#cancer").val();
           var gene = $("#gene").val();
           var alteration = $("#alteration").val();
-          var curator = $("#curator").val();
-          if (cancer == '' || gene == '' || alteration == '' || curator == '') {
+          var oncotree = $("#oncotreeCode").val();
+          if (cancer == '' || gene == '' || alteration == '' || oncotree == '') {
             alert("Please fill all fields...!!!!!!");
             return false;
           } else {
@@ -24,6 +24,7 @@
               cancer1: cancer,
               gene1: gene,
               alteration1: alteration
+              oncotree1: oncotree
             }, function(data) {
               if (data == 'Narrative has been successfully added') {
                 $("form")[0].reset();
@@ -39,7 +40,7 @@
   <body>
     <div class="container">
       <div class="main">
-        <form class="form" method="post" action="../dataManager/submit">
+        <form class="form" method="post" action="../dataManager/submit_alteration">
           <h2> Cancer Alteration Viewer Data Management</h2>
           <label>Cancer :</label>
           <input type="text" name="cancer" id="cancer">
@@ -47,8 +48,8 @@
           <input type="text" name="gene" id="gene">
           <label>Alteration :</label>
           <input type="text" name="alteration" id="alteration">
-          <label>Curator :</label>
-          <input type="text" name="curator" id="curator">
+          <label>Oncotree :</label>
+          <input type="text" name="oncotreeCode" id="oncotreeCode">
           <button type="submit" name="addNarrative" id="addNarrative" value="addNarrative">Add Narrative</button>
         </form>
       </div>
