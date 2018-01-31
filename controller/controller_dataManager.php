@@ -67,7 +67,7 @@ class controller_data_manager extends Controller_base
              * Set the dependency in a class property, so it's easily accessible for later use of class methods.
               *@param $result calls the getlogin() function of model class and store the return value of this function into the result variable.
              */
-              $result = $this->model->addAlteration();
+              $result = $this->model->getAlteration();
 
               if ($result == 1){
 

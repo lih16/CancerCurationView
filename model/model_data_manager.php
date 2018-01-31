@@ -35,7 +35,7 @@ class Data_Model extends model_base
     unlink($errfile);
     return $exit;
     }
-    public function addAlteration($cancer, $gene, $alteration, $oncotree)
+    public function addAlteration($can, $gen, $alteratio, $oncotre)
     {
         //copy v$report = $_POST["report"];
 
@@ -43,15 +43,15 @@ class Data_Model extends model_base
 
         $stmt = $this->db->prepare("INSERT INTO CVC_cancer_gene_var (cancer, gene,var,oncotreeCode) VALUES (:cancer, :gene,:var,:oncotreeCode)");
 
-        $stmt->bindParam(':cancer', $cancer);
-        $stmt->bindParam(':gene', $gene);
-        $stmt->bindParam(':var', $alteration);
+        $stmt->bindParam(':cancer', $can);
+        $stmt->bindParam(':gene', $gen);
+        $stmt->bindParam(':var', $alteratio);
         $stmt->bindParam(':oncotreeCode', $oncotree);
 
-        $cancer     = $_POST["cancer"];
-        $gene       = $_POST["gene"];
-        $alteration = $_POST["alteration"];
-        $oncotree   = $_POST["oncotreeCode"];
+        $cancer     = $can;
+        $gene       = $gen;
+        $alteration = $alteratio;
+        $oncotree   = $oncotre;
 
 
         try {
@@ -76,6 +76,7 @@ class Data_Model extends model_base
                 $cancer  = $_POST['cancer'];
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
+                $onctree   = $_POST["oncotreeCode"];
                 $query = "select id FROM CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
                 $stmt = $this->db->prepare($query);
                 try {
@@ -93,7 +94,7 @@ class Data_Model extends model_base
                     return 1; //indicated that Id alreaday exist;
 
                 } else {
-                    return $this->addAlteration($cancer, $gene,$variant);
+                    return $this->addAlteration($cancer, $gene,$variant, $onctree);
                 }
             }
 
