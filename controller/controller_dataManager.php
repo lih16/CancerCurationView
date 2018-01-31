@@ -29,7 +29,7 @@ class controller_register extends Controller_base
        * Set the dependency in a class property, so it's easily accessible for later use of class methods.
         *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
     */
-            include VIEW_PATH . 'data_menu.php';
+            include VIEW_PATH . 'dataManager.php';
     }
     public function action_submit()
       {
@@ -82,5 +82,5 @@ class controller_register extends Controller_base
               }
 
         }
-      
+
 }

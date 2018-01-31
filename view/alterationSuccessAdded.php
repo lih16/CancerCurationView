@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Reset Failure</title>
+  <title>Add Succesfully</title>
   <meta name="robots" content="noindex, nofollow">
   <link href="<?php echo CSS_PATH; ?>/forgotPassword.css" rel="stylesheet" type="text/css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -10,8 +10,8 @@
   <div class="container">
     <div class="main">
       <form action="CHANGE THIS TO THE RESET PASSWORD PAGE">
-        <h2> Reset Password failed, email is not in database</h2>
-      <button type="submit">Return to reset password page</button>
+        <h2> Alteration is has been added database</h2>
+      <button type="submit">Proceed to add narrative page</button>
       </form>
     </div>
 </body>

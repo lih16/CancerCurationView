@@ -11,7 +11,7 @@
 
     <script>
       $(document).ready(function() {
-        $("#datamanager").click(function() {
+        $("#dataManager").click(function() {
           var cancer = $("#cancer").val();
           var gene = $("#gene").val();
           var alteration = $("#alteration").val();
@@ -50,7 +50,7 @@
           <input type="text" name="alteration" id="alteration">
           <label>Oncotree :</label>
           <input type="text" name="oncotreeCode" id="oncotreeCode">
-          <button type="submit" name="addNarrative" id="addNarrative" value="addNarrative">Add Narrative</button>
+          <button type="submit" name="addAlteration" id="addAlteration" value="addAlteration">Add Alteration</button>
         </form>
       </div>
 </body>
