@@ -31,6 +31,7 @@ class controller_data_manager extends Controller_base
 
         include VIEW_PATH . 'data_menu.php';
         include VIEW_PATH . 'addAlteration.php';
+        include VIEW_PATH . 'select.php'
 
     }
 
@@ -53,17 +54,7 @@ class controller_data_manager extends Controller_base
           }
 
     }
-    /**
-    *BELOW Is for Resetting PASSWORD functions
-    */
-        public function action_addAlteration()
-        {
-          /**
-           * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-            *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
-        */
-                include VIEW_PATH . 'addAlteration.php';
-        }
+
         public function action_submit_alteration()
           {
             /**
