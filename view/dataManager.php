@@ -39,7 +39,7 @@
   <body>
     <div class="container">
       <div class="main">
-        <form class="form" method="post" action="../register/submit">
+        <form class="form" method="post" action="../dataManager/submit">
           <h2> Cancer Alteration Viewer Data Management</h2>
           <label>Cancer :</label>
           <input type="text" name="cancer" id="cancer">
