@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+  <title>Add Narrative - Cancer Alteration Viewer</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
 <style >
 #menu{background:#464646;color:#eee;height:35px;}
 #menu ul,#menu li{margin:0;padding:0;list-style:none}
@@ -48,13 +50,11 @@
 
 
 <li><a class='prett' href='#'>Add Pre-Narrative</a>
-<ul class='menus'>
-<li><a href="#" onclick="showupload();return false;">Import File</a></li>
-<li><a href="#"  onclick="shownewvariant();return false;" >New Variant</a></li>
 </ul>
 </li>
-<li class="hover"><a href="#"  onclick="showpending();return false;">Report-Style Narrative</a></li>
-<li><a href="#" >N-of-One</a></li>
+<li class="hover"><a href="#"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
+<li><a href="#" >Add N-of-One</a></li>
+<li><a href="#" >Add new Alteration</a></li>
 <li>
 <div class="search">
   <span class="fa fa-search" onclick="alert('a');"></span>
@@ -68,7 +68,7 @@
 
   <script>
     $(document).ready(function() {
-      $("#datamanager").click(function() {
+      $("#register").click(function() {
         var cancer = $("#cancer").val();
         var gene = $("#gene").val();
         var alteration = $("#alteration").val();
