@@ -72,9 +72,11 @@ class controller_data_manager extends Controller_base
               if ($result == 1){
 
                   include VIEW_PATH . 'alterationExists.php';
+                  echo $result;
 
               } else if($result == 2) {
                   include VIEW_PATH . 'alterationSuccessAdded.php';
+                  echo $result;
 
               }else{
                 echo $result;
