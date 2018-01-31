@@ -108,11 +108,11 @@ class Register_Model extends model_base
 
         if($mail)
         {
-          echo "Test email send.";
+          echo "email sent";
         }
         else
         {
-          echo "Failed to send.";
+          echo "Failed to send email.";
         }
 
 

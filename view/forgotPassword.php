@@ -18,7 +18,7 @@
           alert("Please provide email");
           return false;
         } else {
-          $.post("resetPassword.php", {
+          $.post("forgotPassword.php", {
             password1: password
           }, function(data) {
             if (data == 'You have Successfully reset your password.....') {
