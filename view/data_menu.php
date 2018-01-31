@@ -47,7 +47,7 @@
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
 
-<li><a class='prett' href='#'>Add Pre-Narrative</a></li>
+<li><a href='#'>Add Pre-Narrative</a></li>
 <li class="hover"><a href="#"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
 <li><a href="#" >Add N-of-One</a></li>
 <li><a href="#" >Add new Alteration</a></li>
@@ -68,8 +68,8 @@
         var cancer = $("#cancer").val();
         var gene = $("#gene").val();
         var alteration = $("#alteration").val();
-        var curator = $("#curator").val();
-        if (cancer == '' || gene == '' || alteration == '' || curator == '') {
+        var oncotree = $("#oncotreeCode").val();
+        if (cancer == '' || gene == '' || alteration == '' || oncotree == '') {
           alert("Please fill all fields...!!!!!!");
           return false;
         } else {
@@ -77,6 +77,7 @@
             cancer1: cancer,
             gene1: gene,
             alteration1: alteration
+            oncotree1: oncotree
           }, function(data) {
             if (data == 'Narrative has been successfully added') {
               $("form")[0].reset();
@@ -92,18 +93,18 @@
 <body>
   <div class="container">
     <div class="main">
-      <form class="form" method="post" action="../register/submit">
+      <form class="form" method="post" action="../data_manager/submit_alteration">
         <h2> Cancer Alteration Viewer Data Management</h2>
         <label>Cancer :</label>
         <input type="text" name="cancer" id="cancer">
         <label>Gene :</label>
         <input type="text" name="gene" id="gene">
         <label>Alteration :</label>
-        <input type="test" name="alteration" id="alteration">
-        <label>Curator :</label>
-        <input type="text" name="curator" id="curator">
-        <button type="submit" name="addNarrative" id="addNarrative" value="addNarrative">Add Narrative</button>
+        <input type="text" name="alteration" id="alteration">
+        <label>Oncotree :</label>
+        <input type="text" name="oncotreeCode" id="oncotreeCode">
+        <button type="submit" name="addAlteration" id="addAlteration" value="addAlteration">Add Alteration</button>
       </form>
     </div>
-
-</body></html>
+</body>
+</html>
