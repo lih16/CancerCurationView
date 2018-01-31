@@ -56,6 +56,7 @@ class Data_Model extends model_base
 
         try {
             $stmt->execute();
+            echo $e->getMessage();
             return 2;
         }
         catch (PDOException $e) {
@@ -92,6 +93,7 @@ class Data_Model extends model_base
                 if ($num_rows == 1) {
 
                     return 1; //indicated that Id alreaday exist;
+                    echo $e->getMessage();
 
                 } else {
                     return $this->addAlteration($cancer, $gene,$variant, $onctree);

@@ -7,34 +7,7 @@
   <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
 
   <!-- Include JS File Here -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
-    <script>
-      $(document).ready(function() {
-        $("#register").click(function() {
-          var cancer = $("#cancer").val();
-          var gene = $("#gene").val();
-          var alteration = $("#alteration").val();
-          var oncotree = $("#oncotreeCode").val();
-          if (cancer == '' || gene == '' || alteration == '' || oncotree == '') {
-            alert("Please fill all fields...!!!!!!");
-            return false;
-          } else {
-            $.post("data_menu.php", {
-              cancer1: cancer,
-              gene1: gene,
-              alteration1: alteration
-              oncotree1: oncotree
-            }, function(data) {
-              if (data == 'Narrative has been successfully added') {
-                $("form")[0].reset();
-              }
-              //alert(data);
-            });
-          }
-        });
-      });
-    </script>
+  
 
 
   <body>
