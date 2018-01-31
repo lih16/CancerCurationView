@@ -11,7 +11,7 @@
 
     <script>
       $(document).ready(function() {
-        $("#dataManager").click(function() {
+        $("#data_manager").click(function() {
           var cancer = $("#cancer").val();
           var gene = $("#gene").val();
           var alteration = $("#alteration").val();
