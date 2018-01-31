@@ -46,10 +46,8 @@
 
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
-<ul>
-<li><a class='prett' href='#'>Add Pre-Narrative</a>
-</ul>
-</li>
+
+<li><a class='prett' href='#'>Add Pre-Narrative</a></li>
 <li class="hover"><a href="#"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
 <li><a href="#" >Add N-of-One</a></li>
 <li><a href="#" >Add new Alteration</a></li>
