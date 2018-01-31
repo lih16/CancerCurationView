@@ -47,10 +47,10 @@
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
 
-<li><a href='#'>Add Pre-Narrative</a></li>
-<li class="hover"><a href="#"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
-<li><a href="#" >Add N-of-One</a></li>
-<li><a href="#" >Add new Alteration</a></li>
+<li><a href='addNarrative.php'>Add Pre-Narrative</a></li>
+<li class="hover"><a href="addReportStyle.php"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
+<li><a href="addNofOne.php" >Add N-of-One</a></li>
+<li><a href="addAlteration.php" >Add new Alteration</a></li>
 <li align= "right" ><a href="#" >Logout</a></li>
 <li>
 <div class="search">
