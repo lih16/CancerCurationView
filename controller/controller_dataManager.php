@@ -5,7 +5,7 @@ use Lib\model_base;
 
 use Lib\Controller_base;
 
-class controller_register extends Controller_base
+class controller_data_manager extends Controller_base
 {
   /**
    * Create the Controller model
@@ -20,7 +20,7 @@ class controller_register extends Controller_base
        * @param $this means "this instance of class A"
         * $this->model means "this instance of class Login_Model $model property
        */
-       $this->model = new data_manager_Model();
+       $this->model = new Data_Manager_Model();
     }
 
     public function action_data_menu()
