@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex, nofollow">
   <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
 
-  <!-- Include JS File Here -->
-  
+
+
 
 
   <body>

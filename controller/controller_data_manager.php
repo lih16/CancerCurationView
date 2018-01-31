@@ -23,14 +23,17 @@ class controller_data_manager extends Controller_base
        $this->model = new Data_Manager_Model();
     }
 
-    public function action_data_menu()
+    public function action_browse()
     {
-      /**
-       * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-        *@param $reslt calls the getlogin() function of model class and store the return value of this function into the reslt variable.
-    */
-            include VIEW_PATH . 'data_manager.php';
+        /**
+        * Set views directories
+        */
+
+        include VIEW_PATH . 'data_menu.php';
+        include VIEW_PATH . 'addAlteration.php';
+
     }
+
     public function action_submit()
       {
         /**
