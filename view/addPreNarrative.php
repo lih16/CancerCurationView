@@ -14,7 +14,7 @@
 
   <body>
     <div class="container">
-      <div class="main">
+      <div class="form-group">
         <form class="form" method="post" action="../data_manager/submit">
           <h2> Cancer Alteration Viewer Data Management</h2>
           <label>Cancer :</label>
