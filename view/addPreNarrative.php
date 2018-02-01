@@ -4,7 +4,7 @@
 <head>
   <title>Add Narrative - Cancer Alteration Viewer</title>
   <meta name="robots" content="noindex, nofollow">
-  <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo CSS_PATH; ?>/dataManager.css" rel="stylesheet" type="text/css">
 
 
 
@@ -21,7 +21,9 @@
           <input type="text" name="gene" id="gene">
           <label>Alteration :</label>
           <input type="text" name="alteration" id="alteration">
-          <button type="submit" name="addAlteration" id="addAlteration" value="addAlteration">Add Pre-Narrative</button>
+          <button type="submit" name="addNarrative" id="addNarrative" value="addNarrative">Submit Pre-Narrative</button>
+          <button type="upload" name="uploadNarrative" id="uploadNarrative" value="uploadNarrative">Upload</button>
+          <button type="preview" name="previewNarrative" id="previewNarrative" value="previewNarrative">Preview</button>
         </form>
       </div>
 </body>
