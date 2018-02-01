@@ -70,6 +70,8 @@
 
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
+<ul>
+<li><a class='prett'>Add Narrative</a>
 <ul class='menus'>
 <li><a href='addPreNarrative.php' class="current">Add Pre-Narrative</a></li>
 <li class="hover"><a href="addReportStyle.php"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
