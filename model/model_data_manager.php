@@ -59,7 +59,7 @@ class Data_Manager_Model extends model_base
         $stmt->bindParam(':narrative', $narrative1);
         //$stmt->bindParam(':curator', $curator);
 
-        $narrative1 = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
+        $narrative1 = getNarrativebyWord("/var/www/html/Development/tools/PRE.doc","/var/www/html/Development/tools/itworks.html");
         try {
             $stmt->execute();
             return 2;
