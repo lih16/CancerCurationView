@@ -12,7 +12,7 @@ class Data_Manager_Model extends model_base
     * create new user
     *
     */
-   private   function cmd_exec($cmd, &$stdout, &$stderr)
+   public  function cmd_exec($cmd, &$stdout, &$stderr)
    {
     $outfile = tempnam(".", "cmd");
     $errfile = tempnam(".", "cmd");
