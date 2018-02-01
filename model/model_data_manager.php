@@ -39,7 +39,7 @@ class Data_Manager_Model extends model_base
 
     private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
     {
-      cmd_exec('java -jar wordtohtml.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
+      cmd_exec('java -jar /var/www/html/Development/tools/wordtohtml.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
       print_r($returnvalue);
       print_r($error);
       $output=file_get_contents($outputHtmlFile, true);
@@ -59,7 +59,7 @@ class Data_Manager_Model extends model_base
         $stmt->bindParam(':variant', $alteration);
         $stmt->bindParam(':narrative', $narrative);
         $stmt->bindParam(':curator', $curator);
-        $narrative = getNarrativebyWord('/var/www/html/Development/tools/Pre.doc','/var/www/html/Development/tools/itworks.html');
+        $narrative = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
 
         try {
             $stmt->execute();
