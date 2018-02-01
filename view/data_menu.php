@@ -20,6 +20,12 @@
       });
       return false;
     });
+
+      $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
+      $.ajax({ url: 'page_1.html', success: function(html) {
+              $("#ajax-content").empty().append(html);
+      }
+      });
   });
   </script>
 <style >
