@@ -45,7 +45,7 @@ class Data_Manager_Model extends model_base
       return $output;
     }
 
-    public function addPreNarrative($cancer, $gene, $alteration)
+    public function addPreNarrative($can_pre, $gene_pre, $alteration_pre)
     {
         //copy v$report = $_POST["report"];
 
@@ -53,13 +53,13 @@ class Data_Manager_Model extends model_base
 
         $stmt = $this->db->prepare("INSERT INTO CVC_viewer (cancer, gene,variant,narrative) VALUES (:cancer, :gene,:variant,:narrative)");
 
-        $stmt->bindParam(':cancer', $cancer);
-        $stmt->bindParam(':gene', $gene);
-        $stmt->bindParam(':variant', $alteration);
+        $stmt->bindParam(':cancer', $can_pre);
+        $stmt->bindParam(':gene', $gene_pre);
+        $stmt->bindParam(':variant', $alteration_pre);
         $stmt->bindParam(':narrative', $narrative1);
         //$stmt->bindParam(':curator', $curator);
 
-        $narrative = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
+        $narrative1 = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
         try {
             $stmt->execute();
             return 2;
@@ -85,7 +85,7 @@ class Data_Manager_Model extends model_base
               //  $curator = $_POST['curator']; //
 
 
-                $query = "select narrative FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
+                $query = "select narrative FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $variant . "'";
                 $stmt = $this->db->prepare($query);
                 try {
                     $stmt->execute();
