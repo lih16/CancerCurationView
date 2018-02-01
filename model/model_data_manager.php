@@ -45,7 +45,7 @@ class Data_Manager_Model extends model_base
       return $output;
     }
 
-    public function addPreNarrative($cancer, $gene, $alteration,$narrative1)
+    public function addPreNarrative($cancer, $gene, $alteration)
     {
         //copy v$report = $_POST["report"];
 
@@ -59,7 +59,7 @@ class Data_Manager_Model extends model_base
         $stmt->bindParam(':narrative', $narrative1);
         //$stmt->bindParam(':curator', $curator);
 
-
+        $narrative = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
         try {
             $stmt->execute();
             return 2;
@@ -83,7 +83,7 @@ class Data_Manager_Model extends model_base
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
               //  $curator = $_POST['curator']; //
-                $narrative = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
+
 
                 $query = "select narrative FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
                 $stmt = $this->db->prepare($query);
@@ -102,7 +102,7 @@ class Data_Manager_Model extends model_base
                     return 1; //indicated that Id alreaday exist;
 
                 } else {
-                    return $this->addPreNarrative($cancer, $gene,$variant,$narrative);
+                    return $this->addPreNarrative($cancer, $gene,$variant);
                 }
             }
 
