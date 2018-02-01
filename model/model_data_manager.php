@@ -12,7 +12,7 @@ class Data_Manager_Model extends model_base
     * create new user
     *
     */
-   public  function cmd_exec($cmd, &$stdout, &$stderr)
+   private   function cmd_exec($cmd, &$stdout, &$stderr)
    {
     $outfile = tempnam(".", "cmd");
     $errfile = tempnam(".", "cmd");
@@ -36,7 +36,7 @@ class Data_Manager_Model extends model_base
     return $exit;
     }
 
-public function getNarrativebyWord($inputWordFile, $outputHtmlFile)
+    private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
     {
       cmd_exec('java -jar /var/www/html/Development/tools/wordtohtml.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
       print_r($returnvalue);
