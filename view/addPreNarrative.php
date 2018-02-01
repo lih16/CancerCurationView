@@ -17,12 +17,9 @@
       <div class="form-group">
         <form class="form" method="post" action="../data_manager/submit">
           <h2> Cancer Alteration Viewer Data Management</h2>
-          <label>Cancer :</label>
-          <input type="text" name="cancer" id="cancer">
-          <label>Gene :</label>
-          <input type="text" name="gene" id="gene">
-          <label>Alteration :</label>
-          <input type="text" name="alteration" id="alteration">
+          <label>Cancer :</label><input type="text" name="cancer" id="cancer">
+          <label>Gene :</label><input type="text" name="gene" id="gene">
+          <label>Alteration :</label><input type="text" name="alteration" id="alteration">
           <button type="submit" name="addNarrative" id="addNarrative" value="addNarrative">Submit Pre-Narrative</button>
           <button type="upload" name="uploadNarrative" id="uploadNarrative" value="uploadNarrative">Upload</button>
           <button type="preview" name="previewNarrative" id="previewNarrative" value="previewNarrative">Preview</button>
