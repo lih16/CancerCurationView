@@ -22,7 +22,7 @@
       });
 
       $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
-      $.ajax({ url: 'addAlteration.php', success: function(html) {
+      $.ajax({ url: 'addPreNarrative.php', success: function(html) {
               $("#ajax-content").empty().append(html);
       }
       });
@@ -71,10 +71,10 @@
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
 
-<li><a href='addNarrative.php'>Add Pre-Narrative</a></li>
+<li><a href='addPreNarrative.php' class="current">Add Pre-Narrative</a></li>
 <li class="hover"><a href="addReportStyle.php"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
 <li><a href="addNofOne.php" >Add N-of-One</a></li>
-<li><a href=include VIEW_PATH . 'data_menu.php' >Add new Alteration</a></li>
+<li><a href= "addAlteration.php" >Add new Alteration</a></li>
 <li><a href="http://34.235.93.148/Development/public/index/index">Logout</a></li>
 </ul>
 </nav>
