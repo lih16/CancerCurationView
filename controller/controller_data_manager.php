@@ -41,7 +41,7 @@ class controller_data_manager extends Controller_base
          * Set the dependency in a class property, so it's easily accessible for later use of class methods.
           *@param $reslt calls the getlogin() function of model class and store the return value of this function into the result variable.
          */
-          $reslt = $this->model->addPreNarrative(); //
+          $reslt = $this->model->getPreNarrative(); //
           if ($reslt == 1){
 
               include VIEW_PATH . 'alterationExists.php';// need to change to narrative exists and create file

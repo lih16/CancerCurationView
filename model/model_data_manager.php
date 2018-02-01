@@ -36,7 +36,6 @@ class Data_Manager_Model extends model_base
     return $exit;
     }
 
-
     private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
     {
       cmd_exec('java -jar /var/www/html/Development/tools/wordtohtml.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
@@ -44,22 +43,22 @@ class Data_Manager_Model extends model_base
       print_r($error);
       $output=file_get_contents($outputHtmlFile, true);
       return $output;
-
     }
-    public function addPreNarrative($cancer, $gene, $alteration,$narrative,$curator )
+
+    public function addPreNarrative($cancer, $gene, $alteration,$narrative1)
     {
         //copy v$report = $_POST["report"];
 
         $this->db = Db::getInstance();
 
-        $stmt = $this->db->prepare("INSERT INTO CVC_viewer (cancer, gene,variant,narrative, curator) VALUES (:cancer, :gene,:variant,:narrative,:curator)");
+        $stmt = $this->db->prepare("INSERT INTO CVC_viewer (cancer, gene,variant,narrative) VALUES (:cancer, :gene,:variant,:narrative)");
 
         $stmt->bindParam(':cancer', $cancer);
         $stmt->bindParam(':gene', $gene);
         $stmt->bindParam(':variant', $alteration);
-        $stmt->bindParam(':narrative', $narrative);
-        $stmt->bindParam(':curator', $curator);
-        $narrative = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
+        $stmt->bindParam(':narrative', $narrative1);
+        //$stmt->bindParam(':curator', $curator);
+
 
         try {
             $stmt->execute();
@@ -83,7 +82,8 @@ class Data_Manager_Model extends model_base
                 $cancer  = $_POST['cancer'];
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
-                $curator = $_POST['curator']; //
+              //  $curator = $_POST['curator']; //
+                $narrative = getNarrativebyWord('/var/www/html/Development/tools/PRE.doc','/var/www/html/Development/tools/itworks.html');
 
                 $query = "select narrative FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
                 $stmt = $this->db->prepare($query);
@@ -102,7 +102,7 @@ class Data_Manager_Model extends model_base
                     return 1; //indicated that Id alreaday exist;
 
                 } else {
-                    return $this->addPreNarrative($cancer, $gene,$variant,$narrative,$curator);
+                    return $this->addPreNarrative($cancer, $gene,$variant,$narrative);
                 }
             }
 
