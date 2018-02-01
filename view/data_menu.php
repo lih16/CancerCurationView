@@ -70,7 +70,7 @@
 
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
-<ul>
+<ul id="nav">
 <li><a class='prett'>Add Narrative</a>
 <ul class='menus'>
 <li><a href='addPreNarrative.php' class="current">Add Pre-Narrative</a></li>
