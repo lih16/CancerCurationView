@@ -238,6 +238,73 @@ class Data_Manager_Model extends model_base
 
         }
     }
+    public function getTumor()
+    {
+        $result = "";
+        $this->db = Db::getInstance();
+
+        $sQuery = "select distinct cancer from kb_CancerVariant_Curation.CVC_cancer_gene_var";
+        $stmt = $this->db->prepare($sQuery);
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            //write_log($e->getMessage());
+            echo $e->getMessage();
+        }
+        $rResult = $stmt->fetchAll();
+        foreach ($rResult as $aRow) {
+            $result = $result . $aRow[0] . "\n";
+        }
+        return $result;
+    }
+
+    public function getGenes()
+    {
+        $cancer = $_POST["cancer"];
+
+
+        $result = "";
+        $this->db = Db::getInstance();
+        $sQuery = "select distinct gene from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "'";
+        $stmt = $this->db->prepare($sQuery);
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            //write_log($e->getMessage());
+            echo $e->getMessage();
+        }
+        $rResult = $stmt->fetchAll();
+        foreach ($rResult as $aRow) {
+            $result = $result . $aRow[0] . "\n";
+        }
+        return $result;
+    }
+
+    /*
+    *This function will retrieve mutation based on selected tumor type and gene.
+    *we get the flag information from here(if narrative/report style is written)
+    */
+    public function getGeneMutations()
+    {
+        $result = "";
+        $cancer = $_POST["cancer"];
+        $gene = $_POST["gene"];
+        $this->db = Db::getInstance();
+        #need combination for flag for display on front end
+        $sQuery = "select distinct CONCAT(var,'#',flag) from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
+        $stmt = $this->db->prepare($sQuery);
+        try {
+            $stmt->execute();
+        } catch (PDOException $e) {
+            //write_log($e->getMessage());
+            echo $e->getMessage();
+        }
+        $rResult = $stmt->fetchAll();
+        foreach ($rResult as $aRow) {
+            $result = $result . $aRow[0] . "\n";
+        }
+        return $result;
+    }
 
 
 
