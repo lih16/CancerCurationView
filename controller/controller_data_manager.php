@@ -44,10 +44,10 @@ class controller_data_manager extends Controller_base
           $reslt = $this->model->getPreNarrative(); //
           if ($reslt == 1){
 
-              include VIEW_PATH . 'alterationExists.php';// need to change to narrative exists and create file
+              include VIEW_PATH . 'PreNarrativeExists.php';// need to change to narrative exists and create file
 
           } else if($reslt == 2) {
-              include VIEW_PATH . 'alterationSuccessAdded.php';
+              include VIEW_PATH . 'PreNarrativeSuccessAdded.php';
 
           }else{
             include VIEW_PATH . 'login.php';
@@ -66,11 +66,9 @@ class controller_data_manager extends Controller_base
               if ($result == 1){
 
                   include VIEW_PATH . 'alterationExists.php';
-                  echo $result;
 
               } else if($result == 2) {
                   include VIEW_PATH . 'alterationSuccessAdded.php';
-                  echo $result;
 
               }else{
                 echo $result;
