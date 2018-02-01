@@ -36,7 +36,7 @@ class Data_Manager_Model extends model_base
     return $exit;
     }
 
-    private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
+public function getNarrativebyWord($inputWordFile, $outputHtmlFile)
     {
       cmd_exec('java -jar /var/www/html/Development/tools/wordtohtml.jar '.$inputWordFile.'  '.$outputHtmlFile.' > logfile.txt',$returnvalue,$error);
       print_r($returnvalue);
