@@ -30,8 +30,8 @@ class controller_data_manager extends Controller_base
         */
 
         include VIEW_PATH . 'data_menu.php';
-        include VIEW_PATH . 'addPreNarrative.php';
-        include VIEW_PATH . 'addAlteration.php';
+    //    include VIEW_PATH . 'addPreNarrative.php';
+      //  include VIEW_PATH . 'addAlteration.php';
       //  include VIEW_PATH . 'selectADD.php';
 
     }
