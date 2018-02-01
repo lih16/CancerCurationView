@@ -62,6 +62,7 @@ class Data_Manager_Model extends model_base
         $narrative1 = getNarrativebyWord("/var/www/html/Development/tools/PRE.doc","/var/www/html/Development/tools/itworks.html");
         try {
             $stmt->execute();
+            echo $e->getMessage();
             return 2;
         }
         catch (PDOException $e) {
