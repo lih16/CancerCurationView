@@ -70,10 +70,11 @@
 
 <input type='checkbox'/>
 <label>&#8801;<span>Navigation</span></label>
-
+<ul class='menus'>
 <li><a href='addPreNarrative.php' class="current">Add Pre-Narrative</a></li>
 <li class="hover"><a href="addReportStyle.php"  onclick="showpending();return false;">Add Report-Style Narrative</a></li>
 <li><a href="addNofOne.php" >Add N-of-One</a></li>
+</ul>
 <li><a href= "addAlteration.php" >Add new Alteration</a></li>
 <li><a href="http://34.235.93.148/Development/public/index/index">Logout</a></li>
 </ul>
