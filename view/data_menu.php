@@ -19,13 +19,7 @@
               }
       });
       return false;
-      });
-
-      $("#ajax-content").empty().append("<div id='loading'><img src='images/loading.gif' alt='Loading' /></div>");
-      $.ajax({ url: 'addPreNarrative.php', success: function(html) {
-              $("#ajax-content").empty().append(html);
-      }
-      });
+    });
   });
   </script>
 <style >
