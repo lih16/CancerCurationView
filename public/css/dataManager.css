@@ -1,7 +1,7 @@
   @import url(//fonts.googleapis.com/css?family=Droid+Serif);
 
 h2 {
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
 }
 
@@ -52,18 +52,17 @@ label {
 }
 
 button[type="submit"] {
-  display: block;
+
   background: #BDC3C7;
-  width: 100%;
-  padding: 7px;
-  cursor: pointer;
-  color: #fff;
   border: 1px;
-  margin: 15px auto;
   border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
   font-size: 13px;
-
-
+  margin: 15px auto;
+  padding: 7px;
+  width: 100%;
 }
 
 button[type="submit"]:hover {
