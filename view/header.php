@@ -14,7 +14,9 @@
   </style>
 <title>Cancer Alteration Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/headmenu.css" rel="stylesheet" type="text/css">
-
+<link rel="icon" href="/CancerCurationView/public/images/favicon.ico" sizes="32x32" />
+<link rel="icon" href="/CancerCurationView/public/images/favicon.ico" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="/CancerCurationView/public/images/favicon.ico" />
 
 
 	<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH; ?>/jquery.dataTables.css">
