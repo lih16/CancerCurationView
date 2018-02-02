@@ -15,10 +15,9 @@
   </style>
 <title>Cancer Alteration Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/headmenu.css" rel="stylesheet" type="text/css">
-<link rel="icon" href="favicon.ico" sizes="32x32" />
-<link rel="icon" href="favicon.ico" sizes="192x192" />
-<link rel="apple-touch-icon-precomposed" href="favicon.ico" />
-<link rel="shortcut icon" href="favicon.ico?v=<?php echo time() ?>" />
+<link rel="icon" href="Development/tools/favicon.ico" sizes="32x32" />
+<link rel="icon" href="Development/tools/favicon.ico" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="Development/tools/favicon.ico" />
 
 <!-- jan 19th osman added this because error.log >
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
