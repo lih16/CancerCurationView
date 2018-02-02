@@ -3,9 +3,10 @@
 <head>
 <title>Cancer Alteration Viewer</title>
 <link href="<?php echo CSS_PATH; ?>/login.css" rel="stylesheet" type="text/css">
-<link rel="icon" href="Favicon_32x32_Transparent.png" sizes="32x32" />
-<link rel="icon" href="Favicon_32x32_Transparent.png" sizes="192x192" />
-<link rel="apple-touch-icon-precomposed" href="Favicon_32x32_Transparent.png" />
+<link rel="icon" href="favicon.ico" sizes="32x32" />
+<link rel="icon" href="favicon.ico" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="favicon.ico" />
+<link rel="shortcut icon" href="favicon.ico?v=<?php echo time() ?>" />
 
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
  <script src="<?php echo JS_PATH;?>/register.js" type="text/javascript" language="javascript" ></script>
