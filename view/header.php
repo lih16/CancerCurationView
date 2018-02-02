@@ -18,6 +18,7 @@
 <link rel="icon" href="Favicon_32x32_Transparent.png" sizes="32x32" />
 <link rel="icon" href="Favicon_32x32_Transparent.png" sizes="192x192" />
 <link rel="apple-touch-icon-precomposed" href="Favicon_32x32_Transparent.png" />
+<link rel="shortcut icon" href="favicon.ico?v=<?php echo time() ?>" />
 
 <!-- jan 19th osman added this because error.log >
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
