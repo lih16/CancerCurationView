@@ -4,6 +4,10 @@
   <title>Add Narrative - Cancer Alteration Viewer</title>
   <meta name="robots" content="noindex, nofollow">
   <link href="<?php echo CSS_PATH; ?>/register.css" rel="stylesheet" type="text/css">
+  <link rel="icon" href="Favicon_32x32_Transparent.png" sizes="32x32" />
+  <link rel="icon" href="Favicon_32x32_Transparent.png" sizes="192x192" />
+  <link rel="apple-touch-icon-precomposed" href="Favicon_32x32_Transparent.png" />
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <script>
