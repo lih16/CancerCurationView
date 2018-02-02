@@ -147,7 +147,7 @@ class Tumor_Model extends model_base
             //$uid        = $_POST["uid"];
             //$narrative  = $_POST["narrative"];
             $narrative = $this->getNarrative_origin();
-            if ($narrative != "1") {
+            if ($narrative != "1") {  //there is narrative in viewer
                 echo $narrative;
 
 
@@ -204,7 +204,7 @@ class Tumor_Model extends model_base
 
 
         } else {
-            $result = "1";
+            $result = "1"; //means there is no narrative in viewer
         }
         return $result;
     }

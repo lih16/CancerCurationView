@@ -8,8 +8,8 @@ class Data_Manager_Model extends model_base
     {
         parent::__construct(null, null, null);
     }
-    /* function to register new user
-    * create new user
+    /* function to call cmd function to convert word to html
+    * call cmd command and than return result
     *
     */
    private   function cmd_exec($cmd, &$stdout, &$stderr)
@@ -35,6 +35,12 @@ class Data_Manager_Model extends model_base
     unlink($errfile);
     return $exit;
     }
+    /* uses cmd_exec to call java jar to convert word to html
+    * call cmd_exec command and than return result
+    * jar location is currently hardcoded
+    * print_r is php function to Prints human-readable information about a variable
+    * file_get_contents — Reads entire file into a string
+    */
 
     private function getNarrativebyWord($inputWordFile, $outputHtmlFile)
     {
@@ -45,6 +51,9 @@ class Data_Manager_Model extends model_base
       return $output;
     }
 
+    /* addPreNarrative
+    *  adds pre-narrative to cvc_viewer  with narrative being converted from word to html
+    */
     public function addPreNarrative($can_pre, $gene_pre, $alteration_pre)
     {
         //copy v$report = $_POST["report"];
@@ -71,6 +80,10 @@ class Data_Manager_Model extends model_base
             return 3;
         }
     }
+
+    /* getPreNarrative
+    *  gets pre-narrative Cancer-Gene-Alteration and narrative word file from user input
+    */
     public function getPreNarrative()
     {
         //session_start(); // Starting Session
@@ -110,23 +123,26 @@ class Data_Manager_Model extends model_base
         }
     }
 
-    public function addReportNarrative($cancer, $gene, $alteration,$narrative,$curator )
+    /* addReportNarrative
+    *  adds Report-narrative to cvc_viewer  with narrative being converted from word to html
+    */
+    public function addReportNarrative($can_pre, $gene_pre, $alteration_pre )
     {
-        //copy v$report = $_POST["report"];
 
         $this->db = Db::getInstance();
 
-        $stmt = $this->db->prepare("INSERT INTO CVC_viewer (cancer, gene,variant,narrative, curator) VALUES (:cancer, :gene,:variant,:narrative,:curator)");
+        $stmt = $this->db->prepare("INSERT INTO CVC_viewer (cancer, gene,variant,report_style) VALUES (:cancer, :gene,:variant,:report_style)");
 
-        $stmt->bindParam(':cancer', $cancer);
-        $stmt->bindParam(':gene', $gene);
-        $stmt->bindParam(':variant', $alteration);
-        $stmt->bindParam(':narrative', $narrative);
-        $stmt->bindParam(':curator', $curator);
+        $stmt->bindParam(':cancer', $can_pre);
+        $stmt->bindParam(':gene', $gene_pre);
+        $stmt->bindParam(':variant', $alteration_pre);
+        $stmt->bindParam(':report_style', $report_style);
+        //$stmt->bindParam(':curator', $curator);
 
-
+        $report_style = $this->getNarrativebyWord("/var/www/html/Development/tools/PRE.doc","itworks.html");
         try {
             $stmt->execute();
+            echo $e->getMessage();
             return 2;
         }
         catch (PDOException $e) {
@@ -135,6 +151,11 @@ class Data_Manager_Model extends model_base
             return 3;
         }
     }
+
+
+    /* getReportNarrative
+    *  gets Report-narrative Cancer-Gene-Alteration and narrative word file from user input
+    */
     public function getReportNarrative()
     {
         //session_start(); // Starting Session
@@ -147,8 +168,10 @@ class Data_Manager_Model extends model_base
                 $cancer  = $_POST['cancer'];
                 $gene  = $_POST['gene']; //
                 $variant  = $_POST['alteration']; //
-                $reportStyle  = $_POST['reportStyle']; //
-                $query = "select report-style FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $alteration . "'";
+              //  $curator = $_POST['curator']; //
+
+
+                $query = "select report-style FROM CVC_viewer where cancer='" . $cancer . "' and gene='" . $gene . "' and variant='" . $variant . "'";
                 $stmt = $this->db->prepare($query);
                 try {
                     $stmt->execute();
@@ -165,12 +188,16 @@ class Data_Manager_Model extends model_base
                     return 1; //indicated that Id alreaday exist;
 
                 } else {
-                    return $this->addReportNarrative($cancer, $gene,$variant,$reportStyle,$curator);
+                    return $this->addPreNarrative($cancer, $gene,$variant);
                 }
             }
 
         }
     }
+
+    /* addAlteration
+    *  add new row to cancer_gene_var
+    */
     public function addAlteration($can, $gen, $alteratio, $oncotre)
     {
         //copy v$report = $_POST["report"];
@@ -201,6 +228,10 @@ class Data_Manager_Model extends model_base
             return 3;
         }
     }
+
+    /* getAlteration
+    *  gets cancer, gene, alteration from user input
+    */
     public function getAlteration()
     {
         //session_start(); // Starting Session
@@ -238,73 +269,7 @@ class Data_Manager_Model extends model_base
 
         }
     }
-    public function getTumor()
-    {
-        $result = "";
-        $this->db = Db::getInstance();
 
-        $sQuery = "select distinct cancer from kb_CancerVariant_Curation.CVC_cancer_gene_var";
-        $stmt = $this->db->prepare($sQuery);
-        try {
-            $stmt->execute();
-        } catch (PDOException $e) {
-            //write_log($e->getMessage());
-            echo $e->getMessage();
-        }
-        $rResult = $stmt->fetchAll();
-        foreach ($rResult as $aRow) {
-            $result = $result . $aRow[0] . "\n";
-        }
-        return $result;
-    }
-
-    public function getGenes()
-    {
-        $cancer = $_POST["cancer"];
-
-
-        $result = "";
-        $this->db = Db::getInstance();
-        $sQuery = "select distinct gene from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "'";
-        $stmt = $this->db->prepare($sQuery);
-        try {
-            $stmt->execute();
-        } catch (PDOException $e) {
-            //write_log($e->getMessage());
-            echo $e->getMessage();
-        }
-        $rResult = $stmt->fetchAll();
-        foreach ($rResult as $aRow) {
-            $result = $result . $aRow[0] . "\n";
-        }
-        return $result;
-    }
-
-    /*
-    *This function will retrieve mutation based on selected tumor type and gene.
-    *we get the flag information from here(if narrative/report style is written)
-    */
-    public function getGeneMutations()
-    {
-        $result = "";
-        $cancer = $_POST["cancer"];
-        $gene = $_POST["gene"];
-        $this->db = Db::getInstance();
-        #need combination for flag for display on front end
-        $sQuery = "select distinct CONCAT(var,'#',flag) from kb_CancerVariant_Curation.CVC_cancer_gene_var where cancer='" . $cancer . "' and gene='" . $gene . "'";
-        $stmt = $this->db->prepare($sQuery);
-        try {
-            $stmt->execute();
-        } catch (PDOException $e) {
-            //write_log($e->getMessage());
-            echo $e->getMessage();
-        }
-        $rResult = $stmt->fetchAll();
-        foreach ($rResult as $aRow) {
-            $result = $result . $aRow[0] . "\n";
-        }
-        return $result;
-    }
 
 
 
