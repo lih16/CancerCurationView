@@ -226,7 +226,7 @@ class Register_Model extends model_base
     * Updates password
     * and sends user an email notifiying of the password change
     */
-    public function updatepassword($username, $pass)
+    public function updatepassword($user, $pass)
     {
         $this->db = Db::getInstance();
         $error = ''; // Variable To Store Error Message
@@ -235,7 +235,7 @@ class Register_Model extends model_base
             $stmt->bindParam(':UID', $username);
             $stmt->bindParam(':Password', $password);
 
-            $uname    = $_POST["name"];
+            $username    = $user;
             $password = $pass;
 
             $msg     = ("You have successfully updated your password. ");
