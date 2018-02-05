@@ -295,70 +295,6 @@ class Tumor_Model extends model_base
         return $result;
     }
 
-    /* 02/5/18
-    * in Admin Mode
-    * User can modify narrative and inserts new narrative or overwrite current narrative
-    */
-    public function modifyNarrative()
-    {
-        $status = $_POST["status"];
-        $report = $_POST["report"];
-        $this->db = Db::getInstance();
-        if ($status == 1) {
-            if ($report == 1) {
-                $sql = "UPDATE CVC_viewer_admin_report SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
-            } else {
-                $sql = "UPDATE CVC_viewer_admin SET  narrative= :narrative,date_admin = :date_admin WHERE  ver_name = :ver_name and cancer= :cancer and gene = :gene and varaint = :mutation";
-            }
-            $statement = $pdo->prepare($sql);
-            $stmt->bindValue(':gene', $gene);
-            $stmt->bindValue(':mutation', $mutation);
-            $stmt->bindValue(':cancer', $cancer);
-            $statement->bindValue(':narrative', $narrative);
-            $statement->bindValue(':ver_name', $ver_name);
-            $statement->bindValue(':date_admin', $date_admin);
-
-
-            $cancer = "adf"; //$_POST["cancer"];
-            $gene = $_POST["gene"];
-            $ver_name = $_POST["ver_name"];
-            $uid = $_POST["uid"];
-            $narrative = $_POST["narrative"];
-            $date_admin = date('Y-m-d H:i:s');
-            try {
-                $stmt->execute();
-            } catch (PDOException $e) {
-                echo $e->getMessage();
-            }
-        } else {
-            if ($report == 1) {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
-            } else {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,varaint,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:varaint,:narrative,:date_admin,:ver_name)");
-            }
-            $stmt->bindParam(':cancer', $cancer);
-            $stmt->bindParam(':gene', $gene);
-            $stmt->bindParam(':varaint', $mutation);
-            $stmt->bindParam(':ver_name', $ver_name);
-            //$stmt->bindParam(':uid', $uid);
-            $stmt->bindParam(':date_admin', $date_admin);
-            $stmt->bindParam(':narrative', $narrative);
-
-            $cancer = "adf"; //$_POST["cancer"];
-            $gene = $_POST["gene"];
-            $ver_name = $_POST["ver_name"];
-            //$uid=$_POST["uid"];
-            $narrative = $_POST["narrative"];
-            // $narrative  = $_POST["narrative"];
-            $date_admin = date('Y-m-d H:i:s');
-            try {
-                $stmt->execute();
-            } catch (PDOException $e) {
-                //write_log($e->getMessage());
-                echo $e->getMessage();
-            }
-        }
-    }
 
     /* 02/5/18
     * in all modes
@@ -451,7 +387,7 @@ class Tumor_Model extends model_base
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
             $stmt->bindParam(':ver_name', $ver_name);
-            // $stmt->bindParam(':uid', $uid);
+            //$stmt->bindParam(':uid', $uid);
             $stmt->bindParam(':date_admin', $date_admin);
             $stmt->bindParam(':narrative', $narrative);
             $mutation = $_POST["mutation"];
