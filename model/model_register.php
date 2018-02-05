@@ -8,7 +8,8 @@ class Register_Model extends model_base
     {
         parent::__construct(null, null, null);
     }
-    /* function to register new user
+    /*
+    * function to register new user
     * create new user
     *
     */
@@ -41,6 +42,11 @@ class Register_Model extends model_base
             return 3;
         }
     }
+
+    /*
+    * Gets data from register page login
+    * create new user
+    */
     public function getRegister()
     {
         //session_start(); // Starting Session
@@ -78,7 +84,8 @@ class Register_Model extends model_base
 
         }
     }
-    /* function to reset user password
+    /*
+    *function to reset user password
     * generates random password
     * emails password to user
     */
@@ -127,7 +134,12 @@ class Register_Model extends model_base
             return 3;
         }
     }
-    public function getUser()
+
+    /*
+    * Gets username from forgot password page
+    * and enters random password
+    */
+    public function getUserPass()
     {
       ini_set('display_errors',1);
 
@@ -138,7 +150,6 @@ class Register_Model extends model_base
             {
                 // Define $username and $password
                 $user = $_POST['username'];
-
                 $pass  = md5(uniqid($user, true)); //
                 $query = "select Password FROM CVC_User where UID='" . $user . "'";
 
@@ -166,7 +177,8 @@ class Register_Model extends model_base
         }
     }
 
-    /* function to update user password
+    /*
+    * function to update user password
     * checks if password is correct
     * password needs to be 8 characters
     */
@@ -210,6 +222,10 @@ class Register_Model extends model_base
             }
           }
 
+    /*
+    * Updates password
+    * and sends user an email notifiying of the password change
+    */
     public function updatepassword($username, $pass)
     {
         $this->db = Db::getInstance();

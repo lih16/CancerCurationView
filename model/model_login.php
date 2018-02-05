@@ -9,6 +9,11 @@ class Login_Model extends model_base
         parent::__construct(null, null, null);
     }
 
+    /* 02/5/18
+    * opening homepage
+    * User can login as Pathologist/editor, admin or data manager.
+    * Function checks username, password and role and redirects to chosen page depending on role
+    */
     public function getlogin()
     {
         session_start(); // Starting Session

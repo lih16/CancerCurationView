@@ -77,6 +77,11 @@ class Tumor_Model extends model_base
         return $result;
     }
 
+    /*
+    *This function will retrieve narrative based on selected tumor type, gene and mutation.
+    * gets original narrative from cvc_viewer if this is first time narrative is accessed.
+    * gets narrative from CVC_viewer_admin or CVC_viewer_admin_report if has already been accessed
+    */
     public function getNarrative()
     {
         $report = $_POST["report"];
@@ -164,6 +169,11 @@ class Tumor_Model extends model_base
         }
     }
 
+
+    /* 02/5/18
+    * gets original narrative from cvc_viewer if this is first time narrative is accessed.
+    * @function is used in getNarrative to get original narrative
+    */
     public function getNarrative_origin()
     {
         $result = "";
@@ -209,6 +219,9 @@ class Tumor_Model extends model_base
         return $result;
     }
 
+    /* 02/5/18
+    * saves comment and inserts into CVC_viewer_editor or CVC_viewer_editor_report
+    */
     public function saveComment()
     {
         $report = $_POST["report"];
@@ -244,6 +257,9 @@ class Tumor_Model extends model_base
         }
     }
 
+    /* 02/5/18
+    * retrieves comment from CVC_viewer_editor or CVC_viewer_editor_report
+    */
     public function getComment()
     {
         $cancer = $_GET["cancer"];
@@ -279,7 +295,10 @@ class Tumor_Model extends model_base
         return $result;
     }
 
-    ////////////////
+    /* 02/5/18
+    * in Admin Mode
+    * User can modify narrative and inserts new narrative or overwrite current narrative
+    */
     public function modifyNarrative()
     {
         $status = $_POST["status"];
@@ -341,6 +360,10 @@ class Tumor_Model extends model_base
         }
     }
 
+    /* 02/5/18
+    * in all modes
+    * User can view list of different narrative versions
+    */
     public function getNarrativeList()
     {
         $report = $_GET["report"];
@@ -370,9 +393,6 @@ class Tumor_Model extends model_base
         $gene = $_GET['gene'];
         $cancer = $_GET['cancer'];
         $variant = $_GET['variant'];
-
-
-
         $whereResult = " gene='" . $gene . "' and cancer ='" . $cancer . "' and variant='" . $variant . "' ";
         // fwrite($fp, $whereResult);
         // fclose($fp);
@@ -385,6 +405,10 @@ class Tumor_Model extends model_base
         echo json_encode($result);
     }
 
+    /* 02/5/18
+    * in Admin Mode
+    * User can modify narrative and inserts new narrative or overwrite current narrative
+    */
     public function saveNarrative()
     {
         $report = $_POST["report"];
@@ -436,7 +460,6 @@ class Tumor_Model extends model_base
             $ver_name = $_POST["ver_name"];
             $uid = $_POST["uid"];
             $narrative = $_POST["narrative"];
-
             $date_admin = date('Y-m-d H:i:s');
             try {
                 $stmt->execute();
