@@ -368,7 +368,7 @@ class Tumor_Model extends model_base
             $cancer = $_POST["cancer"];
             $gene = $_POST["gene"];
             $ver_name = $_POST["ver_name"];
-          //  $uid = $_POST["UID"];
+            $uid = $_POST["uid"];
             $narrative = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             echo $sql;
@@ -387,14 +387,14 @@ class Tumor_Model extends model_base
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
             $stmt->bindParam(':ver_name', $ver_name);
-            //$stmt->bindParam(':UID', $uid);
+            $stmt->bindParam(':UID', $uid);
             $stmt->bindParam(':date_admin', $date_admin);
             $stmt->bindParam(':narrative', $narrative);
             $mutation = $_POST["mutation"];
             $cancer = $_POST["cancer"];
             $gene = $_POST["gene"];
             $ver_name = $_POST["ver_name"];
-          //  $uid = $_POST["UID"];
+            $uid = $_POST["uid"];
             $narrative = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             try {
