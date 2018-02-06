@@ -144,7 +144,7 @@ function getnarrative(tissue1) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("getNarrative Parse error");
         }
     });
 }
@@ -167,7 +167,7 @@ function addcellList(tissue) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("AddCellList Parse error");
 
         }
     });
@@ -178,7 +178,7 @@ function addcellList(tissue) {
 * function to add symbols to see which alterations have narrative or report narrative
 */
 function notifyNarrativeTable(flagMutation) {
-    var result = "parse error";
+    var result = "notifyNarrativeTable parse error";
     var flagArray = flagMutation.split('#');
     if (flagArray.length != 2) {
         return result;
@@ -216,7 +216,7 @@ function constructHtml(groupObj) {
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
-             if (mutations_w == "parse error"){
+             if (mutations_w == "constructHtml parse error"){
                continue;
              }
             constructHtml = constructHtml + "<option>";
@@ -273,13 +273,7 @@ function addMutationList(tissue, gene) {
             var celllineList = data1.split("\n");//this one we get all the mutation list
             $("#mutationselect").empty();// will render the select options
             var ddl = $("#mutationselect");
-            /*ddl.append("<option value='1'>Please select alteration</option>");
-            for (k = 0; k < celllineList.length; k++)//loop through all mutations
-            {
-                var mutation = notifyNarrativeTable(celllineList[k]);
-                if (mutation != "parse error")
-                    ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
-                    */
+
                     var groupselectHtml=getGroups(celllineList,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
                     ddl.append(groupselectHtml);
 
@@ -287,7 +281,7 @@ function addMutationList(tissue, gene) {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("addMutationList Parse error");
 
         }
     });
@@ -315,7 +309,7 @@ function addList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("addList Parse error");
         }
     });
 
@@ -350,7 +344,7 @@ function save_comment_paragrah(pid, comment) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("save_comment_paragragh Parse error");
             return false;
         }
     });
@@ -658,7 +652,7 @@ function adminmodify(e, stu, id) {
 *  Used in ADMIN MODE: Shows list of narratives
 *
 *@function is used get get narrative list?
-* has parse error ,  could this be one of the causes
+*
 */
 function getnarrativeList() {
 
@@ -677,7 +671,7 @@ function getnarrativeList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("getNarrativeList Parse error");
             return false;
         }
     });
@@ -838,7 +832,7 @@ function saveNarrative(e, saveOrnot) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("saveNarrative Parse error");
             return false;
         }
     });
