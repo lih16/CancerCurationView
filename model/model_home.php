@@ -368,7 +368,7 @@ class Tumor_Model extends model_base
             $cancer = $_POST["cancer"];
             $gene = $_POST["gene"];
             $ver_name = $_POST["ver_name"];
-            $uid = $_POST["UID"];
+          //  $uid = $_POST["UID"];
             $narrative = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             echo $sql;
@@ -379,22 +379,22 @@ class Tumor_Model extends model_base
             }
         } else {
             if ($report == 1) {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name,UID) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name,:UID)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
             } else {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name,UID) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name,:UID)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
             $stmt->bindParam(':ver_name', $ver_name);
-            $stmt->bindParam(':UID', $uid);
+            //$stmt->bindParam(':UID', $uid);
             $stmt->bindParam(':date_admin', $date_admin);
             $stmt->bindParam(':narrative', $narrative);
             $mutation = $_POST["mutation"];
             $cancer = $_POST["cancer"];
             $gene = $_POST["gene"];
             $ver_name = $_POST["ver_name"];
-            $uid = $_POST["UID"];
+          //  $uid = $_POST["UID"];
             $narrative = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             try {
