@@ -176,19 +176,10 @@ class Register_Model extends model_base
 
                 } else {
                   ?>
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                  <script>
-                  $(document).ready(function(){
-                      $(document).ajaxSuccess(function(){
-                          alert("You have successfully reset your password,  an email has been sent with instructions");
-                          });
-                        });
-                      </script>
-                        <?php
-                // <script type="text/javascript">
-                  // alert("You have successfully reset your password,  an email has been sent with instructions");
-                  //  </script>
-
+                   <script type="text/javascript">
+                   alert("You have successfully reset your password,  an email has been sent with instructions");
+                    </script>
+                    <?php
                     return $this->resetuser($user, $pass);
 
                 }
