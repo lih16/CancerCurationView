@@ -165,7 +165,11 @@ class Register_Model extends model_base
                 $num_rows = count($rows);
 
                 if ($num_rows < 1) {
+                  ?>
+                   <script type="text/javascript">
                    alert("Reset Password failed, email is not in database");
+                    </script>
+                    <?php
                     // header("location: profile.php"); // Redirecting To Other Page
                     return 1; //indicated that this username doesn't exist
 
