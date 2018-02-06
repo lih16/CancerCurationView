@@ -15,7 +15,7 @@ class Register_Model extends model_base
     */
     public function adduser($username, $pass, $name)
     {
-        //copy v$report = $_POST["report"];
+
 
         $this->db = Db::getInstance();
 
@@ -52,7 +52,7 @@ class Register_Model extends model_base
         //session_start(); // Starting Session
 
         $error = ''; // Variable To Store Error Message
-        //    if (isset($_POST['submit']))
+
         {
             $this->db = Db::getInstance(); {
                 // Define $username and $password
@@ -137,7 +137,7 @@ class Register_Model extends model_base
 
     /*
     * Gets username from forgot password page
-    * and enters random password
+    * and enters random password into database
     */
     public function getUserPass()
     {
@@ -207,14 +207,12 @@ class Register_Model extends model_base
 
                     if ($num_rows < 1) {
 
-                        // header("location: profile.php"); // Redirecting To Other Page
+
                         return 1; //indicated that user doesnt exist;
 
                     } else {
                         return $this->updatepassword($user, $pass);
                         $msg     = "Your password for the Cancer Alteration Viewer has been updated";
-                        //$headers = "From: cav-notifications@sema4genomics.com";
-                        // send email
                         mail($user, "CAV Password Reset", $msg);
                         alert($user, "CAV Password Reset", $msg);
                     }

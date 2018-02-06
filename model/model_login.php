@@ -42,21 +42,20 @@ class Login_Model extends model_base
                 $num_rows = count($rows);
 
                 if ($num_rows == 1) {
-                    //$_SESSION['login_user']=$username; // Initializing Session
+
                     $_SESSION['uname'] = $rows[0][0];
 
                     $_SESSION['username'] = $user;
                     $_SESSION['role'] = $role;
 
-                    // header("location: profile.php"); // Redirecting To Other Page
+
                     return $role;
-                    //$_SESSION['login_user']=$username; // Initializing Session
-                    // header("location: profile.php"); // Redirecting To Other Page
+
                 } else {
                     return 'invalid user';
-                    //$error = "Username or Password is invalid";
+
                 }
-                //mysql_close($connection); // Closing Connection
+
             }
         }
     }

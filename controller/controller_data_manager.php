@@ -54,28 +54,6 @@ class controller_data_manager extends Controller_base
             include VIEW_PATH . 'login.php';
           }
 
-    }
-
-        public function action_submit_alteration()
-          {
-            /**
-             * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-              *@param $result calls the getlogin() function of model class and store the return value of this function into the result variable.
-             */
-              $result = $this->model->getAlteration();
-
-              if ($result == 1){
-
-                  include VIEW_PATH . 'alterationExists.php';
-
-              } else if($result == 2) {
-                  include VIEW_PATH . 'alterationSuccessAdded.php';
-
-              }else{
-                echo $result;
-                //include VIEW_PATH . 'login.php';
-              }
-
-        }
+      }
 
 }
