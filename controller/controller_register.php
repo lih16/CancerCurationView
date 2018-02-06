@@ -74,7 +74,8 @@ class controller_register extends Controller_base
                     include VIEW_PATH . 'forgotPassword.php';
 
               } else if($result == 2) {
-                  include VIEW_PATH . 'successReset.php';
+                    include VIEW_PATH . 'login.php';
+                  //include VIEW_PATH . 'successReset.php';
 
               }else{
                 echo $result;

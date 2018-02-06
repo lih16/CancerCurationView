@@ -175,6 +175,11 @@ class Register_Model extends model_base
 
 
                 } else {
+                  ?>
+                   <script type="text/javascript">
+                   alert("You have successfully reset your password,  an email has been sent with instructions");
+                    </script>
+                    <?php
                     return $this->resetuser($user, $pass);
 
                 }
