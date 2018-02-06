@@ -368,7 +368,7 @@ class Tumor_Model extends model_base
             $cancer = $_POST["cancer"];
             $gene = $_POST["gene"];
             $ver_name = $_POST["ver_name"];
-            $uid = $_POST["uid"];
+            $uid = $_POST["UID"];
             $narrative = $_POST["narrative"];
             $date_admin = date('Y-m-d H:i:s');
             echo $sql;
