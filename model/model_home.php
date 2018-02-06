@@ -379,15 +379,15 @@ class Tumor_Model extends model_base
             }
         } else {
             if ($report == 1) {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin_report (cancer, gene,variant,narrative,date_admin,ver_name,uid) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name, :uid)");
             } else {
-                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name)");
+                $stmt = $this->db->prepare("INSERT INTO CVC_viewer_admin (cancer, gene,variant,narrative,date_admin,ver_name, uid) VALUES (:cancer, :gene,:mutation,:narrative,:date_admin,:ver_name, :uid)");
             }
             $stmt->bindParam(':cancer', $cancer);
             $stmt->bindParam(':gene', $gene);
             $stmt->bindParam(':mutation', $mutation);
             $stmt->bindParam(':ver_name', $ver_name);
-            //$stmt->bindParam(':uid', $uid);
+            $stmt->bindParam(':uid', $uid);
             $stmt->bindParam(':date_admin', $date_admin);
             $stmt->bindParam(':narrative', $narrative);
             $mutation = $_POST["mutation"];
