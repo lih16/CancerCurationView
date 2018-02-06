@@ -71,7 +71,7 @@ class controller_register extends Controller_base
 
               if ($result == 1){
 
-                  alert("Reset Password failed, email is not in database");
+                  include VIEW_PATH . 'resetFailure.php';
 
               } else if($result == 2) {
                   include VIEW_PATH . 'successReset.php';
