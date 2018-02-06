@@ -731,7 +731,6 @@ function saveNarrative(e, saveOrnot) {
             ver_name: version,
             saveormodify: saveOrnot,
             report: greport
-            uid: uid,
         },
         success: function (data1) {
 
