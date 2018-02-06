@@ -165,9 +165,10 @@ class Register_Model extends model_base
                 $num_rows = count($rows);
 
                 if ($num_rows < 1) {
-
+                   alert("Reset Password failed, email is not in database");
                     // header("location: profile.php"); // Redirecting To Other Page
-                    return 1; //indicated that user alreaday exist;
+                    return 1; //indicated that this username doesn't exist
+
 
                 } else {
                     return $this->resetuser($user, $pass);
