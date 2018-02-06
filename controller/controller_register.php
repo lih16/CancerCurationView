@@ -39,8 +39,8 @@ class controller_register extends Controller_base
          */
           $reslt = $this->model->getRegister(); //
           if ($reslt == 1){
-            alert("Reset Password failed, email is not in database");
-            //  include VIEW_PATH . 'reg_failure.php';
+
+              include VIEW_PATH . 'reg_failure.php';
 
           } else if($reslt == 2) {
               include VIEW_PATH . 'successLogin.php';
@@ -71,7 +71,7 @@ class controller_register extends Controller_base
 
               if ($result == 1){
 
-                  include VIEW_PATH . 'resetFailure.php';
+                  alert("Reset Password failed, email is not in database");
 
               } else if($result == 2) {
                   include VIEW_PATH . 'successReset.php';
