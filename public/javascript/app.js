@@ -178,7 +178,7 @@ function addcellList(tissue) {
 * function to add symbols to see which alterations have narrative or report narrative
 */
 function notifyNarrativeTable(flagMutation) {
-    var result = "notifyNarrative Table parse error";
+    var result = "notifyNarrativeTable parse error";
     var flagArray = flagMutation.split('#');
     if (flagArray.length != 2) {
         return result;
@@ -429,6 +429,66 @@ function modifyparagraph(e, cancertype, gene, mutation) {
     });
     updateMsg();
 }
+/*
+*02/05/18
+*  IN EDIT MODE: lets user  modify text area
+*
+*@function is used in generateHtml to update narratives in admin mode
+*/
+function render(id, data) {
+    var html = "<ul>";
+    $.each(data, function (i, item) {
+        var colori = colorCode[item.uid];
+
+
+        html = html + "<li><span style=\"color:" + colori + "\">" + item.uid + ": " + item.date_edit + ": " + item.comment + "</span></li>";
+
+
+    });
+    html = html + "</ul>";
+    id.html(html);
+}
+
+var colorCode = {};
+var colorArray = [];
+var num_colors = 100;
+;
+
+/* generates a value while allowing the customization of the minimum and maximum values*/
+function randomVal(min, max) {
+    return Math.floor(Math.random() * (max - min) + 1) + min;
+}
+
+/* TO CUSTOMIZE
+In the generate() function below, change the numbers in randomVal(); min to max
+EX to only generate colors from green to blue, change the first set to (120, 240)
+*/
+function makeColor(colorNum, colors) {
+    if (colors < 1) colors = 1; // defaults to one color - avoid divide by zero
+    return colorNum * (360 / colors) % 360;
+}
+
+
+for (var i = 0; i < num_colors; i += 1) {
+    /* color = "color: hsl(" + i * 10 + ", 50%, 50%)";
+    //colorNum * (360 / colors) % 360) + ",100%,50%
+    h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
+    s=1.0;//randomVal(30, 95);
+    l=0.5;//randomVal(30, 80);
+    var rgb=hslToRgb(h, s, l);
+    var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
+    alert(hex);
+    */
+    var color = "hsl( " + makeColor(i, num_colors) + ", 100%, 50% )";
+    //alert(color);
+    colorArray.push(color);
+}
+
+
+
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
 
 /*
 *02/05/18
@@ -585,6 +645,38 @@ function adminmodify(e, stu, id) {
     //if(admin==2)
     // $("#nardiv").hide();
     return false;
+}
+
+/*
+*02/05/18
+*  Used in ADMIN MODE: Shows list of narratives
+*
+*@function is used get get narrative list?
+*
+*/
+function getnarrativeList() {
+
+    $.ajax({
+        type: 'POST',
+        url: 'getnarrativeList',
+        dataType: 'json',
+        data: {
+            cancer: gtissue,
+            gene: ggene,
+            mutation: gmutation,
+            report: greport
+
+        },
+        success: function (data1) {
+            return false;
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("getNarrativeList Parse error");
+            return false;
+        }
+    });
+
+
 }
 
 
@@ -811,39 +903,6 @@ function adminSave(e, cancertype, gene, mutation) {
     }
 
 }
-
-/*
-*02/05/18
-*  Used in ADMIN MODE: Shows list of narratives
-*
-*@function is used get get narrative list?
-*
-*/
-function getnarrativeList() {
-
-    $.ajax({
-        type: 'POST',
-        url: 'getnarrativeList',
-        dataType: 'json',
-        data: {
-            cancer: gtissue,
-            gene: ggene,
-            mutation: gmutation,
-            report: greport
-
-        },
-        success: function (data1) {
-            return false;
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("getNarrativeList Parse error");
-            return false;
-        }
-    });
-
-
-}
-
 
 /*
 *02/05/18
