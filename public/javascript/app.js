@@ -73,15 +73,11 @@ function narrative(e, tumor, gene, mutation, report) {
 }
 
 /*
-* Selects  narrative or report-style narrative value from databuse using the selected combination of tumor, gene, mutation
+* Gets  narrative from the result of the @function narrative and displays it below
 *
-* @global greport checks if its regular narrative or report style
-* @global gtissue gets the value of the selected tumor type
-* @global ggene gets the value of the selected gene type
-* @global gmutation gets the value of the selected mutation/alteration
-* @var tmutation gets raw value of selected mutation ,  but needs to split to separate flag from mutation
+* If narrative is not in database than alert will be displayed.
+*  Displays table below narrative which is dependent on if user is logged on as
 * @var mutationFlagArray splits tmutation into array flag and mutation.  where gmutation will get the value of mutation
-*
 * @function narrative returns narrative value,  alerts user of order of selection.
 **/
 function getnarrative(tissue1) {
@@ -148,7 +144,7 @@ function getnarrative(tissue1) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("getNarrative Parse error");
+            alert("Parse error");
         }
     });
 }
@@ -171,7 +167,7 @@ function addcellList(tissue) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("AddCellList Parse error");
+            alert("Parse error");
 
         }
     });
@@ -182,7 +178,7 @@ function addcellList(tissue) {
 * function to add symbols to see which alterations have narrative or report narrative
 */
 function notifyNarrativeTable(flagMutation) {
-    var result = "notifyNarrative Table parse error";
+    var result = "parse error";
     var flagArray = flagMutation.split('#');
     if (flagArray.length != 2) {
         return result;
@@ -220,7 +216,7 @@ function constructHtml(groupObj) {
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
-             if (mutations_w == "constructHtml parse error"){
+             if (mutations_w == "parse error"){
                continue;
              }
             constructHtml = constructHtml + "<option>";
@@ -291,7 +287,7 @@ function addMutationList(tissue, gene) {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("addMutationList Parse error");
+            alert("Parse error");
 
         }
     });
@@ -314,7 +310,7 @@ function addList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("addList Parse error");
+            alert("Parse error");
         }
     });
 
@@ -342,7 +338,7 @@ function save_comment_paragrah(pid, comment) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("save_comment_paragrah Parse error");
+            alert("Parse error");
             return false;
         }
     });
@@ -690,7 +686,7 @@ function getnarrativeList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("getNarrativeList Parse error");
+            alert("Parse error");
             return false;
         }
     });
@@ -825,7 +821,7 @@ function saveNarrative(e, saveOrnot) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("saveNarrative Parse error");
+            alert("Parse error");
             return false;
         }
     });
