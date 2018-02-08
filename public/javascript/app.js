@@ -287,7 +287,7 @@ function addMutationList(tissue, gene) {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("addMutationList_Parse error");
 
         }
     });
@@ -310,7 +310,7 @@ function addList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("addList_Parse error");
         }
     });
 
@@ -338,7 +338,7 @@ function save_comment_paragrah(pid, comment) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("save_comment_paragrah_parse error");
             return false;
         }
     });
@@ -686,7 +686,7 @@ function getnarrativeList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("getNarrativeListParse error");
             return false;
         }
     });
@@ -821,7 +821,7 @@ function saveNarrative(e, saveOrnot) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("saveNarrative_Parse error");
             return false;
         }
     });
