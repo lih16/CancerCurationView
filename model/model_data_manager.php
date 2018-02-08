@@ -81,9 +81,10 @@ class Data_Manager_Model extends model_base
         }
     }
 
-    /* getPreNarrative
+    /**
+    *  getPreNarrative
     *  gets pre-narrative Cancer-Gene-Alteration and narrative word file from user input
-    */
+    **/
     public function getPreNarrative()
     {
         //session_start(); // Starting Session

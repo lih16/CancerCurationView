@@ -180,7 +180,7 @@ function addcellList(tissue) {
 function notifyNarrativeTable(flagMutation) {
     var result = "notifyNarrativeTable parse error";
     var flagArray = flagMutation.split('#');
-    if (flagArray.length != 2) {
+    if (flagArray.length != 3) {
         return result;
     }
     var mutation = flagArray[0];
@@ -587,6 +587,7 @@ function adminmodify(e, stu, id) {
     return false;
 }
 
+
 /*
 *02/05/18
 *  Used in all modes: Shows list of narratives with different versions
@@ -810,37 +811,6 @@ function adminSave(e, cancertype, gene, mutation) {
     }
 
 }
-/*
- -*02/05/18
- -*  Used in ADMIN MODE: Shows list of narratives
- -*
- -*@function is used get get narrative list?
- -*
- -*/
- function getnarrativeList() {
-
-     $.ajax({
-         type: 'POST',
-         url: 'getnarrativeList',
-         dataType: 'json',
-         data: {
-            cancer: gtissue,
-             gene: ggene,
-            mutation: gmutation,
-             report: greport
-
-         },
-         success: function (data1) {
-             return false;
-         },
-         error: function (XMLHttpRequest, textStatus, errorThrown) {
-             alert("getNarrativeList Parse error");
-             return false;
-         }
-     });
-
-
- }
 
 /*
 *02/05/18
