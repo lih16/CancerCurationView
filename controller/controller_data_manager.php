@@ -27,6 +27,8 @@ class controller_data_manager extends Controller_base
     {
         /**
         * Set views directories
+        * data_menu.php is the menu bar 
+        * addPreNarrative.php is the page for adding a new pre-narrative
         */
 
         include VIEW_PATH . 'data_menu.php';
@@ -40,7 +42,7 @@ class controller_data_manager extends Controller_base
       {
         /**
          * Set the dependency in a class property, so it's easily accessible for later use of class methods.
-          *@param $reslt calls the getlogin() function of model class and store the return value of this function into the result variable.
+          *@param $reslt calls the getPreNarrative() function of model class and store the return value of this function into the result variable.
          */
           $reslt = $this->model->getPreNarrative(); //
           if ($reslt == 1){

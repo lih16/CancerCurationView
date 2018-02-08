@@ -43,11 +43,7 @@ class controller_login extends Controller_base
           default: include VIEW_PATH . 'login.php';
 
         }
-        /*if ($reslt == 'login') {
-            header("location: ../home/browse");
-        } else {
-            include VIEW_PATH . 'login.php';
-        }*/
+      
     }
 
     public function action_logout()

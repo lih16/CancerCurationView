@@ -1,9 +1,8 @@
 <?php
-//namespace Controller;
+//Home Controller;
 /**
- * Short description for file
- *
- * Long description for file (if any)...
+ * Controller Home main controller for cancer alteration viewer
+ * used in editor and admin mode
  *
  * PHP version 5
  *
@@ -22,8 +21,8 @@
  * @version    SVN: $Id$
  * @link       http://pear.php.net/package/PackageName
  * @see
- * @since      File available since Release 1.2.0
- * @deprecated File deprecated in Release 2.0.0
+ * @since      File available since Release 1.0.0
+ * @deprecated File deprecated in Release
  */
 
 /**
@@ -52,11 +51,17 @@ class controller_home extends Controller_base
 //        $this->model = new Login_Model();
     }
 
+
     public function action_browse()
     {
-        /**
+        /** 2-9-18-Osman
         * Set views directories
-        */
+         *  Action browse includes the 4 main pages for the Cancer Alteration Viewer
+         *  header.php contains the welcome, logout and help pages
+         *  select.php contains the drop down boxes and the main control buttons
+         *  narrative.php is used in menu at the bottom when you select a narrative,  for saving and creating new version_name
+         *  modaldialog.php is used in the pop up menu when saving a new narrative
+         */
 
         include VIEW_PATH . 'header.php';
         include VIEW_PATH . 'select.php';
@@ -86,7 +91,7 @@ class controller_home extends Controller_base
         * $this->model means "this instance of class Tumor_Model $model property
         * @param $result gets this instance of getGenes
         * @param $this->send_plaintext  converts result to plaintext
-    **/
+        **/
         $this->model = new Tumor_Model();
         $result = $this->model->getGenes();
         $this->send_plaintext($result);
@@ -155,7 +160,7 @@ class controller_home extends Controller_base
         * @param $this means "this instance of class A"
         * $this->model means "this instance of class Tumor_Model $model property
         * @param $this->model gets this instance of getNarrativeList
-    **/
+        **/
         $this->model = new Tumor_Model();
         $this->model->getNarrativeList();
         //$this->send_json($result);

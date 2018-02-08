@@ -1,5 +1,5 @@
 <?php
-//namespace Controller;
+//index Controller;
 
 /**
  * Importing global class for model_base and Controller_base'.
@@ -30,6 +30,7 @@ class controller_index extends Controller_base
     {
       /**
       * Set views directories
+      * login.php is the initial login page
       */
         include VIEW_PATH . 'login.php';
     }

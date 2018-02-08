@@ -9,6 +9,11 @@ class Tumor_Model extends model_base
         parent::__construct(null, null, null);
     }
 
+    /*
+    *This function will retrieve tumor type(cancer type) from database.
+    * Is used in the dropdown menu
+    * use is found in controller_home public function action_gettumor()
+    */
     public function getTumor()
     {
         $result = "";
@@ -29,6 +34,12 @@ class Tumor_Model extends model_base
         return $result;
     }
 
+
+    /*
+    *This function will retrieve genes based on selected tumor type.
+    * Is used in the dropdown menu
+    * use is found in controller_home public function action_getgenes()
+    */
     public function getGenes()
     {
         $cancer = $_POST["cancer"];
