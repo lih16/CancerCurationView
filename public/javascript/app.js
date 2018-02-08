@@ -178,7 +178,7 @@ function addcellList(tissue) {
 * function to add symbols to see which alterations have narrative or report narrative
 */
 function notifyNarrativeTable(flagMutation) {
-    var result = "parse error";
+    var result =  "notifyNarrativeTable_parse error";
     var flagArray = flagMutation.split('#');
     if (flagArray.length != 2) {
         return result;
@@ -216,7 +216,7 @@ function constructHtml(groupObj) {
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
-             if (mutations_w == "construct_html_parse error"){
+             if (mutations_w == "notifyNarrativeTable_parse error"){
                continue;
              }
             constructHtml = constructHtml + "<option>";
