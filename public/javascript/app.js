@@ -828,5 +828,3 @@ function showAnnotation() {
     var url = "https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer=" + gtissue + "&gene=" + ggene + "&mutation=" + gmutation;
     window.open(url, 'window name', 'window settings')
 }
-
-}
