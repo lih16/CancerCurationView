@@ -144,7 +144,7 @@ function getnarrative(tissue1) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("getNarrative Parse error");
         }
     });
 }
