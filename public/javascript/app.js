@@ -167,7 +167,7 @@ function addcellList(tissue) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("Parse error");
+            alert("addcellList Parse error");
 
         }
     });
