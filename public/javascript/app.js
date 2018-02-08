@@ -144,7 +144,7 @@ function getnarrative(tissue1) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("getNarrative Parse error");
+            alert("Parse error");
         }
     });
 }
@@ -167,7 +167,7 @@ function addcellList(tissue) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("AddCellList Parse error");
+            alert("Parse error");
 
         }
     });
@@ -178,7 +178,7 @@ function addcellList(tissue) {
 * function to add symbols to see which alterations have narrative or report narrative
 */
 function notifyNarrativeTable(flagMutation) {
-    var result = "notifyNarrative Table parse error";
+    var result = "parse error";
     var flagArray = flagMutation.split('#');
     if (flagArray.length != 2) {
         return result;
@@ -216,7 +216,7 @@ function constructHtml(groupObj) {
 
         for (var i = 0; i < mutations.length; i++) {
             var mutations_w = notifyNarrativeTable(mutations[i]);
-             if (mutations_w == "constructHtml parse error"){
+             if (mutations_w == "parse error"){
                continue;
              }
             constructHtml = constructHtml + "<option>";
@@ -273,7 +273,13 @@ function addMutationList(tissue, gene) {
             var celllineList = data1.split("\n");//this one we get all the mutation list
             $("#mutationselect").empty();// will render the select options
             var ddl = $("#mutationselect");
-
+            /*ddl.append("<option value='1'>Please select alteration</option>");
+            for (k = 0; k < celllineList.length; k++)//loop through all mutations
+            {
+                var mutation = notifyNarrativeTable(celllineList[k]);
+                if (mutation != "parse error")
+                    ddl.append("<option value='" + celllineList[k] + "'>" + mutation + "</option>");
+                    */
                     var groupselectHtml=getGroups(celllineList,/(?:p\.)([a-z|A-Z][1-9][0-9]*)(?:[[a-zA-Z]|\_|\>|\*)/);
                     ddl.append(groupselectHtml);
 
@@ -281,18 +287,13 @@ function addMutationList(tissue, gene) {
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("addMutationList Parse error");
+            alert("Parse error");
 
         }
     });
 
 }
-/*
-*02/05/18
-*  Adds tumor list  from database
-*
-*@function puts tumor-type into select drop down box
-*/
+
 
 function addList() {
     $.ajax({
@@ -309,19 +310,12 @@ function addList() {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("addList Parse error");
+            alert("Parse error");
         }
     });
 
 
 }
-
-/*
-*02/05/18
-*  IN EDIT MODE: lets user save comment
-*
-*@function saves text from box and puts into CVC_viewer_editor database
-*/
 
 function save_comment_paragrah(pid, comment) {
     $.ajax({
@@ -344,7 +338,7 @@ function save_comment_paragrah(pid, comment) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("save_comment_paragragh Parse error");
+            alert("Parse error");
             return false;
         }
     });
@@ -352,12 +346,7 @@ function save_comment_paragrah(pid, comment) {
 }
 
 var gstatus = 0;
-/*
-*02/05/18
-*  IN EDIT MODE: lets modify comment or narrative text
-*
-*@function is used in modifyparagraph to update narratives in admin mode
-*/
+
 function modifycomment(e, id, index, status) {
     e.preventDefault();
     if (status == 3) {
@@ -393,12 +382,7 @@ function modifycomment(e, id, index, status) {
 var curdiv = "#nardiv";
 
 var editdiv = "#editoriv";
-/*
-*02/05/18
-*  IN EDIT MODE: lets user  modify text area
-*
-*@function is used in generateHtml to update narratives in admin mode
-*/
+
 function modifyparagraph(e, cancertype, gene, mutation) {
     if ($(editdiv).is(':visible')) {
         return false;
@@ -430,12 +414,132 @@ function modifyparagraph(e, cancertype, gene, mutation) {
     updateMsg();
 }
 
-/*
-*02/05/18
-*  IN EDIT MODE and ADMIN MODE: lets users to current comments
-*
-*@function is used in adminModify and save_comment_paragrah to see current comments
+function render(id, data) {
+    var html = "<ul>";
+    $.each(data, function (i, item) {
+        var colori = colorCode[item.uid];
+
+
+        html = html + "<li><span style=\"color:" + colori + "\">" + item.uid + ": " + item.date_edit + ": " + item.comment + "</span></li>";
+
+
+    });
+    html = html + "</ul>";
+    id.html(html);
+}
+
+var colorCode = {};
+var colorArray = [];
+var num_colors = 100;
+;
+
+/* generates a value while allowing the customization of the minimum and maximum values*/
+function randomVal(min, max) {
+    return Math.floor(Math.random() * (max - min) + 1) + min;
+}
+
+/* TO CUSTOMIZE
+In the generate() function below, change the numbers in randomVal(); min to max
+EX to only generate colors from green to blue, change the first set to (120, 240)
 */
+function makeColor(colorNum, colors) {
+    if (colors < 1) colors = 1; // defaults to one color - avoid divide by zero
+    return colorNum * (360 / colors) % 360;
+}
+
+
+for (var i = 0; i < num_colors; i += 1) {
+    /* color = "color: hsl(" + i * 10 + ", 50%, 50%)";
+    //colorNum * (360 / colors) % 360) + ",100%,50%
+    h=Math.floor(Math.random() * num_colors) * (360 / num_colors) % 360 ;//* (360 / num_colors) % 360;//randomVal(0, 360);
+    s=1.0;//randomVal(30, 95);
+    l=0.5;//randomVal(30, 80);
+    var rgb=hslToRgb(h, s, l);
+    var hex=rgbToHex(rgb[0], rgb[1], rgb[2]);
+    alert(hex);
+    */
+    var color = "hsl( " + makeColor(i, num_colors) + ", 100%, 50% )";
+    //alert(color);
+    colorArray.push(color);
+}
+
+
+/**
+ * Converts an HSL color value to RGB. Conversion formula
+ * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
+ * Assumes h, s, and l are contained in the set [0, 1] and
+ * returns r, g, and b in the set [0, 255].
+ *
+ * @param   {number}  h       The hue
+ * @param   {number}  s       The saturation
+ * @param   {number}  l       The lightness
+ * @return  {Array}           The RGB representation
+ */
+function hslToRgb(h, s, l) {
+    var r, g, b;
+
+    if (s == 0) {
+        r = g = b = l; // achromatic
+    } else {
+        var hue2rgb = function hue2rgb(p, q, t) {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 2) return q;
+            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+            return p;
+        }
+
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1 / 3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1 / 3);
+    }
+
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+}
+
+
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
+/////////////////////
+function getmessage(pid, id) {
+    $.ajax({
+        type: 'POST',
+        url: 'getcomment',
+        dataType: 'json',
+        data: {
+            cancer: gtissue,
+            gene: ggene,
+            mutation: gmutation,
+            pid: pid,
+            report: greport
+        },
+        success: function (data1) {
+            var i = 0;
+            var uid1;
+            $.each(data1, function (key1, value1) {
+                //
+
+                colorCode[value1.uid] = colorArray[key1];
+
+
+            });
+            render(id, data1);
+            return false;
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            return false;
+        }
+    });
+
+
+}
+
 function getAjaxMessage() {
     $.ajax({
         type: 'GET',
@@ -487,12 +591,7 @@ function getAjaxMessage() {
 
 
 }
-/*
-*02/05/18
-*  Need for  EDIT MODE and ADMIN:
-*
-*@function is used in getAjaxMessage to add a comment
-*/
+
 function addMessage(obj) {
     //alert(obj);
     //alert( $(editdiv));
@@ -513,24 +612,12 @@ function addMessage(obj) {
 
 }
 
-/*
-*02/05/18
-*  IN EDIT MODE and ADMIN:
-*
-*@function is used in modifyparagraph function is unclear
-*/
 function updateMsg() {
     //  addMessage();
     //if(admin==2)
     // setTimeout('updateMsg()', 1400);
 }
 
-/*
-*02/05/18
-*  Used in ADMIN MODE:
-*
-*@function is used in adminModify to make text editable
-*/
 function generateHtml(htmlcontent) {
     var mtext = "";
     var html = "";
@@ -550,14 +637,9 @@ function generateHtml(htmlcontent) {
     $("#nardiv").show();
     modifyparagraph();
 
+
 }
 
-/*
-*02/05/18
-*  Used in ADMIN MODE: for text editing
-*
-*@function is used in addnarButton to make text editable
-*/
 function adminmodify(e, stu, id) {
 
 
@@ -587,13 +669,31 @@ function adminmodify(e, stu, id) {
     return false;
 }
 
+function getnarrativeList() {
 
-/*
-*02/05/18
-*  Used in all modes: Shows list of narratives with different versions
-*
-*@function is used in saveNarrative, getNarrative, and modifyparagraph to generate narrative menu
-*/
+    $.ajax({
+        type: 'POST',
+        url: 'getnarrativeList',
+        dataType: 'json',
+        data: {
+            cancer: gtissue,
+            gene: ggene,
+            mutation: gmutation,
+            report: greport
+
+        },
+        success: function (data1) {
+            return false;
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Parse error");
+            return false;
+        }
+    });
+
+
+}
+
 function loadnarrativeTable() {
     var newUrl = "getnarrativeList";
     var n = 0;
@@ -622,12 +722,6 @@ function loadnarrativeTable() {
 
 }
 
-/*
-*02/05/18
-*  Used in Admin Mode: Changes colors of selection from blue to red
-*
-*@function is used in adminmodify to make modify button blue
-*/
 function changeColor() {
     $('#narrativelist > tbody tr').each(function (index, value) {
         var objcount = $(this).find('td').eq(0);
@@ -642,13 +736,6 @@ function changeColor() {
 
 }
 
-
-/*
-*02/05/18
-*  Used in all modes:  used for showing different narrative versions
-*
-*@function is used in loadnarrativeTable to order narrative by newest first
-*/
 function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
     var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
@@ -694,13 +781,7 @@ function addnarButton() {
     }
 }
 
-/*
-*02/05/18
-*  Used in admin mode:  used for saving narrative versions
-*
-*@function is used in closeNewVdialog and adminSave
-* select narrative version or create new version
-*/
+//gcurVername
 function saveNarrative(e, saveOrnot) {
     var mynarrative = $('#nardiv').html();
     //alert(saveOrnot+":"+mynarrative);
@@ -740,7 +821,7 @@ function saveNarrative(e, saveOrnot) {
             return false;
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("saveNarrative Parse error");
+            alert("Parse error");
             return false;
         }
     });
@@ -748,12 +829,6 @@ function saveNarrative(e, saveOrnot) {
 
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  open dialog menu to save new version
-*
-*@function is narrative.php to open a new dialog window where user can save new version
-*/
 function adminNewVersion(e, cancer, gene, mutation) {
     e.preventDefault();
     openDialog();
@@ -762,12 +837,6 @@ function adminNewVersion(e, cancer, gene, mutation) {
 
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  close open dialog window
-*
-*@function is modeldialog.php to close a  dialog window and save the narrative
-*/
 function closeNewVdialog(e, saveOrnot) {
     $("#newvDialog").dialog("close");
     if (saveOrnot == 0) {
@@ -775,13 +844,7 @@ function closeNewVdialog(e, saveOrnot) {
 
     }
 }
-/*
-*02/05/18
-*  Used in admin modes:  open dialog menu to save new version
-*
-*@function is adminNewVersion and adminsave to open a new dialog window where user can save new version
-* adds date to end of version number
-*/
+
 function openDialog() {
     var dt = new Date();
     var time = "version_" + dt.getFullYear() + "_" + (dt.getMonth() + 1) + "_" + dt.getDate() + "_" + dt.getHours() + "_" + dt.getMinutes() + "_" + dt.getSeconds();
@@ -795,12 +858,7 @@ function openDialog() {
     });
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  open dialog menu to save new version
-*
-*@function is narrative.php to open a new dialog window where user can save new version
-*/
+
 function adminSave(e, cancertype, gene, mutation) {
     //alert(gcurVername);
 
@@ -812,19 +870,17 @@ function adminSave(e, cancertype, gene, mutation) {
 
 }
 
-/*
-*02/05/18
-*  Used in all modes:  open new page to show Annotation
-*
-*@function when alteration information page is clicked it will open new page with alteration information
-*/
 function showAnnotation() {
     //alert("aavv");
     gtissue = $("#tumorTypeselect option:selected").text();
+
     ggene = $("#geneselect option:selected").text();
     tmutation = $("#mutationselect option:selected").text();//11/29/17 modify so the mutation and flag number can be split
     var mutationFlagArray = tmutation.split(' ');//splits mutation from flag
     gmutation = mutationFlagArray[0];// global variable
     var url = "https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer=" + gtissue + "&gene=" + ggene + "&mutation=" + gmutation;
     window.open(url, 'window name', 'window settings')
+    // window.location.href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
+    //window.location.href ="https://www.google.com";
+
 }
