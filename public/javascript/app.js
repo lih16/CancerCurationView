@@ -298,12 +298,7 @@ function addMutationList(tissue, gene) {
 
 }
 
-/*
-*02/05/18
-*  Adds tumor list  from database
-*
-*@function puts tumor-type into select drop down box
-*/
+
 function addList() {
     $.ajax({
         type: 'POST',
@@ -326,12 +321,6 @@ function addList() {
 
 }
 
-/*
-*02/05/18
-*  IN EDIT MODE: lets user save comment
-*
-*@function saves text from box and puts into CVC_viewer_editor database
-*/
 function save_comment_paragrah(pid, comment) {
     $.ajax({
         type: 'POST',
@@ -361,12 +350,7 @@ function save_comment_paragrah(pid, comment) {
 }
 
 var gstatus = 0;
-/*
-*02/05/18
-*  IN EDIT MODE: lets modify comment or narrative text
-*
-*@function is used in modifyparagraph to update narratives in admin mode
-*/
+
 function modifycomment(e, id, index, status) {
     e.preventDefault();
     if (status == 3) {
@@ -402,12 +386,7 @@ function modifycomment(e, id, index, status) {
 var curdiv = "#nardiv";
 
 var editdiv = "#editoriv";
-/*
-*02/05/18
-*  IN EDIT MODE: lets user  modify text area
-*
-*@function is used in generateHtml to update narratives in admin mode
-*/
+
 function modifyparagraph(e, cancertype, gene, mutation) {
     if ($(editdiv).is(':visible')) {
         return false;
@@ -565,12 +544,6 @@ function getmessage(pid, id) {
 
 }
 
-/*
-*02/05/18
-*  IN EDIT MODE and ADMIN MODE: lets users to current comments
-*
-*@function is used in adminModify and save_comment_paragrah to see current comments
-*/
 function getAjaxMessage() {
     $.ajax({
         type: 'GET',
@@ -623,12 +596,6 @@ function getAjaxMessage() {
 
 }
 
-/*
-*02/05/18
-*  Need for  EDIT MODE and ADMIN:
-*
-*@function is used in getAjaxMessage to add a comment
-*/
 function addMessage(obj) {
     //alert(obj);
     //alert( $(editdiv));
@@ -643,16 +610,12 @@ function addMessage(obj) {
         } else {
             $(id).html("<ul>" + obj[index] + "</ul>");
         }
+
+
     });
 
 }
 
-/*
-*02/05/18
-*  IN EDIT MODE and ADMIN:
-*
-*@function is used in modifyparagraph function is unclear
-*/
 function updateMsg() {
     //  addMessage();
     //if(admin==2)
@@ -678,15 +641,11 @@ function generateHtml(htmlcontent) {
     $("#nardiv").show();
     modifyparagraph();
 
+
 }
 
-/*
-*02/05/18
-*  Used in ADMIN MODE: for text editing
-*
-*@function is used in addnarButton to make text editable
-*/
 function adminmodify(e, stu, id) {
+
 
     e.preventDefault();
     changeColor();
@@ -705,7 +664,12 @@ function adminmodify(e, stu, id) {
         gcurVername = $(id).closest('tr').find('td').eq(1).html();
 
     }
+    //alert(gcurVername);
+    // getComment();
+
     getAjaxMessage();
+    //if(admin==2)
+    // $("#nardiv").hide();
     return false;
 }
 
@@ -734,12 +698,6 @@ function getnarrativeList() {
 
 }
 
-/*
-*02/05/18
-*  Used in all modes: Shows list of narratives with different versions
-*
-*@function is used in saveNarrative, getNarrative, and modifyparagraph to generate narrative menu
-*/
 function loadnarrativeTable() {
     var newUrl = "getnarrativeList";
     var n = 0;
@@ -768,12 +726,6 @@ function loadnarrativeTable() {
 
 }
 
-/*
-*02/05/18
-*  Used in Admin Mode: Changes colors of selection from blue to red
-*
-*@function is used in adminmodify to make modify button blue
-*/
 function changeColor() {
     $('#narrativelist > tbody tr').each(function (index, value) {
         var objcount = $(this).find('td').eq(0);
@@ -782,15 +734,12 @@ function changeColor() {
             objcount.find('a').text("view");
         else
             objcount.find('a').text("modify");
+
+
     });
+
 }
 
-/*
-*02/05/18
-*  Used in all modes:  used for showing different narrative versions
-*
-*@function is used in loadnarrativeTable to order narrative by newest first
-*/
 function addnarButton() {
     var rowCount = $('#narrativelist >tbody tr').length;
     var colCount = $('#narrativelist > tbody').children('tr:first').find('td').length;
@@ -836,13 +785,7 @@ function addnarButton() {
     }
 }
 
-/*
-*02/05/18
-*  Used in admin mode:  used for saving narrative versions
-*
-*@function is used in closeNewVdialog and adminSave
-* select narrative version or create new version
-*/
+//gcurVername
 function saveNarrative(e, saveOrnot) {
     var mynarrative = $('#nardiv').html();
     //alert(saveOrnot+":"+mynarrative);
@@ -890,12 +833,6 @@ function saveNarrative(e, saveOrnot) {
 
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  open dialog menu to save new version
-*
-*@function is narrative.php to open a new dialog window where user can save new version
-*/
 function adminNewVersion(e, cancer, gene, mutation) {
     e.preventDefault();
     openDialog();
@@ -904,12 +841,6 @@ function adminNewVersion(e, cancer, gene, mutation) {
 
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  close open dialog window
-*
-*@function is modeldialog.php to close a  dialog window and save the narrative
-*/
 function closeNewVdialog(e, saveOrnot) {
     $("#newvDialog").dialog("close");
     if (saveOrnot == 0) {
@@ -918,13 +849,6 @@ function closeNewVdialog(e, saveOrnot) {
     }
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  open dialog menu to save new version
-*
-*@function is adminNewVersion and adminsave to open a new dialog window where user can save new version
-* adds date to end of version number
-*/
 function openDialog() {
     var dt = new Date();
     var time = "version_" + dt.getFullYear() + "_" + (dt.getMonth() + 1) + "_" + dt.getDate() + "_" + dt.getHours() + "_" + dt.getMinutes() + "_" + dt.getSeconds();
@@ -938,12 +862,7 @@ function openDialog() {
     });
 }
 
-/*
-*02/05/18
-*  Used in admin modes:  open dialog menu to save new version
-*
-*@function is narrative.php to open a new dialog window where user can save new version
-*/
+
 function adminSave(e, cancertype, gene, mutation) {
     //alert(gcurVername);
 
@@ -955,12 +874,6 @@ function adminSave(e, cancertype, gene, mutation) {
 
 }
 
-/*
-*02/05/18
-*  Used in all modes:  open new page to show Annotation
-*
-*@function when alteration information page is clicked it will open new page with alteration information
-*/
 function showAnnotation() {
     //alert("aavv");
     gtissue = $("#tumorTypeselect option:selected").text();
@@ -971,4 +884,7 @@ function showAnnotation() {
     gmutation = mutationFlagArray[0];// global variable
     var url = "https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer=" + gtissue + "&gene=" + ggene + "&mutation=" + gmutation;
     window.open(url, 'window name', 'window settings')
+    // window.location.href="https://lih16.u.hpc.mssm.edu/pipeline/js/cancerVariantCuration/CancerVarCuation_forViewer.php?cancer="+gtissue+"&gene="+ggene+"&mutation="+gmutation;
+    //window.location.href ="https://www.google.com";
+
 }
