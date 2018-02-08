@@ -180,7 +180,7 @@ function addcellList(tissue) {
 function notifyNarrativeTable(flagMutation) {
     var result = "parse error";
     var flagArray = flagMutation.split('#');
-    if (flagArray.length != 3) {
+    if (flagArray.length != 2) {
         return result;
     }
     var mutation = flagArray[0];
